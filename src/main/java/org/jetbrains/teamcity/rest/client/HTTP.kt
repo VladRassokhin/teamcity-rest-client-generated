@@ -1,4 +1,4 @@
-package org.jetbrains.teamcity.rest.client.util
+package org.jetbrains.teamcity.rest.client
 
 import com.google.api.client.http.GenericUrl
 import com.google.api.client.http.HttpContent
@@ -13,8 +13,7 @@ import com.google.api.client.json.jackson2.JacksonFactory
 import com.google.api.client.util.ObjectParser
 import java.util.Collections
 import kotlin.test.assertNotNull
-import org.jetbrains.teamcity.mylyn.core.client.RequestsProcessor
-import org.jetbrains.teamcity.mylyn.core.client.RequestsProcessor.RequestType
+import org.jetbrains.teamcity.rest.client.RequestsProcessor.RequestType
 
 class HTTP: RequestsProcessor {
 

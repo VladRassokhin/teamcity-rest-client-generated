@@ -1,8 +1,7 @@
 package org.jetbrains.teamcity.rest.client
 
 import com.google.api.client.http.HttpStatusCodes
-import org.jetbrains.teamcity.mylyn.core.client.model.*
-import org.jetbrains.teamcity.mylyn.core.client.util.HTTP
+import org.jetbrains.teamcity.rest.client.model.*
 
 /**
  * @author Vladislav.Rassokhin

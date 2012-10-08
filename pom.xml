@@ -11,9 +11,11 @@
     <prerequisites>
         <maven>3.0.4</maven>
     </prerequisites>
+
     <properties>
         <kotlin.version>0.1-SNAPSHOT</kotlin.version>
     </properties>
+
     <pluginRepositories>
         <pluginRepository>
             <id>jetbrains-all</id>
@@ -26,6 +28,7 @@
             <url>http://repository.jetbrains.com/all</url>
         </repository>
     </repositories>
+
     <dependencies>
         <dependency>
             <groupId>com.google.http-client</groupId>
@@ -50,6 +53,7 @@
             <type>jar</type>
         </dependency>
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -63,49 +67,6 @@
                         <phase>process-sources</phase>
                         <goals>
                             <goal>compile</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>copy-kotlin-dependencies</id>
-                        <phase>initialize</phase>
-                        <goals>
-                            <goal>copy-dependencies</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${pom.basedir}/lib</outputDirectory>
-                            <includeGroupIds>org.jetbrains.kotlin</includeGroupIds>
-                            <overWriteSnapshots>true</overWriteSnapshots>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-
-                <configuration>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-
-                    <archive>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                        </manifest>
-                    </archive>
-                </configuration>
-
-                <executions>
-                    <execution>
-                        <id>make-assembly</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
                         </goals>
                     </execution>
                 </executions>

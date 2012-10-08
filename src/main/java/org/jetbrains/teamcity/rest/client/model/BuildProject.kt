@@ -8,8 +8,8 @@ import com.google.api.client.util.Key
 
 
 public class BuildProject {
-    [Key("id")] public var id: String? = null
-    [Key("name")] public var name: String? = null
+    Key("id") public var id: String? = null
+    Key("name") public var name: String? = null
 
     public var description: String? = null
 }

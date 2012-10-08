@@ -7,10 +7,10 @@ import com.google.api.client.util.Key
 
 
 public class BuildType {
-    [Key] public var id: String? = null
-    [Key] public var name: String? = null
-    [Key] public var projectId: String? = null
-    [Key] public var project: BuildProject? = null
+    Key public var id: String? = null
+    Key public var name: String? = null
+    Key public var projectId: String? = null
+    Key public var project: BuildProject? = null
 
     public fun getPID(): String? {
         return  projectId?:project?.id
