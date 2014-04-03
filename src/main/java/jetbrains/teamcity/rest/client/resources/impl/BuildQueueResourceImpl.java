@@ -1,7 +1,9 @@
 /**
  * Created by Apache CXF WadlToJava code generator
 **/
-package jetbrains.teamcity.rest.client.resources;
+package jetbrains.teamcity.rest.client.resources.impl;
+
+import jetbrains.teamcity.rest.client.resources.BuildQueueResource;
 
 import javax.ws.rs.core.Response;
 

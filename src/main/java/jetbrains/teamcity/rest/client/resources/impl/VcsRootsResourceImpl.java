@@ -1,11 +1,13 @@
 /**
  * Created by Apache CXF WadlToJava code generator
  **/
-package jetbrains.teamcity.rest.client.resources;
+package jetbrains.teamcity.rest.client.resources.impl;
+
+import jetbrains.teamcity.rest.client.resources.VcsRootsResource;
 
 import javax.ws.rs.core.Response;
 
-public class VcRootsResourceImpl implements VcsRootsResource {
+public class VcsRootsResourceImpl implements VcsRootsResource {
 
 
     public Response addRoot() {

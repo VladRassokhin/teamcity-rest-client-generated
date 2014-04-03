@@ -1,14 +1,16 @@
 /**
  * Created by Apache CXF WadlToJava code generator
 **/
-package jetbrains.teamcity.rest.client.resources;
+package jetbrains.teamcity.rest.client.resources.impl;
+
+import jetbrains.teamcity.rest.client.resources.TestsResource;
 
 import javax.ws.rs.core.Response;
 
-public class TestOccurrencesResourceImpl implements TestOccurrencesResource {
+public class TestsResourceImpl implements TestsResource {
 
 
-    public Response getTestOccurrences(String locator, String fields) {
+    public Response getTests(String locator, String fields) {
         //TODO: implement
         return null;
     }
