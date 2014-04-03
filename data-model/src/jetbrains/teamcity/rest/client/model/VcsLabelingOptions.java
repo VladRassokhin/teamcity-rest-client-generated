@@ -1,6 +1,7 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -33,9 +34,9 @@ public class VcsLabelingOptions {
 
     public String branchFilter;
     public VcsRoots vcsRoots;
-    @XmlAttribute(name = "labelName")
+    @Key("labelName")
     public String labelName;
-    @XmlAttribute(name = "type")
+    @Key("type")
     public String type;
 
 }

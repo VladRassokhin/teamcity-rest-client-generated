@@ -1,6 +1,7 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -41,25 +42,25 @@ public class Agent {
 
     public Properties properties;
     public AgentPoolRef pool;
-    @XmlAttribute(name = "href")
+    @Key("id")
     public String href;
-    @XmlAttribute(name = "id")
+    @Key("id")
     public Integer id;
-    @XmlAttribute(name = "name")
+    @Key("name")
     public String name;
-    @XmlAttribute(name = "typeId")
+    @Key("typeId")
     public Integer typeId;
-    @XmlAttribute(name = "connected", required = true)
+    @Key("connected")
     public boolean connected;
-    @XmlAttribute(name = "enabled", required = true)
+    @Key("enabled")
     public boolean enabled;
-    @XmlAttribute(name = "authorized", required = true)
+    @Key("authorized")
     public boolean authorized;
-    @XmlAttribute(name = "uptodate", required = true)
+    @Key("uptodate")
     public boolean uptodate;
-    @XmlAttribute(name = "ip")
+    @Key("ip")
     public String ip;
-    @XmlAttribute(name = "locator")
+    @Key("locator")
     public String locator;
 
 }

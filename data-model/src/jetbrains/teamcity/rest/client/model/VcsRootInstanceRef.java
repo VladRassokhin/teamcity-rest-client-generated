@@ -1,6 +1,7 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -29,15 +30,15 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "vcs-root-instance-ref")
 public class VcsRootInstanceRef {
 
-    @XmlAttribute(name = "id")
+    @Key("id")
     public String id;
-    @XmlAttribute(name = "vcs-root-id")
+    @Key("vcs-root-id")
     public String vcsRootId;
-    @XmlAttribute(name = "vcsRootInternalId")
+    @Key("vcsRootInternalId")
     public String vcsRootInternalId;
-    @XmlAttribute(name = "name")
+    @Key("name")
     public String name;
-    @XmlAttribute(name = "href")
+    @Key("href")
     public String href;
 
 }

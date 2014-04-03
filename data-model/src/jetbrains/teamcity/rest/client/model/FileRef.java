@@ -1,9 +1,9 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
-
 
 /**
  * <p>Java class for file-ref complex type.
@@ -30,9 +30,9 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class FileRef {
 
-    @XmlAttribute(name = "name")
+    @Key("name")
     public String name;
-    @XmlAttribute(name = "href")
+    @Key("href")
     public String href;
 
 }

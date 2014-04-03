@@ -1,6 +1,7 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 
@@ -41,13 +42,13 @@ import javax.xml.bind.annotation.XmlType;
 public class PropEntity {
 
     public Properties properties;
-    @XmlAttribute(name = "id")
+    @Key("id")
     public String id;
-    @XmlAttribute(name = "name")
+    @Key("name")
     public String name;
-    @XmlAttribute(name = "type")
+    @Key("type")
     public String type;
-    @XmlAttribute(name = "disabled")
+    @Key("disabled")
     public Boolean disabled;
 
 }

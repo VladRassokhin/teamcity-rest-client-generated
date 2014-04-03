@@ -1,6 +1,7 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlType;
 import java.util.List;
 
@@ -32,11 +33,11 @@ import java.util.List;
 public class Problems {
 
     public List<Problem> problem;
-    @XmlAttribute(name = "count")
+    @Key("count")
     public Integer count;
-    @XmlAttribute(name = "nextHref")
+    @Key("nextHref")
     public String nextHref;
-    @XmlAttribute(name = "prevHref")
+    @Key("prevHref")
     public String prevHref;
 
 }

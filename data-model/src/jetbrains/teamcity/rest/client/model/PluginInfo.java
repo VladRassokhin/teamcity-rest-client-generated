@@ -1,6 +1,7 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -32,13 +33,13 @@ import javax.xml.bind.annotation.XmlType;
 public class PluginInfo {
 
     public Properties parameters;
-    @XmlAttribute(name = "name")
+    @Key("name")
     public String name;
-    @XmlAttribute(name = "displayName")
+    @Key("displayName")
     public String displayName;
-    @XmlAttribute(name = "version")
+    @Key("version")
     public String version;
-    @XmlAttribute(name = "loadPath")
+    @Key("loadPath")
     public String loadPath;
 
 }

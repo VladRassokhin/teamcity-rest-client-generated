@@ -1,6 +1,7 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -37,9 +38,9 @@ public class File
     public FileRef parent;
     public HReference content;
     public HReference children;
-    @XmlAttribute(name = "size")
+    @Key("size")
     public Long size;
-    @XmlAttribute(name = "modificationTime")
+    @Key("modificationTime")
     public String modificationTime;
 
 }

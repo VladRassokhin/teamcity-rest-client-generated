@@ -1,6 +1,7 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -35,13 +36,13 @@ public class AgentPool {
 
     public Projects projects;
     public AgentsRef agents;
-    @XmlAttribute(name = "href")
+    @Key("href")
     public String href;
-    @XmlAttribute(name = "id")
+    @Key("id")
     public Integer id;
-    @XmlAttribute(name = "name")
+    @Key("name")
     public String name;
-    @XmlAttribute(name = "locator")
+    @Key("locator")
     public String locator;
 
 }

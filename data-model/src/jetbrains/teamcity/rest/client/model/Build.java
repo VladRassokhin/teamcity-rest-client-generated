@@ -1,9 +1,9 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-
 
 /**
  * <p>Java class for build complex type.
@@ -137,39 +137,39 @@ public class Build {
     @XmlElement(name = "custom-artifact-dependencies")
     public PropEntitiesArtifactDep customArtifactDependencies;
     public BuildTriggeringOptions triggeringOptions;
-    @XmlAttribute(name = "id")
+    @Key("id")
     public Long id;
-    @XmlAttribute(name = "taskId")
+    @Key("taskId")
     public Long taskId;
-    @XmlAttribute(name = "buildTypeId")
+    @Key("buildTypeId")
     public String buildTypeId;
-    @XmlAttribute(name = "number")
+    @Key("number")
     public String number;
-    @XmlAttribute(name = "status")
+    @Key("status")
     public String status;
-    @XmlAttribute(name = "state")
+    @Key("state")
     public String state;
-    @XmlAttribute(name = "running")
+    @Key("running")
     public Boolean running;
-    @XmlAttribute(name = "personal")
+    @Key("personal")
     public Boolean personal;
-    @XmlAttribute(name = "percentageComplete")
+    @Key("percentageComplete")
     public Integer percentageComplete;
-    @XmlAttribute(name = "branchName")
+    @Key("branchName")
     public String branchName;
-    @XmlAttribute(name = "defaultBranch")
+    @Key("defaultBranch")
     public Boolean defaultBranch;
-    @XmlAttribute(name = "unspecifiedBranch")
+    @Key("unspecifiedBranch")
     public Boolean unspecifiedBranch;
-    @XmlAttribute(name = "history")
+    @Key("history")
     public Boolean history;
-    @XmlAttribute(name = "pinned")
+    @Key("pinned")
     public Boolean pinned;
-    @XmlAttribute(name = "href")
+    @Key("href")
     public String href;
-    @XmlAttribute(name = "webUrl")
+    @Key("webUrl")
     public String webUrl;
-    @XmlAttribute(name = "locator")
+    @Key("locator")
     public String locator;
 
 }

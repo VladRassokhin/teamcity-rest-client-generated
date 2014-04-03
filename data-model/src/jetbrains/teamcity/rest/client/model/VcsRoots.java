@@ -1,6 +1,7 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.List;
@@ -34,11 +35,11 @@ public class VcsRoots {
 
     @XmlElement(name = "vcs-root")
     public List<VcsRootRef> vcsRoot;
-    @XmlAttribute(name = "count", required = true)
+    @Key("count")
     public long count;
-    @XmlAttribute(name = "nextHref")
+    @Key("nextHref")
     public String nextHref;
-    @XmlAttribute(name = "prevHref")
+    @Key("prevHref")
     public String prevHref;
 
 }

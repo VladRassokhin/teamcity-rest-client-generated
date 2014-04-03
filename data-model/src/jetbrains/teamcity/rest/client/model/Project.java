@@ -1,6 +1,7 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -54,27 +55,27 @@ public class Project {
     public Properties parameters;
     public HReference vcsRoots;
     public Projects projects;
-    @XmlAttribute(name = "id")
+    @Key("id")
     public String id;
-    @XmlAttribute(name = "internalId")
+    @Key("internalId")
     public String internalId;
-    @XmlAttribute(name = "name")
+    @Key("name")
     public String name;
-    @XmlAttribute(name = "parentProjectId")
+    @Key("parentProjectId")
     public String parentProjectId;
-    @XmlAttribute(name = "parentProjectInternalId")
+    @Key("parentProjectInternalId")
     public String parentProjectInternalId;
-    @XmlAttribute(name = "parentProjectName")
+    @Key("parentProjectName")
     public String parentProjectName;
-    @XmlAttribute(name = "archived")
+    @Key("archived")
     public Boolean archived;
-    @XmlAttribute(name = "description")
+    @Key("description")
     public String description;
-    @XmlAttribute(name = "href")
+    @Key("href")
     public String href;
-    @XmlAttribute(name = "webUrl")
+    @Key("webUrl")
     public String webUrl;
-    @XmlAttribute(name = "locator")
+    @Key("locator")
     public String locator;
 
 }

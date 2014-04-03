@@ -1,10 +1,10 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.List;
-
 
 /**
  * <p>Java class for propEntitiesSnapshotDep complex type.
@@ -32,7 +32,7 @@ public class PropEntitiesSnapshotDep {
 
     @XmlElement(name = "snapshot-dependency")
     public List<PropEntitySnapshotDep> snapshotDependency;
-    @XmlAttribute(name = "count")
+    @Key("count")
     public Integer count;
 
 }

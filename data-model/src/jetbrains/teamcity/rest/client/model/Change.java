@@ -1,6 +1,7 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -45,21 +46,21 @@ public class Change {
     public User user;
     public FileChanges files;
     public VcsRootInstanceRef vcsRootInstance;
-    @XmlAttribute(name = "id")
+    @Key("id")
     public Long id;
-    @XmlAttribute(name = "version")
+    @Key("version")
     public String version;
-    @XmlAttribute(name = "username")
+    @Key("username")
     public String username;
-    @XmlAttribute(name = "date")
+    @Key("date")
     public String date;
-    @XmlAttribute(name = "personal")
+    @Key("personal")
     public Boolean personal;
-    @XmlAttribute(name = "href")
+    @Key("href")
     public String href;
-    @XmlAttribute(name = "webLink")
+    @Key("webLink")
     public String webLink;
-    @XmlAttribute(name = "locator")
+    @Key("locator")
     public String locator;
 
 }

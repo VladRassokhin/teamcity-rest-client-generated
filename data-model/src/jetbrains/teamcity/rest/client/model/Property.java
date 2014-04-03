@@ -1,6 +1,7 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -31,11 +32,11 @@ import javax.xml.bind.annotation.XmlType;
 public class Property {
 
     public ParameterType type;
-    @XmlAttribute(name = "name")
+    @Key("name")
     public String name;
-    @XmlAttribute(name = "value")
+    @Key("value")
     public String value;
-    @XmlAttribute(name = "own")
+    @Key("own")
     public Boolean own;
 
 }

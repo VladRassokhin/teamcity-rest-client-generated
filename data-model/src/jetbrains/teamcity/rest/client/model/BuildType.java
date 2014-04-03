@@ -1,6 +1,7 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -81,29 +82,29 @@ public class BuildType {
     public PropEntitiesAgentRequirement agentRequirements;
     public Builds builds;
     public Investigations investigations;
-    @XmlAttribute(name = "id")
+    @Key("id")
     public String id;
-    @XmlAttribute(name = "internalId")
+    @Key("internalId")
     public String internalId;
-    @XmlAttribute(name = "name")
+    @Key("name")
     public String name;
-    @XmlAttribute(name = "templateFlag")
+    @Key("templateFlag")
     public Boolean templateFlag;
-    @XmlAttribute(name = "paused")
+    @Key("paused")
     public Boolean paused;
-    @XmlAttribute(name = "description")
+    @Key("description")
     public String description;
-    @XmlAttribute(name = "projectName")
+    @Key("projectName")
     public String projectName;
-    @XmlAttribute(name = "projectId")
+    @Key("projectId")
     public String projectId;
-    @XmlAttribute(name = "projectInternalId")
+    @Key("projectInternalId")
     public String projectInternalId;
-    @XmlAttribute(name = "href")
+    @Key("href")
     public String href;
-    @XmlAttribute(name = "webUrl")
+    @Key("webUrl")
     public String webUrl;
-    @XmlAttribute(name = "locator")
+    @Key("locator")
     public String locator;
 
 }

@@ -1,6 +1,7 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -35,11 +36,11 @@ public class NewProjectDescription
 
     public Project sourceProject;
     public Project parentProject;
-    @XmlAttribute(name = "name")
+    @Key("name")
     public String name;
-    @XmlAttribute(name = "id")
+    @Key("id")
     public String id;
-    @XmlAttribute(name = "sourceProjectLocator")
+    @Key("sourceProjectLocator")
     public String sourceProjectLocator;
 
 }

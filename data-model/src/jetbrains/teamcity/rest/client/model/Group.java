@@ -1,9 +1,9 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-
 
 /**
  * <p>Java class for group complex type.
@@ -44,13 +44,13 @@ public class Group {
     public Groups childGroups;
     public Users users;
     public RoleAssignments roles;
-    @XmlAttribute(name = "key")
+    @Key("key")
     public String key;
-    @XmlAttribute(name = "name")
+    @Key("name")
     public String name;
-    @XmlAttribute(name = "href")
+    @Key("href")
     public String href;
-    @XmlAttribute(name = "description")
+    @Key("description")
     public String description;
 
 }

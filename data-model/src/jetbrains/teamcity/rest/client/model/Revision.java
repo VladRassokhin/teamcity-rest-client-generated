@@ -1,9 +1,9 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-
 
 /**
  * <p>Java class for revision complex type.
@@ -32,9 +32,9 @@ public class Revision {
 
     @XmlElement(name = "vcs-root-instance")
     public VcsRootInstanceRef vcsRootInstance;
-    @XmlAttribute(name = "version")
+    @Key("version")
     public String version;
-    @XmlAttribute(name = "internalVersion")
+    @Key("internalVersion")
     public String internalVersion;
 
 }

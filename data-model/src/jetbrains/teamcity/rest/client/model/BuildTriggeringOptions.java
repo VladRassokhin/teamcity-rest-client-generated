@@ -1,6 +1,7 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -31,11 +32,11 @@ import javax.xml.bind.annotation.XmlType;
 public class BuildTriggeringOptions {
 
     public BuildTypes rebuildDependencies;
-    @XmlAttribute(name = "cleanSources")
+    @Key("cleanSources")
     public Boolean cleanSources;
-    @XmlAttribute(name = "rebuildAllDependencies")
+    @Key("rebuildAllDependencies")
     public Boolean rebuildAllDependencies;
-    @XmlAttribute(name = "queueAtTop")
+    @Key("queueAtTop")
     public Boolean queueAtTop;
 
 }

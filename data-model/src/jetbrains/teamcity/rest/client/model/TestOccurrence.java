@@ -1,6 +1,7 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -55,23 +56,23 @@ public class TestOccurrence {
     public Build build;
     public TestOccurrence firstFailed;
     public TestOccurrence nextFixed;
-    @XmlAttribute(name = "id")
+    @Key("id")
     public String id;
-    @XmlAttribute(name = "name")
+    @Key("name")
     public String name;
-    @XmlAttribute(name = "status")
+    @Key("status")
     public String status;
-    @XmlAttribute(name = "ignored")
+    @Key("ignored")
     public Boolean ignored;
-    @XmlAttribute(name = "duration")
+    @Key("duration")
     public Integer duration;
-    @XmlAttribute(name = "muted")
+    @Key("muted")
     public Boolean muted;
-    @XmlAttribute(name = "currentlyMuted")
+    @Key("currentlyMuted")
     public Boolean currentlyMuted;
-    @XmlAttribute(name = "currentlyInvestigated")
+    @Key("currentlyInvestigated")
     public Boolean currentlyInvestigated;
-    @XmlAttribute(name = "href")
+    @Key("href")
     public String href;
 
 }

@@ -1,6 +1,7 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -26,9 +27,9 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "buildCancelRequest")
 public class BuildCancelRequest {
 
-    @XmlAttribute(name = "comment")
+    @Key("comment")
     public String comment;
-    @XmlAttribute(name = "readdIntoQueue", required = true)
+    @Key("readdIntoQueue")
     public boolean readdIntoQueue;
 
 }

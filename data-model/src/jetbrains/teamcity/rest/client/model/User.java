@@ -1,6 +1,7 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -42,21 +43,21 @@ public class User {
     public Properties properties;
     public RoleAssignments roles;
     public Groups groups;
-    @XmlAttribute(name = "username")
+    @Key("username")
     public String username;
-    @XmlAttribute(name = "name")
+    @Key("name")
     public String name;
-    @XmlAttribute(name = "id")
+    @Key("id")
     public Long id;
-    @XmlAttribute(name = "email")
+    @Key("email")
     public String email;
-    @XmlAttribute(name = "lastLogin")
+    @Key("lastLogin")
     public String lastLogin;
-    @XmlAttribute(name = "password")
+    @Key("password")
     public String password;
-    @XmlAttribute(name = "href")
+    @Key("href")
     public String href;
-    @XmlAttribute(name = "realm")
+    @Key("realm")
     public String realm;
 
 }

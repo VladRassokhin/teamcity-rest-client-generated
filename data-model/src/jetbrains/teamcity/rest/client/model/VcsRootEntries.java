@@ -4,7 +4,6 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.List;
 
-
 /**
  * <p>Java class for vcsRootEntries complex type.
  * <p/>

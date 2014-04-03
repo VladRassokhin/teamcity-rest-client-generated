@@ -1,6 +1,7 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -38,7 +39,7 @@ public class Mute {
     public ProblemScope scope;
     public ProblemTarget target;
     public Resolution resolution;
-    @XmlAttribute(name = "id")
+    @Key("id")
     public Integer id;
 
 }

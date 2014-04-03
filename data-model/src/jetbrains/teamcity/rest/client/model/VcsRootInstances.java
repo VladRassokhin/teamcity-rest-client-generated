@@ -1,10 +1,10 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.List;
-
 
 /**
  * <p>Java class for vcs-root-instances complex type.
@@ -34,11 +34,11 @@ public class VcsRootInstances {
 
     @XmlElement(name = "vcs-root-instance")
     public List<VcsRootInstanceRef> vcsRootInstance;
-    @XmlAttribute(name = "count", required = true)
+    @Key("count")
     public long count;
-    @XmlAttribute(name = "nextHref")
+    @Key("nextHref")
     public String nextHref;
-    @XmlAttribute(name = "prevHref")
+    @Key("prevHref")
     public String prevHref;
 
 }

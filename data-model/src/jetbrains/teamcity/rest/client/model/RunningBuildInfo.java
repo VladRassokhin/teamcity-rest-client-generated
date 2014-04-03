@@ -1,6 +1,7 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -30,17 +31,17 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "runningBuildInfo")
 public class RunningBuildInfo {
 
-    @XmlAttribute(name = "percentageComplete")
+    @Key("percentageComplete")
     public Integer percentageComplete;
-    @XmlAttribute(name = "elapsedSeconds", required = true)
+    @Key("elapsedSeconds")
     public long elapsedSeconds;
-    @XmlAttribute(name = "estimatedTotalSeconds")
+    @Key("estimatedTotalSeconds")
     public Long estimatedTotalSeconds;
-    @XmlAttribute(name = "currentStageText")
+    @Key("currentStageText")
     public String currentStageText;
-    @XmlAttribute(name = "outdated", required = true)
+    @Key("outdated")
     public boolean outdated;
-    @XmlAttribute(name = "probablyHanging", required = true)
+    @Key("probablyHanging")
     public boolean probablyHanging;
 
 }

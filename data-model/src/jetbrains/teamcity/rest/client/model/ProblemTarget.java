@@ -1,6 +1,7 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -32,7 +33,7 @@ public class ProblemTarget {
 
     public Tests tests;
     public Problems problems;
-    @XmlAttribute(name = "anyProblem")
+    @Key("anyProblem")
     public Boolean anyProblem;
 
 }

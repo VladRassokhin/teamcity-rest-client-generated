@@ -2,7 +2,6 @@ package jetbrains.teamcity.rest.client.model;
 
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
  * <p>Java class for propEntityStep complex type.
  * <p/>

@@ -1,6 +1,7 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -29,7 +30,7 @@ import javax.xml.bind.annotation.XmlType;
 public class Resolution {
 
     public String time;
-    @XmlAttribute(name = "type")
+    @Key("type")
     public String type;
 
 }

@@ -1,6 +1,7 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -38,13 +39,13 @@ public class Problem {
     public Mutes mutes;
     public Investigations investigations;
     public ProblemOccurrences problemOccurrences;
-    @XmlAttribute(name = "id")
+    @Key("id")
     public String id;
-    @XmlAttribute(name = "type")
+    @Key("type")
     public String type;
-    @XmlAttribute(name = "identity")
+    @Key("identity")
     public String identity;
-    @XmlAttribute(name = "href")
+    @Key("href")
     public String href;
 
 }

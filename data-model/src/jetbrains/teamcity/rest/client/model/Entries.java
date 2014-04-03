@@ -1,6 +1,7 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlType;
 import java.util.List;
 
@@ -30,7 +31,7 @@ import java.util.List;
 public class Entries {
 
     public List<Entry> entry;
-    @XmlAttribute(name = "count", required = true)
+    @Key("count")
     public long count;
 
 }

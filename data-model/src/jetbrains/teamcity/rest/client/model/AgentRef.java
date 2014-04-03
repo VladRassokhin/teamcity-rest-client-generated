@@ -1,6 +1,7 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -29,15 +30,15 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "agent-ref")
 public class AgentRef {
 
-    @XmlAttribute(name = "id")
+    @Key("id")
     public Integer id;
-    @XmlAttribute(name = "name", required = true)
+    @Key("name")
     public String name;
-    @XmlAttribute(name = "typeId")
+    @Key("typeId")
     public Integer typeId;
-    @XmlAttribute(name = "href")
+    @Key("href")
     public String href;
-    @XmlAttribute(name = "locator")
+    @Key("locator")
     public String locator;
 
 }

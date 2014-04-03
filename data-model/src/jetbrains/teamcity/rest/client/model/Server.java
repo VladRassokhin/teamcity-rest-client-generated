@@ -1,6 +1,7 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -57,21 +58,21 @@ public class Server {
     public HReference agents;
     public HReference buildQueue;
     public HReference agentPools;
-    @XmlAttribute(name = "version")
+    @Key("version")
     public String version;
-    @XmlAttribute(name = "versionMajor", required = true)
+    @Key("versionMajor")
     public byte versionMajor;
-    @XmlAttribute(name = "versionMinor", required = true)
+    @Key("versionMinor")
     public byte versionMinor;
-    @XmlAttribute(name = "startTime")
+    @Key("startTime")
     public String startTime;
-    @XmlAttribute(name = "currentTime")
+    @Key("currentTime")
     public String currentTime;
-    @XmlAttribute(name = "buildNumber")
+    @Key("buildNumber")
     public String buildNumber;
-    @XmlAttribute(name = "buildDate")
+    @Key("buildDate")
     public String buildDate;
-    @XmlAttribute(name = "internalId")
+    @Key("internalId")
     public String internalId;
 
 }

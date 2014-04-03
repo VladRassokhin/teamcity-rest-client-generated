@@ -1,6 +1,7 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -27,11 +28,11 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "roleAssignment")
 public class RoleAssignment {
 
-    @XmlAttribute(name = "roleId")
+    @Key("roleId")
     public String roleId;
-    @XmlAttribute(name = "scope")
+    @Key("scope")
     public String scope;
-    @XmlAttribute(name = "href")
+    @Key("href")
     public String href;
 
 }

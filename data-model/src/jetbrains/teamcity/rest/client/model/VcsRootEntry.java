@@ -1,6 +1,7 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -35,7 +36,7 @@ public class VcsRootEntry {
     public VcsRootRef vcsRoot;
     @XmlElement(name = "checkout-rules")
     public String checkoutRules;
-    @XmlAttribute(name = "id")
+    @Key("id")
     public String id;
 
 }

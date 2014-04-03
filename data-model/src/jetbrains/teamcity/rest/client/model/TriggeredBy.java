@@ -1,6 +1,7 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -38,13 +39,13 @@ public class TriggeredBy {
     public User user;
     public BuildType buildType;
     public Properties properties;
-    @XmlAttribute(name = "type")
+    @Key("type")
     public String type;
-    @XmlAttribute(name = "details")
+    @Key("details")
     public String details;
-    @XmlAttribute(name = "date")
+    @Key("date")
     public String date;
-    @XmlAttribute(name = "rawValue")
+    @Key("rawValue")
     public String rawValue;
 
 }

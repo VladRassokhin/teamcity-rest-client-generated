@@ -1,6 +1,7 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 
@@ -34,15 +35,15 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class OccurrencesSummary {
 
-    @XmlAttribute(name = "passed")
+    @Key("passed")
     public Integer passed;
-    @XmlAttribute(name = "failed")
+    @Key("failed")
     public Integer failed;
-    @XmlAttribute(name = "newFailed")
+    @Key("newFailed")
     public Integer newFailed;
-    @XmlAttribute(name = "ignored")
+    @Key("ignored")
     public Integer ignored;
-    @XmlAttribute(name = "muted")
+    @Key("muted")
     public Integer muted;
 
 }

@@ -1,6 +1,7 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 
@@ -40,7 +41,7 @@ public class CopyOptionsDescription {
     public Properties projectsIdsMap;
     public Properties buildTypesIdsMap;
     public Properties vcsRootsIdsMap;
-    @XmlAttribute(name = "copyAllAssociatedSettings")
+    @Key("copyAllAssociatedSettings")
     public Boolean copyAllAssociatedSettings;
 
 }

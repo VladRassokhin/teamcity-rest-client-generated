@@ -1,6 +1,7 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -32,11 +33,11 @@ public class NewBuildTypeDescription
         extends CopyOptionsDescription {
 
     public BuildType sourceBuildType;
-    @XmlAttribute(name = "name")
+    @Key("name")
     public String name;
-    @XmlAttribute(name = "id")
+    @Key("id")
     public String id;
-    @XmlAttribute(name = "sourceBuildTypeLocator")
+    @Key("sourceBuildTypeLocator")
     public String sourceBuildTypeLocator;
 
 }

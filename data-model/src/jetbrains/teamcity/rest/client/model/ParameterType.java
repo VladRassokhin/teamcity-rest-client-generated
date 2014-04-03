@@ -1,6 +1,7 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -25,7 +26,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "parameterType")
 public class ParameterType {
 
-    @XmlAttribute(name = "rawValue")
+    @Key("rawValue")
     public String rawValue;
 
 }
