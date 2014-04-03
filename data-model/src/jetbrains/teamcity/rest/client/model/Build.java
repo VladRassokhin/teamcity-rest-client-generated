@@ -1,6 +1,8 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
@@ -66,7 +68,7 @@ import javax.xml.bind.annotation.*;
  * &lt;/complexType>
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+
 @XmlType(name = "build", propOrder = {
         "statusText",
         "buildType",

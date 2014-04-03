@@ -1,7 +1,5 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 import java.util.List;
 
@@ -23,7 +21,7 @@ import java.util.List;
  * &lt;/complexType>
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+
 @XmlType(name = "revisions", propOrder = {
         "revision"
 })
