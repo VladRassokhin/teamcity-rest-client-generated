@@ -1,6 +1,6 @@
 /**
  * Created by Apache CXF WadlToJava code generator
-**/
+ **/
 package jetbrains.teamcity.rest.client.resources.impl;
 
 import jetbrains.teamcity.rest.client.resources.ProblemsResource;
@@ -16,14 +16,12 @@ public class ProblemsResourceImpl extends ResourceImpl implements ProblemsResour
     }
 
     public Response getProblems(String locator, String fields) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveInstance(String problemLocator, String fields) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 }

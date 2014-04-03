@@ -1,6 +1,6 @@
 /**
  * Created by Apache CXF WadlToJava code generator
-**/
+ **/
 package jetbrains.teamcity.rest.client.resources.impl;
 
 import jetbrains.teamcity.rest.client.resources.VcsRootInstancesResource;
@@ -17,68 +17,57 @@ public class VcsRootInstancesResourceImpl extends ResourceImpl implements VcsRoo
     }
 
     public Response serveInstances(String locator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getRepositoryState(String vcsRootInstanceLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response setRepositoryState(String vcsRootInstanceLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveRootInstanceProperties(String vcsRootInstanceLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveInstanceField(String field, String vcsRootInstanceLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response setInstanceField(String field, String vcsRootInstanceLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getRepositoryStateCreationDate(String vcsRootInstanceLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getVcsFileContent(String vcsRootInstanceLocator, String path) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getVcsFileListing(String vcsRootInstanceLocator, String path) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getVcsFile(String vcsRootInstanceLocator, String path) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveInstance(String vcsRootInstanceLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 }

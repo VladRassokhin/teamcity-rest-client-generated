@@ -1,6 +1,6 @@
 /**
  * Created by Apache CXF WadlToJava code generator
-**/
+ **/
 package jetbrains.teamcity.rest.client.resources.impl;
 
 import jetbrains.teamcity.rest.client.resources.AgentsResource;
@@ -17,43 +17,37 @@ public class AgentsResourceImpl extends ResourceImpl implements AgentsResource {
     }
 
     public Response serveAgents(Boolean includeDisconnected, Boolean includeUnauthorized, String locator, String fields) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getAgentPool(String agentLocator, String fields) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response setAgentPool(String agentLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveAgent(String agentLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public void deleteAgent(String agentLocator) {
-        //TODO: implement
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveAgentField(String field, String agentLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response setAgentField(String field, String agentLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 }

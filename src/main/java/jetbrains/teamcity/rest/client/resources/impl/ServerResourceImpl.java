@@ -1,6 +1,6 @@
 /**
  * Created by Apache CXF WadlToJava code generator
-**/
+ **/
 package jetbrains.teamcity.rest.client.resources.impl;
 
 import jetbrains.teamcity.rest.client.resources.ServerResource;
@@ -17,33 +17,28 @@ public class ServerResourceImpl extends ResourceImpl implements ServerResource {
     }
 
     public Response serveServerInfo() {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getBackupStatus() {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
-    public Response startBackup(String fileName, Boolean addTimestamp, Boolean includeConfigs, Boolean includeDatabase, 
-                Boolean includeBuildLogs, Boolean includePersonalChanges, Boolean includeRunningBuilds, Boolean includeSupplimentaryData) {
-        //TODO: implement
-        return null;
+    public Response startBackup(String fileName, Boolean addTimestamp, Boolean includeConfigs, Boolean includeDatabase,
+                                Boolean includeBuildLogs, Boolean includePersonalChanges, Boolean includeRunningBuilds, Boolean includeSupplimentaryData) {
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveServerVersion(String field) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response servePlugins() {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 }

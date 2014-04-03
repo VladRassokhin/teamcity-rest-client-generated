@@ -17,101 +17,87 @@ public class VcsRootsResourceImpl extends ResourceImpl implements VcsRootsResour
     }
 
     public Response addRoot() {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveRoots(String locator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response putParameter(String vcsRootLocator, String name) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveProperty(String vcsRootLocator, String name) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public void deleteParameter(String vcsRootLocator, String name) {
-        //TODO: implement
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveRoot(String vcsRootLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public void deleteRoot(String vcsRootLocator) {
-        //TODO: implement
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveRootInstanceProperties(String vcsRootInstanceLocator, String vcsRootLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveInstanceField(String field, String vcsRootInstanceLocator, String vcsRootLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response setInstanceField(String field, String vcsRootInstanceLocator, String vcsRootLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveRootInstances(String vcsRootLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveRootInstance(String vcsRootInstanceLocator, String vcsRootLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveProperties(String vcsRootLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response changProperties(String vcsRootLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public void deleteAllProperties(String vcsRootLocator) {
-        //TODO: implement
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveField(String field, String vcsRootLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response setField(String field, String vcsRootLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 }

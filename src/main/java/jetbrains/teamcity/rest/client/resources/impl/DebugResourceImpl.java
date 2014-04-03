@@ -16,20 +16,17 @@ public class DebugResourceImpl extends ResourceImpl implements DebugResource {
     }
 
     public Response executeDBQuery(String query, String fieldDelimiter, Integer count) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response scheduleCheckingForChanges(String locator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response listDBTables() {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 }

@@ -1,6 +1,6 @@
 /**
  * Created by Apache CXF WadlToJava code generator
-**/
+ **/
 package jetbrains.teamcity.rest.client.resources.impl;
 
 import jetbrains.teamcity.rest.client.resources.BuildQueueResource;
@@ -17,54 +17,47 @@ public class BuildQueueResourceImpl extends ResourceImpl implements BuildQueueRe
     }
 
     public Response replaceBuilds(String fields) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response queueNewBuild() {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public void deleteBuildsExperimental(String locator, String fields) {
-        //TODO: implement
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getBuilds(String locator, String fields) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public void deleteBuild(String queuedBuildLocator) {
-        //TODO: implement
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response cancelBuild(String queuedBuildLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getBuild(String queuedBuildLocator, String fields) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveCompatibleAgents(String queuedBuildLocator, String fields) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveBuildFieldByBuildOnly(String field, String buildLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 }

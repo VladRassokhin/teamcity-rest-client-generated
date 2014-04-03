@@ -1,6 +1,6 @@
 /**
  * Created by Apache CXF WadlToJava code generator
-**/
+ **/
 package jetbrains.teamcity.rest.client.resources.impl;
 
 import jetbrains.teamcity.rest.client.resources.BuildTypesResource;
@@ -16,552 +16,470 @@ public class BuildTypesResourceImpl extends ResourceImpl implements BuildTypesRe
     }
 
     public Response addBuildType(String fields) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getBuildTypes(String locator, String fields) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getAgentRequirements(String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response addAgentRequirement(String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response replaceAgentRequirements(String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response addFeature(String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getFeatures(String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response replaceFeatures(String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getSnapshotDep(String btLocator, String snapshotDepLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public void deleteSnapshotDep(String btLocator, String snapshotDepLocator) {
-        //TODO: implement
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response replaceSnapshotDep(String btLocator, String snapshotDepLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getVcsRootEntry(String id, String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response updateVcsRootEntry(String id, String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public void deleteVcsRootEntry(String id, String btLocator) {
-        //TODO: implement
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getArtifactDep(String btLocator, String artifactDepLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public void deleteArtifactDep(String btLocator, String artifactDepLocator) {
-        //TODO: implement
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response replaceArtifactDep(String btLocator, String artifactDepLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getTrigger(String btLocator, String triggerLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public void deleteTrigger(String btLocator, String triggerLocator) {
-        //TODO: implement
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response replaceTrigger(String btLocator, String triggerLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getAgentRequirement(String btLocator, String agentRequirementLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public void deleteAgentRequirement(String btLocator, String agentRequirementLocator) {
-        //TODO: implement
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response replaceAgentRequirement(String btLocator, String agentRequirementLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response setParameterValue(String btLocator, String name) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getParameterValue(String btLocator, String name) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getParameter(String btLocator, String name) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public void deleteBuildTypeParameter(String btLocator, String name) {
-        //TODO: implement
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getTriggers(String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response addTrigger(String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response replaceTriggers(String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response addStep(String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getSteps(String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response replaceSteps(String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getInvestigations(String btLocator, String fields) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getVcsRootEntries(String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response replaceVcsRootEntries(String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response addVcsRootEntry(String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getStep(String btLocator, String stepId) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public void deleteStep(String btLocator, String stepId) {
-        //TODO: implement
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response replaceStep(String btLocator, String stepId) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getStepParameters(String btLocator, String stepId) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response replaceStepParameters(String btLocator, String stepId) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getStepParameter(String btLocator, String stepId, String parameterName) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response addStepParameter(String btLocator, String stepId, String parameterName) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getStepSetting(String btLocator, String fieldName, String stepId) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response changeStepSetting(String btLocator, String fieldName, String stepId) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public void deleteFeature(String btLocator, String featureId) {
-        //TODO: implement
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response replaceFeature(String btLocator, String featureId) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getFeature(String btLocator, String featureId) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getFeatureParameters(String btLocator, String featureId) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response replaceFeatureParameters(String btLocator, String featureId) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getFeatureParameter(String btLocator, String featureId, String parameterName) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response addFeatureParameter(String btLocator, String featureId, String parameterName) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getFeatureSetting(String btLocator, String name, String featureId) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response changeFeatureSetting(String btLocator, String name, String featureId) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getArtifactDeps(String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response replaceArtifactDeps(String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response addArtifactDep(String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getSnapshotDeps(String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response replaceSnapshotDeps(String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response addSnapshotDep(String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getTriggerSetting(String btLocator, String triggerLocator, String fieldName) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response changeTriggerSetting(String btLocator, String triggerLocator, String fieldName) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getVCSLabelingOptions(String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response setVCSLabelingOptions(String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getVcsFileContent(String btLocator, String path, Boolean resolveParameters) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getVcsFileListing(String btLocator, String path, Boolean resolveParameters) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getVcsFile(String btLocator, String path, Boolean resolveParameters) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getExampleNewProjectDescriptionCompatibilityVersion1(String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getExampleNewProjectDescription(String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getCurrentVcsInstances(String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
-    public Response serveBuilds(String btLocator, String status, String triggeredByUser, Boolean includePersonal, 
-                Boolean includeCanceled, Boolean onlyPinned, String tag, String agentName, 
-                String sinceBuild, String sinceDate, Long start, Integer count, 
-                String locator, String fields) {
-        //TODO: implement
-        return null;
+    public Response serveBuilds(String btLocator, String status, String triggeredByUser, Boolean includePersonal,
+                                Boolean includeCanceled, Boolean onlyPinned, String tag, String agentName,
+                                String sinceBuild, String sinceDate, Long start, Integer count,
+                                String locator, String fields) {
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveBuildWithProject(String btLocator, String buildLocator, String fields) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveBuildField(String field, String btLocator, String buildLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveBranches(String btLocator, String locator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveBuildTypeXML(String btLocator, String fields) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public void deleteBuildType(String btLocator) {
-        //TODO: implement
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveBuildTypeField(String field, String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response setBuildTypeField(String field, String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveBuildTypeBuildsTags(String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveBuildTypeParameters(String btLocator, String locator, String fields) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response changeBuildTypeParameters(String btLocator, String fields) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public void deleteAllBuildTypeParameters(String btLocator) {
-        //TODO: implement
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response setParameter(String btLocator, String fields) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveBuildTypeSettings(String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response replaceBuildTypeSettings(String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveBuildTypeSettings(String btLocator, String name) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response putBuildTypeSetting(String btLocator, String name) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveBuildTypeTemplate(String btLocator, String fields) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getTemplateAssociation(String btLocator, String fields) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public void deleteTemplateAssociation(String btLocator) {
-        //TODO: implement
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getVcsRootEntryCheckoutRules(String id, String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response updateVcsRootEntryCheckoutRules(String id, String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 }

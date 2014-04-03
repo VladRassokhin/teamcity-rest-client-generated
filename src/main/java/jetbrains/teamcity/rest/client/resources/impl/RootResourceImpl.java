@@ -16,8 +16,7 @@ public class RootResourceImpl extends ResourceImpl implements RootResource {
     }
 
     public String getRoot() {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
@@ -27,20 +26,17 @@ public class RootResourceImpl extends ResourceImpl implements RootResource {
 
 
     public String getApiVersion() {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public PluginInfo getPluginInfo() {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public String getBuildFieldShort(String field, String projectLocator, String btLocator, String buildLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 }

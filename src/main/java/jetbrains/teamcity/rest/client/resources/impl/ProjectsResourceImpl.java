@@ -1,6 +1,6 @@
 /**
  * Created by Apache CXF WadlToJava code generator
-**/
+ **/
 package jetbrains.teamcity.rest.client.resources.impl;
 
 import jetbrains.teamcity.rest.client.resources.ProjectsResource;
@@ -16,205 +16,175 @@ public class ProjectsResourceImpl extends ResourceImpl implements ProjectsResour
     }
 
     public Response serveProjects(String fields) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response createProject() {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response createEmptyProject() {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response createBuildTypeTemplate(String projectLocator, String fields) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveTemplatesInProject(String projectLocator, String fields) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response createEmptyBuildTypeTemplate(String projectLocator, String fields) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveParameters(String projectLocator, String fields) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response changeAllParameters(String projectLocator, String fields) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public void deleteAllParameters(String projectLocator) {
-        //TODO: implement
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response setParameter(String projectLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response putParameter(String projectLocator, String name) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getParameterValue(String projectLocator, String name) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getParameter(String projectLocator, String name) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public void deleteParameter(String projectLocator, String name) {
-        //TODO: implement
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveBuildTypeFieldWithProject(String field, String projectLocator, String btLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveBuildFieldWithProject(String field, String projectLocator, String btLocator, String buildLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response setParentProject(String projectLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getParentProject(String projectLocator, String fields) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getProjectAgentPools(String projectLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response setProjectAgentPools(String projectLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public void getProjectAgentPools(String projectLocator, String agentPoolLocator) {
-        //TODO: implement
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response setProjectFiled(String field, String projectLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveProjectField(String field, String projectLocator) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveBuildTypesInProject(String projectLocator, String fields) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response createEmptyBuildType(String projectLocator, String fields) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response createBuildType(String projectLocator, String fields) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveBuildType(String projectLocator, String btLocator, String fields) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveBuildTypeTemplates(String projectLocator, String btLocator, String fields) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getExampleNewProjectDescriptionCompatibilityVersion1(String projectLocator, String id) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response getExampleNewProjectDescription(String projectLocator, String id) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveProject(String projectLocator, String fields) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public void deleteProject(String projectLocator) {
-        //TODO: implement
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
-    public Response serveBuilds(String projectLocator, String btLocator, String status, String triggeredByUser, 
-                Boolean includePersonal, Boolean includeCanceled, Boolean onlyPinned, String tag, 
-                String agentName, String sinceBuild, String sinceDate, Long start, 
-                Integer count, String locator, String fields) {
-        //TODO: implement
-        return null;
+    public Response serveBuilds(String projectLocator, String btLocator, String status, String triggeredByUser,
+                                Boolean includePersonal, Boolean includeCanceled, Boolean onlyPinned, String tag,
+                                String agentName, String sinceBuild, String sinceDate, Long start,
+                                Integer count, String locator, String fields) {
+        throw new java.lang.UnsupportedOperationException();
     }
 
 
     public Response serveBuildWithProject(String projectLocator, String btLocator, String buildLocator, String fields) {
-        //TODO: implement
-        return null;
+        throw new java.lang.UnsupportedOperationException();
     }
 
 }
