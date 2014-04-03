@@ -34,7 +34,7 @@ class HTTP(val root: GenericUrl) : RequestsProcessor {
             assertNotNull(content, "POST request requires content")
         }
 
-        val url = GenericUrl(path)
+        val url = url(path)
         val request = when (method) {
             Method.HEAD -> factory.buildHeadRequest(url)
             Method.GET -> factory.buildGetRequest (url)
