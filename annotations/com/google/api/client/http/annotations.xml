@@ -1,0 +1,26 @@
+<root>
+    <item name='com.google.api.client.http.HttpRequest com.google.api.client.http.HttpRequest setThrowExceptionOnExecuteError(boolean)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.api.client.http.HttpRequestFactory com.google.api.client.http.HttpRequest buildDeleteRequest(com.google.api.client.http.GenericUrl)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.api.client.http.HttpRequestFactory com.google.api.client.http.HttpRequest buildGetRequest(com.google.api.client.http.GenericUrl)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.api.client.http.HttpRequestFactory com.google.api.client.http.HttpRequest buildHeadRequest(com.google.api.client.http.GenericUrl)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.api.client.http.HttpRequestFactory com.google.api.client.http.HttpRequest buildPatchRequest(com.google.api.client.http.GenericUrl, com.google.api.client.http.HttpContent)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.api.client.http.HttpRequestFactory com.google.api.client.http.HttpRequest buildPostRequest(com.google.api.client.http.GenericUrl, com.google.api.client.http.HttpContent)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.api.client.http.HttpRequestFactory com.google.api.client.http.HttpRequest buildPutRequest(com.google.api.client.http.GenericUrl, com.google.api.client.http.HttpContent)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.api.client.http.HttpRequestFactory com.google.api.client.http.HttpRequest buildRequest(java.lang.String, com.google.api.client.http.GenericUrl, com.google.api.client.http.HttpContent)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+</root>
