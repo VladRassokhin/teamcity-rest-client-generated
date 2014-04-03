@@ -15,26 +15,26 @@ public interface RootResource {
 
     @GET
     @Produces("text/plain")
-    String serveRoot();
+    String getRoot();
 
     @GET
     @Produces("text/plain")
     @Path("/version")
-    String serveVersion();
+    String getVersion();
 
     @GET
     @Produces("text/plain")
     @Path("/apiVersion")
-    String serveApiVersion();
+    String getApiVersion();
 
     @GET
     @Produces("application/xml")
     @Path("/info")
-    PluginInfo servePluginInfo();
+    PluginInfo getPluginInfo();
 
     @GET
     @Produces("text/plain")
     @Path("/{projectLocator}/{btLocator}/{buildLocator}/{field}")
-    String serveBuildFieldShort(@PathParam("field") String field, @PathParam("projectLocator") String projectLocator, @PathParam("btLocator") String btLocator, @PathParam("buildLocator") String buildLocator);
+    String getBuildFieldShort(@PathParam("field") String field, @PathParam("projectLocator") String projectLocator, @PathParam("btLocator") String btLocator, @PathParam("buildLocator") String buildLocator);
 
 }

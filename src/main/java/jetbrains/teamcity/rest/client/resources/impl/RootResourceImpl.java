@@ -15,31 +15,30 @@ public class RootResourceImpl extends ResourceImpl implements RootResource {
         super(processor);
     }
 
-    public String serveRoot() {
+    public String getRoot() {
         //TODO: implement
         return null;
     }
 
 
-    public String serveVersion() {
+    public String getVersion() {
+        return processor.getAsString("/version");
+    }
+
+
+    public String getApiVersion() {
         //TODO: implement
         return null;
     }
 
 
-    public String serveApiVersion() {
+    public PluginInfo getPluginInfo() {
         //TODO: implement
         return null;
     }
 
 
-    public PluginInfo servePluginInfo() {
-        //TODO: implement
-        return null;
-    }
-
-
-    public String serveBuildFieldShort(String field, String projectLocator, String btLocator, String buildLocator) {
+    public String getBuildFieldShort(String field, String projectLocator, String btLocator, String buildLocator) {
         //TODO: implement
         return null;
     }

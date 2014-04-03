@@ -38,7 +38,7 @@ public interface TeamCityClient {
     ProjectsResource getProjectsResource();
 
     @NotNull
-    RootResource getResource();
+    RootResource getRootResource();
 
     @NotNull
     ServerResource getServerResource();

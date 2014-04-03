@@ -81,7 +81,7 @@ public class TeamCityClientImpl implements TeamCityClient {
 
     @NotNull
     @Override
-    public RootResource getResource() {
+    public RootResource getRootResource() {
         return new RootResourceImpl(processor);
     }
 
