@@ -1,39 +1,40 @@
 /**
  * Created by Apache CXF WadlToJava code generator
-**/
+ **/
 package jetbrains.teamcity.rest.client.resources;
+
+import jetbrains.teamcity.rest.client.model.PluginInfo;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.Response;
 
 @Path("/app/rest")
-public interface Resource {
+public interface RootResource {
 
     @GET
     @Produces("text/plain")
-    Response serveRoot();
+    String serveRoot();
 
     @GET
     @Produces("text/plain")
     @Path("/version")
-    Response serveVersion();
+    String serveVersion();
 
     @GET
     @Produces("text/plain")
     @Path("/apiVersion")
-    Response serveApiVersion();
+    String serveApiVersion();
 
     @GET
     @Produces("application/xml")
     @Path("/info")
-    Response servePluginInfo();
+    PluginInfo servePluginInfo();
 
     @GET
     @Produces("text/plain")
     @Path("/{projectLocator}/{btLocator}/{buildLocator}/{field}")
-    Response serveBuildFieldShort(@PathParam("field") String field, @PathParam("projectLocator") String projectLocator, @PathParam("btLocator") String btLocator, @PathParam("buildLocator") String buildLocator);
+    String serveBuildFieldShort(@PathParam("field") String field, @PathParam("projectLocator") String projectLocator, @PathParam("btLocator") String btLocator, @PathParam("buildLocator") String buildLocator);
 
 }
