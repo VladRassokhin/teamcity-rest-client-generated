@@ -67,6 +67,11 @@
                 <groupId>org.jetbrains.kotlin</groupId>
                 <version>${kotlin.version}</version>
 
+                <configuration>
+                    <annotationPaths>
+                        <annotationPath>annotations/</annotationPath>
+                    </annotationPaths>
+                </configuration>
                 <executions>
                     <execution>
                         <id>compile</id>
