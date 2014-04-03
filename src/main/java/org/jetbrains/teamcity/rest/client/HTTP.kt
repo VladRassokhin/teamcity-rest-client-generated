@@ -13,32 +13,38 @@ import com.google.api.client.json.jackson2.JacksonFactory
 import com.google.api.client.util.ObjectParser
 import java.util.Collections
 import kotlin.test.assertNotNull
-import org.jetbrains.teamcity.rest.client.RequestsProcessor.RequestType
+import org.jetbrains.teamcity.rest.client.RequestsProcessor.Method
 
-class HTTP: RequestsProcessor {
+class HTTP(val root: GenericUrl) : RequestsProcessor {
 
     class object {
         private val factory: HttpRequestFactory = NetHttpTransport().createRequestFactory()!!
-        private val jsonParser = JsonObjectParser(JacksonFactory())
+        private val parser = JsonObjectParser(JacksonFactory())
     }
 
-    override fun request(url: String, rtype: RequestType, content: HttpContent?, headers: Map<String, String>?, parser: ObjectParser?): HttpResponse {
+    fun url(path: String): GenericUrl {
+        val url = root.clone()!!
+        url.appendRawPath(path);
+        return url;
+    }
 
-        if ( rtype == RequestType.POST ){
+    override fun request(path: String, method: Method, content: HttpContent?, headers: Map<String, String>?, parser: ObjectParser?): HttpResponse {
+
+        if ( method == Method.POST ) {
             assertNotNull(content, "POST request requires content")
         }
 
-        val genericUrl = GenericUrl(url)
-        val request = when (rtype) {
-            RequestType.HEAD -> factory.buildHeadRequest(genericUrl)!!
-            RequestType.GET -> factory.buildGetRequest (genericUrl)!!
-            RequestType.POST -> factory.buildPostRequest(genericUrl, content!!)!!
-            else -> throw IllegalStateException("Unsuppored type ${rtype}")
+        val url = GenericUrl(path)
+        val request = when (method) {
+            Method.HEAD -> factory.buildHeadRequest(url)
+            Method.GET -> factory.buildGetRequest (url)
+            Method.POST -> factory.buildPostRequest(url, content!!)
+            else -> throw IllegalStateException("Unsuppored type ${method}")
         }
 
         if ( headers != null ) {
             val httpHeaders = HttpHeaders()
-            for ( (k, v) in headers.entrySet() ){
+            for ( (k, v) in headers.entrySet() ) {
                 httpHeaders.set(k, v)
             }
             request.setHeaders(httpHeaders)
@@ -46,17 +52,17 @@ class HTTP: RequestsProcessor {
 
         request.setParser(parser)
 
-        val response = request.setThrowExceptionOnExecuteError(false)!!.execute()!!
+        val response = request.setThrowExceptionOnExecuteError(false).execute()!!
 
         return response
     }
 
 
-    override fun head (url: String): HttpResponse = request(url, RequestType.HEAD)
+    override fun head (url: String): HttpResponse = request(url, Method.HEAD)
 
-    override fun get (url: String): HttpResponse = request(url, RequestType.GET)
+    override fun get (url: String): HttpResponse = request(url, Method.GET)
 
-    override fun post (url: String, content: HttpContent): HttpResponse = request(url, RequestType.POST, content)
+    override fun post (url: String, content: HttpContent): HttpResponse = request(url, Method.POST, content)
 
     override fun status (url: String): Int = head(url).getStatusCode()
 
@@ -65,7 +71,7 @@ class HTTP: RequestsProcessor {
     override fun getAsJson (url: String): GenericJson = getAs(url, javaClass<GenericJson>())
 
     override fun getAs<T> (url: String, rtype: Class<T>): T {
-        val response = request(rtype = RequestType.GET, url = url, headers = Collections.singletonMap("Accept", Json.MEDIA_TYPE), parser = jsonParser)
+        val response = request(method = Method.GET, path = url, headers = Collections.singletonMap("Accept", Json.MEDIA_TYPE), parser = parser)
         return response.parseAs(rtype)!!
     }
 }

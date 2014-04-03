@@ -9,16 +9,22 @@ import com.google.api.client.util.ObjectParser
  * @author Vladislav.Rassokhin
  */
 public trait RequestsProcessor {
-    enum class RequestType {
-        HEAD
+    enum class Method {
+        CONNECT
+        DELETE
         GET
+        HEAD
+        OPTIONS
+        PATCH
         POST
+        PUT
+        TRACE
     }
 
     /**
      * General request invoked - invokes an HTTP request and returns the corresponding response.
-    */
-    fun request(url: String, rtype: RequestType, content: HttpContent? = null, headers: Map<String, String>? = null, parser: ObjectParser? = null): HttpResponse
+     */
+    fun request(path: String, method: Method, content: HttpContent? = null, headers: Map<String, String>? = null, parser: ObjectParser? = null): HttpResponse
 
     /**
      * Sends a HEAD request and returns a corresponding [[HttpResponse]].
