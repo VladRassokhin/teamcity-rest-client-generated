@@ -2,7 +2,6 @@ package jetbrains.teamcity.rest.client.model;
 
 import com.google.api.client.util.Key;
 
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.List;
 
@@ -31,7 +30,7 @@ import java.util.List;
 })
 public class PropEntitiesAgentRequirement {
 
-    @XmlElement(name = "agent-requirement")
+    @Key("agent-requirement")
     public List<PropEntityAgentRequirement> agentRequirement;
     @Key("count")
     public Integer count;

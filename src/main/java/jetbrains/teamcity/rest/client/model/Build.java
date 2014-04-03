@@ -2,7 +2,6 @@ package jetbrains.teamcity.rest.client.model;
 
 import com.google.api.client.util.Key;
 
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 /**
@@ -111,7 +110,7 @@ public class Build {
     public User user;
     public String startEstimate;
     public String waitReason;
-    @XmlElement(name = "running-info")
+    @Key("running-info")
     public RunningBuildInfo runningInfo;
     public Comment canceledInfo;
     public String queuedDate;
@@ -130,11 +129,11 @@ public class Build {
     public Properties properties;
     public Entries attributes;
     public Properties statistics;
-    @XmlElement(name = "snapshot-dependencies")
+    @Key("snapshot-dependencies")
     public Builds snapshotDependencies;
-    @XmlElement(name = "artifact-dependencies")
+    @Key("artifact-dependencies")
     public Builds artifactDependencies;
-    @XmlElement(name = "custom-artifact-dependencies")
+    @Key("custom-artifact-dependencies")
     public PropEntitiesArtifactDep customArtifactDependencies;
     public BuildTriggeringOptions triggeringOptions;
     @Key("id")

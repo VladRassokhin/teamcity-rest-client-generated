@@ -1,6 +1,7 @@
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlElement;
+import com.google.api.client.util.Key;
+
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -28,7 +29,7 @@ import javax.xml.bind.annotation.XmlType;
 public class PropEntitySnapshotDep
         extends PropEntity {
 
-    @XmlElement(name = "source-buildType")
+    @Key("source-buildType")
     public BuildType sourceBuildType;
 
 }

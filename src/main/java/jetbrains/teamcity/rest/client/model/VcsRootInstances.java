@@ -2,7 +2,6 @@ package jetbrains.teamcity.rest.client.model;
 
 import com.google.api.client.util.Key;
 
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.List;
 
@@ -32,7 +31,7 @@ import java.util.List;
 })
 public class VcsRootInstances {
 
-    @XmlElement(name = "vcs-root-instance")
+    @Key("vcs-root-instance")
     public List<VcsRootInstanceRef> vcsRootInstance;
     @Key("count")
     public long count;

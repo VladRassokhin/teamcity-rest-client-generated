@@ -2,7 +2,6 @@ package jetbrains.teamcity.rest.client.model;
 
 import com.google.api.client.util.Key;
 
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 /**
@@ -38,9 +37,9 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class Group {
 
-    @XmlElement(name = "parent-groups")
+    @Key("parent-groups")
     public Groups parentGroups;
-    @XmlElement(name = "child-groups")
+    @Key("child-groups")
     public Groups childGroups;
     public Users users;
     public RoleAssignments roles;

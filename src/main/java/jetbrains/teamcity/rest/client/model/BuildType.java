@@ -2,7 +2,6 @@ package jetbrains.teamcity.rest.client.model;
 
 import com.google.api.client.util.Key;
 
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -67,18 +66,18 @@ public class BuildType {
 
     public Project project;
     public BuildType template;
-    @XmlElement(name = "vcs-root-entries")
+    @Key("vcs-root-entries")
     public VcsRootEntries vcsRootEntries;
     public Properties settings;
     public Properties parameters;
     public PropEntitiesStep steps;
     public PropEntitiesFeature features;
     public PropEntitiesTrigger triggers;
-    @XmlElement(name = "snapshot-dependencies")
+    @Key("snapshot-dependencies")
     public PropEntitiesSnapshotDep snapshotDependencies;
-    @XmlElement(name = "artifact-dependencies")
+    @Key("artifact-dependencies")
     public PropEntitiesArtifactDep artifactDependencies;
-    @XmlElement(name = "agent-requirements")
+    @Key("agent-requirements")
     public PropEntitiesAgentRequirement agentRequirements;
     public Builds builds;
     public Investigations investigations;

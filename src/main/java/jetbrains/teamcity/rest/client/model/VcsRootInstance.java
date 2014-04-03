@@ -2,7 +2,6 @@ package jetbrains.teamcity.rest.client.model;
 
 import com.google.api.client.util.Key;
 
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 /**
@@ -39,7 +38,7 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class VcsRootInstance {
 
-    @XmlElement(name = "vcs-root")
+    @Key("vcs-root")
     public VcsRootRef vcsRoot;
     public Properties properties;
     @Key("id")

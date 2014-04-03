@@ -2,7 +2,6 @@ package jetbrains.teamcity.rest.client.model;
 
 import com.google.api.client.util.Key;
 
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 /**
@@ -30,7 +29,7 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class Revision {
 
-    @XmlElement(name = "vcs-root-instance")
+    @Key("vcs-root-instance")
     public VcsRootInstanceRef vcsRootInstance;
     @Key("version")
     public String version;

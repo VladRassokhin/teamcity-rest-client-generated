@@ -2,7 +2,6 @@ package jetbrains.teamcity.rest.client.model;
 
 import com.google.api.client.util.Key;
 
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.List;
 
@@ -30,7 +29,7 @@ import java.util.List;
 })
 public class PropEntitiesArtifactDep {
 
-    @XmlElement(name = "artifact-dependency")
+    @Key("artifact-dependency")
     public List<PropEntityArtifactDep> artifactDependency;
     @Key("count")
     public Integer count;
