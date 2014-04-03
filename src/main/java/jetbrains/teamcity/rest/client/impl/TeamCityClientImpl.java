@@ -73,7 +73,7 @@ public class TeamCityClientImpl implements TeamCityClient {
 
     @NotNull
     @Override
-    public Resource getResource() {
+    public RootResource getResource() {
         return null;
     }
 
