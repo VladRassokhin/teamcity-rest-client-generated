@@ -4,11 +4,17 @@
 package jetbrains.teamcity.rest.client.resources.impl;
 
 import jetbrains.teamcity.rest.client.resources.UserGroupsResource;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.teamcity.rest.client.RequestsProcessor;
 
 import javax.ws.rs.core.Response;
 
-public class UserGroupsResourceImpl implements UserGroupsResource {
+public class UserGroupsResourceImpl extends ResourceImpl implements UserGroupsResource {
 
+
+    public UserGroupsResourceImpl(@NotNull RequestsProcessor processor) {
+        super(processor);
+    }
 
     public Response addGroup(String fields) {
         //TODO: implement

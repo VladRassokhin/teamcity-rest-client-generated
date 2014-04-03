@@ -4,11 +4,17 @@
 package jetbrains.teamcity.rest.client.resources.impl;
 
 import jetbrains.teamcity.rest.client.resources.AgentPoolsResource;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.teamcity.rest.client.RequestsProcessor;
 
 import javax.ws.rs.core.Response;
 
-public class AgentPoolsResourceImpl implements AgentPoolsResource {
+public class AgentPoolsResourceImpl extends ResourceImpl implements AgentPoolsResource{
 
+
+    public AgentPoolsResourceImpl(@NotNull RequestsProcessor processor) {
+        super(processor);
+    }
 
     public Response getPools() {
         //TODO: implement

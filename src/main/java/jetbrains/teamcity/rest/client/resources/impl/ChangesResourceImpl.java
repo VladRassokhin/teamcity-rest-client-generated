@@ -4,13 +4,18 @@
 package jetbrains.teamcity.rest.client.resources.impl;
 
 import jetbrains.teamcity.rest.client.resources.ChangesResource;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.teamcity.rest.client.RequestsProcessor;
 
 import javax.ws.rs.core.Response;
 
-public class ChangesResourceImpl implements ChangesResource {
+public class ChangesResourceImpl extends ResourceImpl implements ChangesResource {
 
+    public ChangesResourceImpl(@NotNull RequestsProcessor processor) {
+        super(processor);
+    }
 
-    public Response serveChanges(String project, String buildType, String build, String vcsRoot, 
+    public Response serveChanges(String project, String buildType, String build, String vcsRoot,
                 String sinceChange, Long start, Integer count, String locator, 
                 String fields) {
         //TODO: implement

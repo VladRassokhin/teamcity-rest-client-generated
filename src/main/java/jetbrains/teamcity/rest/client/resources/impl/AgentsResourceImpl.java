@@ -4,11 +4,17 @@
 package jetbrains.teamcity.rest.client.resources.impl;
 
 import jetbrains.teamcity.rest.client.resources.AgentsResource;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.teamcity.rest.client.RequestsProcessor;
 
 import javax.ws.rs.core.Response;
 
-public class AgentsResourceImpl implements AgentsResource {
+public class AgentsResourceImpl extends ResourceImpl implements AgentsResource {
 
+
+    public AgentsResourceImpl(@NotNull RequestsProcessor processor) {
+        super(processor);
+    }
 
     public Response serveAgents(Boolean includeDisconnected, Boolean includeUnauthorized, String locator, String fields) {
         //TODO: implement

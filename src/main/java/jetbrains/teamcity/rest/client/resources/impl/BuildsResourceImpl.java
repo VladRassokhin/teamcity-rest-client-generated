@@ -4,13 +4,18 @@
 package jetbrains.teamcity.rest.client.resources.impl;
 
 import jetbrains.teamcity.rest.client.resources.BuildsResource;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.teamcity.rest.client.RequestsProcessor;
 
 import javax.ws.rs.core.Response;
 
-public class BuildsResourceImpl implements BuildsResource {
+public class BuildsResourceImpl extends ResourceImpl implements BuildsResource {
 
+    public BuildsResourceImpl(@NotNull RequestsProcessor processor) {
+        super(processor);
+    }
 
-    public Response serveAllBuilds(String buildType, String status, String triggeredByUser, Boolean includePersonal, 
+    public Response serveAllBuilds(String buildType, String status, String triggeredByUser, Boolean includePersonal,
                 Boolean includeCanceled, Boolean onlyPinned, String tag, String agentName, 
                 String sinceBuild, String sinceDate, Long start, Integer count, 
                 String locator, String fields) {

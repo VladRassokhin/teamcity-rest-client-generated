@@ -5,9 +5,15 @@ package jetbrains.teamcity.rest.client.resources.impl;
 
 import jetbrains.teamcity.rest.client.model.PluginInfo;
 import jetbrains.teamcity.rest.client.resources.RootResource;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.teamcity.rest.client.RequestsProcessor;
 
-public class RootResourceImpl implements RootResource {
+public class RootResourceImpl extends ResourceImpl implements RootResource {
 
+
+    public RootResourceImpl(@NotNull RequestsProcessor processor) {
+        super(processor);
+    }
 
     public String serveRoot() {
         //TODO: implement

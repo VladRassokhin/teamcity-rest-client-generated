@@ -4,11 +4,16 @@
 package jetbrains.teamcity.rest.client.resources.impl;
 
 import jetbrains.teamcity.rest.client.resources.BuildTypesResource;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.teamcity.rest.client.RequestsProcessor;
 
 import javax.ws.rs.core.Response;
 
-public class BuildTypesResourceImpl implements BuildTypesResource {
+public class BuildTypesResourceImpl extends ResourceImpl implements BuildTypesResource {
 
+    public BuildTypesResourceImpl(@NotNull RequestsProcessor processor) {
+        super(processor);
+    }
 
     public Response addBuildType(String fields) {
         //TODO: implement

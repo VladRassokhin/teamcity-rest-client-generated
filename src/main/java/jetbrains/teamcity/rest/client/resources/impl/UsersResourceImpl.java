@@ -4,11 +4,17 @@
 package jetbrains.teamcity.rest.client.resources.impl;
 
 import jetbrains.teamcity.rest.client.resources.UsersResource;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.teamcity.rest.client.RequestsProcessor;
 
 import javax.ws.rs.core.Response;
 
-public class UsersResourceImpl implements UsersResource {
+public class UsersResourceImpl extends ResourceImpl implements UsersResource {
 
+
+    public UsersResourceImpl(@NotNull RequestsProcessor processor) {
+        super(processor);
+    }
 
     public Response createUser(String fields) {
         //TODO: implement

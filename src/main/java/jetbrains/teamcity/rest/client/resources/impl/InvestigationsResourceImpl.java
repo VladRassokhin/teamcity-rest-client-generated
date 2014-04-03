@@ -4,11 +4,16 @@
 package jetbrains.teamcity.rest.client.resources.impl;
 
 import jetbrains.teamcity.rest.client.resources.InvestigationsResource;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.teamcity.rest.client.RequestsProcessor;
 
 import javax.ws.rs.core.Response;
 
-public class InvestigationsResourceImpl implements InvestigationsResource {
+public class InvestigationsResourceImpl extends ResourceImpl implements InvestigationsResource {
 
+    public InvestigationsResourceImpl(@NotNull RequestsProcessor processor) {
+        super(processor);
+    }
 
     public Response getInvestigations(String locator, String fields) {
         //TODO: implement

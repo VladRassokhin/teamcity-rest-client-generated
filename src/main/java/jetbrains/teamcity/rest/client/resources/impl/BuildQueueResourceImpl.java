@@ -4,11 +4,17 @@
 package jetbrains.teamcity.rest.client.resources.impl;
 
 import jetbrains.teamcity.rest.client.resources.BuildQueueResource;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.teamcity.rest.client.RequestsProcessor;
 
 import javax.ws.rs.core.Response;
 
-public class BuildQueueResourceImpl implements BuildQueueResource {
+public class BuildQueueResourceImpl extends ResourceImpl implements BuildQueueResource {
 
+
+    public BuildQueueResourceImpl(@NotNull RequestsProcessor processor) {
+        super(processor);
+    }
 
     public Response replaceBuilds(String fields) {
         //TODO: implement

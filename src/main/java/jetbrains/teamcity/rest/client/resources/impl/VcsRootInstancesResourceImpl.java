@@ -4,11 +4,17 @@
 package jetbrains.teamcity.rest.client.resources.impl;
 
 import jetbrains.teamcity.rest.client.resources.VcsRootInstancesResource;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.teamcity.rest.client.RequestsProcessor;
 
 import javax.ws.rs.core.Response;
 
-public class VcsRootInstancesResourceImpl implements VcsRootInstancesResource {
+public class VcsRootInstancesResourceImpl extends ResourceImpl implements VcsRootInstancesResource {
 
+
+    public VcsRootInstancesResourceImpl(@NotNull RequestsProcessor processor) {
+        super(processor);
+    }
 
     public Response serveInstances(String locator) {
         //TODO: implement

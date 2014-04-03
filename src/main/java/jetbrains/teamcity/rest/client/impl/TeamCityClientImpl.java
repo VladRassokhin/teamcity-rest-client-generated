@@ -4,119 +4,126 @@ import jetbrains.teamcity.rest.client.TeamCityClient;
 import jetbrains.teamcity.rest.client.resources.*;
 import jetbrains.teamcity.rest.client.resources.impl.*;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.teamcity.rest.client.RequestsProcessor;
 
 public class TeamCityClientImpl implements TeamCityClient {
+    @NotNull protected final RequestsProcessor processor;
+
+    public TeamCityClientImpl(@NotNull final RequestsProcessor processor) {
+        this.processor = processor;
+    }
+
     @NotNull
     @Override
     public AgentPoolsResource getAgentPoolsResource() {
-        return new AgentPoolsResourceImpl();
+        return new AgentPoolsResourceImpl(processor);
     }
 
     @NotNull
     @Override
     public AgentsResource getAgentsResource() {
-        return new AgentsResourceImpl();
+        return new AgentsResourceImpl(processor);
     }
 
     @NotNull
     @Override
     public BuildQueueResource getBuildQueueResource() {
-        return new BuildQueueResourceImpl();
+        return new BuildQueueResourceImpl(processor);
     }
 
     @NotNull
     @Override
     public BuildTypesResource getBuildTypesResource() {
-        return new BuildTypesResourceImpl();
+        return new BuildTypesResourceImpl(processor);
     }
 
     @NotNull
     @Override
     public BuildsResource getBuildsResource() {
-        return new BuildsResourceImpl();
+        return new BuildsResourceImpl(processor);
     }
 
     @NotNull
     @Override
     public ChangesResource getChangesResource() {
-        return new ChangesResourceImpl();
+        return new ChangesResourceImpl(processor);
     }
 
     @NotNull
     @Override
     public DebugResource getDebugResource() {
-        return new DebugResourceImpl();
+        return new DebugResourceImpl(processor);
     }
 
     @NotNull
     @Override
     public InvestigationsResource getInvestigationsResource() {
-        return new InvestigationsResourceImpl();
+        return new InvestigationsResourceImpl(processor);
     }
 
     @NotNull
     @Override
     public ProblemOccurrencesResource getProblemOccurrencesResource() {
-        return new ProblemOccurrencesResourceImpl();
+        return new ProblemOccurrencesResourceImpl(processor);
     }
 
     @NotNull
     @Override
     public ProblemsResource getProblemsResource() {
-        return new ProblemsResourceImpl();
+        return new ProblemsResourceImpl(processor);
     }
 
     @NotNull
     @Override
     public ProjectsResource getProjectsResource() {
-        return new ProjectsResourceImpl();
+        return new ProjectsResourceImpl(processor);
     }
 
     @NotNull
     @Override
     public RootResource getResource() {
-        return new RootResourceImpl();
+        return new RootResourceImpl(processor);
     }
 
     @NotNull
     @Override
     public ServerResource getServerResource() {
-        return new ServerResourceImpl();
+        return new ServerResourceImpl(processor);
     }
 
     @NotNull
     @Override
     public TestOccurrencesResource getTestOccurrencesResource() {
-        return new TestOccurrencesResourceImpl();
+        return new TestOccurrencesResourceImpl(processor);
     }
 
     @NotNull
     @Override
     public TestsResource getTestsResource() {
-        return new TestsResourceImpl();
+        return new TestsResourceImpl(processor);
     }
 
     @NotNull
     @Override
     public UserGroupsResource getUserGroupsResource() {
-        return new UserGroupsResourceImpl();
+        return new UserGroupsResourceImpl(processor);
     }
 
     @NotNull
     @Override
     public UsersResource getUsersResource() {
-        return new UsersResourceImpl();
+        return new UsersResourceImpl(processor);
     }
 
     @NotNull
     @Override
     public VcsRootInstancesResource getVcsRootInstancesResource() {
-        return new VcsRootInstancesResourceImpl();
+        return new VcsRootInstancesResourceImpl(processor);
     }
 
     @NotNull
     @Override
     public VcsRootsResource getVcsRootsResource() {
-        return new VcsRootsResourceImpl();
+        return new VcsRootsResourceImpl(processor);
     }
 }

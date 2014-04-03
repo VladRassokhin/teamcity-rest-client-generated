@@ -4,11 +4,17 @@
 package jetbrains.teamcity.rest.client.resources.impl;
 
 import jetbrains.teamcity.rest.client.resources.ServerResource;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.teamcity.rest.client.RequestsProcessor;
 
 import javax.ws.rs.core.Response;
 
-public class ServerResourceImpl implements ServerResource {
+public class ServerResourceImpl extends ResourceImpl implements ServerResource {
 
+
+    public ServerResourceImpl(@NotNull RequestsProcessor processor) {
+        super(processor);
+    }
 
     public Response serveServerInfo() {
         //TODO: implement
