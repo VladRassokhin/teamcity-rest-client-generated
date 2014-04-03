@@ -13,8 +13,8 @@
     </prerequisites>
 
     <properties>
-        <kotlin.version>0.5.429</kotlin.version>
-        <google-http-client.version>1.14.1-beta</google-http-client.version>
+        <kotlin.version>0.7.270</kotlin.version>
+        <google-http-client.version>1.18.0-rc</google-http-client.version>
     </properties>
 
     <pluginRepositories>
