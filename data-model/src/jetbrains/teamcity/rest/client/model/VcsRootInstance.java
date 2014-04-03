@@ -1,18 +1,13 @@
-
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 
 /**
  * <p>Java class for vcs-root-instance complex type.
- * 
+ * <p/>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p/>
  * <pre>
  * &lt;complexType name="vcs-root-instance">
  *   &lt;complexContent>
@@ -34,13 +29,11 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "vcs-root-instance", propOrder = {
-    "vcsRoot",
-    "properties"
+        "vcsRoot",
+        "properties"
 })
 public class VcsRootInstance {
 

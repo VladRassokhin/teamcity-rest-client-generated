@@ -1,4 +1,3 @@
-
 package jetbrains.teamcity.rest.client.model;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -9,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for newProjectDescription complex type.
- * 
+ * <p/>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p/>
  * <pre>
  * &lt;complexType name="newProjectDescription">
  *   &lt;complexContent>
@@ -27,17 +26,14 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "newProjectDescription", propOrder = {
-    "sourceProject",
-    "parentProject"
+        "sourceProject",
+        "parentProject"
 })
 public class NewProjectDescription
-    extends CopyOptionsDescription
-{
+        extends CopyOptionsDescription {
 
     public Project sourceProject;
     public Project parentProject;

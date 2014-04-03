@@ -1,19 +1,17 @@
-
 package jetbrains.teamcity.rest.client.model;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
+import java.util.List;
 
 
 /**
  * <p>Java class for agents-ref complex type.
- * 
+ * <p/>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p/>
  * <pre>
  * &lt;complexType name="agents-ref">
  *   &lt;complexContent>
@@ -29,12 +27,10 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "agents-ref", propOrder = {
-    "agent"
+        "agent"
 })
 public class AgentsRef {
 

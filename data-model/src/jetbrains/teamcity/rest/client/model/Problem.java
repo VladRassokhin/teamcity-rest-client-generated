@@ -1,4 +1,3 @@
-
 package jetbrains.teamcity.rest.client.model;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -9,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for problem complex type.
- * 
+ * <p/>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p/>
  * <pre>
  * &lt;complexType name="problem">
  *   &lt;complexContent>
@@ -29,14 +28,12 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "problem", propOrder = {
-    "mutes",
-    "investigations",
-    "problemOccurrences"
+        "mutes",
+        "investigations",
+        "problemOccurrences"
 })
 public class Problem {
 

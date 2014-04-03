@@ -1,4 +1,3 @@
-
 package jetbrains.teamcity.rest.client.model;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -9,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for mute complex type.
- * 
+ * <p/>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p/>
  * <pre>
  * &lt;complexType name="mute">
  *   &lt;complexContent>
@@ -27,15 +26,13 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "mute", propOrder = {
-    "assignment",
-    "scope",
-    "target",
-    "resolution"
+        "assignment",
+        "scope",
+        "target",
+        "resolution"
 })
 public class Mute {
 

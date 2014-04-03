@@ -1,18 +1,13 @@
-
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 
 /**
  * <p>Java class for buildType complex type.
- * 
+ * <p/>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p/>
  * <pre>
  * &lt;complexType name="buildType">
  *   &lt;complexContent>
@@ -48,24 +43,22 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "buildType", propOrder = {
-    "project",
-    "template",
-    "vcsRootEntries",
-    "settings",
-    "parameters",
-    "steps",
-    "features",
-    "triggers",
-    "snapshotDependencies",
-    "artifactDependencies",
-    "agentRequirements",
-    "builds",
-    "investigations"
+        "project",
+        "template",
+        "vcsRootEntries",
+        "settings",
+        "parameters",
+        "steps",
+        "features",
+        "triggers",
+        "snapshotDependencies",
+        "artifactDependencies",
+        "agentRequirements",
+        "builds",
+        "investigations"
 })
 public class BuildType {
 

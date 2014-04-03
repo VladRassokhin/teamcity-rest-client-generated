@@ -1,18 +1,13 @@
-
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlSeeAlso;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 
 /**
  * <p>Java class for copyOptionsDescription complex type.
- * 
+ * <p/>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p/>
  * <pre>
  * &lt;complexType name="copyOptionsDescription">
  *   &lt;complexContent>
@@ -27,18 +22,16 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "copyOptionsDescription", propOrder = {
-    "projectsIdsMap",
-    "buildTypesIdsMap",
-    "vcsRootsIdsMap"
+        "projectsIdsMap",
+        "buildTypesIdsMap",
+        "vcsRootsIdsMap"
 })
 @XmlSeeAlso({
-    NewBuildTypeDescription.class,
-    NewProjectDescription.class
+        NewBuildTypeDescription.class,
+        NewProjectDescription.class
 })
 public class CopyOptionsDescription {
 

@@ -1,18 +1,13 @@
-
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlSeeAlso;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 
 /**
  * <p>Java class for propEntity complex type.
- * 
+ * <p/>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p/>
  * <pre>
  * &lt;complexType name="propEntity">
  *   &lt;complexContent>
@@ -28,20 +23,18 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "propEntity", propOrder = {
-    "properties"
+        "properties"
 })
 @XmlSeeAlso({
-    PropEntityFeature.class,
-    PropEntityArtifactDep.class,
-    PropEntityAgentRequirement.class,
-    PropEntityTrigger.class,
-    PropEntityStep.class,
-    PropEntitySnapshotDep.class
+        PropEntityFeature.class,
+        PropEntityArtifactDep.class,
+        PropEntityAgentRequirement.class,
+        PropEntityTrigger.class,
+        PropEntityStep.class,
+        PropEntitySnapshotDep.class
 })
 public class PropEntity {
 

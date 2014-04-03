@@ -1,4 +1,3 @@
-
 package jetbrains.teamcity.rest.client.model;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -9,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for server complex type.
- * 
+ * <p/>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p/>
  * <pre>
  * &lt;complexType name="server">
  *   &lt;complexContent>
@@ -38,19 +37,17 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "server", propOrder = {
-    "projects",
-    "vcsRoots",
-    "builds",
-    "users",
-    "userGroups",
-    "agents",
-    "buildQueue",
-    "agentPools"
+        "projects",
+        "vcsRoots",
+        "builds",
+        "users",
+        "userGroups",
+        "agents",
+        "buildQueue",
+        "agentPools"
 })
 public class Server {
 

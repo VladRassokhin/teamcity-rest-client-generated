@@ -1,18 +1,13 @@
-
 package jetbrains.teamcity.rest.client.model;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 
 /**
  * <p>Java class for build complex type.
- * 
+ * <p/>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p/>
  * <pre>
  * &lt;complexType name="build">
  *   &lt;complexContent>
@@ -70,41 +65,39 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "build", propOrder = {
-    "statusText",
-    "buildType",
-    "comment",
-    "tags",
-    "pinInfo",
-    "user",
-    "startEstimate",
-    "waitReason",
-    "runningInfo",
-    "canceledInfo",
-    "queuedDate",
-    "startDate",
-    "finishDate",
-    "triggered",
-    "lastChanges",
-    "changes",
-    "revisions",
-    "agent",
-    "compatibleAgents",
-    "testOccurrences",
-    "problemOccurrences",
-    "artifacts",
-    "relatedIssues",
-    "properties",
-    "attributes",
-    "statistics",
-    "snapshotDependencies",
-    "artifactDependencies",
-    "customArtifactDependencies",
-    "triggeringOptions"
+        "statusText",
+        "buildType",
+        "comment",
+        "tags",
+        "pinInfo",
+        "user",
+        "startEstimate",
+        "waitReason",
+        "runningInfo",
+        "canceledInfo",
+        "queuedDate",
+        "startDate",
+        "finishDate",
+        "triggered",
+        "lastChanges",
+        "changes",
+        "revisions",
+        "agent",
+        "compatibleAgents",
+        "testOccurrences",
+        "problemOccurrences",
+        "artifacts",
+        "relatedIssues",
+        "properties",
+        "attributes",
+        "statistics",
+        "snapshotDependencies",
+        "artifactDependencies",
+        "customArtifactDependencies",
+        "triggeringOptions"
 })
 public class Build {
 
