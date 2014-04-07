@@ -731,25 +731,7 @@ public class TeamcityJetbrainsCom {
       return response.readEntity(AgentPools.class);
     }
 
-    public <T> T getAsJson(GenericType<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(returnType);
-    }
 
-    public <T> T getAsJson(Class<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      if (!Response.class.isAssignableFrom(returnType)) {
-        throwExceptionIfWrongStatus(response);
-      }
-      return getReturnValue((Class<T>) returnType, response);
-    }
 
     public AgentPool postJsonAsAgentPool(AgentPool input) {
       WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
@@ -1375,28 +1357,10 @@ public class TeamcityJetbrainsCom {
     /**
      * Returns list of agents
      */
-    public <T> T getAsJson(GenericType<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(returnType);
-    }
 
     /**
      * Returns list of agents
      */
-    public <T> T getAsJson(Class<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      if (!Response.class.isAssignableFrom(returnType)) {
-        throwExceptionIfWrongStatus(response);
-      }
-      return getReturnValue((Class<T>) returnType, response);
-    }
 
     /**
      * Returns list of agents
@@ -2137,28 +2101,10 @@ public class TeamcityJetbrainsCom {
     /**
      * Serves build queue.
      */
-    public <T> T getAsJson(GenericType<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(returnType);
-    }
 
     /**
      * Serves build queue.
      */
-    public <T> T getAsJson(Class<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      if (!Response.class.isAssignableFrom(returnType)) {
-        throwExceptionIfWrongStatus(response);
-      }
-      return getReturnValue((Class<T>) returnType, response);
-    }
 
     /**
      * Serves build queue.
@@ -2701,28 +2647,10 @@ public class TeamcityJetbrainsCom {
     /**
      * Serves builds matching supplied condition.
      */
-    public <T> T getAsJson(GenericType<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(returnType);
-    }
 
     /**
      * Serves builds matching supplied condition.
      */
-    public <T> T getAsJson(Class<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      if (!Response.class.isAssignableFrom(returnType)) {
-        throwExceptionIfWrongStatus(response);
-      }
-      return getReturnValue((Class<T>) returnType, response);
-    }
 
     /**
      * Serves builds matching supplied condition.
@@ -5778,28 +5706,10 @@ public class TeamcityJetbrainsCom {
     /**
      * Lists build types registered on the server. Build templates are not included by default
      */
-    public <T> T getAsJson(GenericType<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(returnType);
-    }
 
     /**
      * Lists build types registered on the server. Build templates are not included by default
      */
-    public <T> T getAsJson(Class<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      if (!Response.class.isAssignableFrom(returnType)) {
-        throwExceptionIfWrongStatus(response);
-      }
-      return getReturnValue((Class<T>) returnType, response);
-    }
 
     /**
      * Lists build types registered on the server. Build templates are not included by default
@@ -12110,28 +12020,10 @@ public class TeamcityJetbrainsCom {
     /**
      * Lists changes by the specified locator
      */
-    public <T> T getAsJson(GenericType<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(returnType);
-    }
 
     /**
      * Lists changes by the specified locator
      */
-    public <T> T getAsJson(Class<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      if (!Response.class.isAssignableFrom(returnType)) {
-        throwExceptionIfWrongStatus(response);
-      }
-      return getReturnValue((Class<T>) returnType, response);
-    }
 
     /**
      * Lists changes by the specified locator
@@ -13791,28 +13683,10 @@ public class TeamcityJetbrainsCom {
     /**
      * Experimental, the requests and results returned will change in future versions!
      */
-    public <T> T getAsJson(GenericType<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(returnType);
-    }
 
     /**
      * Experimental, the requests and results returned will change in future versions!
      */
-    public <T> T getAsJson(Class<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      if (!Response.class.isAssignableFrom(returnType)) {
-        throwExceptionIfWrongStatus(response);
-      }
-      return getReturnValue((Class<T>) returnType, response);
-    }
 
     /**
      * Experimental, the requests and results returned will change in future versions!
@@ -14032,28 +13906,10 @@ public class TeamcityJetbrainsCom {
     /**
      * Experimental, the requests and results returned will change in future versions!
      */
-    public <T> T getAsJson(GenericType<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(returnType);
-    }
 
     /**
      * Experimental, the requests and results returned will change in future versions!
      */
-    public <T> T getAsJson(Class<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      if (!Response.class.isAssignableFrom(returnType)) {
-        throwExceptionIfWrongStatus(response);
-      }
-      return getReturnValue((Class<T>) returnType, response);
-    }
 
     /**
      * Experimental, the requests and results returned will change in future versions!
@@ -14273,28 +14129,10 @@ public class TeamcityJetbrainsCom {
     /**
      * Experimental, the requests and results returned will change in future versions!
      */
-    public <T> T getAsJson(GenericType<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(returnType);
-    }
 
     /**
      * Experimental, the requests and results returned will change in future versions!
      */
-    public <T> T getAsJson(Class<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      if (!Response.class.isAssignableFrom(returnType)) {
-        throwExceptionIfWrongStatus(response);
-      }
-      return getReturnValue((Class<T>) returnType, response);
-    }
 
     /**
      * Experimental, the requests and results returned will change in future versions!
@@ -14508,25 +14346,7 @@ public class TeamcityJetbrainsCom {
       return response.readEntity(Projects.class);
     }
 
-    public <T> T getAsJson(GenericType<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(returnType);
-    }
 
-    public <T> T getAsJson(Class<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      if (!Response.class.isAssignableFrom(returnType)) {
-        throwExceptionIfWrongStatus(response);
-      }
-      return getReturnValue((Class<T>) returnType, response);
-    }
 
     public Projects getAsProjects(String fields) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -14619,16 +14439,6 @@ public class TeamcityJetbrainsCom {
       return response.readEntity(returnType);
     }
 
-    public <T> T postTextPlainAsJson(Object input, Class<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build("POST", Entity.entity(input, "text/plain")).invoke();
-      if (!Response.class.isAssignableFrom(returnType)) {
-        throwExceptionIfWrongStatus(response);
-      }
-      return getReturnValue((Class<T>) returnType, response);
-    }
 
     public TeamcityJetbrainsCom.AppRestProjects.ProjectLocatorTemplates projectLocatorTemplates(String projectlocator) {
       return new TeamcityJetbrainsCom.AppRestProjects.ProjectLocatorTemplates(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), projectlocator);
@@ -16282,19 +16092,6 @@ public class TeamcityJetbrainsCom {
         return response.readEntity(NewProjectDescription.class);
       }
 
-      /**
-       * Experimental support only.
-       * Use this to get an example of the bean to be posted to the /projects request to create a new
-       * project
-       */
-
-
-      /**
-       * Experimental support only.
-       * Use this to get an example of the bean to be posted to the /projects request to create a new
-       * project
-       */
-
 
       /**
        * Experimental support only.
@@ -17528,25 +17325,7 @@ public class TeamcityJetbrainsCom {
       return response.readEntity(Server.class);
     }
 
-    public <T> T getAsJson(GenericType<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(returnType);
-    }
 
-    public <T> T getAsJson(Class<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      if (!Response.class.isAssignableFrom(returnType)) {
-        throwExceptionIfWrongStatus(response);
-      }
-      return getReturnValue((Class<T>) returnType, response);
-    }
 
     public TeamcityJetbrainsCom.AppRestServer.Backup backup() {
       return new TeamcityJetbrainsCom.AppRestServer.Backup(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -17918,28 +17697,10 @@ public class TeamcityJetbrainsCom {
     /**
      * Experimental, the requests and results returned will change in future versions!
      */
-    public <T> T getAsJson(GenericType<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(returnType);
-    }
 
     /**
      * Experimental, the requests and results returned will change in future versions!
      */
-    public <T> T getAsJson(Class<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      if (!Response.class.isAssignableFrom(returnType)) {
-        throwExceptionIfWrongStatus(response);
-      }
-      return getReturnValue((Class<T>) returnType, response);
-    }
 
     /**
      * Experimental, the requests and results returned will change in future versions!
@@ -18159,28 +17920,10 @@ public class TeamcityJetbrainsCom {
     /**
      * Experimental, the requests and results returned will change in future versions!
      */
-    public <T> T getAsJson(GenericType<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(returnType);
-    }
 
     /**
      * Experimental, the requests and results returned will change in future versions!
      */
-    public <T> T getAsJson(Class<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      if (!Response.class.isAssignableFrom(returnType)) {
-        throwExceptionIfWrongStatus(response);
-      }
-      return getReturnValue((Class<T>) returnType, response);
-    }
 
     /**
      * Experimental, the requests and results returned will change in future versions!
@@ -18476,25 +18219,7 @@ public class TeamcityJetbrainsCom {
       return response.readEntity(Groups.class);
     }
 
-    public <T> T getAsJson(GenericType<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(returnType);
-    }
 
-    public <T> T getAsJson(Class<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      if (!Response.class.isAssignableFrom(returnType)) {
-        throwExceptionIfWrongStatus(response);
-      }
-      return getReturnValue((Class<T>) returnType, response);
-    }
 
     public Groups getAsGroups(String fields) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -18988,14 +18713,6 @@ public class TeamcityJetbrainsCom {
       return response.readEntity(User.class);
     }
 
-    public <T> T postJsonAs(Object input, GenericType<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("*/*");
-      Response response;
-      response = resourceBuilder.build("POST", Entity.entity(input, "application/json")).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(returnType);
-    }
 
     public <T> T postJsonAs(Object input, Class<T> returnType) {
       WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
@@ -19070,25 +18787,7 @@ public class TeamcityJetbrainsCom {
       return response.readEntity(Users.class);
     }
 
-    public <T> T getAsJson(GenericType<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(returnType);
-    }
 
-    public <T> T getAsJson(Class<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      if (!Response.class.isAssignableFrom(returnType)) {
-        throwExceptionIfWrongStatus(response);
-      }
-      return getReturnValue((Class<T>) returnType, response);
-    }
 
     public Users getAsUsers(String fields) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -20337,25 +20036,7 @@ public class TeamcityJetbrainsCom {
       return response.readEntity(VcsRootInstances.class);
     }
 
-    public <T> T getAsJson(GenericType<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(returnType);
-    }
 
-    public <T> T getAsJson(Class<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      if (!Response.class.isAssignableFrom(returnType)) {
-        throwExceptionIfWrongStatus(response);
-      }
-      return getReturnValue((Class<T>) returnType, response);
-    }
 
     public VcsRootInstances getAsVcsRootInstances(String locator) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -20374,41 +20055,9 @@ public class TeamcityJetbrainsCom {
       return response.readEntity(VcsRootInstances.class);
     }
 
-    public <T> T getAsJson(String locator, GenericType<T> returnType) {
-      UriBuilder localUriBuilder = _uriBuilder.clone();
-      if (locator == null) {
-      }
-      if (locator != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
-      }
-      WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(returnType);
-    }
+    
 
-    public <T> T getAsJson(String locator, Class<T> returnType) {
-      UriBuilder localUriBuilder = _uriBuilder.clone();
-      if (locator == null) {
-      }
-      if (locator != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
-      }
-      WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      if (!Response.class.isAssignableFrom(returnType)) {
-        throwExceptionIfWrongStatus(response);
-      }
-      return getReturnValue((Class<T>) returnType, response);
-    }
+    
 
     public TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorRepositoryState vcsRootInstanceLocatorRepositoryState(String vcsrootinstancelocator) {
       return new TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorRepositoryState(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), vcsrootinstancelocator);
@@ -21283,25 +20932,7 @@ public class TeamcityJetbrainsCom {
       return response.readEntity(VcsRoots.class);
     }
 
-    public <T> T getAsJson(GenericType<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(returnType);
-    }
 
-    public <T> T getAsJson(Class<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      if (!Response.class.isAssignableFrom(returnType)) {
-        throwExceptionIfWrongStatus(response);
-      }
-      return getReturnValue((Class<T>) returnType, response);
-    }
 
     public VcsRoots getAsVcsRoots(String locator) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -21318,42 +20949,6 @@ public class TeamcityJetbrainsCom {
       response = resourceBuilder.build(GET).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(VcsRoots.class);
-    }
-
-    public <T> T getAsJson(String locator, GenericType<T> returnType) {
-      UriBuilder localUriBuilder = _uriBuilder.clone();
-      if (locator == null) {
-      }
-      if (locator != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
-      }
-      WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(returnType);
-    }
-
-    public <T> T getAsJson(String locator, Class<T> returnType) {
-      UriBuilder localUriBuilder = _uriBuilder.clone();
-      if (locator == null) {
-      }
-      if (locator != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
-      }
-      WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      if (!Response.class.isAssignableFrom(returnType)) {
-        throwExceptionIfWrongStatus(response);
-      }
-      return getReturnValue((Class<T>) returnType, response);
     }
 
     public TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorPropertiesName vcsRootLocatorPropertiesName(String vcsrootlocator, String name) {
@@ -21468,10 +21063,6 @@ public class TeamcityJetbrainsCom {
         response = resourceBuilder.build("DELETE").invoke();
         return response;
       }
-
-
-
-
 
     }
 
