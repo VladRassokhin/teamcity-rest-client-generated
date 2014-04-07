@@ -1212,8 +1212,6 @@ public class TeamcityJetbrainsCom {
       } else {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
       }
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -1253,8 +1251,6 @@ public class TeamcityJetbrainsCom {
       } else {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
       }
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -1293,8 +1289,6 @@ public class TeamcityJetbrainsCom {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
-      }
-      if (fields == null) {
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
@@ -1661,8 +1655,6 @@ public class TeamcityJetbrainsCom {
 
     public Builds putJsonAsBuilds(Builds input, String fields) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -1678,8 +1670,6 @@ public class TeamcityJetbrainsCom {
 
     public <T> T putJson(Object input, String fields, GenericType<T> returnType) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -1695,8 +1685,6 @@ public class TeamcityJetbrainsCom {
 
     public <T> T putJson(Object input, String fields, Class<T> returnType) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -1787,8 +1775,6 @@ public class TeamcityJetbrainsCom {
       } else {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
       }
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -1809,8 +1795,6 @@ public class TeamcityJetbrainsCom {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
-      }
-      if (fields == null) {
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
@@ -1836,8 +1820,6 @@ public class TeamcityJetbrainsCom {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
-      }
-      if (fields == null) {
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
@@ -1886,8 +1868,6 @@ public class TeamcityJetbrainsCom {
       } else {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
       }
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -1913,8 +1893,6 @@ public class TeamcityJetbrainsCom {
       } else {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
       }
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -1939,8 +1917,6 @@ public class TeamcityJetbrainsCom {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
-      }
-      if (fields == null) {
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
@@ -2491,8 +2467,6 @@ public class TeamcityJetbrainsCom {
       } else {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
       }
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -2602,8 +2576,6 @@ public class TeamcityJetbrainsCom {
       } else {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
       }
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -2712,8 +2684,6 @@ public class TeamcityJetbrainsCom {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
-      }
-      if (fields == null) {
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
@@ -5285,8 +5255,6 @@ public class TeamcityJetbrainsCom {
 
     public BuildType postJsonAsBuildType(BuildType input, String fields) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -5302,8 +5270,6 @@ public class TeamcityJetbrainsCom {
 
     public <T> T postJson(Object input, String fields, GenericType<T> returnType) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -5319,8 +5285,6 @@ public class TeamcityJetbrainsCom {
 
     public <T> T postJson(Object input, String fields, Class<T> returnType) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -5368,8 +5332,6 @@ public class TeamcityJetbrainsCom {
       } else {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
       }
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -5395,8 +5357,6 @@ public class TeamcityJetbrainsCom {
       } else {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
       }
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -5421,8 +5381,6 @@ public class TeamcityJetbrainsCom {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
-      }
-      if (fields == null) {
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
@@ -11141,8 +11099,6 @@ public class TeamcityJetbrainsCom {
       } else {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
       }
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -11217,8 +11173,6 @@ public class TeamcityJetbrainsCom {
       } else {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
       }
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -11292,8 +11246,6 @@ public class TeamcityJetbrainsCom {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
-      }
-      if (fields == null) {
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
@@ -12738,8 +12690,6 @@ public class TeamcityJetbrainsCom {
       } else {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
       }
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -12765,8 +12715,6 @@ public class TeamcityJetbrainsCom {
       } else {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
       }
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -12791,8 +12739,6 @@ public class TeamcityJetbrainsCom {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
-      }
-      if (fields == null) {
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
@@ -12959,8 +12905,6 @@ public class TeamcityJetbrainsCom {
       } else {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
       }
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -12986,8 +12930,6 @@ public class TeamcityJetbrainsCom {
       } else {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
       }
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -13012,8 +12954,6 @@ public class TeamcityJetbrainsCom {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
-      }
-      if (fields == null) {
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
@@ -13180,8 +13120,6 @@ public class TeamcityJetbrainsCom {
       } else {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
       }
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -13207,8 +13145,6 @@ public class TeamcityJetbrainsCom {
       } else {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
       }
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -13233,8 +13169,6 @@ public class TeamcityJetbrainsCom {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
-      }
-      if (fields == null) {
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
@@ -13381,8 +13315,6 @@ public class TeamcityJetbrainsCom {
 
     public Projects getAsProjects(String fields) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -13398,8 +13330,6 @@ public class TeamcityJetbrainsCom {
 
     public <T> T getAsJson(String fields, GenericType<T> returnType) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -13415,8 +13345,6 @@ public class TeamcityJetbrainsCom {
 
     public <T> T getAsJson(String fields, Class<T> returnType) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -16541,8 +16469,6 @@ public class TeamcityJetbrainsCom {
       } else {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
       }
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -16568,8 +16494,6 @@ public class TeamcityJetbrainsCom {
       } else {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
       }
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -16594,8 +16518,6 @@ public class TeamcityJetbrainsCom {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
-      }
-      if (fields == null) {
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
@@ -16762,8 +16684,6 @@ public class TeamcityJetbrainsCom {
       } else {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
       }
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -16789,8 +16709,6 @@ public class TeamcityJetbrainsCom {
       } else {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
       }
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -16815,8 +16733,6 @@ public class TeamcityJetbrainsCom {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
-      }
-      if (fields == null) {
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
@@ -16982,8 +16898,6 @@ public class TeamcityJetbrainsCom {
 
     public Group postJsonAsGroup(Group input, String fields) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -16999,8 +16913,6 @@ public class TeamcityJetbrainsCom {
 
     public <T> T postJson(Object input, String fields, GenericType<T> returnType) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -17016,8 +16928,6 @@ public class TeamcityJetbrainsCom {
 
     public <T> T postJson(Object input, String fields, Class<T> returnType) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -17045,8 +16955,6 @@ public class TeamcityJetbrainsCom {
 
     public Groups getAsGroups(String fields) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -17062,8 +16970,6 @@ public class TeamcityJetbrainsCom {
 
     public <T> T getAsJson(String fields, GenericType<T> returnType) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -17079,8 +16985,6 @@ public class TeamcityJetbrainsCom {
 
     public <T> T getAsJson(String fields, Class<T> returnType) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -17517,8 +17421,6 @@ public class TeamcityJetbrainsCom {
 
     public User postJsonAsUser(User input, String fields) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -17534,8 +17436,6 @@ public class TeamcityJetbrainsCom {
 
     public <T> T postJsonAs(Object input, String fields, GenericType<T> returnType) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -17551,8 +17451,6 @@ public class TeamcityJetbrainsCom {
 
     public <T> T postJsonAs(Object input, String fields, Class<T> returnType) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -17580,8 +17478,6 @@ public class TeamcityJetbrainsCom {
 
     public Users getAsUsers(String fields) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -17597,8 +17493,6 @@ public class TeamcityJetbrainsCom {
 
     public <T> T getAsJson(String fields, GenericType<T> returnType) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
@@ -17614,8 +17508,6 @@ public class TeamcityJetbrainsCom {
 
     public <T> T getAsJson(String fields, Class<T> returnType) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
-      if (fields == null) {
-      }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
