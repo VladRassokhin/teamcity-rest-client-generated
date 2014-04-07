@@ -11,7 +11,7 @@ import java.net.URI;
 import java.util.Map;
 
 @Generated(value = {
-    "wadl|file:/Users/vlad/devel/teamcity-rest-client/generated-java/application.wadl"
+    "wadl|file:/Users/vlad/devel/teamcity-rest-myRestClient/generated-java/application.wadl"
 }, comments = "wadl2java, http://wadl.java.net", date = "2014-04-07T14:34:37.557+04:00")
 public class TeamcityJetbrainsCom {
   /**
@@ -63,66 +63,66 @@ public class TeamcityJetbrainsCom {
   }
 
   public AppRestVcsRoots appRestVcsRoots() {
-    return new AppRestVcsRoots(client, baseURI);
+    return new AppRestVcsRoots(client, baseURI, this);
   }
 
   public AppRestBuilds appRestBuilds() {
-    return new AppRestBuilds(client, baseURI);
+    return new AppRestBuilds(client, baseURI, this);
   }
 
   public AppRestServer appRestServer() {
-    return new AppRestServer(client, baseURI);
+    return new AppRestServer(client, baseURI, this);
   }
 
   public AppRestUserGroups appRestUserGroups() {
-    return new AppRestUserGroups(client, baseURI);
+    return new AppRestUserGroups(client, baseURI, this);
   }
 
   public AppRestProjects appRestProjects() {
-    return new AppRestProjects(client, baseURI);
+    return new AppRestProjects(client, baseURI, this);
   }
 
   public AppRestUsers appRestUsers() {
-    return new AppRestUsers(client, baseURI);
+    return new AppRestUsers(client, baseURI, this);
   }
 
   public AppRestTestOccurrences appRestTestOccurrences() {
-    return new AppRestTestOccurrences(client, baseURI);
+    return new AppRestTestOccurrences(client, baseURI, this);
   }
 
   public AppRestChanges appRestChanges() {
-    return new AppRestChanges(client, baseURI);
+    return new AppRestChanges(client, baseURI, this);
   }
 
   public AppRestAgents appRestAgents() {
-    return new AppRestAgents(client, baseURI);
+    return new AppRestAgents(client, baseURI, this);
   }
 
   public AppRestAgentPools appRestAgentPools() {
-    return new AppRestAgentPools(client, baseURI);
+    return new AppRestAgentPools(client, baseURI, this);
   }
 
   public AppRestProblems appRestProblems() {
-    return new AppRestProblems(client, baseURI);
+    return new AppRestProblems(client, baseURI, this);
   }
 
   public AppRest appRest() {
-    return new AppRest(client, baseURI);
+    return new AppRest(client, baseURI, this);
   }
 
   public AppRestBuildQueue appRestBuildQueue() {
-    return new AppRestBuildQueue(client, baseURI);
+    return new AppRestBuildQueue(client, baseURI, this);
   }
 
   public AppRestBuildTypes appRestBuildTypes() {
-    return new AppRestBuildTypes(client, baseURI);
+    return new AppRestBuildTypes(client, baseURI, this);
   }
 
   /**
    * Experimental, the requests and results returned will change in future versions!
    */
   public AppRestInvestigations appRestInvestigations() {
-    return new AppRestInvestigations(client, baseURI);
+    return new AppRestInvestigations(client, baseURI, this);
   }
 
   /**
@@ -132,15 +132,15 @@ public class TeamcityJetbrainsCom {
    * Experimental, the requests and results returned will change in future versions!
    */
   public AppRestVcsRootInstances appRestVcsRootInstances() {
-    return new AppRestVcsRootInstances(client, baseURI);
+    return new AppRestVcsRootInstances(client, baseURI, this);
   }
 
   public AppRestTests appRestTests() {
-    return new AppRestTests(client, baseURI);
+    return new AppRestTests(client, baseURI, this);
   }
 
   public AppRestProblemOccurrences appRestProblemOccurrences() {
-    return new AppRestProblemOccurrences(client, baseURI);
+    return new AppRestProblemOccurrences(client, baseURI, this);
   }
 
   /**
@@ -150,7 +150,7 @@ public class TeamcityJetbrainsCom {
    * TeamCity without any notice.
    */
   public AppRestDebug appRestDebug() {
-    return new AppRestDebug(client, baseURI);
+    return new AppRestDebug(client, baseURI, this);
   }
 
   /**
@@ -159,8 +159,8 @@ public class TeamcityJetbrainsCom {
    * These should never be used for non-debug purposes and the API here can change in future versions of
    * TeamCity without any notice.
    */
-  public static StringBuilder getTemplateBuilder(String path) {
-    final String base = BASE_URI.toString();
+  public StringBuilder getTemplateBuilder(String path) {
+    final String base = baseURI.toString();
     StringBuilder template = new StringBuilder(base);
     if (!base.endsWith("/")) {
       template.append("/");

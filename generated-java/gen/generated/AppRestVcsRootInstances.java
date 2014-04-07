@@ -13,21 +13,16 @@ import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AppRestVcsRootInstances {
+public class AppRestVcsRootInstances extends AbstractAppRest {
   private Client _client;
   private UriBuilder _uriBuilder;
   private Map<String, Object> _templateAndMatrixParameterValues;
 
-  AppRestVcsRootInstances(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-    _client = client;
-    _uriBuilder = uriBuilder.clone();
-    _templateAndMatrixParameterValues = map;
-  }
-
   /**
    * Create new instance using existing Client instance, and a base URI and any parameters
    */
-  public AppRestVcsRootInstances(Client client, URI baseUri) {
+  public AppRestVcsRootInstances(Client client, URI baseUri, TeamcityJetbrainsCom tjc) {
+    super(tjc);
     _client = client;
     _uriBuilder = UriBuilder.fromUri(baseUri);
     _uriBuilder = _uriBuilder.path("/app/rest/vcs-root-instances");
@@ -82,7 +77,7 @@ public class AppRestVcsRootInstances {
     return new VcsRootInstanceLocator(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), vcsrootinstancelocator);
   }
 
-  public static class VcsRootInstanceLocator {
+  public class VcsRootInstanceLocator {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -109,7 +104,7 @@ public class AppRestVcsRootInstances {
      */
     public VcsRootInstanceLocator(Client client, URI uri) {
       _client = client;
-      StringBuilder template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/vcs-root-instances/{vcsRootInstanceLocator}");
+      StringBuilder template = myRestClient.getTemplateBuilder("app/rest/vcs-root-instances/{vcsRootInstanceLocator}");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -144,7 +139,7 @@ public class AppRestVcsRootInstances {
     }
   }
 
-  public static class VcsRootInstanceLocatorField {
+  public class VcsRootInstanceLocatorField {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -172,7 +167,7 @@ public class AppRestVcsRootInstances {
      */
     public VcsRootInstanceLocatorField(Client client, URI uri) {
       _client = client;
-      StringBuilder template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/vcs-root-instances/{vcsRootInstanceLocator}/{field}");
+      StringBuilder template = myRestClient.getTemplateBuilder("app/rest/vcs-root-instances/{vcsRootInstanceLocator}/{field}");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -232,7 +227,7 @@ public class AppRestVcsRootInstances {
     }
   }
 
-  public static class VcsRootInstanceLocatorFilesLatestChildrenpath {
+  public class VcsRootInstanceLocatorFilesLatestChildrenpath {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -260,7 +255,7 @@ public class AppRestVcsRootInstances {
      */
     public VcsRootInstanceLocatorFilesLatestChildrenpath(Client client, URI uri) {
       _client = client;
-      StringBuilder template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/vcs-root-instances/{vcsRootInstanceLocator}/files/latest/children{path:(/.*)?}");
+      StringBuilder template = myRestClient.getTemplateBuilder("app/rest/vcs-root-instances/{vcsRootInstanceLocator}/files/latest/children{path:(/.*)?}");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -325,7 +320,7 @@ public class AppRestVcsRootInstances {
      */
   }
 
-  public static class VcsRootInstanceLocatorFilesLatestContentpath {
+  public class VcsRootInstanceLocatorFilesLatestContentpath {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -353,7 +348,7 @@ public class AppRestVcsRootInstances {
      */
     public VcsRootInstanceLocatorFilesLatestContentpath(Client client, URI uri) {
       _client = client;
-      StringBuilder template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/vcs-root-instances/{vcsRootInstanceLocator}/files/latest/content{path:(/.*)?}");
+      StringBuilder template = myRestClient.getTemplateBuilder("app/rest/vcs-root-instances/{vcsRootInstanceLocator}/files/latest/content{path:(/.*)?}");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -413,7 +408,7 @@ public class AppRestVcsRootInstances {
     }
   }
 
-  public static class VcsRootInstanceLocatorFilesLatestMetadatapath {
+  public class VcsRootInstanceLocatorFilesLatestMetadatapath {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -441,7 +436,7 @@ public class AppRestVcsRootInstances {
      */
     public VcsRootInstanceLocatorFilesLatestMetadatapath(Client client, URI uri) {
       _client = client;
-      StringBuilder template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/vcs-root-instances/{vcsRootInstanceLocator}/files/latest/metadata{path:(/.*)?}");
+      StringBuilder template = myRestClient.getTemplateBuilder("app/rest/vcs-root-instances/{vcsRootInstanceLocator}/files/latest/metadata{path:(/.*)?}");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -506,7 +501,7 @@ public class AppRestVcsRootInstances {
      */
   }
 
-  public static class VcsRootInstanceLocatorProperties {
+  public class VcsRootInstanceLocatorProperties {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -533,7 +528,7 @@ public class AppRestVcsRootInstances {
      */
     public VcsRootInstanceLocatorProperties(Client client, URI uri) {
       _client = client;
-      StringBuilder template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/vcs-root-instances/{vcsRootInstanceLocator}/properties");
+      StringBuilder template = myRestClient.getTemplateBuilder("app/rest/vcs-root-instances/{vcsRootInstanceLocator}/properties");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -568,7 +563,7 @@ public class AppRestVcsRootInstances {
     }
   }
 
-  public static class VcsRootInstanceLocatorRepositoryState {
+  public class VcsRootInstanceLocatorRepositoryState {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -595,7 +590,7 @@ public class AppRestVcsRootInstances {
      */
     public VcsRootInstanceLocatorRepositoryState(Client client, URI uri) {
       _client = client;
-      StringBuilder template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/vcs-root-instances/{vcsRootInstanceLocator}/repositoryState");
+      StringBuilder template = myRestClient.getTemplateBuilder("app/rest/vcs-root-instances/{vcsRootInstanceLocator}/repositoryState");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -637,7 +632,7 @@ public class AppRestVcsRootInstances {
     }
   }
 
-  public static class VcsRootInstanceLocatorRepositoryStateCreationDate {
+  public class VcsRootInstanceLocatorRepositoryStateCreationDate {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -664,7 +659,7 @@ public class AppRestVcsRootInstances {
      */
     public VcsRootInstanceLocatorRepositoryStateCreationDate(Client client, URI uri) {
       _client = client;
-      StringBuilder template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/vcs-root-instances/{vcsRootInstanceLocator}/repositoryState/creationDate");
+      StringBuilder template = myRestClient.getTemplateBuilder("app/rest/vcs-root-instances/{vcsRootInstanceLocator}/repositoryState/creationDate");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());

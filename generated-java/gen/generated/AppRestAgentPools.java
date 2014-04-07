@@ -13,21 +13,16 @@ import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AppRestAgentPools {
+public class AppRestAgentPools extends AbstractAppRest {
   private Client _client;
   private UriBuilder _uriBuilder;
   private Map<String, Object> _templateAndMatrixParameterValues;
 
-  AppRestAgentPools(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-    _client = client;
-    _uriBuilder = uriBuilder.clone();
-    _templateAndMatrixParameterValues = map;
-  }
-
   /**
    * Create new instance using existing Client instance, and a base URI and any parameters
    */
-  public AppRestAgentPools(Client client, URI baseUri) {
+  public AppRestAgentPools(Client client, URI baseUri, TeamcityJetbrainsCom tjc) {
+    super(tjc);
     _client = client;
     _uriBuilder = UriBuilder.fromUri(baseUri);
     _uriBuilder = _uriBuilder.path("/app/rest/agentPools");
@@ -64,7 +59,7 @@ public class AppRestAgentPools {
     return new AgentPoolLocatorProjectsProjectLocator(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), agentpoollocator, projectlocator);
   }
 
-  public static class AgentPoolLocator {
+  public class AgentPoolLocator {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -92,7 +87,7 @@ public class AppRestAgentPools {
     public AgentPoolLocator(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/agentPools/{agentPoolLocator}");
+      template = myRestClient.getTemplateBuilder("app/rest/agentPools/{agentPoolLocator}");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -142,7 +137,7 @@ public class AppRestAgentPools {
     }
   }
 
-  public static class AgentPoolLocatorAgents {
+  public class AgentPoolLocatorAgents {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -170,7 +165,7 @@ public class AppRestAgentPools {
     public AgentPoolLocatorAgents(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/agentPools/{agentPoolLocator}/agents");
+      template = myRestClient.getTemplateBuilder("app/rest/agentPools/{agentPoolLocator}/agents");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -225,7 +220,7 @@ public class AppRestAgentPools {
     }
   }
 
-  public static class AgentPoolLocatorProjects {
+  public class AgentPoolLocatorProjects {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -253,7 +248,7 @@ public class AppRestAgentPools {
     public AgentPoolLocatorProjects(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/agentPools/{agentPoolLocator}/projects");
+      template = myRestClient.getTemplateBuilder("app/rest/agentPools/{agentPoolLocator}/projects");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -319,7 +314,7 @@ public class AppRestAgentPools {
     }
   }
 
-  public static class AgentPoolLocatorProjectsProjectLocator {
+  public class AgentPoolLocatorProjectsProjectLocator {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -347,8 +342,7 @@ public class AppRestAgentPools {
      */
     public AgentPoolLocatorProjectsProjectLocator(Client client, URI uri) {
       _client = client;
-      StringBuilder template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/agentPools/{agentPoolLocator}/projects/{projectLocator}");
-      ;
+      StringBuilder template = myRestClient.getTemplateBuilder("app/rest/agentPools/{agentPoolLocator}/projects/{projectLocator}");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());

@@ -13,21 +13,16 @@ import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AppRestBuildQueue {
+public class AppRestBuildQueue extends AbstractAppRest {
   private Client _client;
   private UriBuilder _uriBuilder;
   private Map<String, Object> _templateAndMatrixParameterValues;
 
-  AppRestBuildQueue(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-    _client = client;
-    _uriBuilder = uriBuilder.clone();
-    _templateAndMatrixParameterValues = map;
-  }
-
   /**
    * Create new instance using existing Client instance, and a base URI and any parameters
    */
-  public AppRestBuildQueue(Client client, URI baseUri) {
+  public AppRestBuildQueue(Client client, URI baseUri, TeamcityJetbrainsCom tjc) {
+    super(tjc);
     _client = client;
     _uriBuilder = UriBuilder.fromUri(baseUri);
     _uriBuilder = _uriBuilder.path("/app/rest/buildQueue");
@@ -115,7 +110,7 @@ public class AppRestBuildQueue {
     return new BuildLocatorField(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), buildlocator, field);
   }
 
-  public static class BuildLocatorExampleBuildCancelRequest {
+  public class BuildLocatorExampleBuildCancelRequest {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -143,7 +138,7 @@ public class AppRestBuildQueue {
     public BuildLocatorExampleBuildCancelRequest(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/buildQueue/{buildLocator}/example/buildCancelRequest");
+      template = myRestClient.getTemplateBuilder("app/rest/buildQueue/{buildLocator}/example/buildCancelRequest");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -178,7 +173,7 @@ public class AppRestBuildQueue {
     }
   }
 
-  public static class BuildLocatorField {
+  public class BuildLocatorField {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -207,7 +202,7 @@ public class AppRestBuildQueue {
     public BuildLocatorField(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/buildQueue/{buildLocator}/{field}");
+      template = myRestClient.getTemplateBuilder("app/rest/buildQueue/{buildLocator}/{field}");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -258,7 +253,7 @@ public class AppRestBuildQueue {
     }
   }
 
-  public static class QueuedBuildLocator {
+  public class QueuedBuildLocator {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -286,7 +281,7 @@ public class AppRestBuildQueue {
     public QueuedBuildLocator(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/buildQueue/{queuedBuildLocator}");
+      template = myRestClient.getTemplateBuilder("app/rest/buildQueue/{queuedBuildLocator}");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -343,7 +338,7 @@ public class AppRestBuildQueue {
     }
   }
 
-  public static class QueuedBuildLocatorCompatibleAgents {
+  public class QueuedBuildLocatorCompatibleAgents {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -371,7 +366,7 @@ public class AppRestBuildQueue {
     public QueuedBuildLocatorCompatibleAgents(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/buildQueue/{queuedBuildLocator}/compatibleAgents");
+      template = myRestClient.getTemplateBuilder("app/rest/buildQueue/{queuedBuildLocator}/compatibleAgents");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());

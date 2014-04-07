@@ -12,21 +12,16 @@ import java.util.Map;
 /**
  * Experimental, the requests and results returned will change in future versions!
  */
-public class AppRestInvestigations {
+public class AppRestInvestigations extends AbstractAppRest {
   private Client _client;
   private UriBuilder _uriBuilder;
   private Map<String, Object> _templateAndMatrixParameterValues;
 
-  AppRestInvestigations(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-    _client = client;
-    _uriBuilder = uriBuilder.clone();
-    _templateAndMatrixParameterValues = map;
-  }
-
   /**
    * Create new instance using existing Client instance, and a base URI and any parameters
    */
-  public AppRestInvestigations(Client client, URI baseUri) {
+  public AppRestInvestigations(Client client, URI baseUri, TeamcityJetbrainsCom tjc) {
+    super(tjc);
     _client = client;
     _uriBuilder = UriBuilder.fromUri(baseUri);
     _uriBuilder = _uriBuilder.path("/app/rest/investigations");
@@ -60,7 +55,7 @@ public class AppRestInvestigations {
     return new InvestigationLocator(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), investigationlocator);
   }
 
-  public static class InvestigationLocator {
+  public class InvestigationLocator {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -88,7 +83,7 @@ public class AppRestInvestigations {
     public InvestigationLocator(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/investigations/{investigationLocator}");
+      template = myRestClient.getTemplateBuilder("app/rest/investigations/{investigationLocator}");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());

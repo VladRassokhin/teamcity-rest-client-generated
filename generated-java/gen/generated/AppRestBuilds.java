@@ -13,21 +13,16 @@ import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AppRestBuilds {
+public class AppRestBuilds extends AbstractAppRest {
   private Client _client;
   private UriBuilder _uriBuilder;
   private Map<String, Object> _templateAndMatrixParameterValues;
 
-  AppRestBuilds(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-    _client = client;
-    _uriBuilder = uriBuilder.clone();
-    _templateAndMatrixParameterValues = map;
-  }
-
   /**
    * Create new instance using existing Client instance, and a base URI and any parameters
    */
-  public AppRestBuilds(Client client, URI baseUri) {
+  public AppRestBuilds(Client client, URI baseUri, TeamcityJetbrainsCom tjc) {
+    super(tjc);
     _client = client;
     _uriBuilder = UriBuilder.fromUri(baseUri);
     _uriBuilder = _uriBuilder.path("/app/rest/builds");
@@ -165,7 +160,7 @@ public class AppRestBuilds {
     return new BuildLocatorRelatedIssues2(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), buildlocator);
   }
 
-  public static class BuildLocator {
+  public class BuildLocator {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -193,7 +188,7 @@ public class AppRestBuilds {
     public BuildLocator(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/builds/{buildLocator}");
+      template = myRestClient.getTemplateBuilder("app/rest/builds/{buildLocator}");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -281,7 +276,7 @@ public class AppRestBuilds {
     }
   }
 
-  public static class BuildLocatorArtifacts {
+  public class BuildLocatorArtifacts {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -309,7 +304,7 @@ public class AppRestBuilds {
     public BuildLocatorArtifacts(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/builds/{buildLocator}/artifacts");
+      template = myRestClient.getTemplateBuilder("app/rest/builds/{buildLocator}/artifacts");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -353,7 +348,7 @@ public class AppRestBuilds {
      */
   }
 
-  public static class BuildLocatorArtifactsChildrenpath {
+  public class BuildLocatorArtifactsChildrenpath {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -381,7 +376,7 @@ public class AppRestBuilds {
      */
     public BuildLocatorArtifactsChildrenpath(Client client, URI uri) {
       _client = client;
-      StringBuilder template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/builds/{buildLocator}/artifacts/children{path:(/.*)?}");
+      StringBuilder template = myRestClient.getTemplateBuilder("app/rest/builds/{buildLocator}/artifacts/children{path:(/.*)?}");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -445,7 +440,7 @@ public class AppRestBuilds {
     }
   }
 
-  public static class BuildLocatorArtifactsContentpath {
+  public class BuildLocatorArtifactsContentpath {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -473,7 +468,7 @@ public class AppRestBuilds {
      */
     public BuildLocatorArtifactsContentpath(Client client, URI uri) {
       _client = client;
-      StringBuilder template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/builds/{buildLocator}/artifacts/content{path:(/.*)?}");
+      StringBuilder template = myRestClient.getTemplateBuilder("app/rest/builds/{buildLocator}/artifacts/content{path:(/.*)?}");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -544,7 +539,7 @@ public class AppRestBuilds {
     }
   }
 
-  public static class BuildLocatorArtifactsFilespath {
+  public class BuildLocatorArtifactsFilespath {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -573,7 +568,7 @@ public class AppRestBuilds {
     public BuildLocatorArtifactsFilespath(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/builds/{buildLocator}/artifacts/files{path:(/.*)?}");
+      template = myRestClient.getTemplateBuilder("app/rest/builds/{buildLocator}/artifacts/files{path:(/.*)?}");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -629,7 +624,7 @@ public class AppRestBuilds {
     }
   }
 
-  public static class BuildLocatorArtifactsMetadatapath {
+  public class BuildLocatorArtifactsMetadatapath {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -658,7 +653,7 @@ public class AppRestBuilds {
     public BuildLocatorArtifactsMetadatapath(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/builds/{buildLocator}/artifacts/metadata{path:(/.*)?}");
+      template = myRestClient.getTemplateBuilder("app/rest/builds/{buildLocator}/artifacts/metadata{path:(/.*)?}");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -722,7 +717,7 @@ public class AppRestBuilds {
     }
   }
 
-  public static class BuildLocatorCanceledInfo {
+  public class BuildLocatorCanceledInfo {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -750,7 +745,7 @@ public class AppRestBuilds {
     public BuildLocatorCanceledInfo(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/builds/{buildLocator}/canceledInfo");
+      template = myRestClient.getTemplateBuilder("app/rest/builds/{buildLocator}/canceledInfo");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -795,7 +790,7 @@ public class AppRestBuilds {
     }
   }
 
-  public static class BuildLocatorComment {
+  public class BuildLocatorComment {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -823,7 +818,7 @@ public class AppRestBuilds {
     public BuildLocatorComment(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/builds/{buildLocator}/comment");
+      template = myRestClient.getTemplateBuilder("app/rest/builds/{buildLocator}/comment");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -865,7 +860,7 @@ public class AppRestBuilds {
     }
   }
 
-  public static class BuildLocatorExampleBuildCancelRequest {
+  public class BuildLocatorExampleBuildCancelRequest {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -893,7 +888,7 @@ public class AppRestBuilds {
     public BuildLocatorExampleBuildCancelRequest(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/builds/{buildLocator}/example/buildCancelRequest");
+      template = myRestClient.getTemplateBuilder("app/rest/builds/{buildLocator}/example/buildCancelRequest");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -928,7 +923,7 @@ public class AppRestBuilds {
     }
   }
 
-  public static class BuildLocatorField {
+  public class BuildLocatorField {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -957,7 +952,7 @@ public class AppRestBuilds {
     public BuildLocatorField(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/builds/{buildLocator}/{field}");
+      template = myRestClient.getTemplateBuilder("app/rest/builds/{buildLocator}/{field}");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -1008,7 +1003,7 @@ public class AppRestBuilds {
     }
   }
 
-  public static class BuildLocatorPin {
+  public class BuildLocatorPin {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -1036,7 +1031,7 @@ public class AppRestBuilds {
     public BuildLocatorPin(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/builds/{buildLocator}/pin/");
+      template = myRestClient.getTemplateBuilder("app/rest/builds/{buildLocator}/pin/");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -1096,7 +1091,7 @@ public class AppRestBuilds {
     }
   }
 
-  public static class BuildLocatorProblemOccurrences {
+  public class BuildLocatorProblemOccurrences {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -1124,7 +1119,7 @@ public class AppRestBuilds {
     public BuildLocatorProblemOccurrences(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/builds/{buildLocator}/problemOccurrences");
+      template = myRestClient.getTemplateBuilder("app/rest/builds/{buildLocator}/problemOccurrences");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -1169,7 +1164,7 @@ public class AppRestBuilds {
     }
   }
 
-  public static class BuildLocatorRelatedIssues {
+  public class BuildLocatorRelatedIssues {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -1196,7 +1191,7 @@ public class AppRestBuilds {
      */
     public BuildLocatorRelatedIssues(Client client, URI uri) {
       _client = client;
-      StringBuilder template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/builds/{buildLocator}/related-issues");
+      StringBuilder template = myRestClient.getTemplateBuilder("app/rest/builds/{buildLocator}/related-issues");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -1241,7 +1236,7 @@ public class AppRestBuilds {
     }
   }
 
-  public static class BuildLocatorRelatedIssues2 {
+  public class BuildLocatorRelatedIssues2 {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -1269,7 +1264,7 @@ public class AppRestBuilds {
     public BuildLocatorRelatedIssues2(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/builds/{buildLocator}/relatedIssues");
+      template = myRestClient.getTemplateBuilder("app/rest/builds/{buildLocator}/relatedIssues");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -1314,7 +1309,7 @@ public class AppRestBuilds {
     }
   }
 
-  public static class BuildLocatorResultingProperties {
+  public class BuildLocatorResultingProperties {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -1342,7 +1337,7 @@ public class AppRestBuilds {
     public BuildLocatorResultingProperties(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/builds/{buildLocator}/resulting-properties/");
+      template = myRestClient.getTemplateBuilder("app/rest/builds/{buildLocator}/resulting-properties/");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -1377,7 +1372,7 @@ public class AppRestBuilds {
     }
   }
 
-  public static class BuildLocatorResultingPropertiesPropertyName {
+  public class BuildLocatorResultingPropertiesPropertyName {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -1406,7 +1401,7 @@ public class AppRestBuilds {
     public BuildLocatorResultingPropertiesPropertyName(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/builds/{buildLocator}/resulting-properties/{propertyName}");
+      template = myRestClient.getTemplateBuilder("app/rest/builds/{buildLocator}/resulting-properties/{propertyName}");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -1457,7 +1452,7 @@ public class AppRestBuilds {
     }
   }
 
-  public static class BuildLocatorSourcesFilesFileName {
+  public class BuildLocatorSourcesFilesFileName {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -1486,7 +1481,7 @@ public class AppRestBuilds {
     public BuildLocatorSourcesFilesFileName(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/builds/{buildLocator}/sources/files/{fileName:.+}");
+      template = myRestClient.getTemplateBuilder("app/rest/builds/{buildLocator}/sources/files/{fileName:.+}");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -1542,7 +1537,7 @@ public class AppRestBuilds {
     }
   }
 
-  public static class BuildLocatorStatistics {
+  public class BuildLocatorStatistics {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -1570,7 +1565,7 @@ public class AppRestBuilds {
     public BuildLocatorStatistics(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/builds/{buildLocator}/statistics/");
+      template = myRestClient.getTemplateBuilder("app/rest/builds/{buildLocator}/statistics/");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -1605,7 +1600,7 @@ public class AppRestBuilds {
     }
   }
 
-  public static class BuildLocatorStatisticsName {
+  public class BuildLocatorStatisticsName {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -1634,7 +1629,7 @@ public class AppRestBuilds {
     public BuildLocatorStatisticsName(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/builds/{buildLocator}/statistics/{name}");
+      template = myRestClient.getTemplateBuilder("app/rest/builds/{buildLocator}/statistics/{name}");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -1685,7 +1680,7 @@ public class AppRestBuilds {
     }
   }
 
-  public static class BuildLocatorStatusIcon {
+  public class BuildLocatorStatusIcon {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -1713,7 +1708,7 @@ public class AppRestBuilds {
     public BuildLocatorStatusIcon(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/builds/{buildLocator}/statusIcon");
+      template = myRestClient.getTemplateBuilder("app/rest/builds/{buildLocator}/statusIcon");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -1751,7 +1746,7 @@ public class AppRestBuilds {
     }
   }
 
-  public static class BuildLocatorTags {
+  public class BuildLocatorTags {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -1779,7 +1774,7 @@ public class AppRestBuilds {
     public BuildLocatorTags(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/builds/{buildLocator}/tags/");
+      template = myRestClient.getTemplateBuilder("app/rest/builds/{buildLocator}/tags/");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -1845,7 +1840,7 @@ public class AppRestBuilds {
     }
   }
 
-  public static class BuildLocatorTestOccurrences {
+  public class BuildLocatorTestOccurrences {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -1873,7 +1868,7 @@ public class AppRestBuilds {
     public BuildLocatorTestOccurrences(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/builds/{buildLocator}/testOccurrences");
+      template = myRestClient.getTemplateBuilder("app/rest/builds/{buildLocator}/testOccurrences");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());

@@ -16,21 +16,16 @@ import java.util.Map;
  * These should never be used for non-debug purposes and the API here can change in future versions of
  * TeamCity without any notice.
  */
-public class AppRestDebug {
+public class AppRestDebug extends AbstractAppRest {
   private Client _client;
   private UriBuilder _uriBuilder;
   private Map<String, Object> _templateAndMatrixParameterValues;
 
-  AppRestDebug(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-    _client = client;
-    _uriBuilder = uriBuilder.clone();
-    _templateAndMatrixParameterValues = map;
-  }
-
   /**
    * Create new instance using existing Client instance, and a base URI and any parameters
    */
-  public AppRestDebug(Client client, URI baseUri) {
+  public AppRestDebug(Client client, URI baseUri, TeamcityJetbrainsCom tjc) {
+    super(tjc);
     _client = client;
     _uriBuilder = UriBuilder.fromUri(baseUri);
     _uriBuilder = _uriBuilder.path("/app/rest/debug");
@@ -49,7 +44,7 @@ public class AppRestDebug {
     return new DatabaseTables(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues));
   }
 
-  public static class DatabaseQueryQuery {
+  public class DatabaseQueryQuery {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -77,7 +72,7 @@ public class AppRestDebug {
     public DatabaseQueryQuery(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/debug/database/query/{query}");
+      template = myRestClient.getTemplateBuilder("app/rest/debug/database/query/{query}");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -130,7 +125,7 @@ public class AppRestDebug {
     }
   }
 
-  public static class DatabaseTables {
+  public class DatabaseTables {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -162,7 +157,7 @@ public class AppRestDebug {
     }
   }
 
-  public static class VcsCheckingForChangesQueue {
+  public class VcsCheckingForChangesQueue {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;

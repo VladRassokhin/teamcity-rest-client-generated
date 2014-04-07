@@ -13,21 +13,16 @@ import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AppRestUserGroups {
+public class AppRestUserGroups extends AbstractAppRest {
   private Client _client;
   private UriBuilder _uriBuilder;
   private Map<String, Object> _templateAndMatrixParameterValues;
 
-  AppRestUserGroups(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-    _client = client;
-    _uriBuilder = uriBuilder.clone();
-    _templateAndMatrixParameterValues = map;
-  }
-
   /**
    * Create new instance using existing Client instance, and a base URI and any parameters
    */
-  public AppRestUserGroups(Client client, URI baseUri) {
+  public AppRestUserGroups(Client client, URI baseUri, TeamcityJetbrainsCom tjc) {
+    super(tjc);
     _client = client;
     _uriBuilder = UriBuilder.fromUri(baseUri);
     _uriBuilder = _uriBuilder.path("/app/rest/userGroups");
@@ -78,7 +73,7 @@ public class AppRestUserGroups {
     return new GroupLocatorRolesRoleIdScope(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), grouplocator, roleid, scope);
   }
 
-  public static class GroupLocator {
+  public class GroupLocator {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -106,7 +101,7 @@ public class AppRestUserGroups {
     public GroupLocator(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/userGroups/{groupLocator}");
+      template = myRestClient.getTemplateBuilder("app/rest/userGroups/{groupLocator}");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -156,7 +151,7 @@ public class AppRestUserGroups {
     }
   }
 
-  public static class GroupLocatorRoles {
+  public class GroupLocatorRoles {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -184,7 +179,7 @@ public class AppRestUserGroups {
     public GroupLocatorRoles(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/userGroups/{groupLocator}/roles");
+      template = myRestClient.getTemplateBuilder("app/rest/userGroups/{groupLocator}/roles");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -233,7 +228,7 @@ public class AppRestUserGroups {
     }
   }
 
-  public static class GroupLocatorRolesRoleIdScope {
+  public class GroupLocatorRolesRoleIdScope {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -263,7 +258,7 @@ public class AppRestUserGroups {
     public GroupLocatorRolesRoleIdScope(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/userGroups/{groupLocator}/roles/{roleId}/{scope}");
+      template = myRestClient.getTemplateBuilder("app/rest/userGroups/{groupLocator}/roles/{roleId}/{scope}");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());

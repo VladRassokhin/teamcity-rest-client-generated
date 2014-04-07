@@ -10,21 +10,16 @@ import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AppRestChanges {
+public class AppRestChanges extends AbstractAppRest {
   private Client _client;
   private UriBuilder _uriBuilder;
   private Map<String, Object> _templateAndMatrixParameterValues;
 
-  AppRestChanges(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-    _client = client;
-    _uriBuilder = uriBuilder.clone();
-    _templateAndMatrixParameterValues = map;
-  }
-
   /**
    * Create new instance using existing Client instance, and a base URI and any parameters
    */
-  public AppRestChanges(Client client, URI baseUri) {
+  public AppRestChanges(Client client, URI baseUri, TeamcityJetbrainsCom tjc) {
+    super(tjc);
     _client = client;
     _uriBuilder = UriBuilder.fromUri(baseUri);
     _uriBuilder = _uriBuilder.path("/app/rest/changes");
@@ -101,7 +96,7 @@ public class AppRestChanges {
     return new ChangeLocator(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), changelocator);
   }
 
-  public static class ChangeLocator {
+  public class ChangeLocator {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -129,7 +124,7 @@ public class AppRestChanges {
     public ChangeLocator(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/changes/{changeLocator}");
+      template = myRestClient.getTemplateBuilder("app/rest/changes/{changeLocator}");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -174,7 +169,7 @@ public class AppRestChanges {
     }
   }
 
-  public static class ChangeLocatorAttributes {
+  public class ChangeLocatorAttributes {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -202,7 +197,7 @@ public class AppRestChanges {
     public ChangeLocatorAttributes(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/changes/{changeLocator}/attributes");
+      template = myRestClient.getTemplateBuilder("app/rest/changes/{changeLocator}/attributes");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -240,7 +235,7 @@ public class AppRestChanges {
     }
   }
 
-  public static class ChangeLocatorBuildTypes {
+  public class ChangeLocatorBuildTypes {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -268,7 +263,7 @@ public class AppRestChanges {
     public ChangeLocatorBuildTypes(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/changes/{changeLocator}/buildTypes");
+      template = myRestClient.getTemplateBuilder("app/rest/changes/{changeLocator}/buildTypes");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -330,7 +325,7 @@ public class AppRestChanges {
      */
   }
 
-  public static class ChangeLocatorDuplicates {
+  public class ChangeLocatorDuplicates {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -358,7 +353,7 @@ public class AppRestChanges {
     public ChangeLocatorDuplicates(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/changes/{changeLocator}/duplicates");
+      template = myRestClient.getTemplateBuilder("app/rest/changes/{changeLocator}/duplicates");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -420,7 +415,7 @@ public class AppRestChanges {
      */
   }
 
-  public static class ChangeLocatorField {
+  public class ChangeLocatorField {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -449,7 +444,7 @@ public class AppRestChanges {
     public ChangeLocatorField(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/changes/{changeLocator}/{field}");
+      template = myRestClient.getTemplateBuilder("app/rest/changes/{changeLocator}/{field}");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -500,7 +495,7 @@ public class AppRestChanges {
     }
   }
 
-  public static class ChangeLocatorFirstBuilds {
+  public class ChangeLocatorFirstBuilds {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -528,7 +523,7 @@ public class AppRestChanges {
     public ChangeLocatorFirstBuilds(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/changes/{changeLocator}/firstBuilds");
+      template = myRestClient.getTemplateBuilder("app/rest/changes/{changeLocator}/firstBuilds");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -590,7 +585,7 @@ public class AppRestChanges {
      */
   }
 
-  public static class ChangeLocatorIssues {
+  public class ChangeLocatorIssues {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -618,7 +613,7 @@ public class AppRestChanges {
     public ChangeLocatorIssues(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/changes/{changeLocator}/issues");
+      template = myRestClient.getTemplateBuilder("app/rest/changes/{changeLocator}/issues");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -662,7 +657,7 @@ public class AppRestChanges {
      */
   }
 
-  public static class ChangeLocatorParentChanges {
+  public class ChangeLocatorParentChanges {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -690,7 +685,7 @@ public class AppRestChanges {
     public ChangeLocatorParentChanges(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/changes/{changeLocator}/parentChanges");
+      template = myRestClient.getTemplateBuilder("app/rest/changes/{changeLocator}/parentChanges");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -752,7 +747,7 @@ public class AppRestChanges {
      */
   }
 
-  public static class ChangeLocatorParentRevisions {
+  public class ChangeLocatorParentRevisions {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -780,7 +775,7 @@ public class AppRestChanges {
     public ChangeLocatorParentRevisions(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/changes/{changeLocator}/parentRevisions");
+      template = myRestClient.getTemplateBuilder("app/rest/changes/{changeLocator}/parentRevisions");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -824,7 +819,7 @@ public class AppRestChanges {
      */
   }
 
-  public static class ChangeLocatorVcsRoot {
+  public class ChangeLocatorVcsRoot {
     private Client _client;
     private UriBuilder _uriBuilder;
     private Map<String, Object> _templateAndMatrixParameterValues;
@@ -852,7 +847,7 @@ public class AppRestChanges {
     public ChangeLocatorVcsRoot(Client client, URI uri) {
       _client = client;
       StringBuilder template;
-      template = TeamcityJetbrainsCom.getTemplateBuilder("app/rest/changes/{changeLocator}/vcsRoot");
+      template = myRestClient.getTemplateBuilder("app/rest/changes/{changeLocator}/vcsRoot");
       _uriBuilder = UriBuilder.fromPath(template.toString());
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
       UriTemplate uriTemplate = new UriTemplate(template.toString());
