@@ -43,12 +43,21 @@ class HTTP(val config: ConnectionConfig) : RequestsProcessor {
         if ( headers != null ) {
             val rh = request.getHeaders()
             for ( (k, v) in headers.entrySet() ) {
-                rh.set(k, v)
+                try {
+                    rh.set(k, v)
+                } catch(e: Exception) {
+                    try {
+                        rh.set(k, listOf(v))
+                    } catch(e: Exception) {
+                    }
+                }
             }
         }
 
         request.setParser(parser)
-
+        // Debug ;)
+        request.setConnectTimeout(1000000)
+        request.setReadTimeout(1000000)
         val response = request.setThrowExceptionOnExecuteError(false).execute()!!
 
         return response
