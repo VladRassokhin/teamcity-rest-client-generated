@@ -7185,28 +7185,6 @@ public class TeamcityJetbrainsCom {
         return response.readEntity(PropEntityStep.class);
       }
 
-      public <T> T postJson(Object input, GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response;
-        response = resourceBuilder.build("POST", Entity.entity(input, "application/json")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
-
-      public <T> T postJson(Object input, Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response;
-        response = resourceBuilder.build("POST", Entity.entity(input, "application/json")).invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
-      }
-
       public PropEntitiesStep getAsPropEntitiesStep() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -7226,7 +7204,6 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntitiesStep.class);
       }
-
 
     }
 
@@ -7768,17 +7745,6 @@ public class TeamcityJetbrainsCom {
         return response.readEntity(BuildType.class);
       }
 
-
-      public <T> T putTextPlainAsJson(Object input, GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response;
-        response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
-
       public <T> T putTextPlainAsJson(Object input, Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -7789,23 +7755,6 @@ public class TeamcityJetbrainsCom {
           throwExceptionIfWrongStatus(response);
         }
         return getReturnValue((Class<T>) returnType, response);
-      }
-
-      public <T> T putTextPlainAsJson(Object input, String fields, GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        if (fields == null) {
-        }
-        if (fields != null) {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-        } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
-        }
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response;
-        response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
       }
 
       public <T> T putTextPlainAsJson(Object input, String fields, Class<T> returnType) {
@@ -7922,38 +7871,6 @@ public class TeamcityJetbrainsCom {
       }
 
       /**
-       * Creates new trigger. 'id' attribute is ignored in the submitted descriptor.
-       * Reports error if new trigger cannot be created (e.g. only single trigger of the type is allowed
-       * for a build configuration).
-       */
-      public <T> T postJson(Object input, GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response;
-        response = resourceBuilder.build("POST", Entity.entity(input, "application/json")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
-
-      /**
-       * Creates new trigger. 'id' attribute is ignored in the submitted descriptor.
-       * Reports error if new trigger cannot be created (e.g. only single trigger of the type is allowed
-       * for a build configuration).
-       */
-      public <T> T postJson(Object input, Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response;
-        response = resourceBuilder.build("POST", Entity.entity(input, "application/json")).invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
-      }
-
-      /**
        * Replaces trigger with those sent inthe request.
        */
       public PropEntitiesTrigger putJsonAsPropEntitiesTrigger(PropEntitiesTrigger input) {
@@ -7965,15 +7882,6 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntitiesTrigger.class);
       }
-
-      /**
-       * Replaces trigger with those sent inthe request.
-       */
-
-      /**
-       * Replaces trigger with those sent inthe request.
-       */
-
 
     }
 
@@ -8332,50 +8240,6 @@ public class TeamcityJetbrainsCom {
         return response.readEntity(Files.class);
       }
 
-      /**
-       * Lists files in VCS
-       * Experimental support only
-       */
-      public <T> T getAsJson(Boolean resolveparameters, GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        if (resolveparameters == null) {
-        }
-        if (resolveparameters != null) {
-          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", resolveparameters);
-        } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", null);
-        }
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
-
-      /**
-       * Lists files in VCS
-       * Experimental support only
-       */
-      public <T> T getAsJson(Boolean resolveparameters, Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        if (resolveparameters == null) {
-        }
-        if (resolveparameters != null) {
-          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", resolveparameters);
-        } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", null);
-        }
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
-      }
-
     }
 
     public static class BtLocatorVcsFilesLatestContentpath {
@@ -8461,20 +8325,6 @@ public class TeamcityJetbrainsCom {
        * Gets content of a file form VCS
        * Experimental support only
        */
-      public <T> T getAs(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("*/*");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
-
-      /**
-       * Gets content of a file form VCS
-       * Experimental support only
-       */
       public <T> T getAs(Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -8485,27 +8335,6 @@ public class TeamcityJetbrainsCom {
           throwExceptionIfWrongStatus(response);
         }
         return getReturnValue((Class<T>) returnType, response);
-      }
-
-      /**
-       * Gets content of a file form VCS
-       * Experimental support only
-       */
-      public <T> T getAs(Boolean resolveparameters, GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        if (resolveparameters == null) {
-        }
-        if (resolveparameters != null) {
-          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", resolveparameters);
-        } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", null);
-        }
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("*/*");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
       }
 
       /**
@@ -8657,50 +8486,6 @@ public class TeamcityJetbrainsCom {
         response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(File.class);
-      }
-
-      /**
-       * Gets VCS file details
-       * Experimental support only
-       */
-      public <T> T getAsJson(Boolean resolveparameters, GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        if (resolveparameters == null) {
-        }
-        if (resolveparameters != null) {
-          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", resolveparameters);
-        } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", null);
-        }
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
-
-      /**
-       * Gets VCS file details
-       * Experimental support only
-       */
-      public <T> T getAsJson(Boolean resolveparameters, Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        if (resolveparameters == null) {
-        }
-        if (resolveparameters != null) {
-          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", resolveparameters);
-        } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", null);
-        }
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
       }
 
     }
@@ -8898,7 +8683,6 @@ public class TeamcityJetbrainsCom {
         return response.readEntity(VcsRootEntries.class);
       }
 
-
       public VcsRootEntry postJsonAsVcsRootEntry(VcsRootEntry input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -8907,28 +8691,6 @@ public class TeamcityJetbrainsCom {
         response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "vcs-root-entry"), VcsRootEntry.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(VcsRootEntry.class);
-      }
-
-      public <T> T postJson(Object input, GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response;
-        response = resourceBuilder.build("POST", Entity.entity(input, "application/json")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
-
-      public <T> T postJson(Object input, Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response;
-        response = resourceBuilder.build("POST", Entity.entity(input, "application/json")).invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
       }
 
     }
@@ -9344,156 +9106,6 @@ public class TeamcityJetbrainsCom {
       response = resourceBuilder.build(GET).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(Changes.class);
-    }
-
-    /**
-     * Lists changes by the specified locator
-     */
-    public <T> T getAsJson(String project, String buildtype, String build, String vcsroot, String sincechange, Long start, Integer count, String locator, String fields, GenericType<T> returnType) {
-      UriBuilder localUriBuilder = _uriBuilder.clone();
-      if (project == null) {
-      }
-      if (project != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("project", project);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("project", null);
-      }
-      if (buildtype == null) {
-      }
-      if (buildtype != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("buildType", buildtype);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("buildType", null);
-      }
-      if (build == null) {
-      }
-      if (build != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("build", build);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("build", null);
-      }
-      if (vcsroot == null) {
-      }
-      if (vcsroot != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("vcsRoot", vcsroot);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("vcsRoot", null);
-      }
-      if (sincechange == null) {
-      }
-      if (sincechange != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("sinceChange", sincechange);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("sinceChange", null);
-      }
-      if (start == null) {
-      }
-      if (start != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("start", start);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("start", null);
-      }
-      if (count == null) {
-      }
-      if (count != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("count", count);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("count", null);
-      }
-      if (locator == null) {
-      }
-      if (locator != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
-      }
-      if (fields != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
-      }
-      WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(returnType);
-    }
-
-    /**
-     * Lists changes by the specified locator
-     */
-    public <T> T getAsJson(String project, String buildtype, String build, String vcsroot, String sincechange, Long start, Integer count, String locator, String fields, Class<T> returnType) {
-      UriBuilder localUriBuilder = _uriBuilder.clone();
-      if (project == null) {
-      }
-      if (project != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("project", project);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("project", null);
-      }
-      if (buildtype == null) {
-      }
-      if (buildtype != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("buildType", buildtype);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("buildType", null);
-      }
-      if (build == null) {
-      }
-      if (build != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("build", build);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("build", null);
-      }
-      if (vcsroot == null) {
-      }
-      if (vcsroot != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("vcsRoot", vcsroot);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("vcsRoot", null);
-      }
-      if (sincechange == null) {
-      }
-      if (sincechange != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("sinceChange", sincechange);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("sinceChange", null);
-      }
-      if (start == null) {
-      }
-      if (start != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("start", start);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("start", null);
-      }
-      if (count == null) {
-      }
-      if (count != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("count", count);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("count", null);
-      }
-      if (locator == null) {
-      }
-      if (locator != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
-      }
-      if (fields != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
-      }
-      WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      if (!Response.class.isAssignableFrom(returnType)) {
-        throwExceptionIfWrongStatus(response);
-      }
-      return getReturnValue((Class<T>) returnType, response);
     }
 
     public TeamcityJetbrainsCom.AppRestChanges.ChangeLocatorField changeLocatorField(String changelocator, String field) {
@@ -10617,16 +10229,6 @@ public class TeamcityJetbrainsCom {
         return new TeamcityJetbrainsCom.AppRestDebug.DatabaseQueryQuery(_client, copyUriBuilder, copyMap);
       }
 
-      public <T> T getAsTextPlainCharsetUTF8(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain; charset=UTF-8");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
-
       public <T> T getAsTextPlainCharsetUTF8(Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -10637,30 +10239,6 @@ public class TeamcityJetbrainsCom {
           throwExceptionIfWrongStatus(response);
         }
         return getReturnValue((Class<T>) returnType, response);
-      }
-
-      public <T> T getAsTextPlainCharsetUTF8(String fielddelimiter, Integer count, GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        if (fielddelimiter == null) {
-        }
-        if (fielddelimiter != null) {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fieldDelimiter", fielddelimiter);
-        } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fieldDelimiter", null);
-        }
-        if (count == null) {
-        }
-        if (count != null) {
-          localUriBuilder = localUriBuilder.replaceQueryParam("count", count);
-        } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("count", null);
-        }
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain; charset=UTF-8");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
       }
 
       public <T> T getAsTextPlainCharsetUTF8(String fielddelimiter, Integer count, Class<T> returnType) {
@@ -10711,16 +10289,6 @@ public class TeamcityJetbrainsCom {
         _uriBuilder = UriBuilder.fromUri(baseUri);
         _uriBuilder = _uriBuilder.path("/database/tables");
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
-      }
-
-      public <T> T getAsTextPlainCharsetUTF8(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain; charset=UTF-8");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
       }
 
       public <T> T getAsTextPlainCharsetUTF8(Class<T> returnType) {
@@ -10775,34 +10343,6 @@ public class TeamcityJetbrainsCom {
       /**
        * Experimental use only!
        */
-      public <T> T postAsJson(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response;
-        response = resourceBuilder.build("POST").invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
-
-      /**
-       * Experimental use only!
-       */
-      public <T> T postAsJson(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response;
-        response = resourceBuilder.build("POST").invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
-      }
-
-      /**
-       * Experimental use only!
-       */
       public VcsRootInstances postAsVcsRootInstances(String locator) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (locator == null) {
@@ -10818,48 +10358,6 @@ public class TeamcityJetbrainsCom {
         response = resourceBuilder.build("POST").invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(VcsRootInstances.class);
-      }
-
-      /**
-       * Experimental use only!
-       */
-      public <T> T postAsJson(String locator, GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        if (locator == null) {
-        }
-        if (locator != null) {
-          localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
-        } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
-        }
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response;
-        response = resourceBuilder.build("POST").invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
-
-      /**
-       * Experimental use only!
-       */
-      public <T> T postAsJson(String locator, Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        if (locator == null) {
-        }
-        if (locator != null) {
-          localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
-        } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
-        }
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response;
-        response = resourceBuilder.build("POST").invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
       }
 
     }
@@ -10907,14 +10405,6 @@ public class TeamcityJetbrainsCom {
     /**
      * Experimental, the requests and results returned will change in future versions!
      */
-
-    /**
-     * Experimental, the requests and results returned will change in future versions!
-     */
-
-    /**
-     * Experimental, the requests and results returned will change in future versions!
-     */
     public Investigations getAsInvestigations(String locator, String fields) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
       if (locator == null) {
@@ -10935,58 +10425,6 @@ public class TeamcityJetbrainsCom {
       response = resourceBuilder.build(GET).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(Investigations.class);
-    }
-
-    /**
-     * Experimental, the requests and results returned will change in future versions!
-     */
-    public <T> T getAsJson(String locator, String fields, GenericType<T> returnType) {
-      UriBuilder localUriBuilder = _uriBuilder.clone();
-      if (locator == null) {
-      }
-      if (locator != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
-      }
-      if (fields != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
-      }
-      WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(returnType);
-    }
-
-    /**
-     * Experimental, the requests and results returned will change in future versions!
-     */
-    public <T> T getAsJson(String locator, String fields, Class<T> returnType) {
-      UriBuilder localUriBuilder = _uriBuilder.clone();
-      if (locator == null) {
-      }
-      if (locator != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
-      }
-      if (fields != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
-      }
-      WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      if (!Response.class.isAssignableFrom(returnType)) {
-        throwExceptionIfWrongStatus(response);
-      }
-      return getReturnValue((Class<T>) returnType, response);
     }
 
     public TeamcityJetbrainsCom.AppRestInvestigations.InvestigationLocator investigationLocator(String investigationlocator) {
@@ -11122,14 +10560,6 @@ public class TeamcityJetbrainsCom {
     /**
      * Experimental, the requests and results returned will change in future versions!
      */
-
-    /**
-     * Experimental, the requests and results returned will change in future versions!
-     */
-
-    /**
-     * Experimental, the requests and results returned will change in future versions!
-     */
     public ProblemOccurrences getAsProblemOccurrences(String locator, String fields) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
       if (locator == null) {
@@ -11150,58 +10580,6 @@ public class TeamcityJetbrainsCom {
       response = resourceBuilder.build(GET).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(ProblemOccurrences.class);
-    }
-
-    /**
-     * Experimental, the requests and results returned will change in future versions!
-     */
-    public <T> T getAsJson(String locator, String fields, GenericType<T> returnType) {
-      UriBuilder localUriBuilder = _uriBuilder.clone();
-      if (locator == null) {
-      }
-      if (locator != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
-      }
-      if (fields != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
-      }
-      WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(returnType);
-    }
-
-    /**
-     * Experimental, the requests and results returned will change in future versions!
-     */
-    public <T> T getAsJson(String locator, String fields, Class<T> returnType) {
-      UriBuilder localUriBuilder = _uriBuilder.clone();
-      if (locator == null) {
-      }
-      if (locator != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
-      }
-      if (fields != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
-      }
-      WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      if (!Response.class.isAssignableFrom(returnType)) {
-        throwExceptionIfWrongStatus(response);
-      }
-      return getReturnValue((Class<T>) returnType, response);
     }
 
     public TeamcityJetbrainsCom.AppRestProblemOccurrences.ProblemLocator problemLocator(String problemlocator) {
@@ -11337,14 +10715,6 @@ public class TeamcityJetbrainsCom {
     /**
      * Experimental, the requests and results returned will change in future versions!
      */
-
-    /**
-     * Experimental, the requests and results returned will change in future versions!
-     */
-
-    /**
-     * Experimental, the requests and results returned will change in future versions!
-     */
     public Problems getAsProblems(String locator, String fields) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
       if (locator == null) {
@@ -11365,58 +10735,6 @@ public class TeamcityJetbrainsCom {
       response = resourceBuilder.build(GET).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(Problems.class);
-    }
-
-    /**
-     * Experimental, the requests and results returned will change in future versions!
-     */
-    public <T> T getAsJson(String locator, String fields, GenericType<T> returnType) {
-      UriBuilder localUriBuilder = _uriBuilder.clone();
-      if (locator == null) {
-      }
-      if (locator != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
-      }
-      if (fields != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
-      }
-      WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(returnType);
-    }
-
-    /**
-     * Experimental, the requests and results returned will change in future versions!
-     */
-    public <T> T getAsJson(String locator, String fields, Class<T> returnType) {
-      UriBuilder localUriBuilder = _uriBuilder.clone();
-      if (locator == null) {
-      }
-      if (locator != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
-      }
-      if (fields != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
-      }
-      WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      if (!Response.class.isAssignableFrom(returnType)) {
-        throwExceptionIfWrongStatus(response);
-      }
-      return getReturnValue((Class<T>) returnType, response);
     }
 
     public TeamcityJetbrainsCom.AppRestProblems.ProblemLocator problemLocator(String problemlocator) {
@@ -11562,38 +10880,6 @@ public class TeamcityJetbrainsCom {
       return response.readEntity(Projects.class);
     }
 
-    public <T> T getAsJson(String fields, GenericType<T> returnType) {
-      UriBuilder localUriBuilder = _uriBuilder.clone();
-      if (fields != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
-      }
-      WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(returnType);
-    }
-
-    public <T> T getAsJson(String fields, Class<T> returnType) {
-      UriBuilder localUriBuilder = _uriBuilder.clone();
-      if (fields != null) {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-      } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
-      }
-      WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build(GET).invoke();
-      if (!Response.class.isAssignableFrom(returnType)) {
-        throwExceptionIfWrongStatus(response);
-      }
-      return getReturnValue((Class<T>) returnType, response);
-    }
-
     public Project postJsonAsProject(NewProjectDescription input) {
       WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -11603,27 +10889,7 @@ public class TeamcityJetbrainsCom {
       return response.readEntity(Project.class);
     }
 
-    public <T> T postJson(Object input, GenericType<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build("POST", Entity.entity(input, "application/json")).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(returnType);
-    }
-
-    public <T> T postJson(Object input, Class<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response;
-      response = resourceBuilder.build("POST", Entity.entity(input, "application/json")).invoke();
-      if (!Response.class.isAssignableFrom(returnType)) {
-        throwExceptionIfWrongStatus(response);
-      }
-      return getReturnValue((Class<T>) returnType, response);
-    }
-
-    public <T> T postTextPlainAsJson(Object input, GenericType<T> returnType) {
+    public <T> T postTextPlainAsJson(String input, GenericType<T> returnType) {
       WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
       Response response;
@@ -11878,28 +11144,6 @@ public class TeamcityJetbrainsCom {
         return response.readEntity(AgentPool.class);
       }
 
-      public <T> T postJson(Object input, GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response;
-        response = resourceBuilder.build("POST", Entity.entity(input, "application/json")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
-
-      public <T> T postJson(Object input, Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response;
-        response = resourceBuilder.build("POST", Entity.entity(input, "application/json")).invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
-      }
-
       public AgentPools putJsonAsAgentPools(AgentPools input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -11909,7 +11153,6 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(AgentPools.class);
       }
-
 
     }
 
@@ -12089,16 +11332,6 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public <T> T postTextPlainAsJson(Object input, GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response;
-        response = resourceBuilder.build("POST", Entity.entity(input, "text/plain")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
-
       public <T> T postTextPlainAsJson(Object input, Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -12109,23 +11342,6 @@ public class TeamcityJetbrainsCom {
           throwExceptionIfWrongStatus(response);
         }
         return getReturnValue((Class<T>) returnType, response);
-      }
-
-      public <T> T postTextPlainAsJson(Object input, String fields, GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        if (fields == null) {
-        }
-        if (fields != null) {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-        } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
-        }
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response;
-        response = resourceBuilder.build("POST", Entity.entity(input, "text/plain")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
       }
 
       public <T> T postTextPlainAsJson(Object input, String fields, Class<T> returnType) {
@@ -12163,34 +11379,6 @@ public class TeamcityJetbrainsCom {
       /**
        * Creates a new build configuration by copying existing one.
        */
-      public <T> T postJson(Object input, GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response;
-        response = resourceBuilder.build("POST", Entity.entity(input, "application/json")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
-
-      /**
-       * Creates a new build configuration by copying existing one.
-       */
-      public <T> T postJson(Object input, Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response;
-        response = resourceBuilder.build("POST", Entity.entity(input, "application/json")).invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
-      }
-
-      /**
-       * Creates a new build configuration by copying existing one.
-       */
       public BuildType postJsonAsBuildType(NewBuildTypeDescription input, String fields) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (fields == null) {
@@ -12206,48 +11394,6 @@ public class TeamcityJetbrainsCom {
         response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "newBuildTypeDescription"), NewBuildTypeDescription.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(BuildType.class);
-      }
-
-      /**
-       * Creates a new build configuration by copying existing one.
-       */
-      public <T> T postJson(Object input, String fields, GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        if (fields == null) {
-        }
-        if (fields != null) {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-        } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
-        }
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response;
-        response = resourceBuilder.build("POST", Entity.entity(input, "application/json")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
-
-      /**
-       * Creates a new build configuration by copying existing one.
-       */
-      public <T> T postJson(Object input, String fields, Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        if (fields == null) {
-        }
-        if (fields != null) {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-        } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
-        }
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response;
-        response = resourceBuilder.build("POST", Entity.entity(input, "application/json")).invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
       }
 
     }
