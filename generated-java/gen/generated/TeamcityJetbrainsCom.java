@@ -361,12 +361,8 @@ public class TeamcityJetbrainsCom {
        */
       public ProjectLocatorBtLocatorBuildLocatorField(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/{projectLocator}/{btLocator}/{buildLocator}/{field}");
-        } else {
-          template.append("app/rest/{projectLocator}/{btLocator}/{buildLocator}/{field}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/{projectLocator}/{btLocator}/{buildLocator}/{field}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -563,12 +559,8 @@ public class TeamcityJetbrainsCom {
        */
       public AgentPoolLocator(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/agentPools/{agentPoolLocator}");
-        } else {
-          template.append("app/rest/agentPools/{agentPoolLocator}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/agentPools/{agentPoolLocator}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -648,12 +640,8 @@ public class TeamcityJetbrainsCom {
        */
       public AgentPoolLocatorAgents(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/agentPools/{agentPoolLocator}/agents");
-        } else {
-          template.append("app/rest/agentPools/{agentPoolLocator}/agents");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/agentPools/{agentPoolLocator}/agents");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -740,12 +728,8 @@ public class TeamcityJetbrainsCom {
        */
       public AgentPoolLocatorProjects(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/agentPools/{agentPoolLocator}/projects");
-        } else {
-          template.append("app/rest/agentPools/{agentPoolLocator}/projects");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/agentPools/{agentPoolLocator}/projects");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -846,7 +830,7 @@ public class TeamcityJetbrainsCom {
        */
       public AgentPoolLocatorProjectsProjectLocator(Client client, URI uri) {
         _client = client;
-        StringBuilder template = getTemplateBuilder("app/rest/agentPools/{agentPoolLocator}/projects/{projectLocator}");
+        StringBuilder template = getTemplateBuilder("app/rest/agentPools/{agentPoolLocator}/projects/{projectLocator}");;
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -1019,12 +1003,8 @@ public class TeamcityJetbrainsCom {
        */
       public AgentLocator(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/agents/{agentLocator}");
-        } else {
-          template.append("app/rest/agents/{agentLocator}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/agents/{agentLocator}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -1093,12 +1073,8 @@ public class TeamcityJetbrainsCom {
        */
       public AgentLocatorField(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/agents/{agentLocator}/{field}");
-        } else {
-          template.append("app/rest/agents/{agentLocator}/{field}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/agents/{agentLocator}/{field}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -1187,12 +1163,8 @@ public class TeamcityJetbrainsCom {
        */
       public AgentLocatorPool(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/agents/{agentLocator}/pool");
-        } else {
-          template.append("app/rest/agents/{agentLocator}/pool");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/agents/{agentLocator}/pool");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -1389,12 +1361,8 @@ public class TeamcityJetbrainsCom {
        */
       public BuildLocatorExampleBuildCancelRequest(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildQueue/{buildLocator}/example/buildCancelRequest");
-        } else {
-          template.append("app/rest/buildQueue/{buildLocator}/example/buildCancelRequest");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildQueue/{buildLocator}/example/buildCancelRequest");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -1458,12 +1426,8 @@ public class TeamcityJetbrainsCom {
        */
       public BuildLocatorField(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildQueue/{buildLocator}/{field}");
-        } else {
-          template.append("app/rest/buildQueue/{buildLocator}/{field}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildQueue/{buildLocator}/{field}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -1541,12 +1505,8 @@ public class TeamcityJetbrainsCom {
        */
       public QueuedBuildLocator(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildQueue/{queuedBuildLocator}");
-        } else {
-          template.append("app/rest/buildQueue/{queuedBuildLocator}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildQueue/{queuedBuildLocator}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -1635,12 +1595,8 @@ public class TeamcityJetbrainsCom {
        */
       public QueuedBuildLocatorCompatibleAgents(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildQueue/{queuedBuildLocator}/compatibleAgents");
-        } else {
-          template.append("app/rest/buildQueue/{queuedBuildLocator}/compatibleAgents");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildQueue/{queuedBuildLocator}/compatibleAgents");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -1751,7 +1707,7 @@ public class TeamcityJetbrainsCom {
       localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response responrese;
+      Response response;
       response = resourceBuilder.build(GET).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(Builds.class);
@@ -1872,12 +1828,8 @@ public class TeamcityJetbrainsCom {
        */
       public BuildLocator(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/builds/{buildLocator}");
-        } else {
-          template.append("app/rest/builds/{buildLocator}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/builds/{buildLocator}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -1997,12 +1949,8 @@ public class TeamcityJetbrainsCom {
        */
       public BuildLocatorArtifacts(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/builds/{buildLocator}/artifacts");
-        } else {
-          template.append("app/rest/builds/{buildLocator}/artifacts");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/builds/{buildLocator}/artifacts");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -2075,12 +2023,7 @@ public class TeamcityJetbrainsCom {
        */
       public BuildLocatorArtifactsChildrenpath(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/builds/{buildLocator}/artifacts/children{path:(/.*)?}");
-        } else {
-          template.append("app/rest/builds/{buildLocator}/artifacts/children{path:(/.*)?}");
-        }
+        StringBuilder template = getTemplateBuilder("app/rest/builds/{buildLocator}/artifacts/children{path:(/.*)?}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -2175,12 +2118,7 @@ public class TeamcityJetbrainsCom {
        */
       public BuildLocatorArtifactsContentpath(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/builds/{buildLocator}/artifacts/content{path:(/.*)?}");
-        } else {
-          template.append("app/rest/builds/{buildLocator}/artifacts/content{path:(/.*)?}");
-        }
+        StringBuilder template = getTemplateBuilder("app/rest/builds/{buildLocator}/artifacts/content{path:(/.*)?}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -2279,12 +2217,8 @@ public class TeamcityJetbrainsCom {
        */
       public BuildLocatorArtifactsFilespath(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/builds/{buildLocator}/artifacts/files{path:(/.*)?}");
-        } else {
-          template.append("app/rest/builds/{buildLocator}/artifacts/files{path:(/.*)?}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/builds/{buildLocator}/artifacts/files{path:(/.*)?}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -2368,12 +2302,8 @@ public class TeamcityJetbrainsCom {
        */
       public BuildLocatorArtifactsMetadatapath(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/builds/{buildLocator}/artifacts/metadata{path:(/.*)?}");
-        } else {
-          template.append("app/rest/builds/{buildLocator}/artifacts/metadata{path:(/.*)?}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/builds/{buildLocator}/artifacts/metadata{path:(/.*)?}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -2467,12 +2397,8 @@ public class TeamcityJetbrainsCom {
        */
       public BuildLocatorCanceledInfo(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/builds/{buildLocator}/canceledInfo");
-        } else {
-          template.append("app/rest/builds/{buildLocator}/canceledInfo");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/builds/{buildLocator}/canceledInfo");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -2547,12 +2473,8 @@ public class TeamcityJetbrainsCom {
        */
       public BuildLocatorComment(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/builds/{buildLocator}/comment");
-        } else {
-          template.append("app/rest/builds/{buildLocator}/comment");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/builds/{buildLocator}/comment");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -2623,12 +2545,8 @@ public class TeamcityJetbrainsCom {
        */
       public BuildLocatorExampleBuildCancelRequest(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/builds/{buildLocator}/example/buildCancelRequest");
-        } else {
-          template.append("app/rest/builds/{buildLocator}/example/buildCancelRequest");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/builds/{buildLocator}/example/buildCancelRequest");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -2692,12 +2610,8 @@ public class TeamcityJetbrainsCom {
        */
       public BuildLocatorField(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/builds/{buildLocator}/{field}");
-        } else {
-          template.append("app/rest/builds/{buildLocator}/{field}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/builds/{buildLocator}/{field}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -2775,12 +2689,8 @@ public class TeamcityJetbrainsCom {
        */
       public BuildLocatorPin(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/builds/{buildLocator}/pin/");
-        } else {
-          template.append("app/rest/builds/{buildLocator}/pin/");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/builds/{buildLocator}/pin/");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -2871,12 +2781,8 @@ public class TeamcityJetbrainsCom {
        */
       public BuildLocatorProblemOccurrences(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/builds/{buildLocator}/problemOccurrences");
-        } else {
-          template.append("app/rest/builds/{buildLocator}/problemOccurrences");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/builds/{buildLocator}/problemOccurrences");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -2951,12 +2857,7 @@ public class TeamcityJetbrainsCom {
        */
       public BuildLocatorRelatedIssues(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/builds/{buildLocator}/related-issues");
-        } else {
-          template.append("app/rest/builds/{buildLocator}/related-issues");
-        }
+        StringBuilder template = getTemplateBuilder("app/rest/builds/{buildLocator}/related-issues");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -3031,12 +2932,8 @@ public class TeamcityJetbrainsCom {
        */
       public BuildLocatorRelatedIssues2(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/builds/{buildLocator}/relatedIssues");
-        } else {
-          template.append("app/rest/builds/{buildLocator}/relatedIssues");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/builds/{buildLocator}/relatedIssues");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -3111,12 +3008,8 @@ public class TeamcityJetbrainsCom {
        */
       public BuildLocatorResultingProperties(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/builds/{buildLocator}/resulting-properties/");
-        } else {
-          template.append("app/rest/builds/{buildLocator}/resulting-properties/");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/builds/{buildLocator}/resulting-properties/");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -3180,12 +3073,8 @@ public class TeamcityJetbrainsCom {
        */
       public BuildLocatorResultingPropertiesPropertyName(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/builds/{buildLocator}/resulting-properties/{propertyName}");
-        } else {
-          template.append("app/rest/builds/{buildLocator}/resulting-properties/{propertyName}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/builds/{buildLocator}/resulting-properties/{propertyName}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -3264,12 +3153,8 @@ public class TeamcityJetbrainsCom {
        */
       public BuildLocatorSourcesFilesFileName(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/builds/{buildLocator}/sources/files/{fileName:.+}");
-        } else {
-          template.append("app/rest/builds/{buildLocator}/sources/files/{fileName:.+}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/builds/{buildLocator}/sources/files/{fileName:.+}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -3352,12 +3237,8 @@ public class TeamcityJetbrainsCom {
        */
       public BuildLocatorStatistics(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/builds/{buildLocator}/statistics/");
-        } else {
-          template.append("app/rest/builds/{buildLocator}/statistics/");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/builds/{buildLocator}/statistics/");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -3421,12 +3302,8 @@ public class TeamcityJetbrainsCom {
        */
       public BuildLocatorStatisticsName(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/builds/{buildLocator}/statistics/{name}");
-        } else {
-          template.append("app/rest/builds/{buildLocator}/statistics/{name}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/builds/{buildLocator}/statistics/{name}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -3504,12 +3381,8 @@ public class TeamcityJetbrainsCom {
        */
       public BuildLocatorStatusIcon(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/builds/{buildLocator}/statusIcon");
-        } else {
-          template.append("app/rest/builds/{buildLocator}/statusIcon");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/builds/{buildLocator}/statusIcon");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -3574,12 +3447,8 @@ public class TeamcityJetbrainsCom {
        */
       public BuildLocatorTags(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/builds/{buildLocator}/tags/");
-        } else {
-          template.append("app/rest/builds/{buildLocator}/tags/");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/builds/{buildLocator}/tags/");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -3679,12 +3548,8 @@ public class TeamcityJetbrainsCom {
        */
       public BuildLocatorTestOccurrences(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/builds/{buildLocator}/testOccurrences");
-        } else {
-          template.append("app/rest/builds/{buildLocator}/testOccurrences");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/builds/{buildLocator}/testOccurrences");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -3998,12 +3863,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocator(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -4099,12 +3960,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorAgentRequirements(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/agent-requirements");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/agent-requirements");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/agent-requirements");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -4194,12 +4051,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorAgentRequirementsAgentRequirementLocator(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/agent-requirements/{agentRequirementLocator}");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/agent-requirements/{agentRequirementLocator}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/agent-requirements/{agentRequirementLocator}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -4294,12 +4147,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorArtifactDependencies(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/artifact-dependencies");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/artifact-dependencies");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/artifact-dependencies");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -4389,12 +4238,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorArtifactDependenciesArtifactDepLocator(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/artifact-dependencies/{artifactDepLocator}");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/artifact-dependencies/{artifactDepLocator}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/artifact-dependencies/{artifactDepLocator}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -4489,12 +4334,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorBranches(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/branches");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/branches");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/branches");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -4582,12 +4423,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorBuilds(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/builds");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/builds");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/builds");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -4681,12 +4518,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorBuildsBuildLocator(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/builds/{buildLocator}");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/builds/{buildLocator}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/builds/{buildLocator}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -4781,12 +4614,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorBuildsBuildLocatorField(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/builds/{buildLocator}/{field}");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/builds/{buildLocator}/{field}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/builds/{buildLocator}/{field}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -4882,12 +4711,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorBuildTags(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/buildTags");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/buildTags");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/buildTags");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -4950,12 +4775,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorExampleNewBuildTypeDescription(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/example/newBuildTypeDescription");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/example/newBuildTypeDescription");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/example/newBuildTypeDescription");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -5033,12 +4854,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorFeatures(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/features");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/features");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/features");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -5120,12 +4937,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorFeaturesFeatureId(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/features/{featureId}");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/features/{featureId}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/features/{featureId}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -5222,12 +5035,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorFeaturesFeatureIdName(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/features/{featureId}/{name}");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/features/{featureId}/{name}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/features/{featureId}/{name}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -5335,12 +5144,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorFeaturesFeatureIdParameters(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/features/{featureId}/parameters");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/features/{featureId}/parameters");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/features/{featureId}/parameters");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -5432,12 +5237,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorFeaturesFeatureIdParametersParameterName(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/features/{featureId}/parameters/{parameterName}");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/features/{featureId}/parameters/{parameterName}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/features/{featureId}/parameters/{parameterName}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -5545,12 +5346,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorField(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/{field}");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/{field}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/{field}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -5639,12 +5436,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorInvestigations(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/investigations");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/investigations");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/investigations");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -5719,12 +5512,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorNewBuildTypeDescription(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/newBuildTypeDescription");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/newBuildTypeDescription");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/newBuildTypeDescription");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -5796,12 +5585,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorParameters(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/parameters");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/parameters");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/parameters");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -5927,12 +5712,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorParametersName(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/parameters/{name}");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/parameters/{name}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/parameters/{name}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -6034,12 +5815,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorSettings(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/settings");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/settings");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/settings");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -6112,12 +5889,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorSettingsName(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/settings/{name}");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/settings/{name}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/settings/{name}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -6206,12 +5979,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorSnapshotDependencies(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/snapshot-dependencies");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/snapshot-dependencies");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/snapshot-dependencies");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -6306,12 +6075,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorSnapshotDependenciesSnapshotDepLocator(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/snapshot-dependencies/{snapshotDepLocator}");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/snapshot-dependencies/{snapshotDepLocator}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/snapshot-dependencies/{snapshotDepLocator}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -6406,12 +6171,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorSteps(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/steps");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/steps");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/steps");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -6493,12 +6254,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorStepsStepId(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/steps/{stepId}");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/steps/{stepId}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/steps/{stepId}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -6595,12 +6352,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorStepsStepIdFieldName(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/steps/{stepId}/{fieldName}");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/steps/{stepId}/{fieldName}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/steps/{stepId}/{fieldName}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -6708,12 +6461,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorStepsStepIdParameters(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/steps/{stepId}/parameters");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/steps/{stepId}/parameters");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/steps/{stepId}/parameters");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -6805,12 +6554,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorStepsStepIdParametersParameterName(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/steps/{stepId}/parameters/{parameterName}");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/steps/{stepId}/parameters/{parameterName}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/steps/{stepId}/parameters/{parameterName}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -6917,12 +6662,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorTemplate(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/template");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/template");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/template");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -7028,12 +6769,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorTriggers(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/triggers");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/triggers");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/triggers");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -7123,12 +6860,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorTriggersTriggerLocator(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/triggers/{triggerLocator}");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/triggers/{triggerLocator}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/triggers/{triggerLocator}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -7225,12 +6958,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorTriggersTriggerLocatorFieldName(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/triggers/{triggerLocator}/{fieldName}");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/triggers/{triggerLocator}/{fieldName}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/triggers/{triggerLocator}/{fieldName}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -7338,12 +7067,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorVcsFilesLatestChildrenpath(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/vcs/files/latest/children{path:(/.*)?}");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/vcs/files/latest/children{path:(/.*)?}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/vcs/files/latest/children{path:(/.*)?}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -7452,12 +7177,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorVcsFilesLatestContentpath(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/vcs/files/latest/content{path:(/.*)?}");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/vcs/files/latest/content{path:(/.*)?}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/vcs/files/latest/content{path:(/.*)?}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -7563,12 +7284,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorVcsFilesLatestMetadatapath(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/vcs/files/latest/metadata{path:(/.*)?}");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/vcs/files/latest/metadata{path:(/.*)?}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/vcs/files/latest/metadata{path:(/.*)?}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -7676,12 +7393,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorVcsLabeling(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/vcsLabeling");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/vcsLabeling");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/vcsLabeling");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -7776,12 +7489,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorVcsRootEntries(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/vcs-root-entries");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/vcs-root-entries");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/vcs-root-entries");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -7863,12 +7572,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorVcsRootEntriesId(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/vcs-root-entries/{id}");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/vcs-root-entries/{id}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/vcs-root-entries/{id}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -7964,12 +7669,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorVcsRootEntriesIdCheckoutRules(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/vcs-root-entries/{id}/checkout-rules");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/vcs-root-entries/{id}/checkout-rules");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/vcs-root-entries/{id}/checkout-rules");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -8058,12 +7759,8 @@ public class TeamcityJetbrainsCom {
        */
       public BtLocatorVcsRootInstances(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/buildTypes/{btLocator}/vcs-root-instances");
-        } else {
-          template.append("app/rest/buildTypes/{btLocator}/vcs-root-instances");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/buildTypes/{btLocator}/vcs-root-instances");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -8225,12 +7922,8 @@ public class TeamcityJetbrainsCom {
        */
       public ChangeLocator(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/changes/{changeLocator}");
-        } else {
-          template.append("app/rest/changes/{changeLocator}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/changes/{changeLocator}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -8305,12 +7998,8 @@ public class TeamcityJetbrainsCom {
        */
       public ChangeLocatorAttributes(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/changes/{changeLocator}/attributes");
-        } else {
-          template.append("app/rest/changes/{changeLocator}/attributes");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/changes/{changeLocator}/attributes");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -8376,12 +8065,8 @@ public class TeamcityJetbrainsCom {
        */
       public ChangeLocatorBuildTypes(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/changes/{changeLocator}/buildTypes");
-        } else {
-          template.append("app/rest/changes/{changeLocator}/buildTypes");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/changes/{changeLocator}/buildTypes");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -8473,12 +8158,8 @@ public class TeamcityJetbrainsCom {
        */
       public ChangeLocatorDuplicates(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/changes/{changeLocator}/duplicates");
-        } else {
-          template.append("app/rest/changes/{changeLocator}/duplicates");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/changes/{changeLocator}/duplicates");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -8571,12 +8252,8 @@ public class TeamcityJetbrainsCom {
        */
       public ChangeLocatorField(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/changes/{changeLocator}/{field}");
-        } else {
-          template.append("app/rest/changes/{changeLocator}/{field}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/changes/{changeLocator}/{field}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -8654,12 +8331,8 @@ public class TeamcityJetbrainsCom {
        */
       public ChangeLocatorFirstBuilds(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/changes/{changeLocator}/firstBuilds");
-        } else {
-          template.append("app/rest/changes/{changeLocator}/firstBuilds");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/changes/{changeLocator}/firstBuilds");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -8751,12 +8424,8 @@ public class TeamcityJetbrainsCom {
        */
       public ChangeLocatorIssues(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/changes/{changeLocator}/issues");
-        } else {
-          template.append("app/rest/changes/{changeLocator}/issues");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/changes/{changeLocator}/issues");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -8828,12 +8497,8 @@ public class TeamcityJetbrainsCom {
        */
       public ChangeLocatorParentChanges(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/changes/{changeLocator}/parentChanges");
-        } else {
-          template.append("app/rest/changes/{changeLocator}/parentChanges");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/changes/{changeLocator}/parentChanges");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -8925,12 +8590,8 @@ public class TeamcityJetbrainsCom {
        */
       public ChangeLocatorParentRevisions(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/changes/{changeLocator}/parentRevisions");
-        } else {
-          template.append("app/rest/changes/{changeLocator}/parentRevisions");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/changes/{changeLocator}/parentRevisions");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -9002,12 +8663,8 @@ public class TeamcityJetbrainsCom {
        */
       public ChangeLocatorVcsRoot(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/changes/{changeLocator}/vcsRoot");
-        } else {
-          template.append("app/rest/changes/{changeLocator}/vcsRoot");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/changes/{changeLocator}/vcsRoot");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -9119,12 +8776,8 @@ public class TeamcityJetbrainsCom {
        */
       public DatabaseQueryQuery(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/debug/database/query/{query}");
-        } else {
-          template.append("app/rest/debug/database/query/{query}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/debug/database/query/{query}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -9342,12 +8995,8 @@ public class TeamcityJetbrainsCom {
        */
       public InvestigationLocator(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/investigations/{investigationLocator}");
-        } else {
-          template.append("app/rest/investigations/{investigationLocator}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/investigations/{investigationLocator}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -9475,12 +9124,8 @@ public class TeamcityJetbrainsCom {
        */
       public ProblemLocator(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/problemOccurrences/{problemLocator}");
-        } else {
-          template.append("app/rest/problemOccurrences/{problemLocator}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/problemOccurrences/{problemLocator}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -9608,12 +9253,8 @@ public class TeamcityJetbrainsCom {
        */
       public ProblemLocator(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/problems/{problemLocator}");
-        } else {
-          template.append("app/rest/problems/{problemLocator}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/problems/{problemLocator}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -9816,12 +9457,8 @@ public class TeamcityJetbrainsCom {
        */
       public ProjectLocator(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/projects/{projectLocator}");
-        } else {
-          template.append("app/rest/projects/{projectLocator}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/projects/{projectLocator}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -9901,12 +9538,8 @@ public class TeamcityJetbrainsCom {
        */
       public ProjectLocatorAgentPools(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/projects/{projectLocator}/agentPools");
-        } else {
-          template.append("app/rest/projects/{projectLocator}/agentPools");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/projects/{projectLocator}/agentPools");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -9988,12 +9621,8 @@ public class TeamcityJetbrainsCom {
        */
       public ProjectLocatorAgentPoolsAgentPoolLocator(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/projects/{projectLocator}/agentPools/{agentPoolLocator}");
-        } else {
-          template.append("app/rest/projects/{projectLocator}/agentPools/{agentPoolLocator}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/projects/{projectLocator}/agentPools/{agentPoolLocator}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -10071,12 +9700,8 @@ public class TeamcityJetbrainsCom {
        */
       public ProjectLocatorBuildTypes(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/projects/{projectLocator}/buildTypes");
-        } else {
-          template.append("app/rest/projects/{projectLocator}/buildTypes");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/projects/{projectLocator}/buildTypes");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -10206,12 +9831,8 @@ public class TeamcityJetbrainsCom {
        */
       public ProjectLocatorBuildTypesBtLocator(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/projects/{projectLocator}/buildTypes/{btLocator}");
-        } else {
-          template.append("app/rest/projects/{projectLocator}/buildTypes/{btLocator}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/projects/{projectLocator}/buildTypes/{btLocator}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -10305,12 +9926,8 @@ public class TeamcityJetbrainsCom {
        */
       public ProjectLocatorBuildTypesBtLocatorBuilds(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/projects/{projectLocator}/buildTypes/{btLocator}/builds");
-        } else {
-          template.append("app/rest/projects/{projectLocator}/buildTypes/{btLocator}/builds");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/projects/{projectLocator}/buildTypes/{btLocator}/builds");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -10428,12 +10045,8 @@ public class TeamcityJetbrainsCom {
        */
       public ProjectLocatorBuildTypesBtLocatorBuildsBuildLocator(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/projects/{projectLocator}/buildTypes/{btLocator}/builds/{buildLocator}");
-        } else {
-          template.append("app/rest/projects/{projectLocator}/buildTypes/{btLocator}/builds/{buildLocator}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/projects/{projectLocator}/buildTypes/{btLocator}/builds/{buildLocator}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -10547,12 +10160,8 @@ public class TeamcityJetbrainsCom {
        */
       public ProjectLocatorBuildTypesBtLocatorBuildsBuildLocatorField(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/projects/{projectLocator}/buildTypes/{btLocator}/builds/{buildLocator}/{field}");
-        } else {
-          template.append("app/rest/projects/{projectLocator}/buildTypes/{btLocator}/builds/{buildLocator}/{field}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/projects/{projectLocator}/buildTypes/{btLocator}/builds/{buildLocator}/{field}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -10668,12 +10277,8 @@ public class TeamcityJetbrainsCom {
        */
       public ProjectLocatorBuildTypesBtLocatorField(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/projects/{projectLocator}/buildTypes/{btLocator}/{field}");
-        } else {
-          template.append("app/rest/projects/{projectLocator}/buildTypes/{btLocator}/{field}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/projects/{projectLocator}/buildTypes/{btLocator}/{field}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -10769,12 +10374,8 @@ public class TeamcityJetbrainsCom {
        */
       public ProjectLocatorExampleNewProjectDescription(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/projects/{projectLocator}/example/newProjectDescription");
-        } else {
-          template.append("app/rest/projects/{projectLocator}/example/newProjectDescription");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/projects/{projectLocator}/example/newProjectDescription");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -10860,12 +10461,8 @@ public class TeamcityJetbrainsCom {
        */
       public ProjectLocatorField(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/projects/{projectLocator}/{field}");
-        } else {
-          template.append("app/rest/projects/{projectLocator}/{field}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/projects/{projectLocator}/{field}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -10954,12 +10551,8 @@ public class TeamcityJetbrainsCom {
        */
       public ProjectLocatorNewProjectDescription(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/projects/{projectLocator}/newProjectDescription");
-        } else {
-          template.append("app/rest/projects/{projectLocator}/newProjectDescription");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/projects/{projectLocator}/newProjectDescription");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -11045,12 +10638,8 @@ public class TeamcityJetbrainsCom {
        */
       public ProjectLocatorParameters(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/projects/{projectLocator}/parameters");
-        } else {
-          template.append("app/rest/projects/{projectLocator}/parameters");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/projects/{projectLocator}/parameters");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -11162,12 +10751,8 @@ public class TeamcityJetbrainsCom {
        */
       public ProjectLocatorParametersName(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/projects/{projectLocator}/parameters/{name}");
-        } else {
-          template.append("app/rest/projects/{projectLocator}/parameters/{name}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/projects/{projectLocator}/parameters/{name}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -11269,12 +10854,8 @@ public class TeamcityJetbrainsCom {
        */
       public ProjectLocatorParentProject(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/projects/{projectLocator}/parentProject");
-        } else {
-          template.append("app/rest/projects/{projectLocator}/parentProject");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/projects/{projectLocator}/parentProject");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -11358,12 +10939,8 @@ public class TeamcityJetbrainsCom {
        */
       public ProjectLocatorTemplates(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/projects/{projectLocator}/templates");
-        } else {
-          template.append("app/rest/projects/{projectLocator}/templates");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/projects/{projectLocator}/templates");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -11493,12 +11070,8 @@ public class TeamcityJetbrainsCom {
        */
       public ProjectLocatorTemplatesBtLocator(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/projects/{projectLocator}/templates/{btLocator}");
-        } else {
-          template.append("app/rest/projects/{projectLocator}/templates/{btLocator}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/projects/{projectLocator}/templates/{btLocator}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -11694,12 +11267,8 @@ public class TeamcityJetbrainsCom {
        */
       public Field(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/server/{field}");
-        } else {
-          template.append("app/rest/server/{field}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/server/{field}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -11847,12 +11416,8 @@ public class TeamcityJetbrainsCom {
        */
       public TestLocator(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/testOccurrences/{testLocator}");
-        } else {
-          template.append("app/rest/testOccurrences/{testLocator}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/testOccurrences/{testLocator}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -11985,12 +11550,8 @@ public class TeamcityJetbrainsCom {
        */
       public TestLocator(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/tests/{testLocator}");
-        } else {
-          template.append("app/rest/tests/{testLocator}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/tests/{testLocator}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -12139,12 +11700,8 @@ public class TeamcityJetbrainsCom {
        */
       public GroupLocator(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/userGroups/{groupLocator}");
-        } else {
-          template.append("app/rest/userGroups/{groupLocator}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/userGroups/{groupLocator}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -12224,12 +11781,8 @@ public class TeamcityJetbrainsCom {
        */
       public GroupLocatorRoles(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/userGroups/{groupLocator}/roles");
-        } else {
-          template.append("app/rest/userGroups/{groupLocator}/roles");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/userGroups/{groupLocator}/roles");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -12312,12 +11865,8 @@ public class TeamcityJetbrainsCom {
        */
       public GroupLocatorRolesRoleIdScope(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/userGroups/{groupLocator}/roles/{roleId}/{scope}");
-        } else {
-          template.append("app/rest/userGroups/{groupLocator}/roles/{roleId}/{scope}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/userGroups/{groupLocator}/roles/{roleId}/{scope}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -12531,12 +12080,8 @@ public class TeamcityJetbrainsCom {
        */
       public UserLocator(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/users/{userLocator}");
-        } else {
-          template.append("app/rest/users/{userLocator}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/users/{userLocator}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -12639,12 +12184,8 @@ public class TeamcityJetbrainsCom {
        */
       public UserLocatorField(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/users/{userLocator}/{field}");
-        } else {
-          template.append("app/rest/users/{userLocator}/{field}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/users/{userLocator}/{field}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -12733,12 +12274,8 @@ public class TeamcityJetbrainsCom {
        */
       public UserLocatorGroups(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/users/{userLocator}/groups");
-        } else {
-          template.append("app/rest/users/{userLocator}/groups");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/users/{userLocator}/groups");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -12863,12 +12400,8 @@ public class TeamcityJetbrainsCom {
        */
       public UserLocatorProperties(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/users/{userLocator}/properties");
-        } else {
-          template.append("app/rest/users/{userLocator}/properties");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/users/{userLocator}/properties");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -12932,12 +12465,8 @@ public class TeamcityJetbrainsCom {
        */
       public UserLocatorPropertiesName(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/users/{userLocator}/properties/{name}");
-        } else {
-          template.append("app/rest/users/{userLocator}/properties/{name}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/users/{userLocator}/properties/{name}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -13031,12 +12560,8 @@ public class TeamcityJetbrainsCom {
        */
       public UserLocatorRoles(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/users/{userLocator}/roles");
-        } else {
-          template.append("app/rest/users/{userLocator}/roles");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/users/{userLocator}/roles");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -13127,12 +12652,8 @@ public class TeamcityJetbrainsCom {
        */
       public UserLocatorRolesRoleIdScope(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/users/{userLocator}/roles/{roleId}/{scope}");
-        } else {
-          template.append("app/rest/users/{userLocator}/roles/{roleId}/{scope}");
-        }
+        StringBuilder template;
+        template = getTemplateBuilder("app/rest/users/{userLocator}/roles/{roleId}/{scope}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -13327,12 +12848,7 @@ public class TeamcityJetbrainsCom {
        */
       public VcsRootInstanceLocator(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/vcs-root-instances/{vcsRootInstanceLocator}");
-        } else {
-          template.append("app/rest/vcs-root-instances/{vcsRootInstanceLocator}");
-        }
+        StringBuilder template = getTemplateBuilder("app/rest/vcs-root-instances/{vcsRootInstanceLocator}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -13396,12 +12912,7 @@ public class TeamcityJetbrainsCom {
        */
       public VcsRootInstanceLocatorField(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/vcs-root-instances/{vcsRootInstanceLocator}/{field}");
-        } else {
-          template.append("app/rest/vcs-root-instances/{vcsRootInstanceLocator}/{field}");
-        }
+        StringBuilder template =getTemplateBuilder("app/rest/vcs-root-instances/{vcsRootInstanceLocator}/{field}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -13491,12 +13002,7 @@ public class TeamcityJetbrainsCom {
        */
       public VcsRootInstanceLocatorFilesLatestChildrenpath(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/vcs-root-instances/{vcsRootInstanceLocator}/files/latest/children{path:(/.*)?}");
-        } else {
-          template.append("app/rest/vcs-root-instances/{vcsRootInstanceLocator}/files/latest/children{path:(/.*)?}");
-        }
+        StringBuilder template =getTemplateBuilder("app/rest/vcs-root-instances/{vcsRootInstanceLocator}/files/latest/children{path:(/.*)?}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -13590,12 +13096,7 @@ public class TeamcityJetbrainsCom {
        */
       public VcsRootInstanceLocatorFilesLatestContentpath(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/vcs-root-instances/{vcsRootInstanceLocator}/files/latest/content{path:(/.*)?}");
-        } else {
-          template.append("app/rest/vcs-root-instances/{vcsRootInstanceLocator}/files/latest/content{path:(/.*)?}");
-        }
+        StringBuilder template = getTemplateBuilder("app/rest/vcs-root-instances/{vcsRootInstanceLocator}/files/latest/content{path:(/.*)?}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -13683,12 +13184,7 @@ public class TeamcityJetbrainsCom {
        */
       public VcsRootInstanceLocatorFilesLatestMetadatapath(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/vcs-root-instances/{vcsRootInstanceLocator}/files/latest/metadata{path:(/.*)?}");
-        } else {
-          template.append("app/rest/vcs-root-instances/{vcsRootInstanceLocator}/files/latest/metadata{path:(/.*)?}");
-        }
+        StringBuilder template = getTemplateBuilder("app/rest/vcs-root-instances/{vcsRootInstanceLocator}/files/latest/metadata{path:(/.*)?}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -13781,12 +13277,7 @@ public class TeamcityJetbrainsCom {
        */
       public VcsRootInstanceLocatorProperties(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/vcs-root-instances/{vcsRootInstanceLocator}/properties");
-        } else {
-          template.append("app/rest/vcs-root-instances/{vcsRootInstanceLocator}/properties");
-        }
+        StringBuilder template = getTemplateBuilder("app/rest/vcs-root-instances/{vcsRootInstanceLocator}/properties");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -13849,12 +13340,7 @@ public class TeamcityJetbrainsCom {
        */
       public VcsRootInstanceLocatorRepositoryState(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/vcs-root-instances/{vcsRootInstanceLocator}/repositoryState");
-        } else {
-          template.append("app/rest/vcs-root-instances/{vcsRootInstanceLocator}/repositoryState");
-        }
+        StringBuilder template = getTemplateBuilder("app/rest/vcs-root-instances/{vcsRootInstanceLocator}/repositoryState");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -13926,12 +13412,7 @@ public class TeamcityJetbrainsCom {
        */
       public VcsRootInstanceLocatorRepositoryStateCreationDate(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/vcs-root-instances/{vcsRootInstanceLocator}/repositoryState/creationDate");
-        } else {
-          template.append("app/rest/vcs-root-instances/{vcsRootInstanceLocator}/repositoryState/creationDate");
-        }
+        StringBuilder template = getTemplateBuilder("app/rest/vcs-root-instances/{vcsRootInstanceLocator}/repositoryState/creationDate");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -14082,12 +13563,7 @@ public class TeamcityJetbrainsCom {
        */
       public VcsRootLocator(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/vcs-roots/{vcsRootLocator}");
-        } else {
-          template.append("app/rest/vcs-roots/{vcsRootLocator}");
-        }
+        StringBuilder template = getTemplateBuilder("app/rest/vcs-roots/{vcsRootLocator}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -14156,12 +13632,7 @@ public class TeamcityJetbrainsCom {
        */
       public VcsRootLocatorField(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/vcs-roots/{vcsRootLocator}/{field}");
-        } else {
-          template.append("app/rest/vcs-roots/{vcsRootLocator}/{field}");
-        }
+        StringBuilder template = getTemplateBuilder("app/rest/vcs-roots/{vcsRootLocator}/{field}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -14250,12 +13721,7 @@ public class TeamcityJetbrainsCom {
        */
       public VcsRootLocatorInstances(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/vcs-roots/{vcsRootLocator}/instances");
-        } else {
-          template.append("app/rest/vcs-roots/{vcsRootLocator}/instances");
-        }
+        StringBuilder template = getTemplateBuilder("app/rest/vcs-roots/{vcsRootLocator}/instances");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -14321,12 +13787,7 @@ public class TeamcityJetbrainsCom {
        */
       public VcsRootLocatorInstancesVcsRootInstanceLocator(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/vcs-roots/{vcsRootLocator}/instances/{vcsRootInstanceLocator}");
-        } else {
-          template.append("app/rest/vcs-roots/{vcsRootLocator}/instances/{vcsRootInstanceLocator}");
-        }
+        StringBuilder template = getTemplateBuilder("app/rest/vcs-roots/{vcsRootLocator}/instances/{vcsRootInstanceLocator}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -14413,12 +13874,7 @@ public class TeamcityJetbrainsCom {
        */
       public VcsRootLocatorInstancesVcsRootInstanceLocatorField(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/vcs-roots/{vcsRootLocator}/instances/{vcsRootInstanceLocator}/{field}");
-        } else {
-          template.append("app/rest/vcs-roots/{vcsRootLocator}/instances/{vcsRootInstanceLocator}/{field}");
-        }
+        StringBuilder template = getTemplateBuilder("app/rest/vcs-roots/{vcsRootLocator}/instances/{vcsRootInstanceLocator}/{field}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -14526,12 +13982,7 @@ public class TeamcityJetbrainsCom {
        */
       public VcsRootLocatorInstancesVcsRootInstanceLocatorProperties(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/vcs-roots/{vcsRootLocator}/instances/{vcsRootInstanceLocator}/properties");
-        } else {
-          template.append("app/rest/vcs-roots/{vcsRootLocator}/instances/{vcsRootInstanceLocator}/properties");
-        }
+        StringBuilder template = getTemplateBuilder("app/rest/vcs-roots/{vcsRootLocator}/instances/{vcsRootInstanceLocator}/properties");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -14612,12 +14063,7 @@ public class TeamcityJetbrainsCom {
        */
       public VcsRootLocatorProperties(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/vcs-roots/{vcsRootLocator}/properties");
-        } else {
-          template.append("app/rest/vcs-roots/{vcsRootLocator}/properties");
-        }
+        StringBuilder template = getTemplateBuilder("app/rest/vcs-roots/{vcsRootLocator}/properties");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -14695,12 +14141,7 @@ public class TeamcityJetbrainsCom {
        */
       public VcsRootLocatorPropertiesName(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/vcs-roots/{vcsRootLocator}/properties/{name}");
-        } else {
-          template.append("app/rest/vcs-roots/{vcsRootLocator}/properties/{name}");
-        }
+        StringBuilder template = getTemplateBuilder("app/rest/vcs-roots/{vcsRootLocator}/properties/{name}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
