@@ -1,4 +1,16 @@
 <root>
+    <item name='com.google.api.client.http.HttpExecuteInterceptor void intercept(com.google.api.client.http.HttpRequest) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.api.client.http.HttpHeaders java.util.List&lt;java.lang.String&gt; getHeaderStringValues(java.lang.String)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+  <item name='com.google.api.client.http.HttpRequest'>
+    <annotation name='org.jetbrains.annotations.NotNull'/>
+  </item>
+  <item name='com.google.api.client.http.HttpRequest com.google.api.client.http.HttpHeaders getHeaders()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
     <item name='com.google.api.client.http.HttpRequest com.google.api.client.http.HttpRequest setThrowExceptionOnExecuteError(boolean)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
@@ -9,7 +21,7 @@
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.google.api.client.http.HttpRequestFactory com.google.api.client.http.HttpRequest buildHeadRequest(com.google.api.client.http.GenericUrl)'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
+      <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.google.api.client.http.HttpRequestFactory com.google.api.client.http.HttpRequest buildPatchRequest(com.google.api.client.http.GenericUrl, com.google.api.client.http.HttpContent)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
@@ -21,6 +33,18 @@
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.google.api.client.http.HttpRequestFactory com.google.api.client.http.HttpRequest buildRequest(java.lang.String, com.google.api.client.http.GenericUrl, com.google.api.client.http.HttpContent)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.api.client.http.HttpRequestInitializer void initialize(com.google.api.client.http.HttpRequest) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.api.client.http.HttpResponseInterceptor void interceptResponse(com.google.api.client.http.HttpResponse) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.api.client.http.HttpUnsuccessfulResponseHandler boolean handleResponse(com.google.api.client.http.HttpRequest, com.google.api.client.http.HttpResponse, boolean) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.api.client.http.HttpUnsuccessfulResponseHandler boolean handleResponse(com.google.api.client.http.HttpRequest, com.google.api.client.http.HttpResponse, boolean) 1'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
 </root>
