@@ -265,7 +265,7 @@ public class TeamcityJetbrainsCom {
       _templateAndMatrixParameterValues = new HashMap<String, Object>();
     }
 
-    public String getAsTextPlain() {
+    public String get() {
       WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
       return getAsString(resource);
     }
@@ -309,7 +309,7 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public String getAsTextPlain() {
+      public String get() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         return getAsString(resource);
@@ -469,7 +469,7 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public String getAsTextPlain() {
+      public String get() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         return getAsString(resource);
@@ -500,7 +500,7 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public String getAsTextPlain() {
+      public String get() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         return getAsString(resource);
@@ -914,12 +914,7 @@ public class TeamcityJetbrainsCom {
        */
       public AgentPoolLocatorProjectsProjectLocator(Client client, URI uri) {
         _client = client;
-        StringBuilder template = new StringBuilder(BASE_URI.toString());
-        if (template.charAt((template.length() - 1)) != '/') {
-          template.append("/app/rest/agentPools/{agentPoolLocator}/projects/{projectLocator}");
-        } else {
-          template.append("app/rest/agentPools/{agentPoolLocator}/projects/{projectLocator}");
-        }
+        StringBuilder template = getTemplateBuilder("app/rest/agentPools/{agentPoolLocator}/projects/{projectLocator}");
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -1001,6 +996,16 @@ public class TeamcityJetbrainsCom {
 
     }
 
+  }
+
+  public static StringBuilder getTemplateBuilder(String path) {
+    final String base = BASE_URI.toString();
+    StringBuilder template = new StringBuilder(base);
+    if (!base.endsWith("/")) {
+      template.append("/");
+    }
+    template.append(path);
+    return template;
   }
 
   public static class AppRestAgents {
@@ -1247,7 +1252,7 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public String getAsTextPlain() {
+      public String get() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         return getAsString(resource);
@@ -1659,7 +1664,7 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public String getAsTextPlain() {
+      public String get() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         return getAsString(resource);
@@ -3087,7 +3092,7 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public String getAsTextPlain() {
+      public String get() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         return getAsString(resource);
@@ -3173,7 +3178,7 @@ public class TeamcityJetbrainsCom {
       /**
        * Fetches current build pinned status.
        */
-      public String getAsTextPlain() {
+      public String get() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         return getAsString(resource);
@@ -3617,7 +3622,7 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public String getAsTextPlain() {
+      public String get() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         return getAsString(resource);
@@ -3869,7 +3874,7 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public String getAsTextPlain() {
+      public String get() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         return getAsString(resource);
@@ -5445,7 +5450,7 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public String getAsTextPlain() {
+      public String get() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         return getAsString(resource);
@@ -5914,7 +5919,7 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public String getAsTextPlain() {
+      public String get() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         return getAsString(resource);
@@ -6136,7 +6141,7 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public String getAsTextPlain() {
+      public String get() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         return getAsString(resource);
@@ -6236,7 +6241,7 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public String getAsTextPlain() {
+      public String get() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         return getAsString(resource);
@@ -6681,13 +6686,13 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public String getAsTextPlain() {
+      public String getAsString() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        return getAsString(resource);
+        return TeamcityJetbrainsCom.getAsString(resource);
       }
 
-      public Property get() {
+      public Property getAsProperty() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -6869,7 +6874,7 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public String getAsTextPlain() {
+      public String get() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         return getAsString(resource);
@@ -7407,7 +7412,7 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public String getAsTextPlain() {
+      public String get() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         return getAsString(resource);
@@ -7629,7 +7634,7 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public String getAsTextPlain() {
+      public String get() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         return getAsString(resource);
@@ -8085,7 +8090,7 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public String getAsTextPlain() {
+      public String get() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         return getAsString(resource);
@@ -8876,7 +8881,7 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public String getAsTextPlain() {
+      public String get() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         return getAsString(resource);
@@ -9625,7 +9630,7 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public String getAsTextPlain() {
+      public String get() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         return getAsString(resource);
@@ -11951,7 +11956,7 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public String getAsTextPlain() {
+      public String get() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         return getAsString(resource);
@@ -12058,7 +12063,7 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public String getAsTextPlain() {
+      public String get() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         return getAsString(resource);
@@ -12259,7 +12264,7 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public String getAsTextPlain() {
+      public String get() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         return getAsString(resource);
@@ -12598,14 +12603,13 @@ public class TeamcityJetbrainsCom {
         return getStringValue(response);
       }
 
-
-      public String getAsTextPlain() {
+      public String getAsString() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        return getAsString(resource);
+        return TeamcityJetbrainsCom.getAsString(resource);
       }
 
-      public Property get() {
+      public Property getAsProperty() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -12620,7 +12624,6 @@ public class TeamcityJetbrainsCom {
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         return TeamcityJetbrainsCom.delete(resource);
       }
-
 
     }
 
@@ -13056,7 +13059,7 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public String getAsTextPlain() {
+      public String get() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         return getAsString(resource);
@@ -13205,7 +13208,7 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public String getAsTextPlain() {
+      public String get() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         return getAsString(resource);
@@ -14291,7 +14294,7 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public String getAsTextPlain() {
+      public String get() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         return getAsString(resource);
@@ -14613,7 +14616,7 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public String getAsTextPlain() {
+      public String get() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         return getAsString(resource);
@@ -15114,7 +15117,7 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public String getAsTextPlain() {
+      public String get() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         return getAsString(resource);
@@ -15926,7 +15929,7 @@ public class TeamcityJetbrainsCom {
         return new TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorField(_client, copyUriBuilder, copyMap);
       }
 
-      public String getAsTextPlain() {
+      public String get() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         return getAsString(resource);
@@ -16213,7 +16216,7 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public String getAsTextPlain() {
+      public String get() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         return getAsString(resource);
@@ -16507,7 +16510,7 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public String getAsTextPlain() {
+      public String get() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         return getAsString(resource);
