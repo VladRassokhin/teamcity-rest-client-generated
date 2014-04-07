@@ -424,7 +424,6 @@ public class TeamcityJetbrainsCom {
       }
 
 
-
       public String getAsTextPlain() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -613,7 +612,6 @@ public class TeamcityJetbrainsCom {
       }
 
 
-
       public String getAsTextPlain() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -649,7 +647,6 @@ public class TeamcityJetbrainsCom {
         _uriBuilder = _uriBuilder.path("/version");
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
       }
-
 
 
       public String getAsTextPlain() {
@@ -706,7 +703,6 @@ public class TeamcityJetbrainsCom {
       throwExceptionIfWrongStatus(response);
       return response.readEntity(AgentPools.class);
     }
-
 
 
     public AgentPool postJsonAsAgentPool(AgentPool input) {
@@ -825,9 +821,6 @@ public class TeamcityJetbrainsCom {
       }
 
 
-
-
-
       public AgentPool getAsAgentPool() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -837,6 +830,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(AgentPool.class);
       }
+
       public AgentPool getAsAgentPool(String fields) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (fields == null) {
@@ -853,9 +847,6 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(AgentPool.class);
       }
-
-
-
 
 
     }
@@ -929,6 +920,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(AgentsRef.class);
       }
+
       public AgentsRef getAsAgentsRef(String fields) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (fields == null) {
@@ -945,9 +937,6 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(AgentsRef.class);
       }
-
-
-
 
 
       /**
@@ -1103,6 +1092,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Projects.class);
       }
+
       public Projects getAsProjects(String fields) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (fields == null) {
@@ -1119,9 +1109,6 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Projects.class);
       }
-
-
-
 
 
       /**
@@ -1258,6 +1245,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Project.class);
       }
+
       public Project getAsProject(String fields) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (fields == null) {
@@ -1276,9 +1264,6 @@ public class TeamcityJetbrainsCom {
       }
 
 
-
-
-
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -1287,9 +1272,6 @@ public class TeamcityJetbrainsCom {
         response = resourceBuilder.build("DELETE").invoke();
         return response;
       }
-
-
-
 
 
     }
@@ -1544,6 +1526,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Agent.class);
       }
+
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -1552,9 +1535,6 @@ public class TeamcityJetbrainsCom {
         response = resourceBuilder.build("DELETE").invoke();
         return response;
       }
-
-
-
 
 
     }
@@ -1637,7 +1617,6 @@ public class TeamcityJetbrainsCom {
         copyMap.put("field", field);
         return new TeamcityJetbrainsCom.AppRestAgents.AgentLocatorField(_client, copyUriBuilder, copyMap);
       }
-
 
 
       public String getAsTextPlain() {
@@ -1736,6 +1715,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(AgentPool.class);
       }
+
       public AgentPool getAsAgentPool(String fields) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (fields == null) {
@@ -1752,9 +1732,6 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(AgentPool.class);
       }
-
-
-
 
 
       public AgentPool putJsonAsAgentPool(AgentPool input) {
@@ -2315,7 +2292,6 @@ public class TeamcityJetbrainsCom {
       }
 
 
-
       public String getAsTextPlain() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -2400,9 +2376,6 @@ public class TeamcityJetbrainsCom {
       }
 
 
-
-
-
       public Build postJsonAsBuild(BuildCancelRequest input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -2444,6 +2417,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Build.class);
       }
+
       public Build getAsBuild(String fields) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (fields == null) {
@@ -2460,9 +2434,6 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Build.class);
       }
-
-
-
 
 
     }
@@ -2536,6 +2507,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(AgentsRef.class);
       }
+
       public AgentsRef getAsAgentsRef(String fields) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (fields == null) {
@@ -2552,9 +2524,6 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(AgentsRef.class);
       }
-
-
-
 
 
     }
@@ -3096,9 +3065,6 @@ public class TeamcityJetbrainsCom {
       }
 
 
-
-
-
       public Build postJsonAsBuild(BuildCancelRequest input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -3448,6 +3414,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Files.class);
       }
+
       public Files getAsFiles(Boolean resolveparameters, String locator) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (resolveparameters == null) {
@@ -3868,6 +3835,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(File.class);
       }
+
       public File getAsFile(Boolean resolveparameters, String locator) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (resolveparameters == null) {
@@ -4013,6 +3981,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Comment.class);
       }
+
       public Comment getAsComment(String fields) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (fields == null) {
@@ -4029,9 +3998,6 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Comment.class);
       }
-
-
-
 
 
     }
@@ -4126,9 +4092,6 @@ public class TeamcityJetbrainsCom {
         response = resourceBuilder.build("DELETE").invoke();
         return response;
       }
-
-
-
 
 
     }
@@ -4282,7 +4245,6 @@ public class TeamcityJetbrainsCom {
         copyMap.put("field", field);
         return new TeamcityJetbrainsCom.AppRestBuilds.BuildLocatorField(_client, copyUriBuilder, copyMap);
       }
-
 
 
       public String getAsTextPlain() {
@@ -4506,6 +4468,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(ProblemOccurrences.class);
       }
+
       public ProblemOccurrences getAsProblemOccurrences(String fields) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (fields == null) {
@@ -4522,9 +4485,6 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(ProblemOccurrences.class);
       }
-
-
-
 
 
     }
@@ -4598,6 +4558,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(IssueUsages.class);
       }
+
       public IssueUsages getAsIssueUsages(String fields) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (fields == null) {
@@ -4614,9 +4575,6 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(IssueUsages.class);
       }
-
-
-
 
 
     }
@@ -4690,6 +4648,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(IssueUsages.class);
       }
+
       public IssueUsages getAsIssueUsages(String fields) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (fields == null) {
@@ -4706,9 +4665,6 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(IssueUsages.class);
       }
-
-
-
 
 
     }
@@ -4862,7 +4818,6 @@ public class TeamcityJetbrainsCom {
         copyMap.put("propertyName", propertyname);
         return new TeamcityJetbrainsCom.AppRestBuilds.BuildLocatorResultingPropertiesPropertyName(_client, copyUriBuilder, copyMap);
       }
-
 
 
       public String getAsTextPlain() {
@@ -5131,7 +5086,6 @@ public class TeamcityJetbrainsCom {
         copyMap.put("name", name);
         return new TeamcityJetbrainsCom.AppRestBuilds.BuildLocatorStatisticsName(_client, copyUriBuilder, copyMap);
       }
-
 
 
       public String getAsTextPlain() {
@@ -5481,6 +5435,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(TestOccurrences.class);
       }
+
       public TestOccurrences getAsTestOccurrences(String fields) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (fields == null) {
@@ -5497,9 +5452,6 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(TestOccurrences.class);
       }
-
-
-
 
 
     }
@@ -6004,9 +5956,6 @@ public class TeamcityJetbrainsCom {
       }
 
 
-
-
-
     }
 
     public static class BtLocatorAgentRequirements {
@@ -6078,6 +6027,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntitiesAgentRequirement.class);
       }
+
       /**
        * Creates new agent requirement. 'id' attribute is ignored in the submitted descriptor.
        * Reports error if new requirement cannot be created (e.g. another requirement is present for the
@@ -6256,6 +6206,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntityAgentRequirement.class);
       }
+
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -6264,9 +6215,6 @@ public class TeamcityJetbrainsCom {
         response = resourceBuilder.build("DELETE").invoke();
         return response;
       }
-
-
-
 
 
       public PropEntityAgentRequirement putJsonAsPropEntityAgentRequirement(PropEntityAgentRequirement input) {
@@ -6372,6 +6320,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntitiesArtifactDep.class);
       }
+
       /**
        * Replaces the dependencies to those sent in the request.
        */
@@ -6535,6 +6484,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntityArtifactDep.class);
       }
+
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -6543,9 +6493,6 @@ public class TeamcityJetbrainsCom {
         response = resourceBuilder.build("DELETE").invoke();
         return response;
       }
-
-
-
 
 
       public PropEntityArtifactDep putAsPropEntityArtifactDep(PropEntityArtifactDep input) {
@@ -7222,6 +7169,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Build.class);
       }
+
       public Build getAsBuild(String fields) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (fields == null) {
@@ -7238,9 +7186,6 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Build.class);
       }
-
-
-
 
 
     }
@@ -7342,7 +7287,6 @@ public class TeamcityJetbrainsCom {
         copyMap.put("field", field);
         return new TeamcityJetbrainsCom.AppRestBuildTypes.BtLocatorBuildsBuildLocatorField(_client, copyUriBuilder, copyMap);
       }
-
 
 
       public String getAsTextPlain() {
@@ -7622,6 +7566,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntitiesFeature.class);
       }
+
       public PropEntitiesFeature putJsonAsPropEntitiesFeature(PropEntitiesFeature input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -7743,9 +7688,6 @@ public class TeamcityJetbrainsCom {
         response = resourceBuilder.build("DELETE").invoke();
         return response;
       }
-
-
-
 
 
       public PropEntityFeature putAsPropEntityFeature(PropEntityFeature input) {
@@ -7890,7 +7832,6 @@ public class TeamcityJetbrainsCom {
       }
 
 
-
       public String getAsTextPlain() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -8006,6 +7947,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Properties.class);
       }
+
       public Properties putJsonAsProperties(Properties input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -8139,7 +8081,6 @@ public class TeamcityJetbrainsCom {
       }
 
 
-
       public String getAsTextPlain() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -8256,7 +8197,6 @@ public class TeamcityJetbrainsCom {
       }
 
 
-
       public String getAsTextPlain() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -8353,6 +8293,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Investigations.class);
       }
+
       public Investigations getAsInvestigations(String fields) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (fields == null) {
@@ -8369,9 +8310,6 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Investigations.class);
       }
-
-
-
 
 
     }
@@ -8530,6 +8468,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Properties.class);
       }
+
       public Properties getAsProperties(String locator, String fields) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (locator == null) {
@@ -8697,9 +8636,6 @@ public class TeamcityJetbrainsCom {
         response = resourceBuilder.build("DELETE").invoke();
         return response;
       }
-
-
-
 
 
       public Property postJsonAsProperty(Property input) {
@@ -8882,7 +8818,6 @@ public class TeamcityJetbrainsCom {
       }
 
 
-
       public String getAsTextPlain() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -8904,6 +8839,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Property.class);
       }
+
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -8912,9 +8848,6 @@ public class TeamcityJetbrainsCom {
         response = resourceBuilder.build("DELETE").invoke();
         return response;
       }
-
-
-
 
 
     }
@@ -8988,6 +8921,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Properties.class);
       }
+
       public Properties putJsonAsProperties(Properties input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -9102,7 +9036,6 @@ public class TeamcityJetbrainsCom {
       }
 
 
-
       public String getAsTextPlain() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -9208,6 +9141,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntitiesSnapshotDep.class);
       }
+
       /**
        * Replaces snapshot dependency with those sent in request.
        */
@@ -9386,6 +9320,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntitySnapshotDep.class);
       }
+
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -9394,9 +9329,6 @@ public class TeamcityJetbrainsCom {
         response = resourceBuilder.build("DELETE").invoke();
         return response;
       }
-
-
-
 
 
       public PropEntitySnapshotDep putJsonAsPropEntitySnapshotDep(PropEntitySnapshotDep input) {
@@ -9534,6 +9466,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntitiesStep.class);
       }
+
       public PropEntitiesStep putJsonAsPropEntitiesStep(PropEntitiesStep input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -9656,6 +9589,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntityStep.class);
       }
+
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -9664,9 +9598,6 @@ public class TeamcityJetbrainsCom {
         response = resourceBuilder.build("DELETE").invoke();
         return response;
       }
-
-
-
 
 
       public PropEntityStep putJsonAsPropEntityStep(PropEntityStep input) {
@@ -9802,7 +9733,6 @@ public class TeamcityJetbrainsCom {
       }
 
 
-
       public String getAsTextPlain() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -9918,6 +9848,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Properties.class);
       }
+
       public Properties putJsonAsProperties(Properties input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -10051,7 +9982,6 @@ public class TeamcityJetbrainsCom {
       }
 
 
-
       public String getAsTextPlain() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -10148,6 +10078,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(BuildType.class);
       }
+
       public BuildType getAsBuildType(String fields) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (fields == null) {
@@ -10164,9 +10095,6 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(BuildType.class);
       }
-
-
-
 
 
       public <T> T putTextPlainAsJson(Object input, GenericType<T> returnType) {
@@ -10235,9 +10163,6 @@ public class TeamcityJetbrainsCom {
         response = resourceBuilder.build("DELETE").invoke();
         return response;
       }
-
-
-
 
 
     }
@@ -10311,6 +10236,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntitiesTrigger.class);
       }
+
       /**
        * Creates new trigger. 'id' attribute is ignored in the submitted descriptor.
        * Reports error if new trigger cannot be created (e.g. only single trigger of the type is allowed
@@ -10489,6 +10415,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntityTrigger.class);
       }
+
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -10497,9 +10424,6 @@ public class TeamcityJetbrainsCom {
         response = resourceBuilder.build("DELETE").invoke();
         return response;
       }
-
-
-
 
 
       public PropEntityTrigger putJsonAsPropEntityTrigger(PropEntityTrigger input) {
@@ -10633,7 +10557,6 @@ public class TeamcityJetbrainsCom {
         copyMap.put("fieldName", fieldname);
         return new TeamcityJetbrainsCom.AppRestBuildTypes.BtLocatorTriggersTriggerLocatorFieldName(_client, copyUriBuilder, copyMap);
       }
-
 
 
       public String getAsTextPlain() {
@@ -11363,6 +11286,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(VcsRootEntries.class);
       }
+
       public VcsRootEntries putJsonAsVcsRootEntries(VcsRootEntries input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -11517,6 +11441,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(VcsRootEntry.class);
       }
+
       public VcsRootEntry putJsonAsVcsRootEntry(VcsRootEntry input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -11557,9 +11482,6 @@ public class TeamcityJetbrainsCom {
         response = resourceBuilder.build("DELETE").invoke();
         return response;
       }
-
-
-
 
 
     }
@@ -11642,7 +11564,6 @@ public class TeamcityJetbrainsCom {
         copyMap.put("id", id);
         return new TeamcityJetbrainsCom.AppRestBuildTypes.BtLocatorVcsRootEntriesIdCheckoutRules(_client, copyUriBuilder, copyMap);
       }
-
 
 
       public String getAsTextPlain() {
@@ -12140,6 +12061,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Change.class);
       }
+
       public Change getAsChange(String fields) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (fields == null) {
@@ -12156,9 +12078,6 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Change.class);
       }
-
-
-
 
 
     }
@@ -12556,7 +12475,6 @@ public class TeamcityJetbrainsCom {
         copyMap.put("field", field);
         return new TeamcityJetbrainsCom.AppRestChanges.ChangeLocatorField(_client, copyUriBuilder, copyMap);
       }
-
 
 
       public String getAsTextPlain() {
@@ -13612,6 +13530,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Investigation.class);
       }
+
       public Investigation getAsInvestigation(String fields) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (fields == null) {
@@ -13628,9 +13547,6 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Investigation.class);
       }
-
-
-
 
 
     }
@@ -13835,6 +13751,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(ProblemOccurrence.class);
       }
+
       public ProblemOccurrence getAsProblemOccurrence(String fields) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (fields == null) {
@@ -13851,9 +13768,6 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(ProblemOccurrence.class);
       }
-
-
-
 
 
     }
@@ -14058,6 +13972,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Problem.class);
       }
+
       public Problem getAsProblem(String fields) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (fields == null) {
@@ -14074,9 +13989,6 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Problem.class);
       }
-
-
-
 
 
     }
@@ -14113,7 +14025,6 @@ public class TeamcityJetbrainsCom {
       throwExceptionIfWrongStatus(response);
       return response.readEntity(Projects.class);
     }
-
 
 
     public Projects getAsProjects(String fields) {
@@ -14345,6 +14256,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Project.class);
       }
+
       public Project getAsProject(String fields) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (fields == null) {
@@ -14363,9 +14275,6 @@ public class TeamcityJetbrainsCom {
       }
 
 
-
-
-
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -14374,9 +14283,6 @@ public class TeamcityJetbrainsCom {
         response = resourceBuilder.build("DELETE").invoke();
         return response;
       }
-
-
-
 
 
     }
@@ -14450,6 +14356,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(AgentPools.class);
       }
+
       public AgentPool postJsonAsAgentPool(AgentPool input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -14605,9 +14512,6 @@ public class TeamcityJetbrainsCom {
       }
 
 
-
-
-
     }
 
     public static class ProjectLocatorBuildTypes {
@@ -14679,6 +14583,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(BuildTypes.class);
       }
+
       public BuildTypes getAsBuildTypes(String fields) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (fields == null) {
@@ -14695,9 +14600,6 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(BuildTypes.class);
       }
-
-
-
 
 
       public <T> T postTextPlainAsJson(Object input, GenericType<T> returnType) {
@@ -14951,6 +14853,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(BuildType.class);
       }
+
       public BuildType getAsBuildType(String fields) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (fields == null) {
@@ -14967,9 +14870,6 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(BuildType.class);
       }
-
-
-
 
 
     }
@@ -15499,6 +15399,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Build.class);
       }
+
       public Build getAsBuild(String fields) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (fields == null) {
@@ -15515,9 +15416,6 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Build.class);
       }
-
-
-
 
 
     }
@@ -15640,7 +15538,6 @@ public class TeamcityJetbrainsCom {
       }
 
 
-
       public String getAsTextPlain() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -15752,7 +15649,6 @@ public class TeamcityJetbrainsCom {
         copyMap.put("field", field);
         return new TeamcityJetbrainsCom.AppRestProjects.ProjectLocatorBuildTypesBtLocatorField(_client, copyUriBuilder, copyMap);
       }
-
 
 
       public String getAsTextPlain() {
@@ -16008,7 +15904,6 @@ public class TeamcityJetbrainsCom {
       }
 
 
-
       public String getAsTextPlain() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -16239,6 +16134,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Properties.class);
       }
+
       public Properties getAsProperties(String fields) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (fields == null) {
@@ -16255,9 +16151,6 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Properties.class);
       }
-
-
-
 
 
       public Properties putJsonAsProperties(Properties input) {
@@ -16353,9 +16246,6 @@ public class TeamcityJetbrainsCom {
         response = resourceBuilder.build("DELETE").invoke();
         return response;
       }
-
-
-
 
 
       public Property postJsonAsProperty(Property input) {
@@ -16485,7 +16375,6 @@ public class TeamcityJetbrainsCom {
       }
 
 
-
       public String getAsTextPlain() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -16507,6 +16396,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Property.class);
       }
+
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -16515,9 +16405,6 @@ public class TeamcityJetbrainsCom {
         response = resourceBuilder.build("DELETE").invoke();
         return response;
       }
-
-
-
 
 
     }
@@ -16623,6 +16510,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Project.class);
       }
+
       public Project getAsProject(String fields) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (fields == null) {
@@ -16639,9 +16527,6 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Project.class);
       }
-
-
-
 
 
     }
@@ -16818,6 +16703,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(BuildTypes.class);
       }
+
       public BuildTypes getAsBuildTypes(String fields) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (fields == null) {
@@ -16834,9 +16720,6 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(BuildTypes.class);
       }
-
-
-
 
 
       public <T> T postTextPlainAsJson(Object input, GenericType<T> returnType) {
@@ -16987,6 +16870,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(BuildType.class);
       }
+
       public BuildType getAsBuildType(String fields) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (fields == null) {
@@ -17003,9 +16887,6 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(BuildType.class);
       }
-
-
-
 
 
     }
@@ -17044,7 +16925,6 @@ public class TeamcityJetbrainsCom {
     }
 
 
-
     public TeamcityJetbrainsCom.AppRestServer.Backup backup() {
       return new TeamcityJetbrainsCom.AppRestServer.Backup(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues));
     }
@@ -17078,7 +16958,6 @@ public class TeamcityJetbrainsCom {
         _uriBuilder = _uriBuilder.path("/backup");
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
       }
-
 
 
       public String getAsTextPlain() {
@@ -17310,7 +17189,6 @@ public class TeamcityJetbrainsCom {
         copyMap.put("field", field);
         return new TeamcityJetbrainsCom.AppRestServer.Field(_client, copyUriBuilder, copyMap);
       }
-
 
 
       public String getAsTextPlain() {
@@ -17560,6 +17438,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(TestOccurrence.class);
       }
+
       public TestOccurrence getAsTestOccurrence(String fields) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (fields == null) {
@@ -17576,9 +17455,6 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(TestOccurrence.class);
       }
-
-
-
 
 
     }
@@ -17783,6 +17659,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Test.class);
       }
+
       public Test getAsTest(String fields) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (fields == null) {
@@ -17799,9 +17676,6 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Test.class);
       }
-
-
-
 
 
     }
@@ -17920,7 +17794,6 @@ public class TeamcityJetbrainsCom {
       throwExceptionIfWrongStatus(response);
       return response.readEntity(Groups.class);
     }
-
 
 
     public Groups getAsGroups(String fields) {
@@ -18058,9 +17931,6 @@ public class TeamcityJetbrainsCom {
       }
 
 
-
-
-
       public Group getAsGroup() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -18070,6 +17940,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Group.class);
       }
+
       public Group getAsGroup(String fields) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (fields == null) {
@@ -18086,9 +17957,6 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Group.class);
       }
-
-
-
 
 
     }
@@ -18335,6 +18203,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(RoleAssignment.class);
       }
+
       public RoleAssignment postAsRoleAssignment() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -18375,9 +18244,6 @@ public class TeamcityJetbrainsCom {
         response = resourceBuilder.build("DELETE").invoke();
         return response;
       }
-
-
-
 
 
     }
@@ -18488,7 +18354,6 @@ public class TeamcityJetbrainsCom {
       throwExceptionIfWrongStatus(response);
       return response.readEntity(Users.class);
     }
-
 
 
     public Users getAsUsers(String fields) {
@@ -18642,9 +18507,6 @@ public class TeamcityJetbrainsCom {
       }
 
 
-
-
-
       public User putJsonAsUser(User input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -18739,6 +18601,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(User.class);
       }
+
       public User getAsUser(String fields) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (fields == null) {
@@ -18755,9 +18618,6 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(User.class);
       }
-
-
-
 
 
     }
@@ -18840,7 +18700,6 @@ public class TeamcityJetbrainsCom {
         copyMap.put("field", field);
         return new TeamcityJetbrainsCom.AppRestUsers.UserLocatorField(_client, copyUriBuilder, copyMap);
       }
-
 
 
       public String getAsTextPlain() {
@@ -19127,6 +18986,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Groups.class);
       }
+
       public Groups getAsGroups(String fields) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (fields == null) {
@@ -19143,9 +19003,6 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Groups.class);
       }
-
-
-
 
 
     }
@@ -19301,7 +19158,6 @@ public class TeamcityJetbrainsCom {
       }
 
 
-
       public String getAsTextPlain() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -19335,9 +19191,6 @@ public class TeamcityJetbrainsCom {
         response = resourceBuilder.build("DELETE").invoke();
         return response;
       }
-
-
-
 
 
     }
@@ -19593,6 +19446,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(RoleAssignment.class);
       }
+
       public RoleAssignment putAsRoleAssignment() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -19633,9 +19487,6 @@ public class TeamcityJetbrainsCom {
         response = resourceBuilder.build("DELETE").invoke();
         return response;
       }
-
-
-
 
 
       public Response post() {
@@ -19705,7 +19556,6 @@ public class TeamcityJetbrainsCom {
     }
 
 
-
     public VcsRootInstances getAsVcsRootInstances(String locator) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
       if (locator == null) {
@@ -19723,9 +19573,6 @@ public class TeamcityJetbrainsCom {
       return response.readEntity(VcsRootInstances.class);
     }
 
-    
-
-    
 
     public TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorRepositoryState vcsRootInstanceLocatorRepositoryState(String vcsrootinstancelocator) {
       return new TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorRepositoryState(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), vcsrootinstancelocator);
@@ -19908,7 +19755,6 @@ public class TeamcityJetbrainsCom {
         copyMap.put("field", field);
         return new TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorField(_client, copyUriBuilder, copyMap);
       }
-
 
 
       public String getAsTextPlain() {
@@ -20403,6 +20249,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Entries.class);
       }
+
       public Entries putJsonAsEntries(Entries input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -20584,7 +20431,6 @@ public class TeamcityJetbrainsCom {
     }
 
 
-
     public VcsRoots getAsVcsRoots(String locator) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
       if (locator == null) {
@@ -20706,6 +20552,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(VcsRoot.class);
       }
+
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -21089,7 +20936,6 @@ public class TeamcityJetbrainsCom {
       }
 
 
-
       public String getAsTextPlain() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -21276,6 +21122,7 @@ public class TeamcityJetbrainsCom {
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Properties.class);
       }
+
       public Properties putJsonAsProperties(Properties input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -21316,9 +21163,6 @@ public class TeamcityJetbrainsCom {
         response = resourceBuilder.build("DELETE").invoke();
         return response;
       }
-
-
-
 
 
     }
@@ -21416,7 +21260,6 @@ public class TeamcityJetbrainsCom {
       }
 
 
-
       public String getAsTextPlain() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -21449,7 +21292,6 @@ public class TeamcityJetbrainsCom {
         }
         return response.readEntity(returnType);
       }
-
 
 
     }
