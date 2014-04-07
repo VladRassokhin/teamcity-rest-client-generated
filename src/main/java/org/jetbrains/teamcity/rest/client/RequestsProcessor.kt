@@ -4,6 +4,7 @@ import com.google.api.client.http.HttpContent
 import com.google.api.client.http.HttpResponse
 import com.google.api.client.json.GenericJson
 import com.google.api.client.util.ObjectParser
+import com.google.api.client.http.json.JsonHttpContent
 
 /**
  * @author Vladislav.Rassokhin
@@ -60,4 +61,6 @@ public trait RequestsProcessor {
      * Retrieves [[T]] response of sending a GET request.
      */
     fun getAs<T> (url: String, rtype: Class<T>): T
+
+    fun asJson (data: Any): JsonHttpContent
 }

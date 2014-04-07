@@ -126,4 +126,9 @@ public class TeamCityClientImpl implements TeamCityClient {
     public VcsRootsResource getVcsRootsResource() {
         return new VcsRootsResourceImpl(processor);
     }
+
+    @NotNull
+    public RequestsProcessor getRequestProcessor() {
+        return processor;
+    }
 }

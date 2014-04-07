@@ -3,6 +3,10 @@
 **/
 package jetbrains.teamcity.rest.client.resources;
 
+import jetbrains.teamcity.rest.client.model.*;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 
@@ -12,40 +16,40 @@ public interface VcsRootsResource {
     @POST
     @Consumes({"application/xml", "application/json" })
     @Produces({"application/xml", "application/json" })
-    Response addRoot();
+    VcsRoot addRoot(@NotNull final VcsRoot root);
 
     @GET
     @Produces({"application/xml", "application/json" })
-    Response serveRoots(@QueryParam("locator") String locator);
+    VcsRoots getRoots(@Nullable Locator locator);
+
+    @GET
+    @Produces({"application/xml", "application/json" })
+    @Path("/{vcsRootLocator}")
+    VcsRoot getRoot(@PathParam("vcsRootLocator") Locator locator);
 
     @PUT
     @Consumes("text/plain")
     @Produces("text/plain")
     @Path("/{vcsRootLocator}/properties/{name}")
-    Response putParameter(@PathParam("vcsRootLocator") String vcsRootLocator, @PathParam("name") String name);
+    String setParameter(@PathParam("vcsRootLocator") Locator vcsRootLocator, @PathParam("name") String name);
 
     @GET
     @Produces("text/plain")
     @Path("/{vcsRootLocator}/properties/{name}")
-    Response serveProperty(@PathParam("vcsRootLocator") String vcsRootLocator, @PathParam("name") String name);
+    String getProperty(@PathParam("vcsRootLocator") Locator vcsRootLocator, @PathParam("name") String name);
 
     @DELETE
     @Path("/{vcsRootLocator}/properties/{name}")
-    void deleteParameter(@PathParam("vcsRootLocator") String vcsRootLocator, @PathParam("name") String name);
-
-    @GET
-    @Produces({"application/xml", "application/json" })
-    @Path("/{vcsRootLocator}")
-    Response serveRoot(@PathParam("vcsRootLocator") String vcsRootLocator);
+    void unsetParameter(@PathParam("vcsRootLocator") Locator vcsRootLocator, @PathParam("name") String name);
 
     @DELETE
     @Path("/{vcsRootLocator}")
-    void deleteRoot(@PathParam("vcsRootLocator") String vcsRootLocator);
+    void deleteRoot(@PathParam("vcsRootLocator") Locator vcsRootLocator);
 
     @GET
     @Produces({"application/xml", "application/json" })
     @Path("/{vcsRootLocator}/instances/{vcsRootInstanceLocator}/properties")
-    Response serveRootInstanceProperties(@PathParam("vcsRootInstanceLocator") String vcsRootInstanceLocator, @PathParam("vcsRootLocator") String vcsRootLocator);
+    Properties getRootInstanceProperties(@PathParam("vcsRootInstanceLocator") Locator vcsRootInstanceLocator, @PathParam("vcsRootLocator") Locator vcsRootLocator);
 
     @GET
     @Produces("text/plain")

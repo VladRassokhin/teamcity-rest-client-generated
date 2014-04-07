@@ -40,7 +40,6 @@ import javax.xml.bind.annotation.XmlType;
         "vcsRootInstances"
 })
 public class VcsRoot {
-
     public Project project;
     public Properties properties;
     public HReference vcsRootInstances;
@@ -61,6 +60,6 @@ public class VcsRoot {
     @Key("href")
     public String href;
     @Key("projectLocator")
+    @Deprecated
     public String projectLocator;
-
 }

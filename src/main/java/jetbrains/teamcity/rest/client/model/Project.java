@@ -77,5 +77,4 @@ public class Project {
     public String webUrl;
     @Key("locator")
     public String locator;
-
 }

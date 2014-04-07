@@ -3,6 +3,7 @@ package jetbrains.teamcity.rest.client.model;
 import com.google.api.client.util.Key;
 
 import javax.xml.bind.annotation.XmlType;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -32,6 +33,6 @@ public class Projects {
 
     public List<Project> project;
     @Key("count")
-    public Integer count;
+    public Integer count = 0;
 
 }

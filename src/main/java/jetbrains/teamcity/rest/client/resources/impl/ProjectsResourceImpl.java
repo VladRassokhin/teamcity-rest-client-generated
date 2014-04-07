@@ -3,6 +3,8 @@
  **/
 package jetbrains.teamcity.rest.client.resources.impl;
 
+import jetbrains.teamcity.rest.client.model.Project;
+import jetbrains.teamcity.rest.client.resources.Locator;
 import jetbrains.teamcity.rest.client.resources.ProjectsResource;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.teamcity.rest.client.RequestsProcessor;
@@ -30,160 +32,160 @@ public class ProjectsResourceImpl extends ResourceImpl implements ProjectsResour
     }
 
 
-    public Response createBuildTypeTemplate(String projectLocator, String fields) {
+    public Response createBuildTypeTemplate(Locator locator/*, String fields*/) {
         throw new java.lang.UnsupportedOperationException();
     }
 
 
-    public Response serveTemplatesInProject(String projectLocator, String fields) {
+    public Response serveTemplatesInProject(Locator locator/*, String fields*/) {
         throw new java.lang.UnsupportedOperationException();
     }
 
 
-    public Response createEmptyBuildTypeTemplate(String projectLocator, String fields) {
+    public Response createEmptyBuildTypeTemplate(Locator locator/*, String fields*/) {
         throw new java.lang.UnsupportedOperationException();
     }
 
 
-    public Response serveParameters(String projectLocator, String fields) {
+    public Response serveParameters(Locator locator/*, String fields*/) {
         throw new java.lang.UnsupportedOperationException();
     }
 
 
-    public Response changeAllParameters(String projectLocator, String fields) {
+    public Response changeAllParameters(Locator locator/*, String fields*/) {
         throw new java.lang.UnsupportedOperationException();
     }
 
 
-    public void deleteAllParameters(String projectLocator) {
+    public void deleteAllParameters(Locator locator) {
         throw new java.lang.UnsupportedOperationException();
     }
 
 
-    public Response setParameter(String projectLocator) {
+    public Response setParameter(Locator locator) {
         throw new java.lang.UnsupportedOperationException();
     }
 
 
-    public Response putParameter(String projectLocator, String name) {
+    public Response putParameter(Locator locator, String name) {
         throw new java.lang.UnsupportedOperationException();
     }
 
 
-    public Response getParameterValue(String projectLocator, String name) {
+    public Response getParameterValue(Locator locator, String name) {
         throw new java.lang.UnsupportedOperationException();
     }
 
 
-    public Response getParameter(String projectLocator, String name) {
+    public Response getParameter(Locator locator, String name) {
         throw new java.lang.UnsupportedOperationException();
     }
 
 
-    public void deleteParameter(String projectLocator, String name) {
+    public void deleteParameter(Locator locator, String name) {
         throw new java.lang.UnsupportedOperationException();
     }
 
 
-    public Response serveBuildTypeFieldWithProject(String field, String projectLocator, String btLocator) {
+    public Response serveBuildTypeFieldWithProject(String field, Locator locator, String btLocator) {
         throw new java.lang.UnsupportedOperationException();
     }
 
 
-    public Response serveBuildFieldWithProject(String field, String projectLocator, String btLocator, String buildLocator) {
+    public Response serveBuildFieldWithProject(String field, Locator locator, String btLocator, String buildLocator) {
         throw new java.lang.UnsupportedOperationException();
     }
 
 
-    public Response setParentProject(String projectLocator) {
+    public Response setParentProject(Locator locator) {
         throw new java.lang.UnsupportedOperationException();
     }
 
 
-    public Response getParentProject(String projectLocator, String fields) {
+    public Response getParentProject(Locator locator/*, String fields*/) {
         throw new java.lang.UnsupportedOperationException();
     }
 
 
-    public Response getProjectAgentPools(String projectLocator) {
+    public Response getProjectAgentPools(Locator locator) {
         throw new java.lang.UnsupportedOperationException();
     }
 
 
-    public Response setProjectAgentPools(String projectLocator) {
+    public Response setProjectAgentPools(Locator locator) {
         throw new java.lang.UnsupportedOperationException();
     }
 
 
-    public void getProjectAgentPools(String projectLocator, String agentPoolLocator) {
+    public void getProjectAgentPools(Locator locator, String agentPoolLocator) {
         throw new java.lang.UnsupportedOperationException();
     }
 
 
-    public Response setProjectFiled(String field, String projectLocator) {
+    public Response setProjectFiled(String field, Locator locator) {
         throw new java.lang.UnsupportedOperationException();
     }
 
 
-    public Response serveProjectField(String field, String projectLocator) {
+    public Response serveProjectField(String field, Locator locator) {
         throw new java.lang.UnsupportedOperationException();
     }
 
 
-    public Response serveBuildTypesInProject(String projectLocator, String fields) {
+    public Response serveBuildTypesInProject(Locator locator/*, String fields*/) {
         throw new java.lang.UnsupportedOperationException();
     }
 
 
-    public Response createEmptyBuildType(String projectLocator, String fields) {
+    public Response createEmptyBuildType(Locator locator/*, String fields*/) {
         throw new java.lang.UnsupportedOperationException();
     }
 
 
-    public Response createBuildType(String projectLocator, String fields) {
+    public Response createBuildType(Locator locator/*, String fields*/) {
         throw new java.lang.UnsupportedOperationException();
     }
 
 
-    public Response serveBuildType(String projectLocator, String btLocator, String fields) {
+    public Response serveBuildType(Locator locator, String btLocator/*, String fields*/) {
         throw new java.lang.UnsupportedOperationException();
     }
 
 
-    public Response serveBuildTypeTemplates(String projectLocator, String btLocator, String fields) {
+    public Response serveBuildTypeTemplates(Locator locator, String btLocator/*, String fields*/) {
         throw new java.lang.UnsupportedOperationException();
     }
 
 
-    public Response getExampleNewProjectDescriptionCompatibilityVersion1(String projectLocator, String id) {
+    public Response getExampleNewProjectDescriptionCompatibilityVersion1(Locator locator, String id) {
         throw new java.lang.UnsupportedOperationException();
     }
 
 
-    public Response getExampleNewProjectDescription(String projectLocator, String id) {
+    public Response getExampleNewProjectDescription(Locator locator, String id) {
         throw new java.lang.UnsupportedOperationException();
     }
 
 
-    public Response serveProject(String projectLocator, String fields) {
+    public Project getProject(Locator locator/*, String fields*/) {
+      return processor.getAs("/projects/" + locator.toString(), Project.class);
+    }
+
+
+    public void deleteProject(Locator locator) {
         throw new java.lang.UnsupportedOperationException();
     }
 
 
-    public void deleteProject(String projectLocator) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-
-    public Response serveBuilds(String projectLocator, String btLocator, String status, String triggeredByUser,
+    public Response serveBuilds(Locator plocator, String btLocator, String status, String triggeredByUser,
                                 Boolean includePersonal, Boolean includeCanceled, Boolean onlyPinned, String tag,
                                 String agentName, String sinceBuild, String sinceDate, Long start,
-                                Integer count, String locator, String fields) {
+                                Integer count, String locator/*, String fields*/) {
         throw new java.lang.UnsupportedOperationException();
     }
 
 
-    public Response serveBuildWithProject(String projectLocator, String btLocator, String buildLocator, String fields) {
+    public Response serveBuildWithProject(Locator locator, String btLocator, String buildLocator/*, String fields*/) {
         throw new java.lang.UnsupportedOperationException();
     }
 

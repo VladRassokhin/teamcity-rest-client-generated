@@ -2,7 +2,6 @@ package org.jetbrains.teamcity.rest.client
 
 import com.google.api.client.http.GenericUrl
 import com.google.api.client.http.HttpContent
-import com.google.api.client.http.HttpHeaders
 import com.google.api.client.http.HttpRequestFactory
 import com.google.api.client.http.HttpResponse
 import com.google.api.client.http.javanet.NetHttpTransport
@@ -14,18 +13,16 @@ import com.google.api.client.util.ObjectParser
 import java.util.Collections
 import kotlin.test.assertNotNull
 import org.jetbrains.teamcity.rest.client.RequestsProcessor.Method
+import com.google.api.client.http.json.JsonHttpContent
 
-class HTTP(val root: GenericUrl) : RequestsProcessor {
-
-    class object {
-        private val factory: HttpRequestFactory = NetHttpTransport().createRequestFactory()!!
-        private val parser = JsonObjectParser(JacksonFactory())
+class HTTP(val config: ConnectionConfig) : RequestsProcessor {
+    override fun asJson(data: Any): JsonHttpContent {
+        throw UnsupportedOperationException()
     }
-
-    fun url(path: String): GenericUrl {
-        val url = root.clone()!!
-        url.appendRawPath(path);
-        return url;
+    val root: GenericUrl = GenericUrl(config.getRestUrl())
+    val factory: HttpRequestFactory = NetHttpTransport().createRequestFactory(config.auth)!!
+    class object {
+        private val parser = JsonObjectParser(JacksonFactory())
     }
 
     override fun request(path: String, method: Method, content: HttpContent?, headers: Map<String, String>?, parser: ObjectParser?): HttpResponse {
@@ -34,7 +31,8 @@ class HTTP(val root: GenericUrl) : RequestsProcessor {
             assertNotNull(content, "POST request requires content")
         }
 
-        val url = url(path)
+        val url = config.getUrl(path)
+
         val request = when (method) {
             Method.HEAD -> factory.buildHeadRequest(url)
             Method.GET -> factory.buildGetRequest (url)
@@ -43,11 +41,10 @@ class HTTP(val root: GenericUrl) : RequestsProcessor {
         }
 
         if ( headers != null ) {
-            val httpHeaders = HttpHeaders()
+            val rh = request.getHeaders()
             for ( (k, v) in headers.entrySet() ) {
-                httpHeaders.set(k, v)
+                rh.set(k, v)
             }
-            request.setHeaders(httpHeaders)
         }
 
         request.setParser(parser)
