@@ -29,32 +29,7 @@ public class TeamcityJetbrainsCom {
   public final static URI BASE_URI;
 
   static {
-    URI originalURI = URI.create("http://teamcity.jetbrains.com/");
-    // Look up to see if we have any indirection in the local copy
-    // of META-INF/java-rs-catalog.xml file, assuming it will be in the
-    // oasis:name:tc:entity:xmlns:xml:catalog namespace or similar duck type
-    java.io.InputStream is = TeamcityJetbrainsCom.class.getResourceAsStream("/META-INF/jax-rs-catalog.xml");
-    if (is != null) {
-      try {
-        // Ignore the namespace in the catalog, can't use wildcard until
-        // we are sure we have XPath 2.0
-        String found = javax.xml.xpath.XPathFactory.newInstance().newXPath().evaluate(
-            "/*[name(.) = 'catalog']/*[name(.) = 'uri' and @name ='" + originalURI + "']/@uri",
-            new org.xml.sax.InputSource(is));
-        if (found != null && found.length() > 0) {
-          originalURI = java.net.URI.create(found);
-        }
-
-      } catch (Exception ex) {
-        ex.printStackTrace();
-      } finally {
-        try {
-          is.close();
-        } catch (java.io.IOException e) {
-        }
-      }
-    }
-    BASE_URI = originalURI;
+    BASE_URI = URI.create("http://teamcity.jetbrains.com/");
   }
 
   public static final String GET = "GET";
@@ -737,7 +712,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -827,7 +802,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -999,7 +974,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -1122,7 +1097,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -1196,26 +1171,26 @@ public class TeamcityJetbrainsCom {
       if (includedisconnected != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("includeDisconnected", includedisconnected);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("includeDisconnected", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("includeDisconnected", null);
       }
       if (includeunauthorized == null) {
       }
       if (includeunauthorized != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("includeUnauthorized", includeunauthorized);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("includeUnauthorized", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("includeUnauthorized", null);
       }
       if (locator == null) {
       }
       if (locator != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -1235,26 +1210,26 @@ public class TeamcityJetbrainsCom {
       if (includedisconnected != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("includeDisconnected", includedisconnected);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("includeDisconnected", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("includeDisconnected", null);
       }
       if (includeunauthorized == null) {
       }
       if (includeunauthorized != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("includeUnauthorized", includeunauthorized);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("includeUnauthorized", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("includeUnauthorized", null);
       }
       if (locator == null) {
       }
       if (locator != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -1274,26 +1249,26 @@ public class TeamcityJetbrainsCom {
       if (includedisconnected != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("includeDisconnected", includedisconnected);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("includeDisconnected", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("includeDisconnected", null);
       }
       if (includeunauthorized == null) {
       }
       if (includeunauthorized != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("includeUnauthorized", includeunauthorized);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("includeUnauthorized", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("includeUnauthorized", null);
       }
       if (locator == null) {
       }
       if (locator != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -1574,7 +1549,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -1658,7 +1633,7 @@ public class TeamcityJetbrainsCom {
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -1673,7 +1648,7 @@ public class TeamcityJetbrainsCom {
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -1688,7 +1663,7 @@ public class TeamcityJetbrainsCom {
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -1773,12 +1748,12 @@ public class TeamcityJetbrainsCom {
       if (locator != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       return TeamcityJetbrainsCom.delete(resource);
@@ -1794,12 +1769,12 @@ public class TeamcityJetbrainsCom {
       if (locator != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
@@ -1819,12 +1794,12 @@ public class TeamcityJetbrainsCom {
       if (locator != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
@@ -1866,12 +1841,12 @@ public class TeamcityJetbrainsCom {
       if (locator != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -1891,12 +1866,12 @@ public class TeamcityJetbrainsCom {
       if (locator != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -1916,12 +1891,12 @@ public class TeamcityJetbrainsCom {
       if (locator != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -2224,7 +2199,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -2314,7 +2289,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -2381,96 +2356,96 @@ public class TeamcityJetbrainsCom {
       if (buildtype != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("buildType", buildtype);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("buildType", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("buildType", null);
       }
       if (status == null) {
       }
       if (status != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("status", status);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("status", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("status", null);
       }
       if (triggeredbyuser == null) {
       }
       if (triggeredbyuser != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("triggeredByUser", triggeredbyuser);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("triggeredByUser", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("triggeredByUser", null);
       }
       if (includepersonal == null) {
       }
       if (includepersonal != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("includePersonal", includepersonal);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("includePersonal", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("includePersonal", null);
       }
       if (includecanceled == null) {
       }
       if (includecanceled != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("includeCanceled", includecanceled);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("includeCanceled", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("includeCanceled", null);
       }
       if (onlypinned == null) {
       }
       if (onlypinned != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("onlyPinned", onlypinned);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("onlyPinned", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("onlyPinned", null);
       }
       if (tag == null) {
       }
       if (tag != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("tag", tag);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("tag", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("tag", null);
       }
       if (agentname == null) {
       }
       if (agentname != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("agentName", agentname);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("agentName", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("agentName", null);
       }
       if (sincebuild == null) {
       }
       if (sincebuild != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("sinceBuild", sincebuild);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("sinceBuild", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("sinceBuild", null);
       }
       if (sincedate == null) {
       }
       if (sincedate != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("sinceDate", sincedate);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("sinceDate", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("sinceDate", null);
       }
       if (start == null) {
       }
       if (start != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("start", start);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("start", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("start", null);
       }
       if (count == null) {
       }
       if (count != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("count", count);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("count", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("count", null);
       }
       if (locator == null) {
       }
       if (locator != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -2490,96 +2465,96 @@ public class TeamcityJetbrainsCom {
       if (buildtype != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("buildType", buildtype);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("buildType", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("buildType", null);
       }
       if (status == null) {
       }
       if (status != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("status", status);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("status", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("status", null);
       }
       if (triggeredbyuser == null) {
       }
       if (triggeredbyuser != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("triggeredByUser", triggeredbyuser);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("triggeredByUser", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("triggeredByUser", null);
       }
       if (includepersonal == null) {
       }
       if (includepersonal != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("includePersonal", includepersonal);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("includePersonal", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("includePersonal", null);
       }
       if (includecanceled == null) {
       }
       if (includecanceled != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("includeCanceled", includecanceled);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("includeCanceled", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("includeCanceled", null);
       }
       if (onlypinned == null) {
       }
       if (onlypinned != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("onlyPinned", onlypinned);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("onlyPinned", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("onlyPinned", null);
       }
       if (tag == null) {
       }
       if (tag != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("tag", tag);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("tag", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("tag", null);
       }
       if (agentname == null) {
       }
       if (agentname != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("agentName", agentname);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("agentName", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("agentName", null);
       }
       if (sincebuild == null) {
       }
       if (sincebuild != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("sinceBuild", sincebuild);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("sinceBuild", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("sinceBuild", null);
       }
       if (sincedate == null) {
       }
       if (sincedate != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("sinceDate", sincedate);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("sinceDate", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("sinceDate", null);
       }
       if (start == null) {
       }
       if (start != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("start", start);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("start", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("start", null);
       }
       if (count == null) {
       }
       if (count != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("count", count);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("count", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("count", null);
       }
       if (locator == null) {
       }
       if (locator != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -2599,96 +2574,96 @@ public class TeamcityJetbrainsCom {
       if (buildtype != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("buildType", buildtype);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("buildType", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("buildType", null);
       }
       if (status == null) {
       }
       if (status != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("status", status);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("status", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("status", null);
       }
       if (triggeredbyuser == null) {
       }
       if (triggeredbyuser != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("triggeredByUser", triggeredbyuser);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("triggeredByUser", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("triggeredByUser", null);
       }
       if (includepersonal == null) {
       }
       if (includepersonal != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("includePersonal", includepersonal);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("includePersonal", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("includePersonal", null);
       }
       if (includecanceled == null) {
       }
       if (includecanceled != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("includeCanceled", includecanceled);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("includeCanceled", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("includeCanceled", null);
       }
       if (onlypinned == null) {
       }
       if (onlypinned != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("onlyPinned", onlypinned);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("onlyPinned", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("onlyPinned", null);
       }
       if (tag == null) {
       }
       if (tag != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("tag", tag);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("tag", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("tag", null);
       }
       if (agentname == null) {
       }
       if (agentname != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("agentName", agentname);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("agentName", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("agentName", null);
       }
       if (sincebuild == null) {
       }
       if (sincebuild != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("sinceBuild", sincebuild);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("sinceBuild", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("sinceBuild", null);
       }
       if (sincedate == null) {
       }
       if (sincedate != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("sinceDate", sincedate);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("sinceDate", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("sinceDate", null);
       }
       if (start == null) {
       }
       if (start != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("start", start);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("start", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("start", null);
       }
       if (count == null) {
       }
       if (count != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("count", count);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("count", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("count", null);
       }
       if (locator == null) {
       }
       if (locator != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -2894,7 +2869,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("*/*");
@@ -2911,7 +2886,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("*/*");
@@ -2928,7 +2903,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("*/*");
@@ -2997,7 +2972,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -3212,14 +3187,14 @@ public class TeamcityJetbrainsCom {
         if (resolveparameters != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", resolveparameters);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", null);
         }
         if (locator == null) {
         }
         if (locator != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -3236,14 +3211,14 @@ public class TeamcityJetbrainsCom {
         if (resolveparameters != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", resolveparameters);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", null);
         }
         if (locator == null) {
         }
         if (locator != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -3260,14 +3235,14 @@ public class TeamcityJetbrainsCom {
         if (resolveparameters != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", resolveparameters);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", null);
         }
         if (locator == null) {
         }
         if (locator != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -3389,14 +3364,14 @@ public class TeamcityJetbrainsCom {
         if (resolveparameters != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", resolveparameters);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", null);
         }
         if (logbuildusage == null) {
         }
         if (logbuildusage != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("logBuildUsage", logbuildusage);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("logBuildUsage", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("logBuildUsage", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("*/*");
@@ -3413,14 +3388,14 @@ public class TeamcityJetbrainsCom {
         if (resolveparameters != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", resolveparameters);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", null);
         }
         if (logbuildusage == null) {
         }
         if (logbuildusage != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("logBuildUsage", logbuildusage);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("logBuildUsage", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("logBuildUsage", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("*/*");
@@ -3633,14 +3608,14 @@ public class TeamcityJetbrainsCom {
         if (resolveparameters != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", resolveparameters);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", null);
         }
         if (locator == null) {
         }
         if (locator != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -3657,14 +3632,14 @@ public class TeamcityJetbrainsCom {
         if (resolveparameters != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", resolveparameters);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", null);
         }
         if (locator == null) {
         }
         if (locator != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -3681,14 +3656,14 @@ public class TeamcityJetbrainsCom {
         if (resolveparameters != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", resolveparameters);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", null);
         }
         if (locator == null) {
         }
         if (locator != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -3779,7 +3754,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -4251,7 +4226,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -4341,7 +4316,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -4431,7 +4406,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -5187,7 +5162,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -5258,7 +5233,7 @@ public class TeamcityJetbrainsCom {
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -5273,7 +5248,7 @@ public class TeamcityJetbrainsCom {
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -5288,7 +5263,7 @@ public class TeamcityJetbrainsCom {
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -5330,12 +5305,12 @@ public class TeamcityJetbrainsCom {
       if (locator != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -5355,12 +5330,12 @@ public class TeamcityJetbrainsCom {
       if (locator != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -5380,12 +5355,12 @@ public class TeamcityJetbrainsCom {
       if (locator != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -5658,7 +5633,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -6290,7 +6265,7 @@ public class TeamcityJetbrainsCom {
         if (locator != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -6312,7 +6287,7 @@ public class TeamcityJetbrainsCom {
         if (locator != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -6334,7 +6309,7 @@ public class TeamcityJetbrainsCom {
         if (locator != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -6441,91 +6416,91 @@ public class TeamcityJetbrainsCom {
         if (status != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("status", status);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("status", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("status", null);
         }
         if (triggeredbyuser == null) {
         }
         if (triggeredbyuser != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("triggeredByUser", triggeredbyuser);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("triggeredByUser", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("triggeredByUser", null);
         }
         if (includepersonal == null) {
         }
         if (includepersonal != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("includePersonal", includepersonal);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("includePersonal", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("includePersonal", null);
         }
         if (includecanceled == null) {
         }
         if (includecanceled != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("includeCanceled", includecanceled);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("includeCanceled", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("includeCanceled", null);
         }
         if (onlypinned == null) {
         }
         if (onlypinned != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("onlyPinned", onlypinned);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("onlyPinned", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("onlyPinned", null);
         }
         if (tag == null) {
         }
         if (tag != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("tag", tag);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("tag", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("tag", null);
         }
         if (agentname == null) {
         }
         if (agentname != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("agentName", agentname);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("agentName", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("agentName", null);
         }
         if (sincebuild == null) {
         }
         if (sincebuild != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("sinceBuild", sincebuild);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("sinceBuild", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("sinceBuild", null);
         }
         if (sincedate == null) {
         }
         if (sincedate != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("sinceDate", sincedate);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("sinceDate", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("sinceDate", null);
         }
         if (start == null) {
         }
         if (start != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("start", start);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("start", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("start", null);
         }
         if (count == null) {
         }
         if (count != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("count", count);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("count", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("count", null);
         }
         if (locator == null) {
         }
         if (locator != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
         }
         if (fields == null) {
         }
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -6545,91 +6520,91 @@ public class TeamcityJetbrainsCom {
         if (status != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("status", status);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("status", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("status", null);
         }
         if (triggeredbyuser == null) {
         }
         if (triggeredbyuser != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("triggeredByUser", triggeredbyuser);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("triggeredByUser", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("triggeredByUser", null);
         }
         if (includepersonal == null) {
         }
         if (includepersonal != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("includePersonal", includepersonal);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("includePersonal", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("includePersonal", null);
         }
         if (includecanceled == null) {
         }
         if (includecanceled != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("includeCanceled", includecanceled);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("includeCanceled", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("includeCanceled", null);
         }
         if (onlypinned == null) {
         }
         if (onlypinned != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("onlyPinned", onlypinned);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("onlyPinned", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("onlyPinned", null);
         }
         if (tag == null) {
         }
         if (tag != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("tag", tag);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("tag", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("tag", null);
         }
         if (agentname == null) {
         }
         if (agentname != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("agentName", agentname);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("agentName", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("agentName", null);
         }
         if (sincebuild == null) {
         }
         if (sincebuild != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("sinceBuild", sincebuild);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("sinceBuild", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("sinceBuild", null);
         }
         if (sincedate == null) {
         }
         if (sincedate != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("sinceDate", sincedate);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("sinceDate", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("sinceDate", null);
         }
         if (start == null) {
         }
         if (start != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("start", start);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("start", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("start", null);
         }
         if (count == null) {
         }
         if (count != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("count", count);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("count", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("count", null);
         }
         if (locator == null) {
         }
         if (locator != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
         }
         if (fields == null) {
         }
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -6649,91 +6624,91 @@ public class TeamcityJetbrainsCom {
         if (status != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("status", status);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("status", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("status", null);
         }
         if (triggeredbyuser == null) {
         }
         if (triggeredbyuser != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("triggeredByUser", triggeredbyuser);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("triggeredByUser", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("triggeredByUser", null);
         }
         if (includepersonal == null) {
         }
         if (includepersonal != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("includePersonal", includepersonal);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("includePersonal", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("includePersonal", null);
         }
         if (includecanceled == null) {
         }
         if (includecanceled != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("includeCanceled", includecanceled);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("includeCanceled", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("includeCanceled", null);
         }
         if (onlypinned == null) {
         }
         if (onlypinned != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("onlyPinned", onlypinned);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("onlyPinned", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("onlyPinned", null);
         }
         if (tag == null) {
         }
         if (tag != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("tag", tag);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("tag", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("tag", null);
         }
         if (agentname == null) {
         }
         if (agentname != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("agentName", agentname);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("agentName", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("agentName", null);
         }
         if (sincebuild == null) {
         }
         if (sincebuild != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("sinceBuild", sincebuild);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("sinceBuild", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("sinceBuild", null);
         }
         if (sincedate == null) {
         }
         if (sincedate != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("sinceDate", sincedate);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("sinceDate", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("sinceDate", null);
         }
         if (start == null) {
         }
         if (start != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("start", start);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("start", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("start", null);
         }
         if (count == null) {
         }
         if (count != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("count", count);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("count", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("count", null);
         }
         if (locator == null) {
         }
         if (locator != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
         }
         if (fields == null) {
         }
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -6843,7 +6818,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -7902,7 +7877,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -8077,14 +8052,14 @@ public class TeamcityJetbrainsCom {
         if (locator != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
         }
         if (fields == null) {
         }
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -8101,14 +8076,14 @@ public class TeamcityJetbrainsCom {
         if (locator != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
         }
         if (fields == null) {
         }
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -8125,14 +8100,14 @@ public class TeamcityJetbrainsCom {
         if (locator != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
         }
         if (fields == null) {
         }
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -8164,7 +8139,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -8181,7 +8156,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -8198,7 +8173,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -8256,7 +8231,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -8273,7 +8248,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -8290,7 +8265,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -9518,7 +9493,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -9558,7 +9533,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -9575,7 +9550,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -10084,7 +10059,7 @@ public class TeamcityJetbrainsCom {
         if (resolveparameters != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", resolveparameters);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -10105,7 +10080,7 @@ public class TeamcityJetbrainsCom {
         if (resolveparameters != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", resolveparameters);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -10126,7 +10101,7 @@ public class TeamcityJetbrainsCom {
         if (resolveparameters != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", resolveparameters);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -10260,7 +10235,7 @@ public class TeamcityJetbrainsCom {
         if (resolveparameters != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", resolveparameters);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("*/*");
@@ -10281,7 +10256,7 @@ public class TeamcityJetbrainsCom {
         if (resolveparameters != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", resolveparameters);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("*/*");
@@ -10411,7 +10386,7 @@ public class TeamcityJetbrainsCom {
         if (resolveparameters != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", resolveparameters);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -10432,7 +10407,7 @@ public class TeamcityJetbrainsCom {
         if (resolveparameters != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", resolveparameters);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -10453,7 +10428,7 @@ public class TeamcityJetbrainsCom {
         if (resolveparameters != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", resolveparameters);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -11048,61 +11023,61 @@ public class TeamcityJetbrainsCom {
       if (project != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("project", project);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("project", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("project", null);
       }
       if (buildtype == null) {
       }
       if (buildtype != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("buildType", buildtype);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("buildType", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("buildType", null);
       }
       if (build == null) {
       }
       if (build != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("build", build);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("build", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("build", null);
       }
       if (vcsroot == null) {
       }
       if (vcsroot != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("vcsRoot", vcsroot);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("vcsRoot", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("vcsRoot", null);
       }
       if (sincechange == null) {
       }
       if (sincechange != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("sinceChange", sincechange);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("sinceChange", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("sinceChange", null);
       }
       if (start == null) {
       }
       if (start != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("start", start);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("start", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("start", null);
       }
       if (count == null) {
       }
       if (count != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("count", count);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("count", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("count", null);
       }
       if (locator == null) {
       }
       if (locator != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -11122,61 +11097,61 @@ public class TeamcityJetbrainsCom {
       if (project != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("project", project);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("project", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("project", null);
       }
       if (buildtype == null) {
       }
       if (buildtype != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("buildType", buildtype);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("buildType", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("buildType", null);
       }
       if (build == null) {
       }
       if (build != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("build", build);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("build", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("build", null);
       }
       if (vcsroot == null) {
       }
       if (vcsroot != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("vcsRoot", vcsroot);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("vcsRoot", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("vcsRoot", null);
       }
       if (sincechange == null) {
       }
       if (sincechange != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("sinceChange", sincechange);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("sinceChange", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("sinceChange", null);
       }
       if (start == null) {
       }
       if (start != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("start", start);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("start", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("start", null);
       }
       if (count == null) {
       }
       if (count != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("count", count);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("count", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("count", null);
       }
       if (locator == null) {
       }
       if (locator != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -11196,61 +11171,61 @@ public class TeamcityJetbrainsCom {
       if (project != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("project", project);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("project", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("project", null);
       }
       if (buildtype == null) {
       }
       if (buildtype != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("buildType", buildtype);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("buildType", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("buildType", null);
       }
       if (build == null) {
       }
       if (build != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("build", build);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("build", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("build", null);
       }
       if (vcsroot == null) {
       }
       if (vcsroot != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("vcsRoot", vcsroot);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("vcsRoot", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("vcsRoot", null);
       }
       if (sincechange == null) {
       }
       if (sincechange != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("sinceChange", sincechange);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("sinceChange", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("sinceChange", null);
       }
       if (start == null) {
       }
       if (start != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("start", start);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("start", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("start", null);
       }
       if (count == null) {
       }
       if (count != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("count", count);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("count", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("count", null);
       }
       if (locator == null) {
       }
       if (locator != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -11379,7 +11354,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -11570,7 +11545,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -11685,7 +11660,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -11888,7 +11863,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -12088,7 +12063,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -12412,14 +12387,14 @@ public class TeamcityJetbrainsCom {
         if (fielddelimiter != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fieldDelimiter", fielddelimiter);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fieldDelimiter", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fieldDelimiter", null);
         }
         if (count == null) {
         }
         if (count != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("count", count);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("count", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("count", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain; charset=UTF-8");
@@ -12436,14 +12411,14 @@ public class TeamcityJetbrainsCom {
         if (fielddelimiter != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fieldDelimiter", fielddelimiter);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fieldDelimiter", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fieldDelimiter", null);
         }
         if (count == null) {
         }
         if (count != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("count", count);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("count", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("count", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain; charset=UTF-8");
@@ -12576,7 +12551,7 @@ public class TeamcityJetbrainsCom {
         if (locator != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -12596,7 +12571,7 @@ public class TeamcityJetbrainsCom {
         if (locator != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -12616,7 +12591,7 @@ public class TeamcityJetbrainsCom {
         if (locator != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -12688,12 +12663,12 @@ public class TeamcityJetbrainsCom {
       if (locator != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -12713,12 +12688,12 @@ public class TeamcityJetbrainsCom {
       if (locator != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -12738,12 +12713,12 @@ public class TeamcityJetbrainsCom {
       if (locator != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -12836,7 +12811,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -12903,12 +12878,12 @@ public class TeamcityJetbrainsCom {
       if (locator != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -12928,12 +12903,12 @@ public class TeamcityJetbrainsCom {
       if (locator != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -12953,12 +12928,12 @@ public class TeamcityJetbrainsCom {
       if (locator != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -13051,7 +13026,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -13118,12 +13093,12 @@ public class TeamcityJetbrainsCom {
       if (locator != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -13143,12 +13118,12 @@ public class TeamcityJetbrainsCom {
       if (locator != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -13168,12 +13143,12 @@ public class TeamcityJetbrainsCom {
       if (locator != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -13266,7 +13241,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -13318,7 +13293,7 @@ public class TeamcityJetbrainsCom {
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -13333,7 +13308,7 @@ public class TeamcityJetbrainsCom {
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -13348,7 +13323,7 @@ public class TeamcityJetbrainsCom {
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -13544,7 +13519,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -13846,7 +13821,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -13886,7 +13861,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -13903,7 +13878,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -13966,7 +13941,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -13986,7 +13961,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -14006,7 +13981,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -14116,7 +14091,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -14241,91 +14216,91 @@ public class TeamcityJetbrainsCom {
         if (status != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("status", status);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("status", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("status", null);
         }
         if (triggeredbyuser == null) {
         }
         if (triggeredbyuser != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("triggeredByUser", triggeredbyuser);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("triggeredByUser", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("triggeredByUser", null);
         }
         if (includepersonal == null) {
         }
         if (includepersonal != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("includePersonal", includepersonal);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("includePersonal", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("includePersonal", null);
         }
         if (includecanceled == null) {
         }
         if (includecanceled != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("includeCanceled", includecanceled);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("includeCanceled", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("includeCanceled", null);
         }
         if (onlypinned == null) {
         }
         if (onlypinned != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("onlyPinned", onlypinned);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("onlyPinned", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("onlyPinned", null);
         }
         if (tag == null) {
         }
         if (tag != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("tag", tag);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("tag", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("tag", null);
         }
         if (agentname == null) {
         }
         if (agentname != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("agentName", agentname);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("agentName", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("agentName", null);
         }
         if (sincebuild == null) {
         }
         if (sincebuild != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("sinceBuild", sincebuild);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("sinceBuild", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("sinceBuild", null);
         }
         if (sincedate == null) {
         }
         if (sincedate != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("sinceDate", sincedate);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("sinceDate", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("sinceDate", null);
         }
         if (start == null) {
         }
         if (start != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("start", start);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("start", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("start", null);
         }
         if (count == null) {
         }
         if (count != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("count", count);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("count", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("count", null);
         }
         if (locator == null) {
         }
         if (locator != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
         }
         if (fields == null) {
         }
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -14345,91 +14320,91 @@ public class TeamcityJetbrainsCom {
         if (status != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("status", status);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("status", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("status", null);
         }
         if (triggeredbyuser == null) {
         }
         if (triggeredbyuser != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("triggeredByUser", triggeredbyuser);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("triggeredByUser", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("triggeredByUser", null);
         }
         if (includepersonal == null) {
         }
         if (includepersonal != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("includePersonal", includepersonal);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("includePersonal", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("includePersonal", null);
         }
         if (includecanceled == null) {
         }
         if (includecanceled != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("includeCanceled", includecanceled);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("includeCanceled", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("includeCanceled", null);
         }
         if (onlypinned == null) {
         }
         if (onlypinned != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("onlyPinned", onlypinned);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("onlyPinned", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("onlyPinned", null);
         }
         if (tag == null) {
         }
         if (tag != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("tag", tag);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("tag", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("tag", null);
         }
         if (agentname == null) {
         }
         if (agentname != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("agentName", agentname);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("agentName", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("agentName", null);
         }
         if (sincebuild == null) {
         }
         if (sincebuild != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("sinceBuild", sincebuild);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("sinceBuild", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("sinceBuild", null);
         }
         if (sincedate == null) {
         }
         if (sincedate != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("sinceDate", sincedate);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("sinceDate", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("sinceDate", null);
         }
         if (start == null) {
         }
         if (start != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("start", start);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("start", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("start", null);
         }
         if (count == null) {
         }
         if (count != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("count", count);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("count", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("count", null);
         }
         if (locator == null) {
         }
         if (locator != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
         }
         if (fields == null) {
         }
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -14449,91 +14424,91 @@ public class TeamcityJetbrainsCom {
         if (status != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("status", status);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("status", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("status", null);
         }
         if (triggeredbyuser == null) {
         }
         if (triggeredbyuser != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("triggeredByUser", triggeredbyuser);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("triggeredByUser", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("triggeredByUser", null);
         }
         if (includepersonal == null) {
         }
         if (includepersonal != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("includePersonal", includepersonal);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("includePersonal", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("includePersonal", null);
         }
         if (includecanceled == null) {
         }
         if (includecanceled != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("includeCanceled", includecanceled);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("includeCanceled", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("includeCanceled", null);
         }
         if (onlypinned == null) {
         }
         if (onlypinned != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("onlyPinned", onlypinned);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("onlyPinned", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("onlyPinned", null);
         }
         if (tag == null) {
         }
         if (tag != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("tag", tag);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("tag", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("tag", null);
         }
         if (agentname == null) {
         }
         if (agentname != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("agentName", agentname);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("agentName", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("agentName", null);
         }
         if (sincebuild == null) {
         }
         if (sincebuild != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("sinceBuild", sincebuild);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("sinceBuild", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("sinceBuild", null);
         }
         if (sincedate == null) {
         }
         if (sincedate != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("sinceDate", sincedate);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("sinceDate", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("sinceDate", null);
         }
         if (start == null) {
         }
         if (start != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("start", start);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("start", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("start", null);
         }
         if (count == null) {
         }
         if (count != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("count", count);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("count", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("count", null);
         }
         if (locator == null) {
         }
         if (locator != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
         }
         if (fields == null) {
         }
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -14662,7 +14637,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -14996,7 +14971,7 @@ public class TeamcityJetbrainsCom {
         if (id != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("id", id);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("id", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("id", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -15018,7 +14993,7 @@ public class TeamcityJetbrainsCom {
         if (id != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("id", id);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("id", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("id", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -15040,7 +15015,7 @@ public class TeamcityJetbrainsCom {
         if (id != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("id", id);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("id", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("id", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -15248,7 +15223,7 @@ public class TeamcityJetbrainsCom {
         if (id != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("id", id);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("id", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("id", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -15268,7 +15243,7 @@ public class TeamcityJetbrainsCom {
         if (id != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("id", id);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("id", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("id", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -15288,7 +15263,7 @@ public class TeamcityJetbrainsCom {
         if (id != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("id", id);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("id", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("id", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -15379,7 +15354,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -15410,7 +15385,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -15427,7 +15402,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -15444,7 +15419,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -15705,7 +15680,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -15829,7 +15804,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -15849,7 +15824,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -15869,7 +15844,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -15898,7 +15873,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -15938,7 +15913,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -15955,7 +15930,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -16065,7 +16040,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -16153,16 +16128,6 @@ public class TeamcityJetbrainsCom {
         return getAsString(resource);
       }
 
-      public <T> T postAsTextPlain(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build("POST").invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
-
       public <T> T postAsTextPlain(Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -16182,56 +16147,56 @@ public class TeamcityJetbrainsCom {
         if (filename != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fileName", filename);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fileName", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fileName", null);
         }
         if (addtimestamp == null) {
         }
         if (addtimestamp != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("addTimestamp", addtimestamp);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("addTimestamp", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("addTimestamp", null);
         }
         if (includeconfigs == null) {
         }
         if (includeconfigs != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("includeConfigs", includeconfigs);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("includeConfigs", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("includeConfigs", null);
         }
         if (includedatabase == null) {
         }
         if (includedatabase != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("includeDatabase", includedatabase);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("includeDatabase", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("includeDatabase", null);
         }
         if (includebuildlogs == null) {
         }
         if (includebuildlogs != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("includeBuildLogs", includebuildlogs);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("includeBuildLogs", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("includeBuildLogs", null);
         }
         if (includepersonalchanges == null) {
         }
         if (includepersonalchanges != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("includePersonalChanges", includepersonalchanges);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("includePersonalChanges", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("includePersonalChanges", null);
         }
         if (includerunningbuilds == null) {
         }
         if (includerunningbuilds != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("includeRunningBuilds", includerunningbuilds);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("includeRunningBuilds", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("includeRunningBuilds", null);
         }
         if (includesupplimentarydata == null) {
         }
         if (includesupplimentarydata != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("includeSupplimentaryData", includesupplimentarydata);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("includeSupplimentaryData", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("includeSupplimentaryData", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
@@ -16248,56 +16213,56 @@ public class TeamcityJetbrainsCom {
         if (filename != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fileName", filename);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fileName", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fileName", null);
         }
         if (addtimestamp == null) {
         }
         if (addtimestamp != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("addTimestamp", addtimestamp);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("addTimestamp", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("addTimestamp", null);
         }
         if (includeconfigs == null) {
         }
         if (includeconfigs != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("includeConfigs", includeconfigs);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("includeConfigs", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("includeConfigs", null);
         }
         if (includedatabase == null) {
         }
         if (includedatabase != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("includeDatabase", includedatabase);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("includeDatabase", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("includeDatabase", null);
         }
         if (includebuildlogs == null) {
         }
         if (includebuildlogs != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("includeBuildLogs", includebuildlogs);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("includeBuildLogs", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("includeBuildLogs", null);
         }
         if (includepersonalchanges == null) {
         }
         if (includepersonalchanges != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("includePersonalChanges", includepersonalchanges);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("includePersonalChanges", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("includePersonalChanges", null);
         }
         if (includerunningbuilds == null) {
         }
         if (includerunningbuilds != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("includeRunningBuilds", includerunningbuilds);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("includeRunningBuilds", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("includeRunningBuilds", null);
         }
         if (includesupplimentarydata == null) {
         }
         if (includesupplimentarydata != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("includeSupplimentaryData", includesupplimentarydata);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("includeSupplimentaryData", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("includeSupplimentaryData", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
@@ -16467,12 +16432,12 @@ public class TeamcityJetbrainsCom {
       if (locator != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -16492,12 +16457,12 @@ public class TeamcityJetbrainsCom {
       if (locator != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -16517,12 +16482,12 @@ public class TeamcityJetbrainsCom {
       if (locator != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -16615,7 +16580,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -16682,12 +16647,12 @@ public class TeamcityJetbrainsCom {
       if (locator != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -16707,12 +16672,12 @@ public class TeamcityJetbrainsCom {
       if (locator != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -16732,12 +16697,12 @@ public class TeamcityJetbrainsCom {
       if (locator != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
       }
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -16830,7 +16795,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -16901,7 +16866,7 @@ public class TeamcityJetbrainsCom {
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -16916,7 +16881,7 @@ public class TeamcityJetbrainsCom {
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -16931,7 +16896,7 @@ public class TeamcityJetbrainsCom {
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -16958,7 +16923,7 @@ public class TeamcityJetbrainsCom {
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -16973,7 +16938,7 @@ public class TeamcityJetbrainsCom {
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -16988,7 +16953,7 @@ public class TeamcityJetbrainsCom {
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -17096,7 +17061,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -17424,7 +17389,7 @@ public class TeamcityJetbrainsCom {
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("*/*");
@@ -17439,7 +17404,7 @@ public class TeamcityJetbrainsCom {
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("*/*");
@@ -17454,7 +17419,7 @@ public class TeamcityJetbrainsCom {
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("*/*");
@@ -17481,7 +17446,7 @@ public class TeamcityJetbrainsCom {
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -17496,7 +17461,7 @@ public class TeamcityJetbrainsCom {
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -17511,7 +17476,7 @@ public class TeamcityJetbrainsCom {
       if (fields != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -17638,7 +17603,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -17655,7 +17620,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -17672,7 +17637,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -17701,7 +17666,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -17914,7 +17879,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -17931,7 +17896,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -17948,7 +17913,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -17992,7 +17957,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -18012,7 +17977,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -18032,7 +17997,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -18061,7 +18026,7 @@ public class TeamcityJetbrainsCom {
         if (fields != null) {
           localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
         } else {
-          localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
+          localUriBuilder = localUriBuilder.replaceQueryParam("fields", null);
         }
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -18599,7 +18564,7 @@ public class TeamcityJetbrainsCom {
       if (locator != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
@@ -19449,7 +19414,7 @@ public class TeamcityJetbrainsCom {
       if (locator != null) {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       } else {
-        localUriBuilder = localUriBuilder.replaceQueryParam("locator", ((Object[]) null));
+        localUriBuilder = localUriBuilder.replaceQueryParam("locator", null);
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
