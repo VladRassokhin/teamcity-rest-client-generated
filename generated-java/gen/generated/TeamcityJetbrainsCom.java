@@ -510,13 +510,6 @@ public class TeamcityJetbrainsCom {
 
   }
 
-  public static <T> T getReturnValue(Class<T> returnType, Response response) {
-    if (!Response.class.isAssignableFrom(returnType)) {
-      return response.readEntity(returnType);
-    } else {
-      return returnType.cast(response);
-    }
-  }
 
   public static class AppRestAgentPools {
 
@@ -1261,16 +1254,16 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public <T> T putTextPlain(Object input, Class<T> returnType) {
+      public String putTextPlain(String input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
+        if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getStringValue(response);
       }
 
     }
@@ -2533,7 +2526,7 @@ public class TeamcityJetbrainsCom {
         if (!Response.class.isAssignableFrom(returnType)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getReturnValue(returnType, response);
       }
 
       public <T> T getAs(Boolean resolveparameters, Boolean logbuildusage, Class<T> returnType) {
@@ -2559,7 +2552,7 @@ public class TeamcityJetbrainsCom {
         if (!Response.class.isAssignableFrom(returnType)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getReturnValue(returnType, response);
       }
 
     }
@@ -2652,7 +2645,7 @@ public class TeamcityJetbrainsCom {
         if (!Response.class.isAssignableFrom(returnType)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getReturnValue(returnType, response);
       }
 
     }
@@ -2931,7 +2924,7 @@ public class TeamcityJetbrainsCom {
         if (!Response.class.isAssignableFrom(returnType)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getReturnValue(returnType, response);
       }
 
       public Response delete() {
@@ -3174,7 +3167,7 @@ public class TeamcityJetbrainsCom {
         if (!Response.class.isAssignableFrom(returnType)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getReturnValue(returnType, response);
       }
 
       /**
@@ -3198,7 +3191,7 @@ public class TeamcityJetbrainsCom {
         if (!Response.class.isAssignableFrom(returnType)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getReturnValue(returnType, response);
       }
 
     }
@@ -3720,7 +3713,7 @@ public class TeamcityJetbrainsCom {
         if (!Response.class.isAssignableFrom(returnType)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getReturnValue(returnType, response);
       }
 
     }
@@ -3953,7 +3946,7 @@ public class TeamcityJetbrainsCom {
         if (!Response.class.isAssignableFrom(returnType)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getReturnValue(returnType, response);
       }
 
     }
@@ -4021,16 +4014,16 @@ public class TeamcityJetbrainsCom {
       /**
        * Adds a single tag to a build
        */
-      public <T> T postTextPlain(Object input, Class<T> returnType) {
+      public String postTextPlain(Object input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("POST", Entity.entity(input, "text/plain")).invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
+        if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getStringValue(response);
       }
 
       /**
@@ -4192,7 +4185,7 @@ public class TeamcityJetbrainsCom {
       if (!Response.class.isAssignableFrom(returnType)) {
         throwExceptionIfWrongStatus(response);
       }
-      return getReturnValue((Class<T>) returnType, response);
+      return getReturnValue(returnType, response);
     }
 
     public BuildType postJsonAsBuildType(BuildType input, String fields) {
@@ -5928,16 +5921,16 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public <T> T putTextPlain(Object input, Class<T> returnType) {
+      public String putTextPlain(Object input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
+        if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getStringValue(response);
       }
 
     }
@@ -6149,16 +6142,16 @@ public class TeamcityJetbrainsCom {
         return getAsString(resource);
       }
 
-      public <T> T putAsTextPlain(Object input, Class<T> returnType) {
+      public <T> String putAsTextPlain(Object input, Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "*/*")).invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
+        if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getStringValue(response);
       }
 
     }
@@ -6250,16 +6243,16 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public <T> T putTextPlain(Object input, Class<T> returnType) {
+      public String putTextPlain(Object input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
+        if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getStringValue(response);
       }
 
     }
@@ -6675,16 +6668,16 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public <T> T putTextPlain(Object input, Class<T> returnType) {
+      public String putTextPlain(Object input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
+        if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getStringValue(response);
       }
 
 
@@ -6882,16 +6875,16 @@ public class TeamcityJetbrainsCom {
         return getAsString(resource);
       }
 
-      public <T> T putAsTextPlain(Object input, Class<T> returnType) {
+      public <T> String putAsTextPlain(Object input, Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "*/*")).invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
+        if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getStringValue(response);
       }
 
     }
@@ -7421,16 +7414,16 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public <T> T putTextPlain(Object input, Class<T> returnType) {
+      public String putTextPlain(Object input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
+        if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getStringValue(response);
       }
 
     }
@@ -7643,16 +7636,16 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public <T> T putTextPlain(Object input, Class<T> returnType) {
+      public String putTextPlain(Object input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
+        if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getStringValue(response);
       }
 
     }
@@ -7753,7 +7746,7 @@ public class TeamcityJetbrainsCom {
         if (!Response.class.isAssignableFrom(returnType)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getReturnValue(returnType, response);
       }
 
       public <T> T putTextPlainAsJson(Object input, String fields, Class<T> returnType) {
@@ -7772,7 +7765,7 @@ public class TeamcityJetbrainsCom {
         if (!Response.class.isAssignableFrom(returnType)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getReturnValue(returnType, response);
       }
 
       public Response delete() {
@@ -8099,16 +8092,16 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public <T> T putTextPlain(Object input, Class<T> returnType) {
+      public String putTextPlain(Object input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
+        if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getStringValue(response);
       }
 
     }
@@ -8333,7 +8326,7 @@ public class TeamcityJetbrainsCom {
         if (!Response.class.isAssignableFrom(returnType)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getReturnValue(returnType, response);
       }
 
       /**
@@ -8356,7 +8349,7 @@ public class TeamcityJetbrainsCom {
         if (!Response.class.isAssignableFrom(returnType)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getReturnValue(returnType, response);
       }
 
     }
@@ -8890,16 +8883,16 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public <T> T putTextPlain(Object input, Class<T> returnType) {
+      public String putTextPlain(Object input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
+        if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getStringValue(response);
       }
 
     }
@@ -10127,7 +10120,6 @@ public class TeamcityJetbrainsCom {
 
   }
 
-
   /**
    * Provides some debug abilities for the server. Experimental only. Should be used with caution or
    * better not used if not advised by JetBrains
@@ -10237,7 +10229,7 @@ public class TeamcityJetbrainsCom {
         if (!Response.class.isAssignableFrom(returnType)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getReturnValue(returnType, response);
       }
 
       public <T> T getAsTextPlainCharsetUTF8(String fielddelimiter, Integer count, Class<T> returnType) {
@@ -10263,7 +10255,7 @@ public class TeamcityJetbrainsCom {
         if (!Response.class.isAssignableFrom(returnType)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getReturnValue(returnType, response);
       }
 
     }
@@ -10299,7 +10291,7 @@ public class TeamcityJetbrainsCom {
         if (!Response.class.isAssignableFrom(returnType)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getReturnValue(returnType, response);
       }
 
     }
@@ -10362,7 +10354,6 @@ public class TeamcityJetbrainsCom {
     }
 
   }
-
 
   /**
    * Experimental, the requests and results returned will change in future versions!
@@ -11340,7 +11331,7 @@ public class TeamcityJetbrainsCom {
         if (!Response.class.isAssignableFrom(returnType)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getReturnValue(returnType, response);
       }
 
       public <T> T postTextPlainAsJson(Object input, String fields, Class<T> returnType) {
@@ -11359,7 +11350,7 @@ public class TeamcityJetbrainsCom {
         if (!Response.class.isAssignableFrom(returnType)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getReturnValue(returnType, response);
       }
 
       /**
@@ -12255,16 +12246,16 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public <T> T putTextPlain(Object input, Class<T> returnType) {
+      public String putTextPlain(Object input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
+        if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getStringValue(response);
       }
 
 
@@ -12595,16 +12586,16 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public <T> T putTextPlain(Object input, Class<T> returnType) {
+      public String putTextPlain(Object input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
+        if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getStringValue(response);
       }
 
 
@@ -12863,7 +12854,7 @@ public class TeamcityJetbrainsCom {
         if (!Response.class.isAssignableFrom(returnType)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getReturnValue(returnType, response);
       }
 
       public <T> T postTextPlainAsJson(Object input, String fields, Class<T> returnType) {
@@ -12882,7 +12873,7 @@ public class TeamcityJetbrainsCom {
         if (!Response.class.isAssignableFrom(returnType)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getReturnValue(returnType, response);
       }
 
     }
@@ -13071,19 +13062,19 @@ public class TeamcityJetbrainsCom {
         return getAsString(resource);
       }
 
-      public <T> T postAsTextPlain(Class<T> returnType) {
+      public <T> String postAsTextPlain(Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("POST").invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
+        if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getStringValue(response);
       }
 
-      public <T> T postAsTextPlain(String filename, Boolean addtimestamp, Boolean includeconfigs, Boolean includedatabase, Boolean includebuildlogs, Boolean includepersonalchanges, Boolean includerunningbuilds, Boolean includesupplimentarydata, Class<T> returnType) {
+      public <T> String postAsTextPlain(String filename, Boolean addtimestamp, Boolean includeconfigs, Boolean includedatabase, Boolean includebuildlogs, Boolean includepersonalchanges, Boolean includerunningbuilds, Boolean includesupplimentarydata, Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         if (filename == null) {
         }
@@ -13145,10 +13136,10 @@ public class TeamcityJetbrainsCom {
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("POST").invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
+        if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getStringValue(response);
       }
 
     }
@@ -14024,7 +14015,7 @@ public class TeamcityJetbrainsCom {
       if (!Response.class.isAssignableFrom(returnType)) {
         throwExceptionIfWrongStatus(response);
       }
-      return getReturnValue((Class<T>) returnType, response);
+      return getReturnValue(returnType, response);
     }
 
     public User postJsonAsUser(User input, String fields) {
@@ -14307,16 +14298,16 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public <T> T putTextPlain(Object input, Class<T> returnType) {
+      public String putTextPlain(Object input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
+        if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getStringValue(response);
       }
 
     }
@@ -14629,16 +14620,16 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public <T> T putTextPlain(Object input, Class<T> returnType) {
+      public String putTextPlain(Object input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
+        if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getStringValue(response);
       }
 
       public Response delete() {
@@ -15130,16 +15121,16 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public <T> T putTextPlain(Object input, Class<T> returnType) {
+      public String putTextPlain(Object input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
+        if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getStringValue(response);
       }
 
     }
@@ -15343,7 +15334,7 @@ public class TeamcityJetbrainsCom {
         if (!Response.class.isAssignableFrom(returnType)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getReturnValue(returnType, response);
       }
 
     }
@@ -15678,7 +15669,7 @@ public class TeamcityJetbrainsCom {
         if (!Response.class.isAssignableFrom(returnType)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getReturnValue(returnType, response);
       }
 
     }
@@ -15942,16 +15933,16 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public <T> T putTextPlain(Object input, Class<T> returnType) {
+      public String putTextPlain(Object input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
+        if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getStringValue(response);
       }
 
     }
@@ -16229,16 +16220,16 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public <T> T putTextPlain(Object input, Class<T> returnType) {
+      public String putTextPlain(Object input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
+        if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getStringValue(response);
       }
 
     }
@@ -16503,16 +16494,16 @@ public class TeamcityJetbrainsCom {
       }
 
 
-      public <T> T putTextPlain(Object input, Class<T> returnType) {
+      public String putTextPlain(Object input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
+        if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
         }
-        return getReturnValue((Class<T>) returnType, response);
+        return getStringValue(response);
       }
 
 
@@ -16539,14 +16530,22 @@ public class TeamcityJetbrainsCom {
     return response;
   }
 
+  public static <T> T getReturnValue(Class<T> returnType, Response response) {
+    if (!Response.class.isAssignableFrom(returnType)) {
+      return response.readEntity(returnType);
+    } else {
+      return returnType.cast(response);
+    }
+  }
+  public static String getStringValue(Response response) {
+    return response.readEntity(String.class);
+  }
+
   public static String getAsString(WebTarget resource) {
     javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-    Response response;
-    response = resourceBuilder.build(GET).invoke();
-    if (!Response.class.isAssignableFrom(String.class)) {
-      throwExceptionIfWrongStatus(response);
-    }
-    return getReturnValue(String.class, response);
+    Response response = resourceBuilder.build(GET).invoke();
+    throwExceptionIfWrongStatus(response);
+    return getStringValue(response);
   }
 
   public static void throwExceptionIfWrongStatus(Response response) {
