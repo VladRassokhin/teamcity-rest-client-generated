@@ -10,7 +10,7 @@ import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AppRest extends AbstractAppRest{
+public class AppRestRoot extends AbstractAppRest{
   private Client _client;
   private UriBuilder _uriBuilder;
   private Map<String, Object> _templateAndMatrixParameterValues;
@@ -18,7 +18,7 @@ public class AppRest extends AbstractAppRest{
   /**
    * Create new instance using existing Client instance, and a base URI and any parameters
    */
-  public AppRest(Client client, URI baseUri,TeamcityJetbrainsCom tjc) {
+  public AppRestRoot(Client client, URI baseUri, TeamcityJetbrainsCom tjc) {
     super(tjc);
     _client = client;
     _uriBuilder = UriBuilder.fromUri(baseUri);

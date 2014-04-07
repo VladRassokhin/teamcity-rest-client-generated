@@ -62,66 +62,66 @@ public class TeamcityJetbrainsCom {
     return resource.request();
   }
 
-  public AppRestVcsRoots appRestVcsRoots() {
+  public AppRestVcsRoots getVcsRootsResource() {
     return new AppRestVcsRoots(client, baseURI, this);
   }
 
-  public AppRestBuilds appRestBuilds() {
+  public AppRestBuilds getBuildsResource() {
     return new AppRestBuilds(client, baseURI, this);
   }
 
-  public AppRestServer appRestServer() {
+  public AppRestServer getServerResource() {
     return new AppRestServer(client, baseURI, this);
   }
 
-  public AppRestUserGroups appRestUserGroups() {
+  public AppRestUserGroups getUserGroupsResource() {
     return new AppRestUserGroups(client, baseURI, this);
   }
 
-  public AppRestProjects appRestProjects() {
+  public AppRestProjects getProjectsResource() {
     return new AppRestProjects(client, baseURI, this);
   }
 
-  public AppRestUsers appRestUsers() {
+  public AppRestUsers getUsersResource() {
     return new AppRestUsers(client, baseURI, this);
   }
 
-  public AppRestTestOccurrences appRestTestOccurrences() {
+  public AppRestTestOccurrences getTestOccurrencesResource() {
     return new AppRestTestOccurrences(client, baseURI, this);
   }
 
-  public AppRestChanges appRestChanges() {
+  public AppRestChanges getChangesResource() {
     return new AppRestChanges(client, baseURI, this);
   }
 
-  public AppRestAgents appRestAgents() {
+  public AppRestAgents getAgentsResource() {
     return new AppRestAgents(client, baseURI, this);
   }
 
-  public AppRestAgentPools appRestAgentPools() {
+  public AppRestAgentPools getAgentPoolsResource() {
     return new AppRestAgentPools(client, baseURI, this);
   }
 
-  public AppRestProblems appRestProblems() {
+  public AppRestProblems getProblemsResource() {
     return new AppRestProblems(client, baseURI, this);
   }
 
-  public AppRest appRest() {
-    return new AppRest(client, baseURI, this);
+  public AppRestRoot getRootResource() {
+    return new AppRestRoot(client, baseURI, this);
   }
 
-  public AppRestBuildQueue appRestBuildQueue() {
+  public AppRestBuildQueue getBuildQueueResource() {
     return new AppRestBuildQueue(client, baseURI, this);
   }
 
-  public AppRestBuildTypes appRestBuildTypes() {
+  public AppRestBuildTypes getBuildTypesResource() {
     return new AppRestBuildTypes(client, baseURI, this);
   }
 
   /**
    * Experimental, the requests and results returned will change in future versions!
    */
-  public AppRestInvestigations appRestInvestigations() {
+  public AppRestInvestigations getInvestigationsResource() {
     return new AppRestInvestigations(client, baseURI, this);
   }
 
@@ -131,15 +131,15 @@ public class TeamcityJetbrainsCom {
   /**
    * Experimental, the requests and results returned will change in future versions!
    */
-  public AppRestVcsRootInstances appRestVcsRootInstances() {
+  public AppRestVcsRootInstances getVcsRootInstancesResource() {
     return new AppRestVcsRootInstances(client, baseURI, this);
   }
 
-  public AppRestTests appRestTests() {
+  public AppRestTests getTestsResource() {
     return new AppRestTests(client, baseURI, this);
   }
 
-  public AppRestProblemOccurrences appRestProblemOccurrences() {
+  public AppRestProblemOccurrences getProblemOccurrencesResource() {
     return new AppRestProblemOccurrences(client, baseURI, this);
   }
 
@@ -149,7 +149,7 @@ public class TeamcityJetbrainsCom {
    * These should never be used for non-debug purposes and the API here can change in future versions of
    * TeamCity without any notice.
    */
-  public AppRestDebug appRestDebug() {
+  public AppRestDebug getDebugResource() {
     return new AppRestDebug(client, baseURI, this);
   }
 
