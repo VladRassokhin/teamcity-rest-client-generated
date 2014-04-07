@@ -7,18 +7,10 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import java.net.URI;
 
-@Generated(value = {
-    "wadl|file:/Users/vlad/devel/teamcity-rest-myRestClient/generated-java/application.wadl"
-}, comments = "wadl2java, http://wadl.java.net", date = "2014-04-07T14:34:37.557+04:00")
+//@Generated(value = {
+//    "wadl|file:/Users/vlad/devel/teamcity-rest-myRestClient/generated-java/application.wadl"
+//}, comments = "wadl2java, http://wadl.java.net", date = "2014-04-07T14:34:37.557+04:00")
 public class TeamCityClient {
-  /**
-   * The base URI for the resource represented by this proxy
-   */
-  public final static URI BASE_URI;
-
-  static {
-    BASE_URI = URI.create("http://teamcity.jetbrains.com/");
-  }
 
   private final Client client;
   private final URI baseURI;

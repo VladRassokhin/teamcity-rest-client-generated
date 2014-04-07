@@ -10,7 +10,7 @@ import javax.ws.rs.core.UriBuilder;
 import java.util.Map;
 
 public class Utils {
-  public static final String METHOD_GET = "METHOD_GET";
+  public static final String METHOD_GET = "GET";
   public static final String METHOD_DELETE = "DELETE";
   public static final String TEXT_PLAIN = "text/plain";
 
@@ -31,8 +31,7 @@ public class Utils {
 
   public static Response delete(WebTarget resource) {
     Invocation.Builder resourceBuilder = resource.request();
-    Response response = resourceBuilder.build(METHOD_DELETE).invoke();
-    return response;
+    return resourceBuilder.build(METHOD_DELETE).invoke();
   }
 
   public static <T> T getReturnValue(Class<T> returnType, Response response) {
