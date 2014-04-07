@@ -96,20 +96,12 @@ public class TeamcityJetbrainsCom {
     return appRestVcsRoots(createClient(), BASE_URI);
   }
 
-  public static TeamcityJetbrainsCom.AppRestVcsRoots appRestVcsRoots(Client client) {
-    return appRestVcsRoots(client, BASE_URI);
-  }
-
   public static TeamcityJetbrainsCom.AppRestBuilds appRestBuilds(Client client, URI baseURI) {
     return new TeamcityJetbrainsCom.AppRestBuilds(client, baseURI);
   }
 
   public static TeamcityJetbrainsCom.AppRestBuilds appRestBuilds() {
     return appRestBuilds(createClient(), BASE_URI);
-  }
-
-  public static TeamcityJetbrainsCom.AppRestBuilds appRestBuilds(Client client) {
-    return appRestBuilds(client, BASE_URI);
   }
 
   public static TeamcityJetbrainsCom.AppRestServer appRestServer(Client client, URI baseURI) {
@@ -120,20 +112,12 @@ public class TeamcityJetbrainsCom {
     return appRestServer(createClient(), BASE_URI);
   }
 
-  public static TeamcityJetbrainsCom.AppRestServer appRestServer(Client client) {
-    return appRestServer(client, BASE_URI);
-  }
-
   public static TeamcityJetbrainsCom.AppRestUserGroups appRestUserGroups(Client client, URI baseURI) {
     return new TeamcityJetbrainsCom.AppRestUserGroups(client, baseURI);
   }
 
   public static TeamcityJetbrainsCom.AppRestUserGroups appRestUserGroups() {
     return appRestUserGroups(createClient(), BASE_URI);
-  }
-
-  public static TeamcityJetbrainsCom.AppRestUserGroups appRestUserGroups(Client client) {
-    return appRestUserGroups(client, BASE_URI);
   }
 
   public static TeamcityJetbrainsCom.AppRestProjects appRestProjects(Client client, URI baseURI) {
@@ -144,20 +128,12 @@ public class TeamcityJetbrainsCom {
     return appRestProjects(createClient(), BASE_URI);
   }
 
-  public static TeamcityJetbrainsCom.AppRestProjects appRestProjects(Client client) {
-    return appRestProjects(client, BASE_URI);
-  }
-
   public static TeamcityJetbrainsCom.AppRestUsers appRestUsers(Client client, URI baseURI) {
     return new TeamcityJetbrainsCom.AppRestUsers(client, baseURI);
   }
 
   public static TeamcityJetbrainsCom.AppRestUsers appRestUsers() {
     return appRestUsers(createClient(), BASE_URI);
-  }
-
-  public static TeamcityJetbrainsCom.AppRestUsers appRestUsers(Client client) {
-    return appRestUsers(client, BASE_URI);
   }
 
   public static TeamcityJetbrainsCom.AppRestTestOccurrences appRestTestOccurrences(Client client, URI baseURI) {
@@ -168,20 +144,12 @@ public class TeamcityJetbrainsCom {
     return appRestTestOccurrences(createClient(), BASE_URI);
   }
 
-  public static TeamcityJetbrainsCom.AppRestTestOccurrences appRestTestOccurrences(Client client) {
-    return appRestTestOccurrences(client, BASE_URI);
-  }
-
   public static TeamcityJetbrainsCom.AppRestChanges appRestChanges(Client client, URI baseURI) {
     return new TeamcityJetbrainsCom.AppRestChanges(client, baseURI);
   }
 
   public static TeamcityJetbrainsCom.AppRestChanges appRestChanges() {
     return appRestChanges(createClient(), BASE_URI);
-  }
-
-  public static TeamcityJetbrainsCom.AppRestChanges appRestChanges(Client client) {
-    return appRestChanges(client, BASE_URI);
   }
 
   public static TeamcityJetbrainsCom.AppRestAgents appRestAgents(Client client, URI baseURI) {
@@ -192,10 +160,6 @@ public class TeamcityJetbrainsCom {
     return appRestAgents(createClient(), BASE_URI);
   }
 
-  public static TeamcityJetbrainsCom.AppRestAgents appRestAgents(Client client) {
-    return appRestAgents(client, BASE_URI);
-  }
-
   public static TeamcityJetbrainsCom.AppRestAgentPools appRestAgentPools(Client client, URI baseURI) {
     return new TeamcityJetbrainsCom.AppRestAgentPools(client, baseURI);
   }
@@ -204,9 +168,6 @@ public class TeamcityJetbrainsCom {
     return appRestAgentPools(createClient(), BASE_URI);
   }
 
-  public static TeamcityJetbrainsCom.AppRestAgentPools appRestAgentPools(Client client) {
-    return appRestAgentPools(client, BASE_URI);
-  }
 
   public static TeamcityJetbrainsCom.AppRestProblems appRestProblems(Client client, URI baseURI) {
     return new TeamcityJetbrainsCom.AppRestProblems(client, baseURI);
@@ -216,9 +177,6 @@ public class TeamcityJetbrainsCom {
     return appRestProblems(createClient(), BASE_URI);
   }
 
-  public static TeamcityJetbrainsCom.AppRestProblems appRestProblems(Client client) {
-    return appRestProblems(client, BASE_URI);
-  }
 
   public static TeamcityJetbrainsCom.AppRest appRest(Client client, URI baseURI) {
     return new TeamcityJetbrainsCom.AppRest(client, baseURI);
@@ -228,9 +186,6 @@ public class TeamcityJetbrainsCom {
     return appRest(createClient(), BASE_URI);
   }
 
-  public static TeamcityJetbrainsCom.AppRest appRest(Client client) {
-    return appRest(client, BASE_URI);
-  }
 
   public static TeamcityJetbrainsCom.AppRestBuildQueue appRestBuildQueue(Client client, URI baseURI) {
     return new TeamcityJetbrainsCom.AppRestBuildQueue(client, baseURI);
@@ -240,9 +195,6 @@ public class TeamcityJetbrainsCom {
     return appRestBuildQueue(createClient(), BASE_URI);
   }
 
-  public static TeamcityJetbrainsCom.AppRestBuildQueue appRestBuildQueue(Client client) {
-    return appRestBuildQueue(client, BASE_URI);
-  }
 
   public static TeamcityJetbrainsCom.AppRestBuildTypes appRestBuildTypes(Client client, URI baseURI) {
     return new TeamcityJetbrainsCom.AppRestBuildTypes(client, baseURI);
@@ -250,10 +202,6 @@ public class TeamcityJetbrainsCom {
 
   public static TeamcityJetbrainsCom.AppRestBuildTypes appRestBuildTypes() {
     return appRestBuildTypes(createClient(), BASE_URI);
-  }
-
-  public static TeamcityJetbrainsCom.AppRestBuildTypes appRestBuildTypes(Client client) {
-    return appRestBuildTypes(client, BASE_URI);
   }
 
   /**
@@ -273,9 +221,6 @@ public class TeamcityJetbrainsCom {
   /**
    * Experimental, the requests and results returned will change in future versions!
    */
-  public static TeamcityJetbrainsCom.AppRestInvestigations appRestInvestigations(Client client) {
-    return appRestInvestigations(client, BASE_URI);
-  }
 
   public static TeamcityJetbrainsCom.AppRestVcsRootInstances appRestVcsRootInstances(Client client, URI baseURI) {
     return new TeamcityJetbrainsCom.AppRestVcsRootInstances(client, baseURI);
@@ -285,9 +230,6 @@ public class TeamcityJetbrainsCom {
     return appRestVcsRootInstances(createClient(), BASE_URI);
   }
 
-  public static TeamcityJetbrainsCom.AppRestVcsRootInstances appRestVcsRootInstances(Client client) {
-    return appRestVcsRootInstances(client, BASE_URI);
-  }
 
   public static TeamcityJetbrainsCom.AppRestTests appRestTests(Client client, URI baseURI) {
     return new TeamcityJetbrainsCom.AppRestTests(client, baseURI);
@@ -297,9 +239,6 @@ public class TeamcityJetbrainsCom {
     return appRestTests(createClient(), BASE_URI);
   }
 
-  public static TeamcityJetbrainsCom.AppRestTests appRestTests(Client client) {
-    return appRestTests(client, BASE_URI);
-  }
 
   public static TeamcityJetbrainsCom.AppRestProblemOccurrences appRestProblemOccurrences(Client client, URI baseURI) {
     return new TeamcityJetbrainsCom.AppRestProblemOccurrences(client, baseURI);
@@ -309,9 +248,6 @@ public class TeamcityJetbrainsCom {
     return appRestProblemOccurrences(createClient(), BASE_URI);
   }
 
-  public static TeamcityJetbrainsCom.AppRestProblemOccurrences appRestProblemOccurrences(Client client) {
-    return appRestProblemOccurrences(client, BASE_URI);
-  }
 
   /**
    * Provides some debug abilities for the server. Experimental only. Should be used with caution or
@@ -331,16 +267,6 @@ public class TeamcityJetbrainsCom {
    */
   public static TeamcityJetbrainsCom.AppRestDebug appRestDebug() {
     return appRestDebug(createClient(), BASE_URI);
-  }
-
-  /**
-   * Provides some debug abilities for the server. Experimental only. Should be used with caution or
-   * better not used if not advised by JetBrains
-   * These should never be used for non-debug purposes and the API here can change in future versions of
-   * TeamCity without any notice.
-   */
-  public static TeamcityJetbrainsCom.AppRestDebug appRestDebug(Client client) {
-    return appRestDebug(client, BASE_URI);
   }
 
   public static class AppRest {
@@ -790,10 +716,7 @@ public class TeamcityJetbrainsCom {
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        return response;
+        return TeamcityJetbrainsCom.delete(resource);
       }
 
 
@@ -1213,10 +1136,7 @@ public class TeamcityJetbrainsCom {
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        return response;
+        return TeamcityJetbrainsCom.delete(resource);
       }
 
 
@@ -1476,10 +1396,7 @@ public class TeamcityJetbrainsCom {
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        return response;
+        return TeamcityJetbrainsCom.delete(resource);
       }
 
 
@@ -1829,10 +1746,7 @@ public class TeamcityJetbrainsCom {
      */
     public Response delete() {
       WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-      Response response;
-      response = resourceBuilder.build("DELETE").invoke();
-      return response;
+      return TeamcityJetbrainsCom.delete(resource);
     }
 
     /**
@@ -1881,10 +1795,7 @@ public class TeamcityJetbrainsCom {
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", ((Object[]) null));
       }
       WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-      Response response;
-      response = resourceBuilder.build("DELETE").invoke();
-      return response;
+      return TeamcityJetbrainsCom.delete(resource);
     }
 
     /**
@@ -2284,10 +2195,7 @@ public class TeamcityJetbrainsCom {
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        return response;
+        return TeamcityJetbrainsCom.delete(resource);
       }
 
 
@@ -2973,10 +2881,7 @@ public class TeamcityJetbrainsCom {
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        return response;
+        return TeamcityJetbrainsCom.delete(resource);
       }
 
 
@@ -4002,10 +3907,7 @@ public class TeamcityJetbrainsCom {
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        return response;
+        return TeamcityJetbrainsCom.delete(resource);
       }
 
 
@@ -5821,10 +5723,7 @@ public class TeamcityJetbrainsCom {
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        return response;
+        return TeamcityJetbrainsCom.delete(resource);
       }
 
 
@@ -6063,10 +5962,7 @@ public class TeamcityJetbrainsCom {
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        return response;
+        return TeamcityJetbrainsCom.delete(resource);
       }
 
 
@@ -6303,10 +6199,7 @@ public class TeamcityJetbrainsCom {
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        return response;
+        return TeamcityJetbrainsCom.delete(resource);
       }
 
 
@@ -7473,10 +7366,7 @@ public class TeamcityJetbrainsCom {
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        return response;
+        return TeamcityJetbrainsCom.delete(resource);
       }
 
 
@@ -8365,10 +8255,7 @@ public class TeamcityJetbrainsCom {
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        return response;
+        return TeamcityJetbrainsCom.delete(resource);
       }
 
 
@@ -8571,10 +8458,7 @@ public class TeamcityJetbrainsCom {
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        return response;
+        return TeamcityJetbrainsCom.delete(resource);
       }
 
 
@@ -9008,10 +8892,7 @@ public class TeamcityJetbrainsCom {
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        return response;
+        return TeamcityJetbrainsCom.delete(resource);
       }
 
 
@@ -9239,10 +9120,7 @@ public class TeamcityJetbrainsCom {
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        return response;
+        return TeamcityJetbrainsCom.delete(resource);
       }
 
 
@@ -9754,10 +9632,7 @@ public class TeamcityJetbrainsCom {
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        return response;
+        return TeamcityJetbrainsCom.delete(resource);
       }
 
 
@@ -9996,10 +9871,7 @@ public class TeamcityJetbrainsCom {
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        return response;
+        return TeamcityJetbrainsCom.delete(resource);
       }
 
 
@@ -10972,10 +10844,7 @@ public class TeamcityJetbrainsCom {
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        return response;
+        return TeamcityJetbrainsCom.delete(resource);
       }
 
 
@@ -13761,10 +13630,7 @@ public class TeamcityJetbrainsCom {
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        return response;
+        return TeamcityJetbrainsCom.delete(resource);
       }
 
 
@@ -13969,10 +13835,7 @@ public class TeamcityJetbrainsCom {
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        return response;
+        return TeamcityJetbrainsCom.delete(resource);
       }
 
 
@@ -15668,10 +15531,7 @@ public class TeamcityJetbrainsCom {
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        return response;
+        return TeamcityJetbrainsCom.delete(resource);
       }
 
 
@@ -15821,10 +15681,7 @@ public class TeamcityJetbrainsCom {
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        return response;
+        return TeamcityJetbrainsCom.delete(resource);
       }
 
 
@@ -17314,10 +17171,7 @@ public class TeamcityJetbrainsCom {
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        return response;
+        return TeamcityJetbrainsCom.delete(resource);
       }
 
 
@@ -17610,10 +17464,7 @@ public class TeamcityJetbrainsCom {
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        return response;
+        return TeamcityJetbrainsCom.delete(resource);
       }
 
 
@@ -17871,10 +17722,7 @@ public class TeamcityJetbrainsCom {
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        return response;
+        return TeamcityJetbrainsCom.delete(resource);
       }
 
 
@@ -18507,10 +18355,7 @@ public class TeamcityJetbrainsCom {
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        return response;
+        return TeamcityJetbrainsCom.delete(resource);
       }
 
 
@@ -18784,10 +18629,7 @@ public class TeamcityJetbrainsCom {
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        return response;
+        return TeamcityJetbrainsCom.delete(resource);
       }
 
 
@@ -19833,10 +19675,7 @@ public class TeamcityJetbrainsCom {
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        return response;
+        return TeamcityJetbrainsCom.delete(resource);
       }
 
     }
@@ -20404,10 +20243,7 @@ public class TeamcityJetbrainsCom {
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        return response;
+        return TeamcityJetbrainsCom.delete(resource);
       }
 
 
@@ -20515,14 +20351,18 @@ public class TeamcityJetbrainsCom {
       public Response delete() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        return response;
+        return TeamcityJetbrainsCom.delete(resource);
       }
 
     }
 
+  }
+
+  public static Response delete(WebTarget resource) {
+    javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
+    Response response;
+    response = resourceBuilder.build("DELETE").invoke();
+    return response;
   }
 
   public static String getAsString(WebTarget resource) {
