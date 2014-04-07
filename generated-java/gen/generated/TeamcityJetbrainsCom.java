@@ -866,27 +866,9 @@ public class TeamcityJetbrainsCom {
         return response;
       }
 
-      public <T> T delete(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
-      public <T> T delete(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
-      }
+
+
 
       public AgentPool getAsAgentPool() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -1348,27 +1330,9 @@ public class TeamcityJetbrainsCom {
         return response;
       }
 
-      public <T> T delete(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
-      public <T> T delete(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
-      }
+
+
 
     }
 
@@ -1649,27 +1613,9 @@ public class TeamcityJetbrainsCom {
         return response;
       }
 
-      public <T> T delete(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
-      public <T> T delete(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
-      }
+
+
 
     }
 
@@ -2556,27 +2502,9 @@ public class TeamcityJetbrainsCom {
         return response;
       }
 
-      public <T> T delete(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
-      public <T> T delete(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
-      }
+
+
 
       public Build postJsonAsBuild(BuildCancelRequest input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -3288,27 +3216,9 @@ public class TeamcityJetbrainsCom {
         return response;
       }
 
-      public <T> T delete(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
-      public <T> T delete(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
-      }
+
+
 
       public Build postJsonAsBuild(BuildCancelRequest input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -4338,27 +4248,9 @@ public class TeamcityJetbrainsCom {
         return response;
       }
 
-      public <T> T delete(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
-      public <T> T delete(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
-      }
+
+
 
     }
 
@@ -6282,27 +6174,9 @@ public class TeamcityJetbrainsCom {
         return response;
       }
 
-      public <T> T delete(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
-      public <T> T delete(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
-      }
+
+
 
     }
 
@@ -6562,27 +6436,9 @@ public class TeamcityJetbrainsCom {
         return response;
       }
 
-      public <T> T delete(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
-      public <T> T delete(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
-      }
+
+
 
       public PropEntityAgentRequirement putJsonAsPropEntityAgentRequirement(PropEntityAgentRequirement input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -6859,27 +6715,9 @@ public class TeamcityJetbrainsCom {
         return response;
       }
 
-      public <T> T delete(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
-      public <T> T delete(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
-      }
+
+
 
       public PropEntityArtifactDep putAsPropEntityArtifactDep(PropEntityArtifactDep input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -8085,27 +7923,9 @@ public class TeamcityJetbrainsCom {
         return response;
       }
 
-      public <T> T delete(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
-      public <T> T delete(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
-      }
+
+
 
       public PropEntityFeature putAsPropEntityFeature(PropEntityFeature input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -9099,27 +8919,9 @@ public class TeamcityJetbrainsCom {
         return response;
       }
 
-      public <T> T delete(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
-      public <T> T delete(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
-      }
+
+
 
       public Property postJsonAsProperty(Property input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -9349,27 +9151,9 @@ public class TeamcityJetbrainsCom {
         return response;
       }
 
-      public <T> T delete(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
-      public <T> T delete(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
-      }
+
+
 
     }
 
@@ -9857,27 +9641,9 @@ public class TeamcityJetbrainsCom {
         return response;
       }
 
-      public <T> T delete(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
-      public <T> T delete(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
-      }
+
+
 
       public PropEntitySnapshotDep putJsonAsPropEntitySnapshotDep(PropEntitySnapshotDep input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -10145,27 +9911,9 @@ public class TeamcityJetbrainsCom {
         return response;
       }
 
-      public <T> T delete(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
-      public <T> T delete(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
-      }
+
+
 
       public PropEntityStep putJsonAsPropEntityStep(PropEntityStep input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -10768,27 +10516,9 @@ public class TeamcityJetbrainsCom {
         return response;
       }
 
-      public <T> T delete(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
-      public <T> T delete(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
-      }
+
+
 
     }
 
@@ -11048,27 +10778,9 @@ public class TeamcityJetbrainsCom {
         return response;
       }
 
-      public <T> T delete(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
-      public <T> T delete(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
-      }
+
+
 
       public PropEntityTrigger putJsonAsPropEntityTrigger(PropEntityTrigger input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -12143,27 +11855,9 @@ public class TeamcityJetbrainsCom {
         return response;
       }
 
-      public <T> T delete(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
-      public <T> T delete(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
-      }
+
+
 
     }
 
@@ -15103,27 +14797,9 @@ public class TeamcityJetbrainsCom {
         return response;
       }
 
-      public <T> T delete(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
-      public <T> T delete(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
-      }
+
+
 
     }
 
@@ -15350,27 +15026,9 @@ public class TeamcityJetbrainsCom {
         return response;
       }
 
-      public <T> T delete(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
-      public <T> T delete(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
-      }
+
+
 
     }
 
@@ -17164,27 +16822,9 @@ public class TeamcityJetbrainsCom {
         return response;
       }
 
-      public <T> T delete(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
-      public <T> T delete(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
-      }
+
+
 
       public Property postJsonAsProperty(Property input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -17361,27 +17001,9 @@ public class TeamcityJetbrainsCom {
         return response;
       }
 
-      public <T> T delete(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
-      public <T> T delete(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
-      }
+
+
 
     }
 
@@ -19008,27 +18630,9 @@ public class TeamcityJetbrainsCom {
         return response;
       }
 
-      public <T> T delete(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
-      public <T> T delete(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
-      }
+
+
 
       public Group getAsGroup() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -19345,27 +18949,9 @@ public class TeamcityJetbrainsCom {
         return response;
       }
 
-      public <T> T delete(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
-      public <T> T delete(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
-      }
+
+
 
     }
 
@@ -19654,27 +19240,9 @@ public class TeamcityJetbrainsCom {
         return response;
       }
 
-      public <T> T delete(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
-      public <T> T delete(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
-      }
+
+
 
       public User putJsonAsUser(User input) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -20401,27 +19969,9 @@ public class TeamcityJetbrainsCom {
         return response;
       }
 
-      public <T> T delete(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
-      public <T> T delete(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
-      }
+
+
 
     }
 
@@ -20717,27 +20267,9 @@ public class TeamcityJetbrainsCom {
         return response;
       }
 
-      public <T> T delete(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
-      public <T> T delete(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
-      }
+
+
 
       public Response post() {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -21937,27 +21469,9 @@ public class TeamcityJetbrainsCom {
         return response;
       }
 
-      public <T> T delete(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
-      public <T> T delete(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
-      }
+
+
 
     }
 
@@ -22597,27 +22111,9 @@ public class TeamcityJetbrainsCom {
         return response;
       }
 
-      public <T> T delete(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
-      public <T> T delete(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
-      }
+
+
 
     }
 
@@ -22765,17 +22261,7 @@ public class TeamcityJetbrainsCom {
         return response.readEntity(returnType);
       }
 
-      public <T> T delete(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response;
-        response = resourceBuilder.build("DELETE").invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue((Class<T>) returnType, response);
-      }
+
 
     }
 
