@@ -1,8 +1,10 @@
 package generated;
 
 import javax.annotation.Generated;
-import javax.ws.rs.client.*;
-import javax.ws.rs.core.Configurable;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 import java.net.URI;
@@ -24,26 +26,24 @@ public class TeamcityJetbrainsCom {
   public static final String METHOD_GET = "METHOD_GET";
   public static final String METHOD_DELETE = "DELETE";
   public static final String TEXT_PLAIN = "text/plain";
+  private final Client client;
+  private final URI baseURI;
 
-  /**
-   * Template method to allow tooling to customize the new Client
-   */
-  private static void customizeClientConfiguration(Configurable cc) {
+  public TeamcityJetbrainsCom(URI baseURI, Client client) {
+    this.baseURI = baseURI;
+    this.client = client;
   }
 
-  /**
-   * Template method to allow tooling to override Client factory
-   */
+  public TeamcityJetbrainsCom(URI baseURI) {
+    this(baseURI, createClient());
+  }
+
   private static Client createClientInstance() {
     return ClientBuilder.newClient();
   }
 
-  /**
-   * Create a new Client instance
-   */
-  public static Client createClient() {
+  private static Client createClient() {
     Client client = createClientInstance();
-    customizeClientConfiguration(client);
     return client;
   }
 
@@ -56,162 +56,91 @@ public class TeamcityJetbrainsCom {
     final WebTarget resource = getWebTarget(builder, client, map);
     return resource.request(type);
   }
+
   public static Invocation.Builder getBuilder(UriBuilder builder, Client client, Map<String, Object> map) {
     final WebTarget resource = getWebTarget(builder, client, map);
     return resource.request();
   }
 
-  public static AppRestVcsRoots appRestVcsRoots(Client client, URI baseURI) {
+  public AppRestVcsRoots appRestVcsRoots() {
     return new AppRestVcsRoots(client, baseURI);
   }
 
-  public static AppRestVcsRoots appRestVcsRoots() {
-    return appRestVcsRoots(createClient(), BASE_URI);
-  }
-
-  public static AppRestBuilds appRestBuilds(Client client, URI baseURI) {
+  public AppRestBuilds appRestBuilds() {
     return new AppRestBuilds(client, baseURI);
   }
 
-  public static AppRestBuilds appRestBuilds() {
-    return appRestBuilds(createClient(), BASE_URI);
-  }
-
-  public static AppRestServer appRestServer(Client client, URI baseURI) {
+  public AppRestServer appRestServer() {
     return new AppRestServer(client, baseURI);
   }
 
-  public static AppRestServer appRestServer() {
-    return appRestServer(createClient(), BASE_URI);
-  }
-
-  public static AppRestUserGroups appRestUserGroups(Client client, URI baseURI) {
+  public AppRestUserGroups appRestUserGroups() {
     return new AppRestUserGroups(client, baseURI);
   }
 
-  public static AppRestUserGroups appRestUserGroups() {
-    return appRestUserGroups(createClient(), BASE_URI);
-  }
-
-  public static AppRestProjects appRestProjects(Client client, URI baseURI) {
+  public AppRestProjects appRestProjects() {
     return new AppRestProjects(client, baseURI);
   }
 
-  public static AppRestProjects appRestProjects() {
-    return appRestProjects(createClient(), BASE_URI);
-  }
-
-  public static AppRestUsers appRestUsers(Client client, URI baseURI) {
+  public AppRestUsers appRestUsers() {
     return new AppRestUsers(client, baseURI);
   }
 
-  public static AppRestUsers appRestUsers() {
-    return appRestUsers(createClient(), BASE_URI);
-  }
-
-  public static AppRestTestOccurrences appRestTestOccurrences(Client client, URI baseURI) {
+  public AppRestTestOccurrences appRestTestOccurrences() {
     return new AppRestTestOccurrences(client, baseURI);
   }
 
-  public static AppRestTestOccurrences appRestTestOccurrences() {
-    return appRestTestOccurrences(createClient(), BASE_URI);
-  }
-
-  public static AppRestChanges appRestChanges(Client client, URI baseURI) {
+  public AppRestChanges appRestChanges() {
     return new AppRestChanges(client, baseURI);
   }
 
-  public static AppRestChanges appRestChanges() {
-    return appRestChanges(createClient(), BASE_URI);
-  }
-
-  public static AppRestAgents appRestAgents(Client client, URI baseURI) {
+  public AppRestAgents appRestAgents() {
     return new AppRestAgents(client, baseURI);
   }
 
-  public static AppRestAgents appRestAgents() {
-    return appRestAgents(createClient(), BASE_URI);
-  }
-
-  public static AppRestAgentPools appRestAgentPools(Client client, URI baseURI) {
+  public AppRestAgentPools appRestAgentPools() {
     return new AppRestAgentPools(client, baseURI);
   }
 
-  public static AppRestAgentPools appRestAgentPools() {
-    return appRestAgentPools(createClient(), BASE_URI);
-  }
-
-  public static AppRestProblems appRestProblems(Client client, URI baseURI) {
+  public AppRestProblems appRestProblems() {
     return new AppRestProblems(client, baseURI);
   }
 
-  public static AppRestProblems appRestProblems() {
-    return appRestProblems(createClient(), BASE_URI);
-  }
-
-  public static AppRest appRest(Client client, URI baseURI) {
+  public AppRest appRest() {
     return new AppRest(client, baseURI);
   }
 
-  public static AppRest appRest() {
-    return appRest(createClient(), BASE_URI);
-  }
-
-  public static AppRestBuildQueue appRestBuildQueue(Client client, URI baseURI) {
+  public AppRestBuildQueue appRestBuildQueue() {
     return new AppRestBuildQueue(client, baseURI);
   }
 
-  public static AppRestBuildQueue appRestBuildQueue() {
-    return appRestBuildQueue(createClient(), BASE_URI);
-  }
-
-  public static AppRestBuildTypes appRestBuildTypes(Client client, URI baseURI) {
+  public AppRestBuildTypes appRestBuildTypes() {
     return new AppRestBuildTypes(client, baseURI);
-  }
-
-  public static AppRestBuildTypes appRestBuildTypes() {
-    return appRestBuildTypes(createClient(), BASE_URI);
   }
 
   /**
    * Experimental, the requests and results returned will change in future versions!
    */
-  public static AppRestInvestigations appRestInvestigations(Client client, URI baseURI) {
+  public AppRestInvestigations appRestInvestigations() {
     return new AppRestInvestigations(client, baseURI);
   }
 
   /**
    * Experimental, the requests and results returned will change in future versions!
    */
-  public static AppRestInvestigations appRestInvestigations() {
-    return appRestInvestigations(createClient(), BASE_URI);
-  }
-
   /**
    * Experimental, the requests and results returned will change in future versions!
    */
-  public static AppRestVcsRootInstances appRestVcsRootInstances(Client client, URI baseURI) {
+  public AppRestVcsRootInstances appRestVcsRootInstances() {
     return new AppRestVcsRootInstances(client, baseURI);
   }
 
-  public static AppRestVcsRootInstances appRestVcsRootInstances() {
-    return appRestVcsRootInstances(createClient(), BASE_URI);
-  }
-
-  public static AppRestTests appRestTests(Client client, URI baseURI) {
+  public AppRestTests appRestTests() {
     return new AppRestTests(client, baseURI);
   }
 
-  public static AppRestTests appRestTests() {
-    return appRestTests(createClient(), BASE_URI);
-  }
-
-  public static AppRestProblemOccurrences appRestProblemOccurrences(Client client, URI baseURI) {
+  public AppRestProblemOccurrences appRestProblemOccurrences() {
     return new AppRestProblemOccurrences(client, baseURI);
-  }
-
-  public static AppRestProblemOccurrences appRestProblemOccurrences() {
-    return appRestProblemOccurrences(createClient(), BASE_URI);
   }
 
   /**
@@ -220,7 +149,7 @@ public class TeamcityJetbrainsCom {
    * These should never be used for non-debug purposes and the API here can change in future versions of
    * TeamCity without any notice.
    */
-  public static AppRestDebug appRestDebug(Client client, URI baseURI) {
+  public AppRestDebug appRestDebug() {
     return new AppRestDebug(client, baseURI);
   }
 
@@ -230,10 +159,6 @@ public class TeamcityJetbrainsCom {
    * These should never be used for non-debug purposes and the API here can change in future versions of
    * TeamCity without any notice.
    */
-  public static AppRestDebug appRestDebug() {
-    return appRestDebug(createClient(), BASE_URI);
-  }
-
   public static StringBuilder getTemplateBuilder(String path) {
     final String base = BASE_URI.toString();
     StringBuilder template = new StringBuilder(base);
