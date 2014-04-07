@@ -423,15 +423,7 @@ public class TeamcityJetbrainsCom {
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
       }
 
-      public <T> T getAsTextPlain(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
+
 
       public <T> T getAsTextPlain(Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -620,15 +612,7 @@ public class TeamcityJetbrainsCom {
         return new TeamcityJetbrainsCom.AppRest.ProjectLocatorBtLocatorBuildLocatorField(_client, copyUriBuilder, copyMap);
       }
 
-      public <T> T getAsTextPlain(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
+
 
       public <T> T getAsTextPlain(Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -666,15 +650,7 @@ public class TeamcityJetbrainsCom {
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
       }
 
-      public <T> T getAsTextPlain(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
+
 
       public <T> T getAsTextPlain(Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -1662,15 +1638,7 @@ public class TeamcityJetbrainsCom {
         return new TeamcityJetbrainsCom.AppRestAgents.AgentLocatorField(_client, copyUriBuilder, copyMap);
       }
 
-      public <T> T getAsTextPlain(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
+
 
       public <T> T getAsTextPlain(Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -1684,15 +1652,6 @@ public class TeamcityJetbrainsCom {
         return getReturnValue((Class<T>) returnType, response);
       }
 
-      public <T> T putTextPlain(Object input, GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
       public <T> T putTextPlain(Object input, Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -2355,15 +2314,7 @@ public class TeamcityJetbrainsCom {
         return new TeamcityJetbrainsCom.AppRestBuildQueue.BuildLocatorField(_client, copyUriBuilder, copyMap);
       }
 
-      public <T> T getAsTextPlain(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
+
 
       public <T> T getAsTextPlain(Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -4332,15 +4283,7 @@ public class TeamcityJetbrainsCom {
         return new TeamcityJetbrainsCom.AppRestBuilds.BuildLocatorField(_client, copyUriBuilder, copyMap);
       }
 
-      public <T> T getAsTextPlain(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
+
 
       public <T> T getAsTextPlain(Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -4447,15 +4390,7 @@ public class TeamcityJetbrainsCom {
       /**
        * Fetches current build pinned status.
        */
-      public <T> T getAsTextPlain(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
+
 
       /**
        * Fetches current build pinned status.
@@ -4928,15 +4863,7 @@ public class TeamcityJetbrainsCom {
         return new TeamcityJetbrainsCom.AppRestBuilds.BuildLocatorResultingPropertiesPropertyName(_client, copyUriBuilder, copyMap);
       }
 
-      public <T> T getAsTextPlain(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
+
 
       public <T> T getAsTextPlain(Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -5205,15 +5132,7 @@ public class TeamcityJetbrainsCom {
         return new TeamcityJetbrainsCom.AppRestBuilds.BuildLocatorStatisticsName(_client, copyUriBuilder, copyMap);
       }
 
-      public <T> T getAsTextPlain(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
+
 
       public <T> T getAsTextPlain(Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -7424,15 +7343,7 @@ public class TeamcityJetbrainsCom {
         return new TeamcityJetbrainsCom.AppRestBuildTypes.BtLocatorBuildsBuildLocatorField(_client, copyUriBuilder, copyMap);
       }
 
-      public <T> T getAsTextPlain(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
+
 
       public <T> T getAsTextPlain(Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -7978,15 +7889,7 @@ public class TeamcityJetbrainsCom {
         return new TeamcityJetbrainsCom.AppRestBuildTypes.BtLocatorFeaturesFeatureIdName(_client, copyUriBuilder, copyMap);
       }
 
-      public <T> T getAsTextPlain(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
+
 
       public <T> T getAsTextPlain(Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -8000,15 +7903,6 @@ public class TeamcityJetbrainsCom {
         return getReturnValue((Class<T>) returnType, response);
       }
 
-      public <T> T putTextPlain(Object input, GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
       public <T> T putTextPlain(Object input, Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -8244,15 +8138,7 @@ public class TeamcityJetbrainsCom {
         return new TeamcityJetbrainsCom.AppRestBuildTypes.BtLocatorFeaturesFeatureIdParametersParameterName(_client, copyUriBuilder, copyMap);
       }
 
-      public <T> T getAsTextPlain(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
+
 
       public <T> T getAsTextPlain(Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -8369,15 +8255,7 @@ public class TeamcityJetbrainsCom {
         return new TeamcityJetbrainsCom.AppRestBuildTypes.BtLocatorField(_client, copyUriBuilder, copyMap);
       }
 
-      public <T> T getAsTextPlain(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
+
 
       public <T> T getAsTextPlain(Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -8391,15 +8269,6 @@ public class TeamcityJetbrainsCom {
         return getReturnValue((Class<T>) returnType, response);
       }
 
-      public <T> T putTextPlain(Object input, GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
       public <T> T putTextPlain(Object input, Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -8999,15 +8868,6 @@ public class TeamcityJetbrainsCom {
         return new TeamcityJetbrainsCom.AppRestBuildTypes.BtLocatorParametersName(_client, copyUriBuilder, copyMap);
       }
 
-      public <T> T putTextPlain(Object input, GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
       public <T> T putTextPlain(Object input, Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -9021,15 +8881,7 @@ public class TeamcityJetbrainsCom {
         return getReturnValue((Class<T>) returnType, response);
       }
 
-      public <T> T getAsTextPlain(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
+
 
       public <T> T getAsTextPlain(Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -9249,15 +9101,7 @@ public class TeamcityJetbrainsCom {
         return new TeamcityJetbrainsCom.AppRestBuildTypes.BtLocatorSettingsName(_client, copyUriBuilder, copyMap);
       }
 
-      public <T> T getAsTextPlain(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
+
 
       public <T> T getAsTextPlain(Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -9957,15 +9801,7 @@ public class TeamcityJetbrainsCom {
         return new TeamcityJetbrainsCom.AppRestBuildTypes.BtLocatorStepsStepIdFieldName(_client, copyUriBuilder, copyMap);
       }
 
-      public <T> T getAsTextPlain(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
+
 
       public <T> T getAsTextPlain(Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -9979,15 +9815,6 @@ public class TeamcityJetbrainsCom {
         return getReturnValue((Class<T>) returnType, response);
       }
 
-      public <T> T putTextPlain(Object input, GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
       public <T> T putTextPlain(Object input, Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -10223,15 +10050,7 @@ public class TeamcityJetbrainsCom {
         return new TeamcityJetbrainsCom.AppRestBuildTypes.BtLocatorStepsStepIdParametersParameterName(_client, copyUriBuilder, copyMap);
       }
 
-      public <T> T getAsTextPlain(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
+
 
       public <T> T getAsTextPlain(Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -10245,15 +10064,6 @@ public class TeamcityJetbrainsCom {
         return getReturnValue((Class<T>) returnType, response);
       }
 
-      public <T> T putTextPlain(Object input, GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
       public <T> T putTextPlain(Object input, Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -10824,15 +10634,7 @@ public class TeamcityJetbrainsCom {
         return new TeamcityJetbrainsCom.AppRestBuildTypes.BtLocatorTriggersTriggerLocatorFieldName(_client, copyUriBuilder, copyMap);
       }
 
-      public <T> T getAsTextPlain(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
+
 
       public <T> T getAsTextPlain(Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -10846,15 +10648,6 @@ public class TeamcityJetbrainsCom {
         return getReturnValue((Class<T>) returnType, response);
       }
 
-      public <T> T putTextPlain(Object input, GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
       public <T> T putTextPlain(Object input, Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -11850,15 +11643,7 @@ public class TeamcityJetbrainsCom {
         return new TeamcityJetbrainsCom.AppRestBuildTypes.BtLocatorVcsRootEntriesIdCheckoutRules(_client, copyUriBuilder, copyMap);
       }
 
-      public <T> T getAsTextPlain(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
+
 
       public <T> T getAsTextPlain(Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -11872,15 +11657,6 @@ public class TeamcityJetbrainsCom {
         return getReturnValue((Class<T>) returnType, response);
       }
 
-      public <T> T putTextPlain(Object input, GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
       public <T> T putTextPlain(Object input, Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -12781,15 +12557,7 @@ public class TeamcityJetbrainsCom {
         return new TeamcityJetbrainsCom.AppRestChanges.ChangeLocatorField(_client, copyUriBuilder, copyMap);
       }
 
-      public <T> T getAsTextPlain(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
+
 
       public <T> T getAsTextPlain(Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -15871,15 +15639,7 @@ public class TeamcityJetbrainsCom {
         return new TeamcityJetbrainsCom.AppRestProjects.ProjectLocatorBuildTypesBtLocatorBuildsBuildLocatorField(_client, copyUriBuilder, copyMap);
       }
 
-      public <T> T getAsTextPlain(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
+
 
       public <T> T getAsTextPlain(Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -15993,15 +15753,7 @@ public class TeamcityJetbrainsCom {
         return new TeamcityJetbrainsCom.AppRestProjects.ProjectLocatorBuildTypesBtLocatorField(_client, copyUriBuilder, copyMap);
       }
 
-      public <T> T getAsTextPlain(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
+
 
       public <T> T getAsTextPlain(Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -16242,15 +15994,6 @@ public class TeamcityJetbrainsCom {
         return new TeamcityJetbrainsCom.AppRestProjects.ProjectLocatorField(_client, copyUriBuilder, copyMap);
       }
 
-      public <T> T putTextPlain(Object input, GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
       public <T> T putTextPlain(Object input, Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -16264,15 +16007,7 @@ public class TeamcityJetbrainsCom {
         return getReturnValue((Class<T>) returnType, response);
       }
 
-      public <T> T getAsTextPlain(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
+
 
       public <T> T getAsTextPlain(Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -16736,15 +16471,6 @@ public class TeamcityJetbrainsCom {
         return new TeamcityJetbrainsCom.AppRestProjects.ProjectLocatorParametersName(_client, copyUriBuilder, copyMap);
       }
 
-      public <T> T putTextPlain(Object input, GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
       public <T> T putTextPlain(Object input, Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -16758,15 +16484,7 @@ public class TeamcityJetbrainsCom {
         return getReturnValue((Class<T>) returnType, response);
       }
 
-      public <T> T getAsTextPlain(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
+
 
       public <T> T getAsTextPlain(Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -17361,15 +17079,7 @@ public class TeamcityJetbrainsCom {
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
       }
 
-      public <T> T getAsTextPlain(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
+
 
       public <T> T getAsTextPlain(Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -17601,15 +17311,7 @@ public class TeamcityJetbrainsCom {
         return new TeamcityJetbrainsCom.AppRestServer.Field(_client, copyUriBuilder, copyMap);
       }
 
-      public <T> T getAsTextPlain(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
+
 
       public <T> T getAsTextPlain(Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -19139,15 +18841,7 @@ public class TeamcityJetbrainsCom {
         return new TeamcityJetbrainsCom.AppRestUsers.UserLocatorField(_client, copyUriBuilder, copyMap);
       }
 
-      public <T> T getAsTextPlain(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
+
 
       public <T> T getAsTextPlain(Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -19161,15 +18855,6 @@ public class TeamcityJetbrainsCom {
         return getReturnValue((Class<T>) returnType, response);
       }
 
-      public <T> T putTextPlain(Object input, GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
       public <T> T putTextPlain(Object input, Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -19615,15 +19300,7 @@ public class TeamcityJetbrainsCom {
         return new TeamcityJetbrainsCom.AppRestUsers.UserLocatorPropertiesName(_client, copyUriBuilder, copyMap);
       }
 
-      public <T> T getAsTextPlain(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
+
 
       public <T> T getAsTextPlain(Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -19637,15 +19314,6 @@ public class TeamcityJetbrainsCom {
         return getReturnValue((Class<T>) returnType, response);
       }
 
-      public <T> T putTextPlain(Object input, GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
       public <T> T putTextPlain(Object input, Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -20241,15 +19909,7 @@ public class TeamcityJetbrainsCom {
         return new TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorField(_client, copyUriBuilder, copyMap);
       }
 
-      public <T> T getAsTextPlain(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
+
 
       public <T> T getAsTextPlain(Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -20263,15 +19923,6 @@ public class TeamcityJetbrainsCom {
         return getReturnValue((Class<T>) returnType, response);
       }
 
-      public <T> T putTextPlain(Object input, GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
       public <T> T putTextPlain(Object input, Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -21145,16 +20796,6 @@ public class TeamcityJetbrainsCom {
         return new TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorField(_client, copyUriBuilder, copyMap);
       }
 
-      public <T> T getAsTextPlain(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
-
       public <T> T getAsTextPlain(Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
         WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
@@ -21167,15 +20808,6 @@ public class TeamcityJetbrainsCom {
         return getReturnValue((Class<T>) returnType, response);
       }
 
-      public <T> T putTextPlain(Object input, GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
       public <T> T putTextPlain(Object input, Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -21456,15 +21088,7 @@ public class TeamcityJetbrainsCom {
         return new TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorInstancesVcsRootInstanceLocatorField(_client, copyUriBuilder, copyMap);
       }
 
-      public <T> T getAsTextPlain(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
+
 
       public <T> T getAsTextPlain(Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -21478,15 +21102,6 @@ public class TeamcityJetbrainsCom {
         return getReturnValue((Class<T>) returnType, response);
       }
 
-      public <T> T putTextPlain(Object input, GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
       public <T> T putTextPlain(Object input, Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -21787,15 +21402,6 @@ public class TeamcityJetbrainsCom {
         return new TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorPropertiesName(_client, copyUriBuilder, copyMap);
       }
 
-      public <T> T putTextPlain(Object input, GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
 
       public <T> T putTextPlain(Object input, Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
@@ -21809,15 +21415,7 @@ public class TeamcityJetbrainsCom {
         return getReturnValue((Class<T>) returnType, response);
       }
 
-      public <T> T getAsTextPlain(GenericType<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response;
-        response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(returnType);
-      }
+
 
       public <T> T getAsTextPlain(Class<T> returnType) {
         UriBuilder localUriBuilder = _uriBuilder.clone();
