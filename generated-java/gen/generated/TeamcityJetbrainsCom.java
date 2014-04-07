@@ -1,7 +1,6 @@
 package generated;
 
 import javax.annotation.Generated;
-import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.client.*;
 import javax.ws.rs.core.Configurable;
 import javax.ws.rs.core.Response;
@@ -22,7 +21,9 @@ public class TeamcityJetbrainsCom {
     BASE_URI = URI.create("http://teamcity.jetbrains.com/");
   }
 
-  public static final String GET = "GET";
+  public static final String METHOD_GET = "METHOD_GET";
+  public static final String METHOD_DELETE = "DELETE";
+  public static final String TEXT_PLAIN = "text/plain";
 
   /**
    * Template method to allow tooling to customize the new Client
@@ -245,7 +246,7 @@ public class TeamcityJetbrainsCom {
 
   public static Response delete(WebTarget resource) {
     javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-    Response response = resourceBuilder.build("DELETE").invoke();
+    Response response = resourceBuilder.build(METHOD_DELETE).invoke();
     return response;
   }
 
@@ -262,44 +263,16 @@ public class TeamcityJetbrainsCom {
   }
 
   public static String getAsString(WebTarget resource) {
-    javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-    Response response = resourceBuilder.build(GET).invoke();
+    javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request(TEXT_PLAIN);
+    Response response = resourceBuilder.build(METHOD_GET).invoke();
     throwExceptionIfWrongStatus(response);
     return getStringValue(response);
   }
 
   public static void throwExceptionIfWrongStatus(Response response) {
     if (response.getStatus() >= 400) {
-      throw new TeamcityJetbrainsCom.WebApplicationExceptionMessage(response);
+      throw new WebApplicationExceptionMessage(response);
     }
   }
 
-  /**
-   * Workaround for JAX_RS_SPEC-312
-   */
-  private static class WebApplicationExceptionMessage
-      extends WebApplicationException {
-    private WebApplicationExceptionMessage(Response response) {
-      super(response);
-    }
-
-    /**
-     * Workaround for JAX_RS_SPEC-312
-     */
-    public String getMessage() {
-      Response response = getResponse();
-      Response.Status status = Response.Status.fromStatusCode(response.getStatus());
-      if (status != null) {
-        return (response.getStatus() + (" " + status.getReasonPhrase()));
-      } else {
-        return Integer.toString(response.getStatus());
-      }
-    }
-
-    public String toString() {
-      String s = "javax.ws.rs.WebApplicationException";
-      String message = getLocalizedMessage();
-      return (s + (": " + message));
-    }
-  }
 }

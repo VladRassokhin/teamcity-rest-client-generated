@@ -107,7 +107,7 @@ public class AppRestDebug {
     public <T> T getAsTextPlainCharsetUTF8(Class<T> returnType) {
       WebTarget resource = TeamcityJetbrainsCom.getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain; charset=UTF-8");
-      Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+      Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
       if (!Response.class.isAssignableFrom(returnType)) {
         TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
       }
@@ -122,7 +122,7 @@ public class AppRestDebug {
 
       WebTarget resource = TeamcityJetbrainsCom.getWebTarget(localUriBuilder, _client, _templateAndMatrixParameterValues);
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain; charset=UTF-8");
-      Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+      Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
       if (!Response.class.isAssignableFrom(returnType)) {
         TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
       }
@@ -154,7 +154,7 @@ public class AppRestDebug {
     public <T> T getAsTextPlainCharsetUTF8(Class<T> returnType) {
       WebTarget resource = TeamcityJetbrainsCom.getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain; charset=UTF-8");
-      Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+      Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
       if (!Response.class.isAssignableFrom(returnType)) {
         TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
       }

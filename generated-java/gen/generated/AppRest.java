@@ -103,7 +103,7 @@ public class AppRest {
     public PluginInfo get() {
       WebTarget resource = TeamcityJetbrainsCom.getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/xml");
-      Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+      Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
       TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
       return response.readEntity(PluginInfo.class);
     }

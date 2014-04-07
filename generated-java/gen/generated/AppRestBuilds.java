@@ -39,7 +39,7 @@ public class AppRestBuilds {
    */
   public Builds get() {
     javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
-    Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+    Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
     TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
     return response.readEntity(Builds.class);
   }
@@ -72,7 +72,7 @@ public class AppRestBuilds {
     localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
     localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
     javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
-    Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+    Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
     TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
     return response.readEntity(Builds.class);
   }
@@ -256,7 +256,7 @@ public class AppRestBuilds {
      */
     public Build get() {
       javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
-      Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+      Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
       TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
       return response.readEntity(Build.class);
     }
@@ -275,7 +275,7 @@ public class AppRestBuilds {
 
       localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
       TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
       return response.readEntity(Build.class);
     }
@@ -341,7 +341,7 @@ public class AppRestBuilds {
      */
     public Files get() {
       javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
-      Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+      Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
       TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
       return response.readEntity(Files.class);
     }
@@ -428,7 +428,7 @@ public class AppRestBuilds {
 
     public Files get() {
       javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
-      Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+      Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
       TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
       return response.readEntity(Files.class);
     }
@@ -439,7 +439,7 @@ public class AppRestBuilds {
       localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", resolveparameters);
       localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
 
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
       TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
       return response.readEntity(Files.class);
     }
@@ -521,7 +521,7 @@ public class AppRestBuilds {
     public <T> T getAs(Class<T> returnType) {
       WebTarget resource = TeamcityJetbrainsCom.getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("*/*");
-      Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+      Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
       if (!Response.class.isAssignableFrom(returnType)) {
         TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
       }
@@ -536,7 +536,7 @@ public class AppRestBuilds {
 
       WebTarget resource = TeamcityJetbrainsCom.getWebTarget(localUriBuilder, _client, _templateAndMatrixParameterValues);
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("*/*");
-      Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+      Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
       if (!Response.class.isAssignableFrom(returnType)) {
         TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
       }
@@ -621,7 +621,7 @@ public class AppRestBuilds {
     public <T> T getAs(Class<T> returnType) {
       WebTarget resource = TeamcityJetbrainsCom.getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("*/*");
-      Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+      Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
       if (!Response.class.isAssignableFrom(returnType)) {
         TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
       }
@@ -705,7 +705,7 @@ public class AppRestBuilds {
 
     public File get() {
       javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
-      Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+      Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
       TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
       return response.readEntity(File.class);
     }
@@ -716,7 +716,7 @@ public class AppRestBuilds {
       localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", resolveparameters);
       localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
 
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
       TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
       return response.readEntity(File.class);
     }
@@ -779,7 +779,7 @@ public class AppRestBuilds {
 
     public Comment get() {
       javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
-      Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+      Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
       TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
       return response.readEntity(Comment.class);
     }
@@ -789,7 +789,7 @@ public class AppRestBuilds {
 
       localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
       TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
       return response.readEntity(Comment.class);
     }
@@ -922,7 +922,7 @@ public class AppRestBuilds {
 
     public BuildCancelRequest get() {
       javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
-      Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+      Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
       TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
       return response.readEntity(BuildCancelRequest.class);
     }
@@ -1153,7 +1153,7 @@ public class AppRestBuilds {
 
     public ProblemOccurrences get() {
       javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
-      Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+      Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
       TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
       return response.readEntity(ProblemOccurrences.class);
     }
@@ -1163,7 +1163,7 @@ public class AppRestBuilds {
 
       localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
       TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
       return response.readEntity(ProblemOccurrences.class);
     }
@@ -1225,7 +1225,7 @@ public class AppRestBuilds {
 
     public IssueUsages get() {
       javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
-      Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+      Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
       TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
       return response.readEntity(IssueUsages.class);
     }
@@ -1235,7 +1235,7 @@ public class AppRestBuilds {
 
       localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
       TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
       return response.readEntity(IssueUsages.class);
     }
@@ -1298,7 +1298,7 @@ public class AppRestBuilds {
 
     public IssueUsages get() {
       javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
-      Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+      Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
       TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
       return response.readEntity(IssueUsages.class);
     }
@@ -1308,7 +1308,7 @@ public class AppRestBuilds {
 
       localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
       TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
       return response.readEntity(IssueUsages.class);
     }
@@ -1371,7 +1371,7 @@ public class AppRestBuilds {
 
     public Properties get() {
       javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
-      Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+      Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
       TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
       return response.readEntity(Properties.class);
     }
@@ -1534,7 +1534,7 @@ public class AppRestBuilds {
     public <T> T getAsOctetStream(Class<T> returnType) {
       WebTarget resource = TeamcityJetbrainsCom.getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/octet-stream");
-      Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+      Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
       if (!Response.class.isAssignableFrom(returnType)) {
         TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
       }
@@ -1599,7 +1599,7 @@ public class AppRestBuilds {
 
     public Properties get() {
       javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
-      Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+      Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
       TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
       return response.readEntity(Properties.class);
     }
@@ -1743,7 +1743,7 @@ public class AppRestBuilds {
     public <T> T getAs(Class<T> returnType) {
       WebTarget resource = TeamcityJetbrainsCom.getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
       javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("*/*");
-      Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+      Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
       if (!Response.class.isAssignableFrom(returnType)) {
         TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
       }
@@ -1839,7 +1839,7 @@ public class AppRestBuilds {
 
     public Tags get() {
       javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
-      Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+      Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
       TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
       return response.readEntity(Tags.class);
     }
@@ -1902,7 +1902,7 @@ public class AppRestBuilds {
 
     public TestOccurrences get() {
       javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
-      Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+      Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
       TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
       return response.readEntity(TestOccurrences.class);
     }
@@ -1912,7 +1912,7 @@ public class AppRestBuilds {
 
       localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
       TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
       return response.readEntity(TestOccurrences.class);
     }

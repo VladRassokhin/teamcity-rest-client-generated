@@ -43,7 +43,7 @@ public class AppRestVcsRoots {
 
   public VcsRoots get() {
     javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
-    Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+    Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
     TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
     return response.readEntity(VcsRoots.class);
   }
@@ -52,7 +52,7 @@ public class AppRestVcsRoots {
     UriBuilder localUriBuilder = _uriBuilder.clone();
     localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
     javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
-    Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+    Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
     TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
     return response.readEntity(VcsRoots.class);
   }
@@ -148,7 +148,7 @@ public class AppRestVcsRoots {
 
     public VcsRoot get() {
       javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
-      Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+      Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
       TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
       return response.readEntity(VcsRoot.class);
     }
@@ -303,7 +303,7 @@ public class AppRestVcsRoots {
 
     public VcsRootInstances get() {
       javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
-      Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+      Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
       TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
       return response.readEntity(VcsRootInstances.class);
     }
@@ -390,7 +390,7 @@ public class AppRestVcsRoots {
 
     public VcsRootInstance get() {
       javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
-      Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+      Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
       TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
       return response.readEntity(VcsRootInstance.class);
     }
@@ -578,7 +578,7 @@ public class AppRestVcsRoots {
 
     public Properties get() {
       javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
-      Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+      Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
       TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
       return response.readEntity(Properties.class);
     }
@@ -640,7 +640,7 @@ public class AppRestVcsRoots {
 
     public Properties get() {
       javax.ws.rs.client.Invocation.Builder resourceBuilder = TeamcityJetbrainsCom.getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
-      Response response = resourceBuilder.build(TeamcityJetbrainsCom.GET).invoke();
+      Response response = resourceBuilder.build(TeamcityJetbrainsCom.METHOD_GET).invoke();
       TeamcityJetbrainsCom.throwExceptionIfWrongStatus(response);
       return response.readEntity(Properties.class);
     }
