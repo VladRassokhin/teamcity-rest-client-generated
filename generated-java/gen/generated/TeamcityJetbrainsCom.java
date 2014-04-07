@@ -57,7 +57,6 @@ public class TeamcityJetbrainsCom {
 
 
   public static WebTarget getWebTarget(UriBuilder builder, Client client, Map<String, Object> map) {
-
     UriBuilder localUriBuilder = builder.clone();
     return client.target(localUriBuilder.buildFromMap(map));
   }
@@ -310,8 +309,7 @@ public class TeamcityJetbrainsCom {
 
 
       public String get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return getAsString(resource);
       }
 
@@ -340,8 +338,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public PluginInfo get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/xml");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -469,8 +466,7 @@ public class TeamcityJetbrainsCom {
 
 
       public String get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return getAsString(resource);
       }
 
@@ -500,8 +496,7 @@ public class TeamcityJetbrainsCom {
 
 
       public String get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return getAsString(resource);
       }
 
@@ -628,15 +623,13 @@ public class TeamcityJetbrainsCom {
       }
 
       public Response delete() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return TeamcityJetbrainsCom.delete(resource);
       }
 
 
       public AgentPool get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -723,8 +716,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public AgentsRef get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -752,8 +744,7 @@ public class TeamcityJetbrainsCom {
        * Moves the agent posted to the pool
        */
       public Agent post(Agent input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "agent"), Agent.class, input), "application/json")).invoke();
@@ -827,8 +818,7 @@ public class TeamcityJetbrainsCom {
        * Adds the posted project to the pool associated projects
        */
       public Project post(Project input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "project"), Project.class, input), "application/json")).invoke();
@@ -837,8 +827,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Projects get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -867,8 +856,7 @@ public class TeamcityJetbrainsCom {
        * this pool
        */
       public Projects put(Projects input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "projects"), Projects.class, input), "application/json")).invoke();
@@ -953,8 +941,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Project get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -979,8 +966,7 @@ public class TeamcityJetbrainsCom {
 
 
       public Response delete() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return TeamcityJetbrainsCom.delete(resource);
       }
 
@@ -1145,8 +1131,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Agent get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -1154,8 +1139,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Response delete() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return TeamcityJetbrainsCom.delete(resource);
       }
 
@@ -1243,15 +1227,13 @@ public class TeamcityJetbrainsCom {
 
 
       public String get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return getAsString(resource);
       }
 
 
       public String putTextPlain(String input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
@@ -1324,8 +1306,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public AgentPool get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -1350,8 +1331,7 @@ public class TeamcityJetbrainsCom {
 
 
       public AgentPool put(AgentPool input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "agentPool"), AgentPool.class, input), "application/json")).invoke();
@@ -1562,8 +1542,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public BuildCancelRequest get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -1652,8 +1631,7 @@ public class TeamcityJetbrainsCom {
 
 
       public String get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return getAsString(resource);
       }
 
@@ -1720,15 +1698,13 @@ public class TeamcityJetbrainsCom {
       }
 
       public Response delete() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return TeamcityJetbrainsCom.delete(resource);
       }
 
 
       public Build post(BuildCancelRequest input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "buildCancelRequest"), BuildCancelRequest.class, input), "application/json")).invoke();
@@ -1737,8 +1713,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Build get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -1825,8 +1800,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public AgentsRef get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -2146,15 +2120,13 @@ public class TeamcityJetbrainsCom {
       }
 
       public Response delete() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return TeamcityJetbrainsCom.delete(resource);
       }
 
 
       public Build post(BuildCancelRequest input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("*/*");
         Response response;
         response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "buildCancelRequest"), BuildCancelRequest.class, input), "application/json")).invoke();
@@ -2189,8 +2161,7 @@ public class TeamcityJetbrainsCom {
        * locator dimension is added)
        */
       public Build get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -2288,8 +2259,7 @@ public class TeamcityJetbrainsCom {
        * More user-friendly URL for "/{buildLocator}/artifacts/children" one.
        */
       public Files get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -2388,8 +2358,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Files get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -2501,8 +2470,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public <T> T getAs(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("*/*");
         Response response = resourceBuilder.build(GET).invoke();
         if (!Response.class.isAssignableFrom(returnType)) {
@@ -2618,8 +2586,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public <T> T getAs(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("*/*");
         Response response = resourceBuilder.build(GET).invoke();
         if (!Response.class.isAssignableFrom(returnType)) {
@@ -2710,8 +2677,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public File get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -2804,8 +2770,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Comment get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -2892,8 +2857,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public <T> T putTextPlain(Object input, Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
@@ -2904,8 +2868,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Response delete() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return TeamcityJetbrainsCom.delete(resource);
       }
 
@@ -2973,8 +2936,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public BuildCancelRequest get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -3063,8 +3025,7 @@ public class TeamcityJetbrainsCom {
 
 
       public String get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return getAsString(resource);
       }
 
@@ -3134,8 +3095,7 @@ public class TeamcityJetbrainsCom {
        * Pins a build
        */
       public <T> T putTextPlain(Object input, Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
@@ -3149,8 +3109,7 @@ public class TeamcityJetbrainsCom {
        * Fetches current build pinned status.
        */
       public String get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return getAsString(resource);
       }
 
@@ -3158,8 +3117,7 @@ public class TeamcityJetbrainsCom {
        * Unpins a build
        */
       public <T> T deleteTextPlain(Object input, Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
         Response response;
         response = resourceBuilder.build("DELETE", Entity.entity(input, "text/plain")).invoke();
@@ -3232,8 +3190,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public ProblemOccurrences get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -3320,8 +3277,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public IssueUsages get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -3408,8 +3364,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public IssueUsages get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -3496,8 +3451,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Properties get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -3586,8 +3540,7 @@ public class TeamcityJetbrainsCom {
 
 
       public String get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return getAsString(resource);
       }
 
@@ -3673,8 +3626,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public <T> T getAsOctetStream(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/octet-stream");
         Response response = resourceBuilder.build(GET).invoke();
         if (!Response.class.isAssignableFrom(returnType)) {
@@ -3746,8 +3698,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Properties get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -3836,8 +3787,7 @@ public class TeamcityJetbrainsCom {
 
 
       public String get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return getAsString(resource);
       }
 
@@ -3904,8 +3854,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public <T> T getAs(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("*/*");
         Response response = resourceBuilder.build(GET).invoke();
         if (!Response.class.isAssignableFrom(returnType)) {
@@ -3980,8 +3929,7 @@ public class TeamcityJetbrainsCom {
        * Adds a single tag to a build
        */
       public String postTextPlain(Object input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("POST", Entity.entity(input, "text/plain")).invoke();
@@ -3995,8 +3943,7 @@ public class TeamcityJetbrainsCom {
        * Replaces build's tags.
        */
       public Tags put(Tags input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "tags"), Tags.class, input), "application/json")).invoke();
@@ -4009,8 +3956,7 @@ public class TeamcityJetbrainsCom {
        * Adds a set of tags to a build
        */
       public Response post(Tags input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
         Response response;
         response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "tags"), Tags.class, input), "application/json")).invoke();
@@ -4018,8 +3964,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Tags get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -4088,8 +4033,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public TestOccurrences get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -4434,8 +4378,7 @@ public class TeamcityJetbrainsCom {
        * Serves build configuration or templates according to the locator.
        */
       public BuildType get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -4482,8 +4425,7 @@ public class TeamcityJetbrainsCom {
 
 
       public Response delete() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return TeamcityJetbrainsCom.delete(resource);
       }
 
@@ -4551,8 +4493,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public PropEntitiesAgentRequirement get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -4565,8 +4506,7 @@ public class TeamcityJetbrainsCom {
        * parameter).
        */
       public PropEntityAgentRequirement post(PropEntityAgentRequirement input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "agent-requirement"), PropEntityAgentRequirement.class, input), "application/json")).invoke();
@@ -4578,8 +4518,7 @@ public class TeamcityJetbrainsCom {
        * Replaces agent requirements with those sent in the request.
        */
       public PropEntitiesAgentRequirement put(PropEntitiesAgentRequirement input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "agent-requirements"), PropEntitiesAgentRequirement.class, input), "application/json")).invoke();
@@ -4669,8 +4608,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public PropEntityAgentRequirement get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -4678,15 +4616,13 @@ public class TeamcityJetbrainsCom {
       }
 
       public Response delete() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return TeamcityJetbrainsCom.delete(resource);
       }
 
 
       public PropEntityAgentRequirement put(PropEntityAgentRequirement input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "agent-requirement"), PropEntityAgentRequirement.class, input), "application/json")).invoke();
@@ -4758,8 +4694,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public PropEntitiesArtifactDep get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -4770,8 +4705,7 @@ public class TeamcityJetbrainsCom {
        * Replaces the dependencies to those sent in the request.
        */
       public PropEntitiesArtifactDep put(PropEntitiesArtifactDep input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "artifact-dependencies"), PropEntitiesArtifactDep.class, input), "application/json")).invoke();
@@ -4789,8 +4723,7 @@ public class TeamcityJetbrainsCom {
 
 
       public PropEntityArtifactDep post(PropEntityArtifactDep input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "artifact-dependency"), PropEntityArtifactDep.class, input), "*/*")).invoke();
@@ -4880,8 +4813,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public PropEntityArtifactDep get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -4889,15 +4821,13 @@ public class TeamcityJetbrainsCom {
       }
 
       public Response delete() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return TeamcityJetbrainsCom.delete(resource);
       }
 
 
       public PropEntityArtifactDep put(PropEntityArtifactDep input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "artifact-dependency"), PropEntityArtifactDep.class, input), "*/*")).invoke();
@@ -4971,8 +4901,7 @@ public class TeamcityJetbrainsCom {
        * Lists branches of the build type.
        */
       public Branches get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -5076,8 +5005,7 @@ public class TeamcityJetbrainsCom {
        * Serves builds matching supplied condition.
        */
       public Builds get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -5269,8 +5197,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Build get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -5396,8 +5323,7 @@ public class TeamcityJetbrainsCom {
 
 
       public String get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return getAsString(resource);
       }
 
@@ -5464,8 +5390,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Tags get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -5539,8 +5464,7 @@ public class TeamcityJetbrainsCom {
        * build type
        */
       public NewBuildTypeDescription get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -5624,8 +5548,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public PropEntityFeature post(PropEntityFeature input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "feature"), PropEntityFeature.class, input), "*/*")).invoke();
@@ -5634,8 +5557,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public PropEntitiesFeature get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -5643,8 +5565,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public PropEntitiesFeature put(PropEntitiesFeature input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "features"), PropEntitiesFeature.class, input), "application/json")).invoke();
@@ -5735,15 +5656,13 @@ public class TeamcityJetbrainsCom {
       }
 
       public Response delete() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return TeamcityJetbrainsCom.delete(resource);
       }
 
 
       public PropEntityFeature put(PropEntityFeature input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "feature"), PropEntityFeature.class, input), "*/*")).invoke();
@@ -5752,8 +5671,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public PropEntityFeature get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -5861,15 +5779,13 @@ public class TeamcityJetbrainsCom {
 
 
       public String get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return getAsString(resource);
       }
 
 
       public String putTextPlain(Object input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
@@ -5961,8 +5877,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Properties get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -5970,8 +5885,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Properties put(Properties input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "properties"), Properties.class, input), "application/json")).invoke();
@@ -6082,14 +5996,12 @@ public class TeamcityJetbrainsCom {
 
 
       public String get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return getAsString(resource);
       }
 
       public <T> String putAsTextPlain(Object input, Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "*/*")).invoke();
@@ -6182,15 +6094,13 @@ public class TeamcityJetbrainsCom {
 
 
       public String get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return getAsString(resource);
       }
 
 
       public String putTextPlain(Object input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
@@ -6263,8 +6173,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Investigations get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -6354,8 +6263,7 @@ public class TeamcityJetbrainsCom {
        * For compatibility with experimental feature of 8.0
        */
       public NewBuildTypeDescription get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -6435,8 +6343,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Properties get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -6467,8 +6374,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Properties put(Properties input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "properties"), Properties.class, input), "application/json")).invoke();
@@ -6494,14 +6400,12 @@ public class TeamcityJetbrainsCom {
       }
 
       public Response delete() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return TeamcityJetbrainsCom.delete(resource);
       }
 
       public Property post(Property input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "property"), Property.class, input), "application/json")).invoke();
@@ -6609,8 +6513,7 @@ public class TeamcityJetbrainsCom {
 
 
       public String putTextPlain(Object input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
@@ -6622,14 +6525,12 @@ public class TeamcityJetbrainsCom {
 
 
       public String getAsString() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return TeamcityJetbrainsCom.getAsString(resource);
       }
 
       public Property getAsProperty() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -6637,8 +6538,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Response delete() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return TeamcityJetbrainsCom.delete(resource);
       }
 
@@ -6706,8 +6606,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Properties get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -6715,8 +6614,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Properties put(Properties input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "properties"), Properties.class, input), "application/json")).invoke();
@@ -6808,14 +6706,12 @@ public class TeamcityJetbrainsCom {
 
 
       public String get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return getAsString(resource);
       }
 
       public <T> String putAsTextPlain(Object input, Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "*/*")).invoke();
@@ -6888,8 +6784,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public PropEntitiesSnapshotDep get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -6900,8 +6795,7 @@ public class TeamcityJetbrainsCom {
        * Replaces snapshot dependency with those sent in request.
        */
       public PropEntitiesSnapshotDep put(PropEntitiesSnapshotDep input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "snapshot-dependencies"), PropEntitiesSnapshotDep.class, input), "application/json")).invoke();
@@ -6924,8 +6818,7 @@ public class TeamcityJetbrainsCom {
        * build configuration already exists).
        */
       public PropEntitySnapshotDep post(PropEntitySnapshotDep input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "snapshot-dependency"), PropEntitySnapshotDep.class, input), "application/json")).invoke();
@@ -7015,8 +6908,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public PropEntitySnapshotDep get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -7024,15 +6916,13 @@ public class TeamcityJetbrainsCom {
       }
 
       public Response delete() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return TeamcityJetbrainsCom.delete(resource);
       }
 
 
       public PropEntitySnapshotDep put(PropEntitySnapshotDep input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "snapshot-dependency"), PropEntitySnapshotDep.class, input), "application/json")).invoke();
@@ -7104,8 +6994,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public PropEntityStep post(PropEntityStep input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "step"), PropEntityStep.class, input), "application/json")).invoke();
@@ -7114,8 +7003,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public PropEntitiesStep get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -7123,8 +7011,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public PropEntitiesStep put(PropEntitiesStep input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "steps"), PropEntitiesStep.class, input), "application/json")).invoke();
@@ -7214,8 +7101,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public PropEntityStep get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -7223,15 +7109,13 @@ public class TeamcityJetbrainsCom {
       }
 
       public Response delete() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return TeamcityJetbrainsCom.delete(resource);
       }
 
 
       public PropEntityStep put(PropEntityStep input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "step"), PropEntityStep.class, input), "application/json")).invoke();
@@ -7342,15 +7226,13 @@ public class TeamcityJetbrainsCom {
 
 
       public String get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return getAsString(resource);
       }
 
 
       public String putTextPlain(Object input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
@@ -7442,8 +7324,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Properties get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -7451,8 +7332,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Properties put(Properties input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "properties"), Properties.class, input), "application/json")).invoke();
@@ -7563,15 +7443,13 @@ public class TeamcityJetbrainsCom {
 
 
       public String get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return getAsString(resource);
       }
 
 
       public String putTextPlain(Object input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
@@ -7644,8 +7522,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public BuildType get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -7669,8 +7546,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public <T> T putTextPlain(Object input, Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
@@ -7700,8 +7576,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Response delete() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return TeamcityJetbrainsCom.delete(resource);
       }
 
@@ -7769,8 +7644,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public PropEntitiesTrigger get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -7783,8 +7657,7 @@ public class TeamcityJetbrainsCom {
        * for a build configuration).
        */
       public PropEntityTrigger post(PropEntityTrigger input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "trigger"), PropEntityTrigger.class, input), "application/json")).invoke();
@@ -7796,8 +7669,7 @@ public class TeamcityJetbrainsCom {
        * Replaces trigger with those sent inthe request.
        */
       public PropEntitiesTrigger put(PropEntitiesTrigger input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "triggers"), PropEntitiesTrigger.class, input), "application/json")).invoke();
@@ -7887,8 +7759,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public PropEntityTrigger get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -7896,15 +7767,13 @@ public class TeamcityJetbrainsCom {
       }
 
       public Response delete() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return TeamcityJetbrainsCom.delete(resource);
       }
 
 
       public PropEntityTrigger put(PropEntityTrigger input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "trigger"), PropEntityTrigger.class, input), "application/json")).invoke();
@@ -8015,15 +7884,13 @@ public class TeamcityJetbrainsCom {
 
 
       public String get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return getAsString(resource);
       }
 
 
       public String putTextPlain(Object input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
@@ -8119,8 +7986,7 @@ public class TeamcityJetbrainsCom {
        * Experimental support only
        */
       public Files get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -8245,8 +8111,7 @@ public class TeamcityJetbrainsCom {
        * Experimental support only
        */
       public <T> T getAs(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("*/*");
         Response response = resourceBuilder.build(GET).invoke();
         if (!Response.class.isAssignableFrom(returnType)) {
@@ -8363,8 +8228,7 @@ public class TeamcityJetbrainsCom {
        * Experimental support only
        */
       public File get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -8470,8 +8334,7 @@ public class TeamcityJetbrainsCom {
        * Experimental support only
        */
       public VcsLabelingOptions get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -8495,8 +8358,7 @@ public class TeamcityJetbrainsCom {
        * Experimental support only
        */
       public VcsLabelingOptions put(VcsLabelingOptions input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "vcsLabeling"), VcsLabelingOptions.class, input), "application/json")).invoke();
@@ -8578,8 +8440,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public VcsRootEntries get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -8587,8 +8448,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public VcsRootEntries put(VcsRootEntries input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "vcs-root-entries"), VcsRootEntries.class, input), "application/json")).invoke();
@@ -8597,8 +8457,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public VcsRootEntry post(VcsRootEntry input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "vcs-root-entry"), VcsRootEntry.class, input), "application/json")).invoke();
@@ -8688,8 +8547,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public VcsRootEntry get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -8697,8 +8555,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public VcsRootEntry put(VcsRootEntry input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "vcs-root-entry"), VcsRootEntry.class, input), "application/json")).invoke();
@@ -8708,8 +8565,7 @@ public class TeamcityJetbrainsCom {
 
 
       public Response delete() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return TeamcityJetbrainsCom.delete(resource);
       }
 
@@ -8797,15 +8653,13 @@ public class TeamcityJetbrainsCom {
 
 
       public String get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return getAsString(resource);
       }
 
 
       public String putTextPlain(Object input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
@@ -8881,8 +8735,7 @@ public class TeamcityJetbrainsCom {
        * Experimental support only!
        */
       public VcsRootInstances get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -9120,8 +8973,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Change get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -9211,8 +9063,7 @@ public class TeamcityJetbrainsCom {
        * Experimental support only!
        */
       public Entries get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -9295,8 +9146,7 @@ public class TeamcityJetbrainsCom {
        * Experimental support only!
        */
       public BuildTypes get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -9408,8 +9258,7 @@ public class TeamcityJetbrainsCom {
        * Experimental support only!
        */
       public Changes get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -9538,8 +9387,7 @@ public class TeamcityJetbrainsCom {
 
 
       public String get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return getAsString(resource);
       }
 
@@ -9609,8 +9457,7 @@ public class TeamcityJetbrainsCom {
        * Experimental support only!
        */
       public Builds get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -9722,8 +9569,7 @@ public class TeamcityJetbrainsCom {
        * Experimental support only!
        */
       public Issues get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -9806,8 +9652,7 @@ public class TeamcityJetbrainsCom {
        * Experimental support only!
        */
       public Changes get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -9919,8 +9764,7 @@ public class TeamcityJetbrainsCom {
        * Experimental support only!
        */
       public Items get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -10003,8 +9847,7 @@ public class TeamcityJetbrainsCom {
        * Experimental support only!
        */
       public VcsRootInstanceRef get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -10126,8 +9969,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public <T> T getAsTextPlainCharsetUTF8(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain; charset=UTF-8");
         Response response = resourceBuilder.build(GET).invoke();
         if (!Response.class.isAssignableFrom(returnType)) {
@@ -10186,8 +10028,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public <T> T getAsTextPlainCharsetUTF8(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain; charset=UTF-8");
         Response response = resourceBuilder.build(GET).invoke();
         if (!Response.class.isAssignableFrom(returnType)) {
@@ -10224,8 +10065,7 @@ public class TeamcityJetbrainsCom {
        * Experimental use only!
        */
       public VcsRootInstances post() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("POST").invoke();
@@ -10384,8 +10224,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Investigation get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -10537,8 +10376,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public ProblemOccurrence get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -10690,8 +10528,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Problem get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -10914,8 +10751,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Project get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -10940,8 +10776,7 @@ public class TeamcityJetbrainsCom {
 
 
       public Response delete() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return TeamcityJetbrainsCom.delete(resource);
       }
 
@@ -11009,8 +10844,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public AgentPools get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -11018,8 +10852,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public AgentPool post(AgentPool input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "agentPool"), AgentPool.class, input), "application/json")).invoke();
@@ -11028,8 +10861,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public AgentPools put(AgentPools input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "agentPools"), AgentPools.class, input), "application/json")).invoke();
@@ -11119,8 +10951,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Response delete() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return TeamcityJetbrainsCom.delete(resource);
       }
 
@@ -11188,8 +11019,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public BuildTypes get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -11214,8 +11044,7 @@ public class TeamcityJetbrainsCom {
 
 
       public <T> T postTextPlain(Object input, Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("POST", Entity.entity(input, "text/plain")).invoke();
@@ -11248,8 +11077,7 @@ public class TeamcityJetbrainsCom {
        * Creates a new build configuration by copying existing one.
        */
       public BuildType post(NewBuildTypeDescription input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "newBuildTypeDescription"), NewBuildTypeDescription.class, input), "application/json")).invoke();
@@ -11359,8 +11187,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public BuildType get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -11469,8 +11296,7 @@ public class TeamcityJetbrainsCom {
        * Serves builds matching supplied condition.
        */
       public Builds get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -11691,8 +11517,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Build get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -11837,8 +11662,7 @@ public class TeamcityJetbrainsCom {
 
 
       public String get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return getAsString(resource);
       }
 
@@ -11944,8 +11768,7 @@ public class TeamcityJetbrainsCom {
 
 
       public String get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return getAsString(resource);
       }
 
@@ -12017,8 +11840,7 @@ public class TeamcityJetbrainsCom {
        * project
        */
       public NewProjectDescription get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -12130,8 +11952,7 @@ public class TeamcityJetbrainsCom {
 
 
       public String putTextPlain(Object input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
@@ -12143,8 +11964,7 @@ public class TeamcityJetbrainsCom {
 
 
       public String get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return getAsString(resource);
       }
 
@@ -12214,8 +12034,7 @@ public class TeamcityJetbrainsCom {
        * For compatibility with experimental feature of 8.0
        */
       public NewProjectDescription get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -12314,8 +12133,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Properties get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -12340,8 +12158,7 @@ public class TeamcityJetbrainsCom {
 
 
       public Properties put(Properties input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "properties"), Properties.class, input), "application/json")).invoke();
@@ -12368,14 +12185,12 @@ public class TeamcityJetbrainsCom {
       }
 
       public Response delete() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return TeamcityJetbrainsCom.delete(resource);
       }
 
       public Property post(Property input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "property"), Property.class, input), "application/json")).invoke();
@@ -12466,8 +12281,7 @@ public class TeamcityJetbrainsCom {
 
 
       public String putTextPlain(Object input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
@@ -12478,14 +12292,12 @@ public class TeamcityJetbrainsCom {
       }
 
       public String getAsString() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return TeamcityJetbrainsCom.getAsString(resource);
       }
 
       public Property getAsProperty() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -12493,8 +12305,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Response delete() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return TeamcityJetbrainsCom.delete(resource);
       }
 
@@ -12561,8 +12372,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Project put(Project input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "project"), Project.class, input), "application/json")).invoke();
@@ -12572,8 +12382,7 @@ public class TeamcityJetbrainsCom {
 
 
       public Project get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -12663,8 +12472,7 @@ public class TeamcityJetbrainsCom {
        * Creates a new build configuration template by copying existing one.
        */
       public BuildType post(NewBuildTypeDescription input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "newBuildTypeDescription"), NewBuildTypeDescription.class, input), "application/json")).invoke();
@@ -12693,8 +12501,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public BuildTypes get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -12718,8 +12525,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public <T> T postTextPlain(Object input, Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("POST", Entity.entity(input, "text/plain")).invoke();
@@ -12830,8 +12636,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public BuildType get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -12927,14 +12732,12 @@ public class TeamcityJetbrainsCom {
 
 
       public String get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return getAsString(resource);
       }
 
       public <T> String postAsTextPlain(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("POST").invoke();
@@ -13076,8 +12879,7 @@ public class TeamcityJetbrainsCom {
 
 
       public String get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return getAsString(resource);
       }
 
@@ -13106,8 +12908,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public PluginInfos get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -13249,8 +13050,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public TestOccurrence get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -13410,8 +13210,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Test get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -13583,15 +13382,13 @@ public class TeamcityJetbrainsCom {
       }
 
       public Response delete() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return TeamcityJetbrainsCom.delete(resource);
       }
 
 
       public Group get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -13678,8 +13475,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public RoleAssignments put(RoleAssignments input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "roles"), RoleAssignments.class, input), "application/json")).invoke();
@@ -13689,8 +13485,7 @@ public class TeamcityJetbrainsCom {
 
 
       public RoleAssignment post(RoleAssignment input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "role"), RoleAssignment.class, input), "application/json")).invoke();
@@ -13699,8 +13494,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public RoleAssignments get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -13807,8 +13601,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public RoleAssignment get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -13816,8 +13609,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public RoleAssignment post() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("POST").invoke();
@@ -13826,8 +13618,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Response delete() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return TeamcityJetbrainsCom.delete(resource);
       }
 
@@ -14008,15 +13799,13 @@ public class TeamcityJetbrainsCom {
       }
 
       public Response delete() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return TeamcityJetbrainsCom.delete(resource);
       }
 
 
       public User put(User input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "user"), User.class, input), "application/json")).invoke();
@@ -14043,8 +13832,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public User get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -14151,15 +13939,13 @@ public class TeamcityJetbrainsCom {
 
 
       public String get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return getAsString(resource);
       }
 
 
       public String putTextPlain(Object input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
@@ -14232,8 +14018,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Group post(Group input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "group"), Group.class, input), "application/json")).invoke();
@@ -14262,8 +14047,7 @@ public class TeamcityJetbrainsCom {
        * Replaces user's roles with the submitted ones
        */
       public Groups put(Groups input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "groups"), Groups.class, input), "application/json")).invoke();
@@ -14292,8 +14076,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Groups get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -14380,8 +14163,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Properties get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -14470,15 +14252,13 @@ public class TeamcityJetbrainsCom {
 
 
       public String get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return getAsString(resource);
       }
 
 
       public String putTextPlain(Object input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
@@ -14489,8 +14269,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Response delete() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return TeamcityJetbrainsCom.delete(resource);
       }
 
@@ -14561,8 +14340,7 @@ public class TeamcityJetbrainsCom {
        * Replaces user's roles with the submitted ones
        */
       public RoleAssignments put(RoleAssignments input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "roles"), RoleAssignments.class, input), "application/json")).invoke();
@@ -14580,8 +14358,7 @@ public class TeamcityJetbrainsCom {
 
 
       public RoleAssignment post(RoleAssignment input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "role"), RoleAssignment.class, input), "application/json")).invoke();
@@ -14590,8 +14367,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public RoleAssignments get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -14698,8 +14474,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public RoleAssignment get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -14707,8 +14482,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public RoleAssignment put() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("PUT").invoke();
@@ -14717,15 +14491,13 @@ public class TeamcityJetbrainsCom {
       }
 
       public Response delete() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return TeamcityJetbrainsCom.delete(resource);
       }
 
 
       public Response post() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
         Response response;
         response = resourceBuilder.build("POST").invoke();
@@ -14878,8 +14650,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public VcsRootInstance get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -14968,15 +14739,13 @@ public class TeamcityJetbrainsCom {
 
 
       public String get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return getAsString(resource);
       }
 
 
       public String putTextPlain(Object input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
@@ -15072,8 +14841,7 @@ public class TeamcityJetbrainsCom {
        * Experimental support only
        */
       public Files get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -15178,8 +14946,7 @@ public class TeamcityJetbrainsCom {
        * Experimental support only
        */
       public <T> T getAs(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("*/*");
         Response response = resourceBuilder.build(GET).invoke();
         if (!Response.class.isAssignableFrom(returnType)) {
@@ -15274,8 +15041,7 @@ public class TeamcityJetbrainsCom {
        * Experimental support only
        */
       public File get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -15357,8 +15123,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Properties get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -15427,8 +15192,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Entries get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -15436,8 +15200,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Entries put(Entries input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "entries"), Entries.class, input), "application/json")).invoke();
@@ -15509,8 +15272,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public <T> T getAs(Class<T> returnType) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("*/*");
         Response response = resourceBuilder.build(GET).invoke();
         if (!Response.class.isAssignableFrom(returnType)) {
@@ -15677,8 +15439,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public VcsRoot get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -15686,8 +15447,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Response delete() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return TeamcityJetbrainsCom.delete(resource);
       }
 
@@ -15773,15 +15533,13 @@ public class TeamcityJetbrainsCom {
       }
 
       public String get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return getAsString(resource);
       }
 
 
       public String putTextPlain(Object input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
@@ -15854,8 +15612,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public VcsRootInstances get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -15949,8 +15706,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public VcsRootInstance get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -16058,15 +15814,13 @@ public class TeamcityJetbrainsCom {
 
 
       public String get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return getAsString(resource);
       }
 
 
       public String putTextPlain(Object input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
@@ -16158,8 +15912,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Properties get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -16228,8 +15981,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Properties get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
@@ -16237,8 +15989,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Properties put(Properties input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "properties"), Properties.class, input), "application/json")).invoke();
@@ -16248,8 +15999,7 @@ public class TeamcityJetbrainsCom {
 
 
       public Response delete() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return TeamcityJetbrainsCom.delete(resource);
       }
 
@@ -16337,8 +16087,7 @@ public class TeamcityJetbrainsCom {
 
 
       public String putTextPlain(Object input) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
         Response response;
         response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
@@ -16350,14 +16099,12 @@ public class TeamcityJetbrainsCom {
 
 
       public String get() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return getAsString(resource);
       }
 
       public Response delete() {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
         return TeamcityJetbrainsCom.delete(resource);
       }
 
