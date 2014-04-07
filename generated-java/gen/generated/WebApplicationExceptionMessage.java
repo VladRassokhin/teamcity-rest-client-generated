@@ -6,9 +6,9 @@ import javax.ws.rs.core.Response;
 /**
  * Workaround for JAX_RS_SPEC-312
  */
-class WebApplicationExceptionMessage
+public class WebApplicationExceptionMessage
     extends WebApplicationException {
-  WebApplicationExceptionMessage(Response response) {
+  public WebApplicationExceptionMessage(Response response) {
     super(response);
   }
 
