@@ -4,10 +4,7 @@ import org.glassfish.jersey.uri.UriTemplate;
 
 import javax.annotation.Generated;
 import javax.ws.rs.WebApplicationException;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.client.*;
 import javax.ws.rs.core.Configurable;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
@@ -55,15 +52,24 @@ public class TeamcityJetbrainsCom {
   }
 
   public static WebTarget getWebTarget(UriBuilder builder, Client client, Map<String, Object> map) {
-    UriBuilder localUriBuilder = builder.clone();
+    final UriBuilder localUriBuilder = builder.clone();
     return client.target(localUriBuilder.buildFromMap(map));
   }
 
-  public static TeamcityJetbrainsCom.AppRestVcsRoots appRestVcsRoots(Client client, URI baseURI) {
-    return new TeamcityJetbrainsCom.AppRestVcsRoots(client, baseURI);
+  public static Invocation.Builder getBuilder(UriBuilder builder, Client client, Map<String, Object> map, String type) {
+    final WebTarget resource = getWebTarget(builder, client, map);
+    return resource.request(type);
+  }
+  public static Invocation.Builder getBuilder(UriBuilder builder, Client client, Map<String, Object> map) {
+    final WebTarget resource = getWebTarget(builder, client, map);
+    return resource.request();
   }
 
-  public static TeamcityJetbrainsCom.AppRestVcsRoots appRestVcsRoots() {
+  public static AppRestVcsRoots appRestVcsRoots(Client client, URI baseURI) {
+    return new AppRestVcsRoots(client, baseURI);
+  }
+
+  public static AppRestVcsRoots appRestVcsRoots() {
     return appRestVcsRoots(createClient(), BASE_URI);
   }
 
@@ -83,11 +89,11 @@ public class TeamcityJetbrainsCom {
     return appRestServer(createClient(), BASE_URI);
   }
 
-  public static TeamcityJetbrainsCom.AppRestUserGroups appRestUserGroups(Client client, URI baseURI) {
-    return new TeamcityJetbrainsCom.AppRestUserGroups(client, baseURI);
+  public static AppRestUserGroups appRestUserGroups(Client client, URI baseURI) {
+    return new AppRestUserGroups(client, baseURI);
   }
 
-  public static TeamcityJetbrainsCom.AppRestUserGroups appRestUserGroups() {
+  public static AppRestUserGroups appRestUserGroups() {
     return appRestUserGroups(createClient(), BASE_URI);
   }
 
@@ -99,11 +105,11 @@ public class TeamcityJetbrainsCom {
     return appRestProjects(createClient(), BASE_URI);
   }
 
-  public static TeamcityJetbrainsCom.AppRestUsers appRestUsers(Client client, URI baseURI) {
-    return new TeamcityJetbrainsCom.AppRestUsers(client, baseURI);
+  public static AppRestUsers appRestUsers(Client client, URI baseURI) {
+    return new AppRestUsers(client, baseURI);
   }
 
-  public static TeamcityJetbrainsCom.AppRestUsers appRestUsers() {
+  public static AppRestUsers appRestUsers() {
     return appRestUsers(createClient(), BASE_URI);
   }
 
@@ -188,11 +194,11 @@ public class TeamcityJetbrainsCom {
   /**
    * Experimental, the requests and results returned will change in future versions!
    */
-  public static TeamcityJetbrainsCom.AppRestVcsRootInstances appRestVcsRootInstances(Client client, URI baseURI) {
-    return new TeamcityJetbrainsCom.AppRestVcsRootInstances(client, baseURI);
+  public static AppRestVcsRootInstances appRestVcsRootInstances(Client client, URI baseURI) {
+    return new AppRestVcsRootInstances(client, baseURI);
   }
 
-  public static TeamcityJetbrainsCom.AppRestVcsRootInstances appRestVcsRootInstances() {
+  public static AppRestVcsRootInstances appRestVcsRootInstances() {
     return appRestVcsRootInstances(createClient(), BASE_URI);
   }
 
@@ -499,16 +505,14 @@ public class TeamcityJetbrainsCom {
     }
 
     public AgentPools get() {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
       Response response = resourceBuilder.build(GET).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(AgentPools.class);
     }
 
     public AgentPool post(AgentPool input) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
       Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "agentPool"), AgentPool.class, input), "application/json")).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(AgentPool.class);
@@ -591,8 +595,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public AgentPool get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(AgentPool.class);
@@ -603,9 +606,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(AgentPool.class);
       }
@@ -667,8 +668,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public AgentsRef get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(AgentsRef.class);
@@ -679,9 +679,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(AgentsRef.class);
       }
@@ -690,8 +688,7 @@ public class TeamcityJetbrainsCom {
        * Moves the agent posted to the pool
        */
       public Agent post(Agent input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "agent"), Agent.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Agent.class);
@@ -757,16 +754,14 @@ public class TeamcityJetbrainsCom {
        * Adds the posted project to the pool associated projects
        */
       public Project post(Project input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "project"), Project.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Project.class);
       }
 
       public Projects get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Projects.class);
@@ -777,9 +772,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Projects.class);
       }
@@ -789,8 +782,7 @@ public class TeamcityJetbrainsCom {
        * this pool
        */
       public Projects put(Projects input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "projects"), Projects.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Projects.class);
@@ -825,7 +817,8 @@ public class TeamcityJetbrainsCom {
        */
       public AgentPoolLocatorProjectsProjectLocator(Client client, URI uri) {
         _client = client;
-        StringBuilder template = getTemplateBuilder("app/rest/agentPools/{agentPoolLocator}/projects/{projectLocator}");;
+        StringBuilder template = getTemplateBuilder("app/rest/agentPools/{agentPoolLocator}/projects/{projectLocator}");
+        ;
         _uriBuilder = UriBuilder.fromPath(template.toString());
         _templateAndMatrixParameterValues = new HashMap<String, Object>();
         UriTemplate uriTemplate = new UriTemplate(template.toString());
@@ -871,8 +864,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Project get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Project.class);
@@ -883,9 +875,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Project.class);
       }
@@ -932,8 +922,7 @@ public class TeamcityJetbrainsCom {
      * Returns list of agents
      */
     public AgentsRef get() {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
       Response response = resourceBuilder.build(GET).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(AgentsRef.class);
@@ -944,14 +933,13 @@ public class TeamcityJetbrainsCom {
      */
     public AgentsRef get(Boolean includedisconnected, Boolean includeunauthorized, String locator, String fields) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
-        localUriBuilder = localUriBuilder.replaceQueryParam("includeDisconnected", includedisconnected);
+      localUriBuilder = localUriBuilder.replaceQueryParam("includeDisconnected", includedisconnected);
 
-        localUriBuilder = localUriBuilder.replaceQueryParam("includeUnauthorized", includeunauthorized);
+      localUriBuilder = localUriBuilder.replaceQueryParam("includeUnauthorized", includeunauthorized);
 
       localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-      WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
       Response response = resourceBuilder.build(GET).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(AgentsRef.class);
@@ -1025,8 +1013,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Agent get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Agent.class);
@@ -1118,8 +1105,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public String putTextPlain(String input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "text/plain");
         Response response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
         if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
@@ -1184,8 +1170,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public AgentPool get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(AgentPool.class);
@@ -1196,16 +1181,13 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(AgentPool.class);
       }
 
       public AgentPool put(AgentPool input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "agentPool"), AgentPool.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(AgentPool.class);
@@ -1235,8 +1217,7 @@ public class TeamcityJetbrainsCom {
     }
 
     public Builds put(Builds input) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
       Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "builds"), Builds.class, input), "application/json")).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(Builds.class);
@@ -1245,16 +1226,14 @@ public class TeamcityJetbrainsCom {
     public Builds put(Builds input, String fields) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
       localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-      WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
       Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "builds"), Builds.class, input), "application/json")).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(Builds.class);
     }
 
     public Build post(Build input) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
       Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "build"), Build.class, input), "application/json")).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(Build.class);
@@ -1275,7 +1254,7 @@ public class TeamcityJetbrainsCom {
       UriBuilder localUriBuilder = _uriBuilder.clone();
       localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-      WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+      WebTarget resource = getWebTarget(localUriBuilder, _client, _templateAndMatrixParameterValues);
       return TeamcityJetbrainsCom.delete(resource);
     }
 
@@ -1283,8 +1262,7 @@ public class TeamcityJetbrainsCom {
      * Serves build queue.
      */
     public Builds get() {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
       Response response = resourceBuilder.build(GET).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(Builds.class);
@@ -1297,8 +1275,7 @@ public class TeamcityJetbrainsCom {
       UriBuilder localUriBuilder = _uriBuilder.clone();
       localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-      WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
       Response response = resourceBuilder.build(GET).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(Builds.class);
@@ -1376,8 +1353,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public BuildCancelRequest get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(BuildCancelRequest.class);
@@ -1525,16 +1501,14 @@ public class TeamcityJetbrainsCom {
       }
 
       public Build post(BuildCancelRequest input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "buildCancelRequest"), BuildCancelRequest.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Build.class);
       }
 
       public Build get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Build.class);
@@ -1545,9 +1519,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Build.class);
       }
@@ -1609,8 +1581,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public AgentsRef get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(AgentsRef.class);
@@ -1621,9 +1592,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(AgentsRef.class);
       }
@@ -1655,8 +1624,7 @@ public class TeamcityJetbrainsCom {
      * Serves builds matching supplied condition.
      */
     public Builds get() {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
       Response response = resourceBuilder.build(GET).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(Builds.class);
@@ -1667,30 +1635,29 @@ public class TeamcityJetbrainsCom {
      */
     public Builds get(String buildtype, String status, String triggeredbyuser, Boolean includepersonal, Boolean includecanceled, Boolean onlypinned, String tag, String agentname, String sincebuild, String sincedate, Long start, Integer count, String locator, String fields) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
-        localUriBuilder = localUriBuilder.replaceQueryParam("buildType", buildtype);
+      localUriBuilder = localUriBuilder.replaceQueryParam("buildType", buildtype);
 
       localUriBuilder = localUriBuilder.replaceQueryParam("status", status);
-        localUriBuilder = localUriBuilder.replaceQueryParam("triggeredByUser", triggeredbyuser);
+      localUriBuilder = localUriBuilder.replaceQueryParam("triggeredByUser", triggeredbyuser);
 
-        localUriBuilder = localUriBuilder.replaceQueryParam("includePersonal", includepersonal);
+      localUriBuilder = localUriBuilder.replaceQueryParam("includePersonal", includepersonal);
 
-        localUriBuilder = localUriBuilder.replaceQueryParam("includeCanceled", includecanceled);
+      localUriBuilder = localUriBuilder.replaceQueryParam("includeCanceled", includecanceled);
 
-        localUriBuilder = localUriBuilder.replaceQueryParam("onlyPinned", onlypinned);
+      localUriBuilder = localUriBuilder.replaceQueryParam("onlyPinned", onlypinned);
 
       localUriBuilder = localUriBuilder.replaceQueryParam("tag", tag);
-        localUriBuilder = localUriBuilder.replaceQueryParam("agentName", agentname);
+      localUriBuilder = localUriBuilder.replaceQueryParam("agentName", agentname);
 
-        localUriBuilder = localUriBuilder.replaceQueryParam("sinceBuild", sincebuild);
+      localUriBuilder = localUriBuilder.replaceQueryParam("sinceBuild", sincebuild);
 
-        localUriBuilder = localUriBuilder.replaceQueryParam("sinceDate", sincedate);
+      localUriBuilder = localUriBuilder.replaceQueryParam("sinceDate", sincedate);
 
       localUriBuilder = localUriBuilder.replaceQueryParam("start", start);
       localUriBuilder = localUriBuilder.replaceQueryParam("count", count);
       localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-      WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
       Response response = resourceBuilder.build(GET).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(Builds.class);
@@ -1857,7 +1824,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+        WebTarget resource = getWebTarget(localUriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("*/*");
         Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "buildCancelRequest"), BuildCancelRequest.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
@@ -1874,8 +1841,7 @@ public class TeamcityJetbrainsCom {
        * locator dimension is added)
        */
       public Build get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Build.class);
@@ -1895,9 +1861,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Build.class);
       }
@@ -1962,8 +1926,7 @@ public class TeamcityJetbrainsCom {
        * More user-friendly URL for "/{buildLocator}/artifacts/children" one.
        */
       public Files get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Files.class);
@@ -2050,8 +2013,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Files get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Files.class);
@@ -2063,9 +2025,7 @@ public class TeamcityJetbrainsCom {
         localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", resolveparameters);
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Files.class);
       }
@@ -2160,7 +2120,7 @@ public class TeamcityJetbrainsCom {
         localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", resolveparameters);
         localUriBuilder = localUriBuilder.replaceQueryParam("logBuildUsage", logbuildusage);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+        WebTarget resource = getWebTarget(localUriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("*/*");
         Response response = resourceBuilder.build(GET).invoke();
         if (!Response.class.isAssignableFrom(returnType)) {
@@ -2330,8 +2290,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public File get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(File.class);
@@ -2343,9 +2302,7 @@ public class TeamcityJetbrainsCom {
         localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", resolveparameters);
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(File.class);
       }
@@ -2407,8 +2364,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Comment get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Comment.class);
@@ -2419,9 +2375,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Comment.class);
       }
@@ -2483,8 +2437,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public <T> T putTextPlain(Object input, Class<T> returnType) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues);
         Response response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
         if (!Response.class.isAssignableFrom(returnType)) {
           throwExceptionIfWrongStatus(response);
@@ -2554,8 +2507,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public BuildCancelRequest get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(BuildCancelRequest.class);
@@ -2701,8 +2653,7 @@ public class TeamcityJetbrainsCom {
        * Pins a build
        */
       public <T> T putTextPlain(Object input, Class<T> returnType) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues);
         Response response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
         if (!Response.class.isAssignableFrom(returnType)) {
           throwExceptionIfWrongStatus(response);
@@ -2722,8 +2673,7 @@ public class TeamcityJetbrainsCom {
        * Unpins a build
        */
       public <T> T deleteTextPlain(Object input, Class<T> returnType) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues);
         Response response = resourceBuilder.build("DELETE", Entity.entity(input, "text/plain")).invoke();
         if (!Response.class.isAssignableFrom(returnType)) {
           throwExceptionIfWrongStatus(response);
@@ -2788,8 +2738,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public ProblemOccurrences get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(ProblemOccurrences.class);
@@ -2800,9 +2749,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(ProblemOccurrences.class);
       }
@@ -2863,8 +2810,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public IssueUsages get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(IssueUsages.class);
@@ -2875,9 +2821,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(IssueUsages.class);
       }
@@ -2939,8 +2883,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public IssueUsages get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(IssueUsages.class);
@@ -2951,9 +2894,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(IssueUsages.class);
       }
@@ -3015,8 +2956,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Properties get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Properties.class);
@@ -3244,8 +3184,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Properties get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Properties.class);
@@ -3457,8 +3396,7 @@ public class TeamcityJetbrainsCom {
        * Adds a single tag to a build
        */
       public String postTextPlain(Object input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "text/plain");
         Response response = resourceBuilder.build("POST", Entity.entity(input, "text/plain")).invoke();
         if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
@@ -3470,8 +3408,7 @@ public class TeamcityJetbrainsCom {
        * Replaces build's tags.
        */
       public Tags put(Tags input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "tags"), Tags.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Tags.class);
@@ -3481,15 +3418,13 @@ public class TeamcityJetbrainsCom {
        * Adds a set of tags to a build
        */
       public Response post(Tags input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues);
         Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "tags"), Tags.class, input), "application/json")).invoke();
         return response;
       }
 
       public Tags get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Tags.class);
@@ -3552,8 +3487,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public TestOccurrences get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(TestOccurrences.class);
@@ -3564,9 +3498,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(TestOccurrences.class);
       }
@@ -3595,8 +3527,7 @@ public class TeamcityJetbrainsCom {
     }
 
     public <T> T post(Object input, Class<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
       Response response = resourceBuilder.build("POST", Entity.entity(input, "application/json")).invoke();
       if (!Response.class.isAssignableFrom(returnType)) {
         throwExceptionIfWrongStatus(response);
@@ -3607,8 +3538,7 @@ public class TeamcityJetbrainsCom {
     public BuildType post(BuildType input, String fields) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
       localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-      WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
       Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "buildType"), BuildType.class, input), "application/json")).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(BuildType.class);
@@ -3618,8 +3548,7 @@ public class TeamcityJetbrainsCom {
      * Lists build types registered on the server. Build templates are not included by default
      */
     public BuildTypes get() {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
       Response response = resourceBuilder.build(GET).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(BuildTypes.class);
@@ -3632,8 +3561,7 @@ public class TeamcityJetbrainsCom {
       UriBuilder localUriBuilder = _uriBuilder.clone();
       localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-      WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
       Response response = resourceBuilder.build(GET).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(BuildTypes.class);
@@ -3866,8 +3794,7 @@ public class TeamcityJetbrainsCom {
        * Serves build configuration or templates according to the locator.
        */
       public BuildType get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(BuildType.class);
@@ -3886,9 +3813,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(BuildType.class);
       }
@@ -3960,8 +3885,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public PropEntitiesAgentRequirement get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntitiesAgentRequirement.class);
@@ -3973,8 +3897,7 @@ public class TeamcityJetbrainsCom {
        * parameter).
        */
       public PropEntityAgentRequirement post(PropEntityAgentRequirement input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "agent-requirement"), PropEntityAgentRequirement.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntityAgentRequirement.class);
@@ -3984,8 +3907,7 @@ public class TeamcityJetbrainsCom {
        * Replaces agent requirements with those sent in the request.
        */
       public PropEntitiesAgentRequirement put(PropEntitiesAgentRequirement input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "agent-requirements"), PropEntitiesAgentRequirement.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntitiesAgentRequirement.class);
@@ -4067,8 +3989,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public PropEntityAgentRequirement get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntityAgentRequirement.class);
@@ -4080,8 +4001,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public PropEntityAgentRequirement put(PropEntityAgentRequirement input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "agent-requirement"), PropEntityAgentRequirement.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntityAgentRequirement.class);
@@ -4144,8 +4064,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public PropEntitiesArtifactDep get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntitiesArtifactDep.class);
@@ -4155,8 +4074,7 @@ public class TeamcityJetbrainsCom {
        * Replaces the dependencies to those sent in the request.
        */
       public PropEntitiesArtifactDep put(PropEntitiesArtifactDep input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "artifact-dependencies"), PropEntitiesArtifactDep.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntitiesArtifactDep.class);
@@ -4168,8 +4086,7 @@ public class TeamcityJetbrainsCom {
        * Replaces the dependencies to those sent in the request.
        */
       public PropEntityArtifactDep post(PropEntityArtifactDep input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "artifact-dependency"), PropEntityArtifactDep.class, input), "*/*")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntityArtifactDep.class);
@@ -4251,8 +4168,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public PropEntityArtifactDep get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntityArtifactDep.class);
@@ -4264,8 +4180,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public PropEntityArtifactDep put(PropEntityArtifactDep input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "artifact-dependency"), PropEntityArtifactDep.class, input), "*/*")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntityArtifactDep.class);
@@ -4331,8 +4246,7 @@ public class TeamcityJetbrainsCom {
        * Lists branches of the build type.
        */
       public Branches get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Branches.class);
@@ -4353,9 +4267,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Branches.class);
       }
@@ -4420,8 +4332,7 @@ public class TeamcityJetbrainsCom {
        * Serves builds matching supplied condition.
        */
       public Builds get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Builds.class);
@@ -4447,9 +4358,7 @@ public class TeamcityJetbrainsCom {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Builds.class);
       }
@@ -4530,8 +4439,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Build get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Build.class);
@@ -4542,9 +4450,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Build.class);
       }
@@ -4705,8 +4611,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Tags get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Tags.class);
@@ -4774,8 +4679,7 @@ public class TeamcityJetbrainsCom {
        * build type
        */
       public NewBuildTypeDescription get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(NewBuildTypeDescription.class);
@@ -4848,24 +4752,21 @@ public class TeamcityJetbrainsCom {
       }
 
       public PropEntityFeature post(PropEntityFeature input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "feature"), PropEntityFeature.class, input), "*/*")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntityFeature.class);
       }
 
       public PropEntitiesFeature get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntitiesFeature.class);
       }
 
       public PropEntitiesFeature put(PropEntitiesFeature input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "features"), PropEntitiesFeature.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntitiesFeature.class);
@@ -4952,16 +4853,14 @@ public class TeamcityJetbrainsCom {
       }
 
       public PropEntityFeature put(PropEntityFeature input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "feature"), PropEntityFeature.class, input), "*/*")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntityFeature.class);
       }
 
       public PropEntityFeature get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntityFeature.class);
@@ -5067,8 +4966,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public String putTextPlain(Object input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "text/plain");
         Response response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
         if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
@@ -5152,16 +5050,14 @@ public class TeamcityJetbrainsCom {
       }
 
       public Properties get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Properties.class);
       }
 
       public Properties put(Properties input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "properties"), Properties.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Properties.class);
@@ -5267,8 +5163,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public <T> String putAsTextPlain(Object input, Class<T> returnType) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "text/plain");
         Response response = resourceBuilder.build("PUT", Entity.entity(input, "*/*")).invoke();
         if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
@@ -5357,8 +5252,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public String putTextPlain(Object input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "text/plain");
         Response response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
         if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
@@ -5423,8 +5317,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Investigations get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Investigations.class);
@@ -5435,9 +5328,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Investigations.class);
       }
@@ -5502,8 +5393,7 @@ public class TeamcityJetbrainsCom {
        * For compatibility with experimental feature of 8.0
        */
       public NewBuildTypeDescription get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(NewBuildTypeDescription.class);
@@ -5572,8 +5462,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Properties get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Properties.class);
@@ -5585,16 +5474,13 @@ public class TeamcityJetbrainsCom {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Properties.class);
       }
 
       public Properties put(Properties input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "properties"), Properties.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Properties.class);
@@ -5605,9 +5491,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "properties"), Properties.class, input), "application/json")).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "properties"), Properties.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Properties.class);
       }
@@ -5618,8 +5502,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Property post(Property input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "property"), Property.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Property.class);
@@ -5630,9 +5513,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "property"), Property.class, input), "application/json")).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "property"), Property.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Property.class);
       }
@@ -5713,8 +5594,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public String putTextPlain(Object input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "text/plain");
         Response response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
         if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
@@ -5728,8 +5608,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Property getAsProperty() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Property.class);
@@ -5797,16 +5676,14 @@ public class TeamcityJetbrainsCom {
       }
 
       public Properties get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Properties.class);
       }
 
       public Properties put(Properties input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "properties"), Properties.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Properties.class);
@@ -5893,8 +5770,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public <T> String putAsTextPlain(Object input, Class<T> returnType) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "text/plain");
         Response response = resourceBuilder.build("PUT", Entity.entity(input, "*/*")).invoke();
         if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
@@ -5959,8 +5835,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public PropEntitiesSnapshotDep get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntitiesSnapshotDep.class);
@@ -5970,8 +5845,7 @@ public class TeamcityJetbrainsCom {
        * Replaces snapshot dependency with those sent in request.
        */
       public PropEntitiesSnapshotDep put(PropEntitiesSnapshotDep input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "snapshot-dependencies"), PropEntitiesSnapshotDep.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntitiesSnapshotDep.class);
@@ -5988,8 +5862,7 @@ public class TeamcityJetbrainsCom {
        * build configuration already exists).
        */
       public PropEntitySnapshotDep post(PropEntitySnapshotDep input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "snapshot-dependency"), PropEntitySnapshotDep.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntitySnapshotDep.class);
@@ -6071,8 +5944,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public PropEntitySnapshotDep get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntitySnapshotDep.class);
@@ -6084,8 +5956,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public PropEntitySnapshotDep put(PropEntitySnapshotDep input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "snapshot-dependency"), PropEntitySnapshotDep.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntitySnapshotDep.class);
@@ -6148,24 +6019,21 @@ public class TeamcityJetbrainsCom {
       }
 
       public PropEntityStep post(PropEntityStep input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "step"), PropEntityStep.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntityStep.class);
       }
 
       public PropEntitiesStep get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntitiesStep.class);
       }
 
       public PropEntitiesStep put(PropEntitiesStep input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "steps"), PropEntitiesStep.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntitiesStep.class);
@@ -6247,8 +6115,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public PropEntityStep get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntityStep.class);
@@ -6260,8 +6127,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public PropEntityStep put(PropEntityStep input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "step"), PropEntityStep.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntityStep.class);
@@ -6367,8 +6233,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public String putTextPlain(Object input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "text/plain");
         Response response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
         if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
@@ -6452,16 +6317,14 @@ public class TeamcityJetbrainsCom {
       }
 
       public Properties get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Properties.class);
       }
 
       public Properties put(Properties input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "properties"), Properties.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Properties.class);
@@ -6567,8 +6430,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public String putTextPlain(Object input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "text/plain");
         Response response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
         if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
@@ -6633,8 +6495,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public BuildType get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(BuildType.class);
@@ -6645,16 +6506,13 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(BuildType.class);
       }
 
       public <T> T putTextPlain(Object input, Class<T> returnType) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
         if (!Response.class.isAssignableFrom(returnType)) {
           throwExceptionIfWrongStatus(response);
@@ -6667,9 +6525,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
         if (!Response.class.isAssignableFrom(returnType)) {
           throwExceptionIfWrongStatus(response);
         }
@@ -6738,8 +6594,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public PropEntitiesTrigger get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntitiesTrigger.class);
@@ -6751,8 +6606,7 @@ public class TeamcityJetbrainsCom {
        * for a build configuration).
        */
       public PropEntityTrigger post(PropEntityTrigger input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "trigger"), PropEntityTrigger.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntityTrigger.class);
@@ -6762,8 +6616,7 @@ public class TeamcityJetbrainsCom {
        * Replaces trigger with those sent inthe request.
        */
       public PropEntitiesTrigger put(PropEntitiesTrigger input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "triggers"), PropEntitiesTrigger.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntitiesTrigger.class);
@@ -6845,8 +6698,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public PropEntityTrigger get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntityTrigger.class);
@@ -6858,8 +6710,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public PropEntityTrigger put(PropEntityTrigger input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "trigger"), PropEntityTrigger.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PropEntityTrigger.class);
@@ -6965,8 +6816,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public String putTextPlain(Object input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "text/plain");
         Response response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
         if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
@@ -7054,8 +6904,7 @@ public class TeamcityJetbrainsCom {
        * Experimental support only
        */
       public Files get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Files.class);
@@ -7077,9 +6926,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", resolveparameters);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Files.class);
       }
@@ -7182,7 +7029,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", resolveparameters);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+        WebTarget resource = getWebTarget(localUriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("*/*");
         Response response = resourceBuilder.build(GET).invoke();
         if (!Response.class.isAssignableFrom(returnType)) {
@@ -7271,8 +7118,7 @@ public class TeamcityJetbrainsCom {
        * Experimental support only
        */
       public File get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(File.class);
@@ -7294,9 +7140,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("resolveParameters", resolveparameters);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(File.class);
       }
@@ -7362,8 +7206,7 @@ public class TeamcityJetbrainsCom {
        * Experimental support only
        */
       public VcsLabelingOptions get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(VcsLabelingOptions.class);
@@ -7381,8 +7224,7 @@ public class TeamcityJetbrainsCom {
        * Experimental support only
        */
       public VcsLabelingOptions put(VcsLabelingOptions input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "vcsLabeling"), VcsLabelingOptions.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(VcsLabelingOptions.class);
@@ -7453,24 +7295,21 @@ public class TeamcityJetbrainsCom {
       }
 
       public VcsRootEntries get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(VcsRootEntries.class);
       }
 
       public VcsRootEntries put(VcsRootEntries input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "vcs-root-entries"), VcsRootEntries.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(VcsRootEntries.class);
       }
 
       public VcsRootEntry post(VcsRootEntry input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "vcs-root-entry"), VcsRootEntry.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(VcsRootEntry.class);
@@ -7552,16 +7391,14 @@ public class TeamcityJetbrainsCom {
       }
 
       public VcsRootEntry get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(VcsRootEntry.class);
       }
 
       public VcsRootEntry put(VcsRootEntry input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "vcs-root-entry"), VcsRootEntry.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(VcsRootEntry.class);
@@ -7653,8 +7490,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public String putTextPlain(Object input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "text/plain");
         Response response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
         if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
@@ -7722,8 +7558,7 @@ public class TeamcityJetbrainsCom {
        * Experimental support only!
        */
       public VcsRootInstances get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(VcsRootInstances.class);
@@ -7756,8 +7591,7 @@ public class TeamcityJetbrainsCom {
      * Lists changes by the specified locator
      */
     public Changes get() {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
       Response response = resourceBuilder.build(GET).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(Changes.class);
@@ -7777,8 +7611,7 @@ public class TeamcityJetbrainsCom {
       localUriBuilder = localUriBuilder.replaceQueryParam("count", count);
       localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-      WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
       Response response = resourceBuilder.build(GET).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(Changes.class);
@@ -7880,8 +7713,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Change get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Change.class);
@@ -7892,9 +7724,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Change.class);
       }
@@ -7959,8 +7789,7 @@ public class TeamcityJetbrainsCom {
        * Experimental support only!
        */
       public Entries get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Entries.class);
@@ -8026,8 +7855,7 @@ public class TeamcityJetbrainsCom {
        * Experimental support only!
        */
       public BuildTypes get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(BuildTypes.class);
@@ -8046,9 +7874,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(BuildTypes.class);
       }
@@ -8119,8 +7945,7 @@ public class TeamcityJetbrainsCom {
        * Experimental support only!
        */
       public Changes get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Changes.class);
@@ -8139,9 +7964,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Changes.class);
       }
@@ -8292,8 +8115,7 @@ public class TeamcityJetbrainsCom {
        * Experimental support only!
        */
       public Builds get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Builds.class);
@@ -8312,9 +8134,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Builds.class);
       }
@@ -8385,8 +8205,7 @@ public class TeamcityJetbrainsCom {
        * Experimental support only!
        */
       public Issues get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Issues.class);
@@ -8458,8 +8277,7 @@ public class TeamcityJetbrainsCom {
        * Experimental support only!
        */
       public Changes get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Changes.class);
@@ -8478,9 +8296,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Changes.class);
       }
@@ -8551,8 +8367,7 @@ public class TeamcityJetbrainsCom {
        * Experimental support only!
        */
       public Items get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Items.class);
@@ -8624,8 +8439,7 @@ public class TeamcityJetbrainsCom {
        * Experimental support only!
        */
       public VcsRootInstanceRef get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(VcsRootInstanceRef.class);
@@ -8749,7 +8563,7 @@ public class TeamcityJetbrainsCom {
         localUriBuilder = localUriBuilder.replaceQueryParam("fieldDelimiter", fielddelimiter);
         localUriBuilder = localUriBuilder.replaceQueryParam("count", count);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
+        WebTarget resource = getWebTarget(localUriBuilder, _client, _templateAndMatrixParameterValues);
         javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain; charset=UTF-8");
         Response response = resourceBuilder.build(GET).invoke();
         if (!Response.class.isAssignableFrom(returnType)) {
@@ -8816,8 +8630,7 @@ public class TeamcityJetbrainsCom {
        * Experimental use only!
        */
       public VcsRootInstances post() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("POST").invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(VcsRootInstances.class);
@@ -8831,9 +8644,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build("POST").invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build("POST").invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(VcsRootInstances.class);
       }
@@ -8868,8 +8679,7 @@ public class TeamcityJetbrainsCom {
      * Experimental, the requests and results returned will change in future versions!
      */
     public Investigations get() {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
       Response response = resourceBuilder.build(GET).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(Investigations.class);
@@ -8882,8 +8692,7 @@ public class TeamcityJetbrainsCom {
       UriBuilder localUriBuilder = _uriBuilder.clone();
       localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-      WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
       Response response = resourceBuilder.build(GET).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(Investigations.class);
@@ -8949,8 +8758,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Investigation get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Investigation.class);
@@ -8961,9 +8769,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Investigation.class);
       }
@@ -8995,8 +8801,7 @@ public class TeamcityJetbrainsCom {
      * Experimental, the requests and results returned will change in future versions!
      */
     public ProblemOccurrences get() {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
       Response response = resourceBuilder.build(GET).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(ProblemOccurrences.class);
@@ -9009,8 +8814,7 @@ public class TeamcityJetbrainsCom {
       UriBuilder localUriBuilder = _uriBuilder.clone();
       localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-      WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
       Response response = resourceBuilder.build(GET).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(ProblemOccurrences.class);
@@ -9076,8 +8880,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public ProblemOccurrence get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(ProblemOccurrence.class);
@@ -9088,9 +8891,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(ProblemOccurrence.class);
       }
@@ -9122,8 +8923,7 @@ public class TeamcityJetbrainsCom {
      * Experimental, the requests and results returned will change in future versions!
      */
     public Problems get() {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
       Response response = resourceBuilder.build(GET).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(Problems.class);
@@ -9136,8 +8936,7 @@ public class TeamcityJetbrainsCom {
       UriBuilder localUriBuilder = _uriBuilder.clone();
       localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-      WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
       Response response = resourceBuilder.build(GET).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(Problems.class);
@@ -9203,8 +9002,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Problem get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Problem.class);
@@ -9215,9 +9013,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Problem.class);
       }
@@ -9246,8 +9042,7 @@ public class TeamcityJetbrainsCom {
     }
 
     public Projects get() {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
       Response response = resourceBuilder.build(GET).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(Projects.class);
@@ -9256,24 +9051,21 @@ public class TeamcityJetbrainsCom {
     public Projects get(String fields) {
       UriBuilder localUriBuilder = _uriBuilder.clone();
       localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-      WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
       Response response = resourceBuilder.build(GET).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(Projects.class);
     }
 
     public Project post(NewProjectDescription input) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
       Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "newProjectDescription"), NewProjectDescription.class, input), "application/json")).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(Project.class);
     }
 
     public Project postTextPlain(String name) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
       Response response = resourceBuilder.build("POST", Entity.entity(name, "text/plain")).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(Project.class);
@@ -9403,8 +9195,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Project get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Project.class);
@@ -9415,9 +9206,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Project.class);
       }
@@ -9484,24 +9273,21 @@ public class TeamcityJetbrainsCom {
       }
 
       public AgentPools get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(AgentPools.class);
       }
 
       public AgentPool post(AgentPool input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "agentPool"), AgentPool.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(AgentPool.class);
       }
 
       public AgentPools put(AgentPools input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "agentPools"), AgentPools.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(AgentPools.class);
@@ -9644,8 +9430,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public BuildTypes get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(BuildTypes.class);
@@ -9656,16 +9441,13 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(BuildTypes.class);
       }
 
       public <T> T postTextPlain(Object input, Class<T> returnType) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("POST", Entity.entity(input, "text/plain")).invoke();
         if (!Response.class.isAssignableFrom(returnType)) {
           throwExceptionIfWrongStatus(response);
@@ -9678,9 +9460,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build("POST", Entity.entity(input, "text/plain")).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build("POST", Entity.entity(input, "text/plain")).invoke();
         if (!Response.class.isAssignableFrom(returnType)) {
           throwExceptionIfWrongStatus(response);
         }
@@ -9691,8 +9471,7 @@ public class TeamcityJetbrainsCom {
        * Creates a new build configuration by copying existing one.
        */
       public BuildType post(NewBuildTypeDescription input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "newBuildTypeDescription"), NewBuildTypeDescription.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(BuildType.class);
@@ -9706,9 +9485,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "newBuildTypeDescription"), NewBuildTypeDescription.class, input), "application/json")).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "newBuildTypeDescription"), NewBuildTypeDescription.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(BuildType.class);
       }
@@ -9789,8 +9566,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public BuildType get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(BuildType.class);
@@ -9801,9 +9577,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(BuildType.class);
       }
@@ -9887,8 +9661,7 @@ public class TeamcityJetbrainsCom {
        * Serves builds matching supplied condition.
        */
       public Builds get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Builds.class);
@@ -9919,9 +9692,7 @@ public class TeamcityJetbrainsCom {
         localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Builds.class);
       }
@@ -10021,8 +9792,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Build get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Build.class);
@@ -10033,9 +9803,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Build.class);
       }
@@ -10319,8 +10087,7 @@ public class TeamcityJetbrainsCom {
        * project
        */
       public NewProjectDescription get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(NewProjectDescription.class);
@@ -10336,9 +10103,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("id", id);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(NewProjectDescription.class);
       }
@@ -10419,8 +10184,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public String putTextPlain(Object input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "text/plain");
         Response response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
         if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
@@ -10493,8 +10257,7 @@ public class TeamcityJetbrainsCom {
        * For compatibility with experimental feature of 8.0
        */
       public NewProjectDescription get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(NewProjectDescription.class);
@@ -10513,9 +10276,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("id", id);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(NewProjectDescription.class);
       }
@@ -10577,8 +10338,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Properties get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Properties.class);
@@ -10589,16 +10349,13 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Properties.class);
       }
 
       public Properties put(Properties input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "properties"), Properties.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Properties.class);
@@ -10609,9 +10366,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "properties"), Properties.class, input), "application/json")).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "properties"), Properties.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Properties.class);
       }
@@ -10622,8 +10377,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Property post(Property input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "property"), Property.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Property.class);
@@ -10705,8 +10459,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public String putTextPlain(Object input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "text/plain");
         Response response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
         if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
@@ -10720,8 +10473,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Property getAsProperty() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Property.class);
@@ -10789,16 +10541,14 @@ public class TeamcityJetbrainsCom {
       }
 
       public Project put(Project input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "project"), Project.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Project.class);
       }
 
       public Project get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Project.class);
@@ -10809,9 +10559,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Project.class);
       }
@@ -10876,8 +10624,7 @@ public class TeamcityJetbrainsCom {
        * Creates a new build configuration template by copying existing one.
        */
       public BuildType post(NewBuildTypeDescription input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "newBuildTypeDescription"), NewBuildTypeDescription.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(BuildType.class);
@@ -10891,16 +10638,13 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "newBuildTypeDescription"), NewBuildTypeDescription.class, input), "application/json")).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "newBuildTypeDescription"), NewBuildTypeDescription.class, input), "application/json")).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(BuildType.class);
       }
 
       public BuildTypes get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(BuildTypes.class);
@@ -10911,16 +10655,13 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(BuildTypes.class);
       }
 
       public <T> T postTextPlain(Object input, Class<T> returnType) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build("POST", Entity.entity(input, "text/plain")).invoke();
         if (!Response.class.isAssignableFrom(returnType)) {
           throwExceptionIfWrongStatus(response);
@@ -10933,9 +10674,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build("POST", Entity.entity(input, "text/plain")).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build("POST", Entity.entity(input, "text/plain")).invoke();
         if (!Response.class.isAssignableFrom(returnType)) {
           throwExceptionIfWrongStatus(response);
         }
@@ -11018,8 +10757,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public BuildType get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(BuildType.class);
@@ -11030,9 +10768,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(BuildType.class);
       }
@@ -11061,8 +10797,7 @@ public class TeamcityJetbrainsCom {
     }
 
     public Server get() {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
       Response response = resourceBuilder.build(GET).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(Server.class);
@@ -11107,8 +10842,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public <T> String postAsTextPlain(Class<T> returnType) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "text/plain");
         Response response = resourceBuilder.build("POST").invoke();
         if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
@@ -11128,9 +10862,7 @@ public class TeamcityJetbrainsCom {
         localUriBuilder = localUriBuilder.replaceQueryParam("includeRunningBuilds", includerunningbuilds);
         localUriBuilder = localUriBuilder.replaceQueryParam("includeSupplimentaryData", includesupplimentarydata);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response = resourceBuilder.build("POST").invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "text/plain");Response response = resourceBuilder.build("POST").invoke();
         if (!Response.class.isAssignableFrom(String.class)) {
           throwExceptionIfWrongStatus(response);
         }
@@ -11221,8 +10953,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public PluginInfos get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(PluginInfos.class);
@@ -11255,8 +10986,7 @@ public class TeamcityJetbrainsCom {
      * Experimental, the requests and results returned will change in future versions!
      */
     public TestOccurrences get() {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
       Response response = resourceBuilder.build(GET).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(TestOccurrences.class);
@@ -11274,8 +11004,7 @@ public class TeamcityJetbrainsCom {
       UriBuilder localUriBuilder = _uriBuilder.clone();
       localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-      WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
       Response response = resourceBuilder.build(GET).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(TestOccurrences.class);
@@ -11341,8 +11070,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public TestOccurrence get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(TestOccurrence.class);
@@ -11353,9 +11081,7 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(TestOccurrence.class);
       }
@@ -11387,8 +11113,7 @@ public class TeamcityJetbrainsCom {
      * Experimental, the requests and results returned will change in future versions!
      */
     public Tests get() {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
       Response response = resourceBuilder.build(GET).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(Tests.class);
@@ -11406,8 +11131,7 @@ public class TeamcityJetbrainsCom {
       UriBuilder localUriBuilder = _uriBuilder.clone();
       localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
       localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-      WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+      javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
       Response response = resourceBuilder.build(GET).invoke();
       throwExceptionIfWrongStatus(response);
       return response.readEntity(Tests.class);
@@ -11473,8 +11197,7 @@ public class TeamcityJetbrainsCom {
       }
 
       public Test get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(_uriBuilder, _client, _templateAndMatrixParameterValues, "application/json");
         Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Test.class);
@@ -11485,2585 +11208,9 @@ public class TeamcityJetbrainsCom {
 
         localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
 
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
+        javax.ws.rs.client.Invocation.Builder resourceBuilder = getBuilder(localUriBuilder, _client, _templateAndMatrixParameterValues, "application/json");Response response = resourceBuilder.build(GET).invoke();
         throwExceptionIfWrongStatus(response);
         return response.readEntity(Test.class);
-      }
-    }
-  }
-
-  public static class AppRestUserGroups {
-    private Client _client;
-    private UriBuilder _uriBuilder;
-    private Map<String, Object> _templateAndMatrixParameterValues;
-
-    private AppRestUserGroups(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-      _client = client;
-      _uriBuilder = uriBuilder.clone();
-      _templateAndMatrixParameterValues = map;
-    }
-
-    /**
-     * Create new instance using existing Client instance, and a base URI and any parameters
-     */
-    public AppRestUserGroups(Client client, URI baseUri) {
-      _client = client;
-      _uriBuilder = UriBuilder.fromUri(baseUri);
-      _uriBuilder = _uriBuilder.path("/app/rest/userGroups");
-      _templateAndMatrixParameterValues = new HashMap<String, Object>();
-    }
-
-    public Group post(Group input) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "group"), Group.class, input), "application/json")).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(Group.class);
-    }
-
-    public Group post(Group input, String fields) {
-      UriBuilder localUriBuilder = _uriBuilder.clone();
-      localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-      WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "group"), Group.class, input), "application/json")).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(Group.class);
-    }
-
-    public Groups get() {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response = resourceBuilder.build(GET).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(Groups.class);
-    }
-
-    public Groups get(String fields) {
-      UriBuilder localUriBuilder = _uriBuilder.clone();
-      localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-      WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response = resourceBuilder.build(GET).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(Groups.class);
-    }
-
-    public TeamcityJetbrainsCom.AppRestUserGroups.GroupLocator groupLocator(String grouplocator) {
-      return new TeamcityJetbrainsCom.AppRestUserGroups.GroupLocator(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), grouplocator);
-    }
-
-    public TeamcityJetbrainsCom.AppRestUserGroups.GroupLocatorRoles groupLocatorRoles(String grouplocator) {
-      return new TeamcityJetbrainsCom.AppRestUserGroups.GroupLocatorRoles(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), grouplocator);
-    }
-
-    public TeamcityJetbrainsCom.AppRestUserGroups.GroupLocatorRolesRoleIdScope groupLocatorRolesRoleIdScope(String grouplocator, String roleid, String scope) {
-      return new TeamcityJetbrainsCom.AppRestUserGroups.GroupLocatorRolesRoleIdScope(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), grouplocator, roleid, scope);
-    }
-
-    public static class GroupLocator {
-      private Client _client;
-      private UriBuilder _uriBuilder;
-      private Map<String, Object> _templateAndMatrixParameterValues;
-
-      private GroupLocator(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-        _client = client;
-        _uriBuilder = uriBuilder.clone();
-        _templateAndMatrixParameterValues = map;
-      }
-
-      /**
-       * Create new instance using existing Client instance, and a base URI and any parameters
-       */
-      public GroupLocator(Client client, URI baseUri, String grouplocator) {
-        _client = client;
-        _uriBuilder = UriBuilder.fromUri(baseUri);
-        _uriBuilder = _uriBuilder.path("/{groupLocator}");
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        _templateAndMatrixParameterValues.put("groupLocator", grouplocator);
-      }
-
-      /**
-       * Create new instance using existing Client instance, and the URI from which the parameters will be extracted
-       */
-      public GroupLocator(Client client, URI uri) {
-        _client = client;
-        StringBuilder template;
-        template = getTemplateBuilder("app/rest/userGroups/{groupLocator}");
-        _uriBuilder = UriBuilder.fromPath(template.toString());
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        UriTemplate uriTemplate = new UriTemplate(template.toString());
-        HashMap<String, String> parameters = new HashMap<String, String>();
-        uriTemplate.match(uri.toString(), parameters);
-        _templateAndMatrixParameterValues.putAll(parameters);
-      }
-
-      /**
-       * Get groupLocator
-       */
-      public String getGrouplocator() {
-        return ((String) _templateAndMatrixParameterValues.get("groupLocator"));
-      }
-
-      /**
-       * Duplicate state and set groupLocator
-       */
-      public TeamcityJetbrainsCom.AppRestUserGroups.GroupLocator setGrouplocator(String grouplocator) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("groupLocator", grouplocator);
-        return new TeamcityJetbrainsCom.AppRestUserGroups.GroupLocator(_client, copyUriBuilder, copyMap);
-      }
-
-      public Response delete() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        return TeamcityJetbrainsCom.delete(resource);
-      }
-
-      public Group get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(Group.class);
-      }
-
-      public Group get(String fields) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(Group.class);
-      }
-    }
-
-    public static class GroupLocatorRoles {
-      private Client _client;
-      private UriBuilder _uriBuilder;
-      private Map<String, Object> _templateAndMatrixParameterValues;
-
-      private GroupLocatorRoles(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-        _client = client;
-        _uriBuilder = uriBuilder.clone();
-        _templateAndMatrixParameterValues = map;
-      }
-
-      /**
-       * Create new instance using existing Client instance, and a base URI and any parameters
-       */
-      public GroupLocatorRoles(Client client, URI baseUri, String grouplocator) {
-        _client = client;
-        _uriBuilder = UriBuilder.fromUri(baseUri);
-        _uriBuilder = _uriBuilder.path("/{groupLocator}/roles");
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        _templateAndMatrixParameterValues.put("groupLocator", grouplocator);
-      }
-
-      /**
-       * Create new instance using existing Client instance, and the URI from which the parameters will be extracted
-       */
-      public GroupLocatorRoles(Client client, URI uri) {
-        _client = client;
-        StringBuilder template;
-        template = getTemplateBuilder("app/rest/userGroups/{groupLocator}/roles");
-        _uriBuilder = UriBuilder.fromPath(template.toString());
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        UriTemplate uriTemplate = new UriTemplate(template.toString());
-        HashMap<String, String> parameters = new HashMap<String, String>();
-        uriTemplate.match(uri.toString(), parameters);
-        _templateAndMatrixParameterValues.putAll(parameters);
-      }
-
-      /**
-       * Get groupLocator
-       */
-      public String getGrouplocator() {
-        return ((String) _templateAndMatrixParameterValues.get("groupLocator"));
-      }
-
-      /**
-       * Duplicate state and set groupLocator
-       */
-      public TeamcityJetbrainsCom.AppRestUserGroups.GroupLocatorRoles setGrouplocator(String grouplocator) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("groupLocator", grouplocator);
-        return new TeamcityJetbrainsCom.AppRestUserGroups.GroupLocatorRoles(_client, copyUriBuilder, copyMap);
-      }
-
-      public RoleAssignments put(RoleAssignments input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "roles"), RoleAssignments.class, input), "application/json")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(RoleAssignments.class);
-      }
-
-      public RoleAssignment post(RoleAssignment input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "role"), RoleAssignment.class, input), "application/json")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(RoleAssignment.class);
-      }
-
-      public RoleAssignments get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(RoleAssignments.class);
-      }
-    }
-
-    public static class GroupLocatorRolesRoleIdScope {
-      private Client _client;
-      private UriBuilder _uriBuilder;
-      private Map<String, Object> _templateAndMatrixParameterValues;
-
-      private GroupLocatorRolesRoleIdScope(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-        _client = client;
-        _uriBuilder = uriBuilder.clone();
-        _templateAndMatrixParameterValues = map;
-      }
-
-      /**
-       * Create new instance using existing Client instance, and a base URI and any parameters
-       */
-      public GroupLocatorRolesRoleIdScope(Client client, URI baseUri, String grouplocator, String roleid, String scope) {
-        _client = client;
-        _uriBuilder = UriBuilder.fromUri(baseUri);
-        _uriBuilder = _uriBuilder.path("/{groupLocator}/roles/{roleId}/{scope}");
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        _templateAndMatrixParameterValues.put("groupLocator", grouplocator);
-        _templateAndMatrixParameterValues.put("roleId", roleid);
-        _templateAndMatrixParameterValues.put("scope", scope);
-      }
-
-      /**
-       * Create new instance using existing Client instance, and the URI from which the parameters will be extracted
-       */
-      public GroupLocatorRolesRoleIdScope(Client client, URI uri) {
-        _client = client;
-        StringBuilder template;
-        template = getTemplateBuilder("app/rest/userGroups/{groupLocator}/roles/{roleId}/{scope}");
-        _uriBuilder = UriBuilder.fromPath(template.toString());
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        UriTemplate uriTemplate = new UriTemplate(template.toString());
-        HashMap<String, String> parameters = new HashMap<String, String>();
-        uriTemplate.match(uri.toString(), parameters);
-        _templateAndMatrixParameterValues.putAll(parameters);
-      }
-
-      /**
-       * Get groupLocator
-       */
-      public String getGrouplocator() {
-        return ((String) _templateAndMatrixParameterValues.get("groupLocator"));
-      }
-
-      /**
-       * Duplicate state and set groupLocator
-       */
-      public TeamcityJetbrainsCom.AppRestUserGroups.GroupLocatorRolesRoleIdScope setGrouplocator(String grouplocator) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("groupLocator", grouplocator);
-        return new TeamcityJetbrainsCom.AppRestUserGroups.GroupLocatorRolesRoleIdScope(_client, copyUriBuilder, copyMap);
-      }
-
-      /**
-       * Get roleId
-       */
-      public String getRoleid() {
-        return ((String) _templateAndMatrixParameterValues.get("roleId"));
-      }
-
-      /**
-       * Duplicate state and set roleId
-       */
-      public TeamcityJetbrainsCom.AppRestUserGroups.GroupLocatorRolesRoleIdScope setRoleid(String roleid) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("roleId", roleid);
-        return new TeamcityJetbrainsCom.AppRestUserGroups.GroupLocatorRolesRoleIdScope(_client, copyUriBuilder, copyMap);
-      }
-
-      /**
-       * Get scope
-       */
-      public String getScope() {
-        return ((String) _templateAndMatrixParameterValues.get("scope"));
-      }
-
-      /**
-       * Duplicate state and set scope
-       */
-      public TeamcityJetbrainsCom.AppRestUserGroups.GroupLocatorRolesRoleIdScope setScope(String scope) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("scope", scope);
-        return new TeamcityJetbrainsCom.AppRestUserGroups.GroupLocatorRolesRoleIdScope(_client, copyUriBuilder, copyMap);
-      }
-
-      public RoleAssignment get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(RoleAssignment.class);
-      }
-
-      public RoleAssignment post() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build("POST").invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(RoleAssignment.class);
-      }
-
-      public Response delete() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        return TeamcityJetbrainsCom.delete(resource);
-      }
-    }
-  }
-
-  public static class AppRestUsers {
-    private Client _client;
-    private UriBuilder _uriBuilder;
-    private Map<String, Object> _templateAndMatrixParameterValues;
-
-    private AppRestUsers(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-      _client = client;
-      _uriBuilder = uriBuilder.clone();
-      _templateAndMatrixParameterValues = map;
-    }
-
-    /**
-     * Create new instance using existing Client instance, and a base URI and any parameters
-     */
-    public AppRestUsers(Client client, URI baseUri) {
-      _client = client;
-      _uriBuilder = UriBuilder.fromUri(baseUri);
-      _uriBuilder = _uriBuilder.path("/app/rest/users");
-      _templateAndMatrixParameterValues = new HashMap<String, Object>();
-    }
-
-    public User post(User input) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("*/*");
-      Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "user"), User.class, input), "application/json")).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(User.class);
-    }
-
-    public <T> T post(Object input, Class<T> returnType) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("*/*");
-      Response response = resourceBuilder.build("POST", Entity.entity(input, "application/json")).invoke();
-      if (!Response.class.isAssignableFrom(returnType)) {
-        throwExceptionIfWrongStatus(response);
-      }
-      return getReturnValue(returnType, response);
-    }
-
-    public User post(User input, String fields) {
-      UriBuilder localUriBuilder = _uriBuilder.clone();
-      localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-      WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("*/*");
-      Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "user"), User.class, input), "application/json")).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(User.class);
-    }
-
-    public Users get() {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response = resourceBuilder.build(GET).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(Users.class);
-    }
-
-    public Users get(String fields) {
-      UriBuilder localUriBuilder = _uriBuilder.clone();
-      localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-      WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response = resourceBuilder.build(GET).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(Users.class);
-    }
-
-    public TeamcityJetbrainsCom.AppRestUsers.UserLocator userLocator(String userlocator) {
-      return new TeamcityJetbrainsCom.AppRestUsers.UserLocator(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), userlocator);
-    }
-
-    public TeamcityJetbrainsCom.AppRestUsers.UserLocatorRoles userLocatorRoles(String userlocator) {
-      return new TeamcityJetbrainsCom.AppRestUsers.UserLocatorRoles(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), userlocator);
-    }
-
-    public TeamcityJetbrainsCom.AppRestUsers.UserLocatorRolesRoleIdScope userLocatorRolesRoleIdScope(String userlocator, String roleid, String scope) {
-      return new TeamcityJetbrainsCom.AppRestUsers.UserLocatorRolesRoleIdScope(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), userlocator, roleid, scope);
-    }
-
-    public TeamcityJetbrainsCom.AppRestUsers.UserLocatorGroups userLocatorGroups(String userlocator) {
-      return new TeamcityJetbrainsCom.AppRestUsers.UserLocatorGroups(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), userlocator);
-    }
-
-    public TeamcityJetbrainsCom.AppRestUsers.UserLocatorField userLocatorField(String userlocator, String field) {
-      return new TeamcityJetbrainsCom.AppRestUsers.UserLocatorField(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), userlocator, field);
-    }
-
-    public TeamcityJetbrainsCom.AppRestUsers.UserLocatorProperties userLocatorProperties(String userlocator) {
-      return new TeamcityJetbrainsCom.AppRestUsers.UserLocatorProperties(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), userlocator);
-    }
-
-    public TeamcityJetbrainsCom.AppRestUsers.UserLocatorPropertiesName userLocatorPropertiesName(String userlocator, String name) {
-      return new TeamcityJetbrainsCom.AppRestUsers.UserLocatorPropertiesName(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), userlocator, name);
-    }
-
-    public static class UserLocator {
-      private Client _client;
-      private UriBuilder _uriBuilder;
-      private Map<String, Object> _templateAndMatrixParameterValues;
-
-      private UserLocator(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-        _client = client;
-        _uriBuilder = uriBuilder.clone();
-        _templateAndMatrixParameterValues = map;
-      }
-
-      /**
-       * Create new instance using existing Client instance, and a base URI and any parameters
-       */
-      public UserLocator(Client client, URI baseUri, String userlocator) {
-        _client = client;
-        _uriBuilder = UriBuilder.fromUri(baseUri);
-        _uriBuilder = _uriBuilder.path("/{userLocator}");
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        _templateAndMatrixParameterValues.put("userLocator", userlocator);
-      }
-
-      /**
-       * Create new instance using existing Client instance, and the URI from which the parameters will be extracted
-       */
-      public UserLocator(Client client, URI uri) {
-        _client = client;
-        StringBuilder template;
-        template = getTemplateBuilder("app/rest/users/{userLocator}");
-        _uriBuilder = UriBuilder.fromPath(template.toString());
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        UriTemplate uriTemplate = new UriTemplate(template.toString());
-        HashMap<String, String> parameters = new HashMap<String, String>();
-        uriTemplate.match(uri.toString(), parameters);
-        _templateAndMatrixParameterValues.putAll(parameters);
-      }
-
-      /**
-       * Get userLocator
-       */
-      public String getUserlocator() {
-        return ((String) _templateAndMatrixParameterValues.get("userLocator"));
-      }
-
-      /**
-       * Duplicate state and set userLocator
-       */
-      public TeamcityJetbrainsCom.AppRestUsers.UserLocator setUserlocator(String userlocator) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("userLocator", userlocator);
-        return new TeamcityJetbrainsCom.AppRestUsers.UserLocator(_client, copyUriBuilder, copyMap);
-      }
-
-      public Response delete() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        return TeamcityJetbrainsCom.delete(resource);
-      }
-
-      public User put(User input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "user"), User.class, input), "application/json")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(User.class);
-      }
-
-      public User put(User input, String fields) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "user"), User.class, input), "application/json")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(User.class);
-      }
-
-      public User get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(User.class);
-      }
-
-      public User get(String fields) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(User.class);
-      }
-    }
-
-    public static class UserLocatorField {
-      private Client _client;
-      private UriBuilder _uriBuilder;
-      private Map<String, Object> _templateAndMatrixParameterValues;
-
-      private UserLocatorField(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-        _client = client;
-        _uriBuilder = uriBuilder.clone();
-        _templateAndMatrixParameterValues = map;
-      }
-
-      /**
-       * Create new instance using existing Client instance, and a base URI and any parameters
-       */
-      public UserLocatorField(Client client, URI baseUri, String userlocator, String field) {
-        _client = client;
-        _uriBuilder = UriBuilder.fromUri(baseUri);
-        _uriBuilder = _uriBuilder.path("/{userLocator}/{field}");
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        _templateAndMatrixParameterValues.put("userLocator", userlocator);
-        _templateAndMatrixParameterValues.put("field", field);
-      }
-
-      /**
-       * Create new instance using existing Client instance, and the URI from which the parameters will be extracted
-       */
-      public UserLocatorField(Client client, URI uri) {
-        _client = client;
-        StringBuilder template;
-        template = getTemplateBuilder("app/rest/users/{userLocator}/{field}");
-        _uriBuilder = UriBuilder.fromPath(template.toString());
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        UriTemplate uriTemplate = new UriTemplate(template.toString());
-        HashMap<String, String> parameters = new HashMap<String, String>();
-        uriTemplate.match(uri.toString(), parameters);
-        _templateAndMatrixParameterValues.putAll(parameters);
-      }
-
-      /**
-       * Get userLocator
-       */
-      public String getUserlocator() {
-        return ((String) _templateAndMatrixParameterValues.get("userLocator"));
-      }
-
-      /**
-       * Duplicate state and set userLocator
-       */
-      public TeamcityJetbrainsCom.AppRestUsers.UserLocatorField setUserlocator(String userlocator) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("userLocator", userlocator);
-        return new TeamcityJetbrainsCom.AppRestUsers.UserLocatorField(_client, copyUriBuilder, copyMap);
-      }
-
-      /**
-       * Get field
-       */
-      public String getField() {
-        return ((String) _templateAndMatrixParameterValues.get("field"));
-      }
-
-      /**
-       * Duplicate state and set field
-       */
-      public TeamcityJetbrainsCom.AppRestUsers.UserLocatorField setField(String field) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("field", field);
-        return new TeamcityJetbrainsCom.AppRestUsers.UserLocatorField(_client, copyUriBuilder, copyMap);
-      }
-
-      public String get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        return getAsString(resource);
-      }
-
-      public String putTextPlain(Object input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        if (!Response.class.isAssignableFrom(String.class)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getStringValue(response);
-      }
-    }
-
-    public static class UserLocatorGroups {
-      private Client _client;
-      private UriBuilder _uriBuilder;
-      private Map<String, Object> _templateAndMatrixParameterValues;
-
-      private UserLocatorGroups(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-        _client = client;
-        _uriBuilder = uriBuilder.clone();
-        _templateAndMatrixParameterValues = map;
-      }
-
-      /**
-       * Create new instance using existing Client instance, and a base URI and any parameters
-       */
-      public UserLocatorGroups(Client client, URI baseUri, String userlocator) {
-        _client = client;
-        _uriBuilder = UriBuilder.fromUri(baseUri);
-        _uriBuilder = _uriBuilder.path("/{userLocator}/groups");
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        _templateAndMatrixParameterValues.put("userLocator", userlocator);
-      }
-
-      /**
-       * Create new instance using existing Client instance, and the URI from which the parameters will be extracted
-       */
-      public UserLocatorGroups(Client client, URI uri) {
-        _client = client;
-        StringBuilder template;
-        template = getTemplateBuilder("app/rest/users/{userLocator}/groups");
-        _uriBuilder = UriBuilder.fromPath(template.toString());
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        UriTemplate uriTemplate = new UriTemplate(template.toString());
-        HashMap<String, String> parameters = new HashMap<String, String>();
-        uriTemplate.match(uri.toString(), parameters);
-        _templateAndMatrixParameterValues.putAll(parameters);
-      }
-
-      /**
-       * Get userLocator
-       */
-      public String getUserlocator() {
-        return ((String) _templateAndMatrixParameterValues.get("userLocator"));
-      }
-
-      /**
-       * Duplicate state and set userLocator
-       */
-      public TeamcityJetbrainsCom.AppRestUsers.UserLocatorGroups setUserlocator(String userlocator) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("userLocator", userlocator);
-        return new TeamcityJetbrainsCom.AppRestUsers.UserLocatorGroups(_client, copyUriBuilder, copyMap);
-      }
-
-      public Group post(Group input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "group"), Group.class, input), "application/json")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(Group.class);
-      }
-
-      public Group post(Group input, String fields) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "group"), Group.class, input), "application/json")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(Group.class);
-      }
-
-      /**
-       * Replaces user's roles with the submitted ones
-       */
-      public Groups put(Groups input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "groups"), Groups.class, input), "application/json")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(Groups.class);
-      }
-
-      /**
-       * Replaces user's roles with the submitted ones
-       */
-      public Groups put(Groups input, String fields) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "groups"), Groups.class, input), "application/json")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(Groups.class);
-      }
-
-      public Groups get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(Groups.class);
-      }
-
-      public Groups get(String fields) {
-        UriBuilder localUriBuilder = _uriBuilder.clone();
-
-        localUriBuilder = localUriBuilder.replaceQueryParam("fields", fields);
-
-        WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(Groups.class);
-      }
-    }
-
-    public static class UserLocatorProperties {
-      private Client _client;
-      private UriBuilder _uriBuilder;
-      private Map<String, Object> _templateAndMatrixParameterValues;
-
-      private UserLocatorProperties(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-        _client = client;
-        _uriBuilder = uriBuilder.clone();
-        _templateAndMatrixParameterValues = map;
-      }
-
-      /**
-       * Create new instance using existing Client instance, and a base URI and any parameters
-       */
-      public UserLocatorProperties(Client client, URI baseUri, String userlocator) {
-        _client = client;
-        _uriBuilder = UriBuilder.fromUri(baseUri);
-        _uriBuilder = _uriBuilder.path("/{userLocator}/properties");
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        _templateAndMatrixParameterValues.put("userLocator", userlocator);
-      }
-
-      /**
-       * Create new instance using existing Client instance, and the URI from which the parameters will be extracted
-       */
-      public UserLocatorProperties(Client client, URI uri) {
-        _client = client;
-        StringBuilder template;
-        template = getTemplateBuilder("app/rest/users/{userLocator}/properties");
-        _uriBuilder = UriBuilder.fromPath(template.toString());
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        UriTemplate uriTemplate = new UriTemplate(template.toString());
-        HashMap<String, String> parameters = new HashMap<String, String>();
-        uriTemplate.match(uri.toString(), parameters);
-        _templateAndMatrixParameterValues.putAll(parameters);
-      }
-
-      /**
-       * Get userLocator
-       */
-      public String getUserlocator() {
-        return ((String) _templateAndMatrixParameterValues.get("userLocator"));
-      }
-
-      /**
-       * Duplicate state and set userLocator
-       */
-      public TeamcityJetbrainsCom.AppRestUsers.UserLocatorProperties setUserlocator(String userlocator) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("userLocator", userlocator);
-        return new TeamcityJetbrainsCom.AppRestUsers.UserLocatorProperties(_client, copyUriBuilder, copyMap);
-      }
-
-      public Properties get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(Properties.class);
-      }
-    }
-
-    public static class UserLocatorPropertiesName {
-      private Client _client;
-      private UriBuilder _uriBuilder;
-      private Map<String, Object> _templateAndMatrixParameterValues;
-
-      private UserLocatorPropertiesName(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-        _client = client;
-        _uriBuilder = uriBuilder.clone();
-        _templateAndMatrixParameterValues = map;
-      }
-
-      /**
-       * Create new instance using existing Client instance, and a base URI and any parameters
-       */
-      public UserLocatorPropertiesName(Client client, URI baseUri, String userlocator, String name) {
-        _client = client;
-        _uriBuilder = UriBuilder.fromUri(baseUri);
-        _uriBuilder = _uriBuilder.path("/{userLocator}/properties/{name}");
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        _templateAndMatrixParameterValues.put("userLocator", userlocator);
-        _templateAndMatrixParameterValues.put("name", name);
-      }
-
-      /**
-       * Create new instance using existing Client instance, and the URI from which the parameters will be extracted
-       */
-      public UserLocatorPropertiesName(Client client, URI uri) {
-        _client = client;
-        StringBuilder template;
-        template = getTemplateBuilder("app/rest/users/{userLocator}/properties/{name}");
-        _uriBuilder = UriBuilder.fromPath(template.toString());
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        UriTemplate uriTemplate = new UriTemplate(template.toString());
-        HashMap<String, String> parameters = new HashMap<String, String>();
-        uriTemplate.match(uri.toString(), parameters);
-        _templateAndMatrixParameterValues.putAll(parameters);
-      }
-
-      /**
-       * Get userLocator
-       */
-      public String getUserlocator() {
-        return ((String) _templateAndMatrixParameterValues.get("userLocator"));
-      }
-
-      /**
-       * Duplicate state and set userLocator
-       */
-      public TeamcityJetbrainsCom.AppRestUsers.UserLocatorPropertiesName setUserlocator(String userlocator) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("userLocator", userlocator);
-        return new TeamcityJetbrainsCom.AppRestUsers.UserLocatorPropertiesName(_client, copyUriBuilder, copyMap);
-      }
-
-      /**
-       * Get name
-       */
-      public String getName() {
-        return ((String) _templateAndMatrixParameterValues.get("name"));
-      }
-
-      /**
-       * Duplicate state and set name
-       */
-      public TeamcityJetbrainsCom.AppRestUsers.UserLocatorPropertiesName setName(String name) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("name", name);
-        return new TeamcityJetbrainsCom.AppRestUsers.UserLocatorPropertiesName(_client, copyUriBuilder, copyMap);
-      }
-
-      public String get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        return getAsString(resource);
-      }
-
-      public String putTextPlain(Object input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        if (!Response.class.isAssignableFrom(String.class)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getStringValue(response);
-      }
-
-      public Response delete() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        return TeamcityJetbrainsCom.delete(resource);
-      }
-    }
-
-    public static class UserLocatorRoles {
-      private Client _client;
-      private UriBuilder _uriBuilder;
-      private Map<String, Object> _templateAndMatrixParameterValues;
-
-      private UserLocatorRoles(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-        _client = client;
-        _uriBuilder = uriBuilder.clone();
-        _templateAndMatrixParameterValues = map;
-      }
-
-      /**
-       * Create new instance using existing Client instance, and a base URI and any parameters
-       */
-      public UserLocatorRoles(Client client, URI baseUri, String userlocator) {
-        _client = client;
-        _uriBuilder = UriBuilder.fromUri(baseUri);
-        _uriBuilder = _uriBuilder.path("/{userLocator}/roles");
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        _templateAndMatrixParameterValues.put("userLocator", userlocator);
-      }
-
-      /**
-       * Create new instance using existing Client instance, and the URI from which the parameters will be extracted
-       */
-      public UserLocatorRoles(Client client, URI uri) {
-        _client = client;
-        StringBuilder template;
-        template = getTemplateBuilder("app/rest/users/{userLocator}/roles");
-        _uriBuilder = UriBuilder.fromPath(template.toString());
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        UriTemplate uriTemplate = new UriTemplate(template.toString());
-        HashMap<String, String> parameters = new HashMap<String, String>();
-        uriTemplate.match(uri.toString(), parameters);
-        _templateAndMatrixParameterValues.putAll(parameters);
-      }
-
-      /**
-       * Get userLocator
-       */
-      public String getUserlocator() {
-        return ((String) _templateAndMatrixParameterValues.get("userLocator"));
-      }
-
-      /**
-       * Duplicate state and set userLocator
-       */
-      public TeamcityJetbrainsCom.AppRestUsers.UserLocatorRoles setUserlocator(String userlocator) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("userLocator", userlocator);
-        return new TeamcityJetbrainsCom.AppRestUsers.UserLocatorRoles(_client, copyUriBuilder, copyMap);
-      }
-
-      /**
-       * Replaces user's roles with the submitted ones
-       */
-      public RoleAssignments put(RoleAssignments input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "roles"), RoleAssignments.class, input), "application/json")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(RoleAssignments.class);
-      }
-      /**
-       * Replaces user's roles with the submitted ones
-       */
-      /**
-       * Replaces user's roles with the submitted ones
-       */
-      public RoleAssignment post(RoleAssignment input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "role"), RoleAssignment.class, input), "application/json")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(RoleAssignment.class);
-      }
-
-      public RoleAssignments get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(RoleAssignments.class);
-      }
-    }
-
-    public static class UserLocatorRolesRoleIdScope {
-      private Client _client;
-      private UriBuilder _uriBuilder;
-      private Map<String, Object> _templateAndMatrixParameterValues;
-
-      private UserLocatorRolesRoleIdScope(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-        _client = client;
-        _uriBuilder = uriBuilder.clone();
-        _templateAndMatrixParameterValues = map;
-      }
-
-      /**
-       * Create new instance using existing Client instance, and a base URI and any parameters
-       */
-      public UserLocatorRolesRoleIdScope(Client client, URI baseUri, String userlocator, String roleid, String scope) {
-        _client = client;
-        _uriBuilder = UriBuilder.fromUri(baseUri);
-        _uriBuilder = _uriBuilder.path("/{userLocator}/roles/{roleId}/{scope}");
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        _templateAndMatrixParameterValues.put("userLocator", userlocator);
-        _templateAndMatrixParameterValues.put("roleId", roleid);
-        _templateAndMatrixParameterValues.put("scope", scope);
-      }
-
-      /**
-       * Create new instance using existing Client instance, and the URI from which the parameters will be extracted
-       */
-      public UserLocatorRolesRoleIdScope(Client client, URI uri) {
-        _client = client;
-        StringBuilder template;
-        template = getTemplateBuilder("app/rest/users/{userLocator}/roles/{roleId}/{scope}");
-        _uriBuilder = UriBuilder.fromPath(template.toString());
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        UriTemplate uriTemplate = new UriTemplate(template.toString());
-        HashMap<String, String> parameters = new HashMap<String, String>();
-        uriTemplate.match(uri.toString(), parameters);
-        _templateAndMatrixParameterValues.putAll(parameters);
-      }
-
-      /**
-       * Get userLocator
-       */
-      public String getUserlocator() {
-        return ((String) _templateAndMatrixParameterValues.get("userLocator"));
-      }
-
-      /**
-       * Duplicate state and set userLocator
-       */
-      public TeamcityJetbrainsCom.AppRestUsers.UserLocatorRolesRoleIdScope setUserlocator(String userlocator) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("userLocator", userlocator);
-        return new TeamcityJetbrainsCom.AppRestUsers.UserLocatorRolesRoleIdScope(_client, copyUriBuilder, copyMap);
-      }
-
-      /**
-       * Get roleId
-       */
-      public String getRoleid() {
-        return ((String) _templateAndMatrixParameterValues.get("roleId"));
-      }
-
-      /**
-       * Duplicate state and set roleId
-       */
-      public TeamcityJetbrainsCom.AppRestUsers.UserLocatorRolesRoleIdScope setRoleid(String roleid) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("roleId", roleid);
-        return new TeamcityJetbrainsCom.AppRestUsers.UserLocatorRolesRoleIdScope(_client, copyUriBuilder, copyMap);
-      }
-
-      /**
-       * Get scope
-       */
-      public String getScope() {
-        return ((String) _templateAndMatrixParameterValues.get("scope"));
-      }
-
-      /**
-       * Duplicate state and set scope
-       */
-      public TeamcityJetbrainsCom.AppRestUsers.UserLocatorRolesRoleIdScope setScope(String scope) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("scope", scope);
-        return new TeamcityJetbrainsCom.AppRestUsers.UserLocatorRolesRoleIdScope(_client, copyUriBuilder, copyMap);
-      }
-
-      public RoleAssignment get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(RoleAssignment.class);
-      }
-
-      public RoleAssignment put() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build("PUT").invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(RoleAssignment.class);
-      }
-
-      public Response delete() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        return TeamcityJetbrainsCom.delete(resource);
-      }
-
-      public Response post() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request();
-        Response response = resourceBuilder.build("POST").invoke();
-        return response;
-      }
-    }
-  }
-
-  public static class AppRestVcsRootInstances {
-    private Client _client;
-    private UriBuilder _uriBuilder;
-    private Map<String, Object> _templateAndMatrixParameterValues;
-
-    private AppRestVcsRootInstances(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-      _client = client;
-      _uriBuilder = uriBuilder.clone();
-      _templateAndMatrixParameterValues = map;
-    }
-
-    /**
-     * Create new instance using existing Client instance, and a base URI and any parameters
-     */
-    public AppRestVcsRootInstances(Client client, URI baseUri) {
-      _client = client;
-      _uriBuilder = UriBuilder.fromUri(baseUri);
-      _uriBuilder = _uriBuilder.path("/app/rest/vcs-root-instances");
-      _templateAndMatrixParameterValues = new HashMap<String, Object>();
-    }
-
-    public VcsRootInstances get() {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response = resourceBuilder.build(GET).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(VcsRootInstances.class);
-    }
-
-    public VcsRootInstances get(String locator) {
-      UriBuilder localUriBuilder = _uriBuilder.clone();
-      localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
-      WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response = resourceBuilder.build(GET).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(VcsRootInstances.class);
-    }
-
-    public TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorRepositoryState vcsRootInstanceLocatorRepositoryState(String vcsrootinstancelocator) {
-      return new TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorRepositoryState(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), vcsrootinstancelocator);
-    }
-
-    public TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorProperties vcsRootInstanceLocatorProperties(String vcsrootinstancelocator) {
-      return new TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorProperties(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), vcsrootinstancelocator);
-    }
-
-    public TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorField vcsRootInstanceLocatorField(String vcsrootinstancelocator, String field) {
-      return new TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorField(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), vcsrootinstancelocator, field);
-    }
-
-    public TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorRepositoryStateCreationDate vcsRootInstanceLocatorRepositoryStateCreationDate(String vcsrootinstancelocator) {
-      return new TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorRepositoryStateCreationDate(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), vcsrootinstancelocator);
-    }
-
-    public TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorFilesLatestContentpath vcsRootInstanceLocatorFilesLatestContentpath(String vcsrootinstancelocator, String path) {
-      return new TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorFilesLatestContentpath(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), vcsrootinstancelocator, path);
-    }
-
-    public TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorFilesLatestChildrenpath vcsRootInstanceLocatorFilesLatestChildrenpath(String vcsrootinstancelocator, String path) {
-      return new TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorFilesLatestChildrenpath(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), vcsrootinstancelocator, path);
-    }
-
-    public TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorFilesLatestMetadatapath vcsRootInstanceLocatorFilesLatestMetadatapath(String vcsrootinstancelocator, String path) {
-      return new TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorFilesLatestMetadatapath(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), vcsrootinstancelocator, path);
-    }
-
-    public TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocator vcsRootInstanceLocator(String vcsrootinstancelocator) {
-      return new TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocator(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), vcsrootinstancelocator);
-    }
-
-    public static class VcsRootInstanceLocator {
-      private Client _client;
-      private UriBuilder _uriBuilder;
-      private Map<String, Object> _templateAndMatrixParameterValues;
-
-      private VcsRootInstanceLocator(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-        _client = client;
-        _uriBuilder = uriBuilder.clone();
-        _templateAndMatrixParameterValues = map;
-      }
-
-      /**
-       * Create new instance using existing Client instance, and a base URI and any parameters
-       */
-      public VcsRootInstanceLocator(Client client, URI baseUri, String vcsrootinstancelocator) {
-        _client = client;
-        _uriBuilder = UriBuilder.fromUri(baseUri);
-        _uriBuilder = _uriBuilder.path("/{vcsRootInstanceLocator}");
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        _templateAndMatrixParameterValues.put("vcsRootInstanceLocator", vcsrootinstancelocator);
-      }
-
-      /**
-       * Create new instance using existing Client instance, and the URI from which the parameters will be extracted
-       */
-      public VcsRootInstanceLocator(Client client, URI uri) {
-        _client = client;
-        StringBuilder template = getTemplateBuilder("app/rest/vcs-root-instances/{vcsRootInstanceLocator}");
-        _uriBuilder = UriBuilder.fromPath(template.toString());
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        UriTemplate uriTemplate = new UriTemplate(template.toString());
-        HashMap<String, String> parameters = new HashMap<String, String>();
-        uriTemplate.match(uri.toString(), parameters);
-        _templateAndMatrixParameterValues.putAll(parameters);
-      }
-
-      /**
-       * Get vcsRootInstanceLocator
-       */
-      public String getVcsrootinstancelocator() {
-        return ((String) _templateAndMatrixParameterValues.get("vcsRootInstanceLocator"));
-      }
-
-      /**
-       * Duplicate state and set vcsRootInstanceLocator
-       */
-      public TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocator setVcsrootinstancelocator(String vcsrootinstancelocator) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("vcsRootInstanceLocator", vcsrootinstancelocator);
-        return new TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocator(_client, copyUriBuilder, copyMap);
-      }
-
-      public VcsRootInstance get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(VcsRootInstance.class);
-      }
-    }
-
-    public static class VcsRootInstanceLocatorField {
-      private Client _client;
-      private UriBuilder _uriBuilder;
-      private Map<String, Object> _templateAndMatrixParameterValues;
-
-      private VcsRootInstanceLocatorField(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-        _client = client;
-        _uriBuilder = uriBuilder.clone();
-        _templateAndMatrixParameterValues = map;
-      }
-
-      /**
-       * Create new instance using existing Client instance, and a base URI and any parameters
-       */
-      public VcsRootInstanceLocatorField(Client client, URI baseUri, String vcsrootinstancelocator, String field) {
-        _client = client;
-        _uriBuilder = UriBuilder.fromUri(baseUri);
-        _uriBuilder = _uriBuilder.path("/{vcsRootInstanceLocator}/{field}");
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        _templateAndMatrixParameterValues.put("vcsRootInstanceLocator", vcsrootinstancelocator);
-        _templateAndMatrixParameterValues.put("field", field);
-      }
-
-      /**
-       * Create new instance using existing Client instance, and the URI from which the parameters will be extracted
-       */
-      public VcsRootInstanceLocatorField(Client client, URI uri) {
-        _client = client;
-        StringBuilder template =getTemplateBuilder("app/rest/vcs-root-instances/{vcsRootInstanceLocator}/{field}");
-        _uriBuilder = UriBuilder.fromPath(template.toString());
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        UriTemplate uriTemplate = new UriTemplate(template.toString());
-        HashMap<String, String> parameters = new HashMap<String, String>();
-        uriTemplate.match(uri.toString(), parameters);
-        _templateAndMatrixParameterValues.putAll(parameters);
-      }
-
-      /**
-       * Get vcsRootInstanceLocator
-       */
-      public String getVcsrootinstancelocator() {
-        return ((String) _templateAndMatrixParameterValues.get("vcsRootInstanceLocator"));
-      }
-
-      /**
-       * Duplicate state and set vcsRootInstanceLocator
-       */
-      public TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorField setVcsrootinstancelocator(String vcsrootinstancelocator) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("vcsRootInstanceLocator", vcsrootinstancelocator);
-        return new TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorField(_client, copyUriBuilder, copyMap);
-      }
-
-      /**
-       * Get field
-       */
-      public String getField() {
-        return ((String) _templateAndMatrixParameterValues.get("field"));
-      }
-
-      /**
-       * Duplicate state and set field
-       */
-      public TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorField setField(String field) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("field", field);
-        return new TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorField(_client, copyUriBuilder, copyMap);
-      }
-
-      public String get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        return getAsString(resource);
-      }
-
-      public String putTextPlain(Object input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        if (!Response.class.isAssignableFrom(String.class)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getStringValue(response);
-      }
-    }
-
-    public static class VcsRootInstanceLocatorFilesLatestChildrenpath {
-      private Client _client;
-      private UriBuilder _uriBuilder;
-      private Map<String, Object> _templateAndMatrixParameterValues;
-
-      private VcsRootInstanceLocatorFilesLatestChildrenpath(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-        _client = client;
-        _uriBuilder = uriBuilder.clone();
-        _templateAndMatrixParameterValues = map;
-      }
-
-      /**
-       * Create new instance using existing Client instance, and a base URI and any parameters
-       */
-      public VcsRootInstanceLocatorFilesLatestChildrenpath(Client client, URI baseUri, String vcsrootinstancelocator, String path) {
-        _client = client;
-        _uriBuilder = UriBuilder.fromUri(baseUri);
-        _uriBuilder = _uriBuilder.path("/{vcsRootInstanceLocator}/files/latest/children{path:(/.*)?}");
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        _templateAndMatrixParameterValues.put("vcsRootInstanceLocator", vcsrootinstancelocator);
-        _templateAndMatrixParameterValues.put("path", path);
-      }
-
-      /**
-       * Create new instance using existing Client instance, and the URI from which the parameters will be extracted
-       */
-      public VcsRootInstanceLocatorFilesLatestChildrenpath(Client client, URI uri) {
-        _client = client;
-        StringBuilder template =getTemplateBuilder("app/rest/vcs-root-instances/{vcsRootInstanceLocator}/files/latest/children{path:(/.*)?}");
-        _uriBuilder = UriBuilder.fromPath(template.toString());
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        UriTemplate uriTemplate = new UriTemplate(template.toString());
-        HashMap<String, String> parameters = new HashMap<String, String>();
-        uriTemplate.match(uri.toString(), parameters);
-        _templateAndMatrixParameterValues.putAll(parameters);
-      }
-
-      /**
-       * Get vcsRootInstanceLocator
-       */
-      public String getVcsrootinstancelocator() {
-        return ((String) _templateAndMatrixParameterValues.get("vcsRootInstanceLocator"));
-      }
-
-      /**
-       * Duplicate state and set vcsRootInstanceLocator
-       */
-      public TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorFilesLatestChildrenpath setVcsrootinstancelocator(String vcsrootinstancelocator) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("vcsRootInstanceLocator", vcsrootinstancelocator);
-        return new TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorFilesLatestChildrenpath(_client, copyUriBuilder, copyMap);
-      }
-
-      /**
-       * Get path
-       */
-      public String getPath() {
-        return ((String) _templateAndMatrixParameterValues.get("path"));
-      }
-
-      /**
-       * Duplicate state and set path
-       */
-      public TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorFilesLatestChildrenpath setPath(String path) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("path", path);
-        return new TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorFilesLatestChildrenpath(_client, copyUriBuilder, copyMap);
-      }
-
-      /**
-       * Lists files in VCS
-       * Experimental support only
-       */
-      public Files get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(Files.class);
-      }
-      /**
-       * Lists files in VCS
-       * Experimental support only
-       */
-      /**
-       * Lists files in VCS
-       * Experimental support only
-       */
-    }
-
-    public static class VcsRootInstanceLocatorFilesLatestContentpath {
-      private Client _client;
-      private UriBuilder _uriBuilder;
-      private Map<String, Object> _templateAndMatrixParameterValues;
-
-      private VcsRootInstanceLocatorFilesLatestContentpath(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-        _client = client;
-        _uriBuilder = uriBuilder.clone();
-        _templateAndMatrixParameterValues = map;
-      }
-
-      /**
-       * Create new instance using existing Client instance, and a base URI and any parameters
-       */
-      public VcsRootInstanceLocatorFilesLatestContentpath(Client client, URI baseUri, String vcsrootinstancelocator, String path) {
-        _client = client;
-        _uriBuilder = UriBuilder.fromUri(baseUri);
-        _uriBuilder = _uriBuilder.path("/{vcsRootInstanceLocator}/files/latest/content{path:(/.*)?}");
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        _templateAndMatrixParameterValues.put("vcsRootInstanceLocator", vcsrootinstancelocator);
-        _templateAndMatrixParameterValues.put("path", path);
-      }
-
-      /**
-       * Create new instance using existing Client instance, and the URI from which the parameters will be extracted
-       */
-      public VcsRootInstanceLocatorFilesLatestContentpath(Client client, URI uri) {
-        _client = client;
-        StringBuilder template = getTemplateBuilder("app/rest/vcs-root-instances/{vcsRootInstanceLocator}/files/latest/content{path:(/.*)?}");
-        _uriBuilder = UriBuilder.fromPath(template.toString());
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        UriTemplate uriTemplate = new UriTemplate(template.toString());
-        HashMap<String, String> parameters = new HashMap<String, String>();
-        uriTemplate.match(uri.toString(), parameters);
-        _templateAndMatrixParameterValues.putAll(parameters);
-      }
-
-      /**
-       * Get vcsRootInstanceLocator
-       */
-      public String getVcsrootinstancelocator() {
-        return ((String) _templateAndMatrixParameterValues.get("vcsRootInstanceLocator"));
-      }
-
-      /**
-       * Duplicate state and set vcsRootInstanceLocator
-       */
-      public TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorFilesLatestContentpath setVcsrootinstancelocator(String vcsrootinstancelocator) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("vcsRootInstanceLocator", vcsrootinstancelocator);
-        return new TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorFilesLatestContentpath(_client, copyUriBuilder, copyMap);
-      }
-
-      /**
-       * Get path
-       */
-      public String getPath() {
-        return ((String) _templateAndMatrixParameterValues.get("path"));
-      }
-
-      /**
-       * Duplicate state and set path
-       */
-      public TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorFilesLatestContentpath setPath(String path) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("path", path);
-        return new TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorFilesLatestContentpath(_client, copyUriBuilder, copyMap);
-      }
-
-      /**
-       * Gets content of a file form VCS
-       * Experimental support only
-       */
-      public <T> T getAs(Class<T> returnType) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("*/*");
-        Response response = resourceBuilder.build(GET).invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue(returnType, response);
-      }
-    }
-
-    public static class VcsRootInstanceLocatorFilesLatestMetadatapath {
-      private Client _client;
-      private UriBuilder _uriBuilder;
-      private Map<String, Object> _templateAndMatrixParameterValues;
-
-      private VcsRootInstanceLocatorFilesLatestMetadatapath(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-        _client = client;
-        _uriBuilder = uriBuilder.clone();
-        _templateAndMatrixParameterValues = map;
-      }
-
-      /**
-       * Create new instance using existing Client instance, and a base URI and any parameters
-       */
-      public VcsRootInstanceLocatorFilesLatestMetadatapath(Client client, URI baseUri, String vcsrootinstancelocator, String path) {
-        _client = client;
-        _uriBuilder = UriBuilder.fromUri(baseUri);
-        _uriBuilder = _uriBuilder.path("/{vcsRootInstanceLocator}/files/latest/metadata{path:(/.*)?}");
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        _templateAndMatrixParameterValues.put("vcsRootInstanceLocator", vcsrootinstancelocator);
-        _templateAndMatrixParameterValues.put("path", path);
-      }
-
-      /**
-       * Create new instance using existing Client instance, and the URI from which the parameters will be extracted
-       */
-      public VcsRootInstanceLocatorFilesLatestMetadatapath(Client client, URI uri) {
-        _client = client;
-        StringBuilder template = getTemplateBuilder("app/rest/vcs-root-instances/{vcsRootInstanceLocator}/files/latest/metadata{path:(/.*)?}");
-        _uriBuilder = UriBuilder.fromPath(template.toString());
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        UriTemplate uriTemplate = new UriTemplate(template.toString());
-        HashMap<String, String> parameters = new HashMap<String, String>();
-        uriTemplate.match(uri.toString(), parameters);
-        _templateAndMatrixParameterValues.putAll(parameters);
-      }
-
-      /**
-       * Get vcsRootInstanceLocator
-       */
-      public String getVcsrootinstancelocator() {
-        return ((String) _templateAndMatrixParameterValues.get("vcsRootInstanceLocator"));
-      }
-
-      /**
-       * Duplicate state and set vcsRootInstanceLocator
-       */
-      public TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorFilesLatestMetadatapath setVcsrootinstancelocator(String vcsrootinstancelocator) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("vcsRootInstanceLocator", vcsrootinstancelocator);
-        return new TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorFilesLatestMetadatapath(_client, copyUriBuilder, copyMap);
-      }
-
-      /**
-       * Get path
-       */
-      public String getPath() {
-        return ((String) _templateAndMatrixParameterValues.get("path"));
-      }
-
-      /**
-       * Duplicate state and set path
-       */
-      public TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorFilesLatestMetadatapath setPath(String path) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("path", path);
-        return new TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorFilesLatestMetadatapath(_client, copyUriBuilder, copyMap);
-      }
-
-      /**
-       * Gets VCS file details
-       * Experimental support only
-       */
-      public File get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(File.class);
-      }
-      /**
-       * Gets VCS file details
-       * Experimental support only
-       */
-      /**
-       * Gets VCS file details
-       * Experimental support only
-       */
-    }
-
-    public static class VcsRootInstanceLocatorProperties {
-      private Client _client;
-      private UriBuilder _uriBuilder;
-      private Map<String, Object> _templateAndMatrixParameterValues;
-
-      private VcsRootInstanceLocatorProperties(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-        _client = client;
-        _uriBuilder = uriBuilder.clone();
-        _templateAndMatrixParameterValues = map;
-      }
-
-      /**
-       * Create new instance using existing Client instance, and a base URI and any parameters
-       */
-      public VcsRootInstanceLocatorProperties(Client client, URI baseUri, String vcsrootinstancelocator) {
-        _client = client;
-        _uriBuilder = UriBuilder.fromUri(baseUri);
-        _uriBuilder = _uriBuilder.path("/{vcsRootInstanceLocator}/properties");
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        _templateAndMatrixParameterValues.put("vcsRootInstanceLocator", vcsrootinstancelocator);
-      }
-
-      /**
-       * Create new instance using existing Client instance, and the URI from which the parameters will be extracted
-       */
-      public VcsRootInstanceLocatorProperties(Client client, URI uri) {
-        _client = client;
-        StringBuilder template = getTemplateBuilder("app/rest/vcs-root-instances/{vcsRootInstanceLocator}/properties");
-        _uriBuilder = UriBuilder.fromPath(template.toString());
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        UriTemplate uriTemplate = new UriTemplate(template.toString());
-        HashMap<String, String> parameters = new HashMap<String, String>();
-        uriTemplate.match(uri.toString(), parameters);
-        _templateAndMatrixParameterValues.putAll(parameters);
-      }
-
-      /**
-       * Get vcsRootInstanceLocator
-       */
-      public String getVcsrootinstancelocator() {
-        return ((String) _templateAndMatrixParameterValues.get("vcsRootInstanceLocator"));
-      }
-
-      /**
-       * Duplicate state and set vcsRootInstanceLocator
-       */
-      public TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorProperties setVcsrootinstancelocator(String vcsrootinstancelocator) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("vcsRootInstanceLocator", vcsrootinstancelocator);
-        return new TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorProperties(_client, copyUriBuilder, copyMap);
-      }
-
-      public Properties get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(Properties.class);
-      }
-    }
-
-    public static class VcsRootInstanceLocatorRepositoryState {
-      private Client _client;
-      private UriBuilder _uriBuilder;
-      private Map<String, Object> _templateAndMatrixParameterValues;
-
-      private VcsRootInstanceLocatorRepositoryState(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-        _client = client;
-        _uriBuilder = uriBuilder.clone();
-        _templateAndMatrixParameterValues = map;
-      }
-
-      /**
-       * Create new instance using existing Client instance, and a base URI and any parameters
-       */
-      public VcsRootInstanceLocatorRepositoryState(Client client, URI baseUri, String vcsrootinstancelocator) {
-        _client = client;
-        _uriBuilder = UriBuilder.fromUri(baseUri);
-        _uriBuilder = _uriBuilder.path("/{vcsRootInstanceLocator}/repositoryState");
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        _templateAndMatrixParameterValues.put("vcsRootInstanceLocator", vcsrootinstancelocator);
-      }
-
-      /**
-       * Create new instance using existing Client instance, and the URI from which the parameters will be extracted
-       */
-      public VcsRootInstanceLocatorRepositoryState(Client client, URI uri) {
-        _client = client;
-        StringBuilder template = getTemplateBuilder("app/rest/vcs-root-instances/{vcsRootInstanceLocator}/repositoryState");
-        _uriBuilder = UriBuilder.fromPath(template.toString());
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        UriTemplate uriTemplate = new UriTemplate(template.toString());
-        HashMap<String, String> parameters = new HashMap<String, String>();
-        uriTemplate.match(uri.toString(), parameters);
-        _templateAndMatrixParameterValues.putAll(parameters);
-      }
-
-      /**
-       * Get vcsRootInstanceLocator
-       */
-      public String getVcsrootinstancelocator() {
-        return ((String) _templateAndMatrixParameterValues.get("vcsRootInstanceLocator"));
-      }
-
-      /**
-       * Duplicate state and set vcsRootInstanceLocator
-       */
-      public TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorRepositoryState setVcsrootinstancelocator(String vcsrootinstancelocator) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("vcsRootInstanceLocator", vcsrootinstancelocator);
-        return new TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorRepositoryState(_client, copyUriBuilder, copyMap);
-      }
-
-      public Entries get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(Entries.class);
-      }
-
-      public Entries put(Entries input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "entries"), Entries.class, input), "application/json")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(Entries.class);
-      }
-    }
-
-    public static class VcsRootInstanceLocatorRepositoryStateCreationDate {
-      private Client _client;
-      private UriBuilder _uriBuilder;
-      private Map<String, Object> _templateAndMatrixParameterValues;
-
-      private VcsRootInstanceLocatorRepositoryStateCreationDate(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-        _client = client;
-        _uriBuilder = uriBuilder.clone();
-        _templateAndMatrixParameterValues = map;
-      }
-
-      /**
-       * Create new instance using existing Client instance, and a base URI and any parameters
-       */
-      public VcsRootInstanceLocatorRepositoryStateCreationDate(Client client, URI baseUri, String vcsrootinstancelocator) {
-        _client = client;
-        _uriBuilder = UriBuilder.fromUri(baseUri);
-        _uriBuilder = _uriBuilder.path("/{vcsRootInstanceLocator}/repositoryState/creationDate");
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        _templateAndMatrixParameterValues.put("vcsRootInstanceLocator", vcsrootinstancelocator);
-      }
-
-      /**
-       * Create new instance using existing Client instance, and the URI from which the parameters will be extracted
-       */
-      public VcsRootInstanceLocatorRepositoryStateCreationDate(Client client, URI uri) {
-        _client = client;
-        StringBuilder template = getTemplateBuilder("app/rest/vcs-root-instances/{vcsRootInstanceLocator}/repositoryState/creationDate");
-        _uriBuilder = UriBuilder.fromPath(template.toString());
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        UriTemplate uriTemplate = new UriTemplate(template.toString());
-        HashMap<String, String> parameters = new HashMap<String, String>();
-        uriTemplate.match(uri.toString(), parameters);
-        _templateAndMatrixParameterValues.putAll(parameters);
-      }
-
-      /**
-       * Get vcsRootInstanceLocator
-       */
-      public String getVcsrootinstancelocator() {
-        return ((String) _templateAndMatrixParameterValues.get("vcsRootInstanceLocator"));
-      }
-
-      /**
-       * Duplicate state and set vcsRootInstanceLocator
-       */
-      public TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorRepositoryStateCreationDate setVcsrootinstancelocator(String vcsrootinstancelocator) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("vcsRootInstanceLocator", vcsrootinstancelocator);
-        return new TeamcityJetbrainsCom.AppRestVcsRootInstances.VcsRootInstanceLocatorRepositoryStateCreationDate(_client, copyUriBuilder, copyMap);
-      }
-
-      public <T> T getAs(Class<T> returnType) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("*/*");
-        Response response = resourceBuilder.build(GET).invoke();
-        if (!Response.class.isAssignableFrom(returnType)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getReturnValue(returnType, response);
-      }
-    }
-  }
-
-  public static class AppRestVcsRoots {
-    private Client _client;
-    private UriBuilder _uriBuilder;
-    private Map<String, Object> _templateAndMatrixParameterValues;
-
-    private AppRestVcsRoots(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-      _client = client;
-      _uriBuilder = uriBuilder.clone();
-      _templateAndMatrixParameterValues = map;
-    }
-
-    /**
-     * Create new instance using existing Client instance, and a base URI and any parameters
-     */
-    public AppRestVcsRoots(Client client, URI baseUri) {
-      _client = client;
-      _uriBuilder = UriBuilder.fromUri(baseUri);
-      _uriBuilder = _uriBuilder.path("/app/rest/vcs-roots");
-      _templateAndMatrixParameterValues = new HashMap<String, Object>();
-    }
-
-    public VcsRoot post(VcsRoot input) {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response = resourceBuilder.build("POST", Entity.entity(new JAXBElement(new QName("", "vcs-root"), VcsRoot.class, input), "application/json")).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(VcsRoot.class);
-    }
-
-    public VcsRoots get() {
-      WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response = resourceBuilder.build(GET).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(VcsRoots.class);
-    }
-
-    public VcsRoots get(String locator) {
-      UriBuilder localUriBuilder = _uriBuilder.clone();
-      localUriBuilder = localUriBuilder.replaceQueryParam("locator", locator);
-      WebTarget resource = _client.target(localUriBuilder.buildFromMap(_templateAndMatrixParameterValues));
-      javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-      Response response = resourceBuilder.build(GET).invoke();
-      throwExceptionIfWrongStatus(response);
-      return response.readEntity(VcsRoots.class);
-    }
-
-    public TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorPropertiesName vcsRootLocatorPropertiesName(String vcsrootlocator, String name) {
-      return new TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorPropertiesName(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), vcsrootlocator, name);
-    }
-
-    public TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocator vcsRootLocator(String vcsrootlocator) {
-      return new TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocator(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), vcsrootlocator);
-    }
-
-    public TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorInstancesVcsRootInstanceLocatorProperties vcsRootLocatorInstancesVcsRootInstanceLocatorProperties(String vcsrootlocator, String vcsrootinstancelocator) {
-      return new TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorInstancesVcsRootInstanceLocatorProperties(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), vcsrootlocator, vcsrootinstancelocator);
-    }
-
-    public TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorInstancesVcsRootInstanceLocatorField vcsRootLocatorInstancesVcsRootInstanceLocatorField(String vcsrootlocator, String vcsrootinstancelocator, String field) {
-      return new TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorInstancesVcsRootInstanceLocatorField(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), vcsrootlocator, vcsrootinstancelocator, field);
-    }
-
-    public TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorInstances vcsRootLocatorInstances(String vcsrootlocator) {
-      return new TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorInstances(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), vcsrootlocator);
-    }
-
-    /**
-     * @param vcsrootlocator this is effectively ignored as vcsRootInstanceLocator should specify instance fully
-     */
-    public TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorInstancesVcsRootInstanceLocator vcsRootLocatorInstancesVcsRootInstanceLocator(String vcsrootlocator, String vcsrootinstancelocator) {
-      return new TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorInstancesVcsRootInstanceLocator(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), vcsrootlocator, vcsrootinstancelocator);
-    }
-
-    public TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorProperties vcsRootLocatorProperties(String vcsrootlocator) {
-      return new TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorProperties(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), vcsrootlocator);
-    }
-
-    public TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorField vcsRootLocatorField(String vcsrootlocator, String field) {
-      return new TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorField(_client, _uriBuilder.buildFromMap(_templateAndMatrixParameterValues), vcsrootlocator, field);
-    }
-
-    public static class VcsRootLocator {
-      private Client _client;
-      private UriBuilder _uriBuilder;
-      private Map<String, Object> _templateAndMatrixParameterValues;
-
-      private VcsRootLocator(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-        _client = client;
-        _uriBuilder = uriBuilder.clone();
-        _templateAndMatrixParameterValues = map;
-      }
-
-      /**
-       * Create new instance using existing Client instance, and a base URI and any parameters
-       */
-      public VcsRootLocator(Client client, URI baseUri, String vcsrootlocator) {
-        _client = client;
-        _uriBuilder = UriBuilder.fromUri(baseUri);
-        _uriBuilder = _uriBuilder.path("/{vcsRootLocator}");
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        _templateAndMatrixParameterValues.put("vcsRootLocator", vcsrootlocator);
-      }
-
-      /**
-       * Create new instance using existing Client instance, and the URI from which the parameters will be extracted
-       */
-      public VcsRootLocator(Client client, URI uri) {
-        _client = client;
-        StringBuilder template = getTemplateBuilder("app/rest/vcs-roots/{vcsRootLocator}");
-        _uriBuilder = UriBuilder.fromPath(template.toString());
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        UriTemplate uriTemplate = new UriTemplate(template.toString());
-        HashMap<String, String> parameters = new HashMap<String, String>();
-        uriTemplate.match(uri.toString(), parameters);
-        _templateAndMatrixParameterValues.putAll(parameters);
-      }
-
-      /**
-       * Get vcsRootLocator
-       */
-      public String getVcsrootlocator() {
-        return ((String) _templateAndMatrixParameterValues.get("vcsRootLocator"));
-      }
-
-      /**
-       * Duplicate state and set vcsRootLocator
-       */
-      public TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocator setVcsrootlocator(String vcsrootlocator) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("vcsRootLocator", vcsrootlocator);
-        return new TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocator(_client, copyUriBuilder, copyMap);
-      }
-
-      public VcsRoot get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(VcsRoot.class);
-      }
-
-      public Response delete() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        return TeamcityJetbrainsCom.delete(resource);
-      }
-    }
-
-    public static class VcsRootLocatorField {
-      private Client _client;
-      private UriBuilder _uriBuilder;
-      private Map<String, Object> _templateAndMatrixParameterValues;
-
-      private VcsRootLocatorField(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-        _client = client;
-        _uriBuilder = uriBuilder.clone();
-        _templateAndMatrixParameterValues = map;
-      }
-
-      /**
-       * Create new instance using existing Client instance, and a base URI and any parameters
-       */
-      public VcsRootLocatorField(Client client, URI baseUri, String vcsrootlocator, String field) {
-        _client = client;
-        _uriBuilder = UriBuilder.fromUri(baseUri);
-        _uriBuilder = _uriBuilder.path("/{vcsRootLocator}/{field}");
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        _templateAndMatrixParameterValues.put("vcsRootLocator", vcsrootlocator);
-        _templateAndMatrixParameterValues.put("field", field);
-      }
-
-      /**
-       * Create new instance using existing Client instance, and the URI from which the parameters will be extracted
-       */
-      public VcsRootLocatorField(Client client, URI uri) {
-        _client = client;
-        StringBuilder template = getTemplateBuilder("app/rest/vcs-roots/{vcsRootLocator}/{field}");
-        _uriBuilder = UriBuilder.fromPath(template.toString());
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        UriTemplate uriTemplate = new UriTemplate(template.toString());
-        HashMap<String, String> parameters = new HashMap<String, String>();
-        uriTemplate.match(uri.toString(), parameters);
-        _templateAndMatrixParameterValues.putAll(parameters);
-      }
-
-      /**
-       * Get vcsRootLocator
-       */
-      public String getVcsrootlocator() {
-        return ((String) _templateAndMatrixParameterValues.get("vcsRootLocator"));
-      }
-
-      /**
-       * Duplicate state and set vcsRootLocator
-       */
-      public TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorField setVcsrootlocator(String vcsrootlocator) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("vcsRootLocator", vcsrootlocator);
-        return new TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorField(_client, copyUriBuilder, copyMap);
-      }
-
-      /**
-       * Get field
-       */
-      public String getField() {
-        return ((String) _templateAndMatrixParameterValues.get("field"));
-      }
-
-      /**
-       * Duplicate state and set field
-       */
-      public TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorField setField(String field) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("field", field);
-        return new TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorField(_client, copyUriBuilder, copyMap);
-      }
-
-      public String get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        return getAsString(resource);
-      }
-
-      public String putTextPlain(Object input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        if (!Response.class.isAssignableFrom(String.class)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getStringValue(response);
-      }
-    }
-
-    public static class VcsRootLocatorInstances {
-      private Client _client;
-      private UriBuilder _uriBuilder;
-      private Map<String, Object> _templateAndMatrixParameterValues;
-
-      private VcsRootLocatorInstances(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-        _client = client;
-        _uriBuilder = uriBuilder.clone();
-        _templateAndMatrixParameterValues = map;
-      }
-
-      /**
-       * Create new instance using existing Client instance, and a base URI and any parameters
-       */
-      public VcsRootLocatorInstances(Client client, URI baseUri, String vcsrootlocator) {
-        _client = client;
-        _uriBuilder = UriBuilder.fromUri(baseUri);
-        _uriBuilder = _uriBuilder.path("/{vcsRootLocator}/instances");
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        _templateAndMatrixParameterValues.put("vcsRootLocator", vcsrootlocator);
-      }
-
-      /**
-       * Create new instance using existing Client instance, and the URI from which the parameters will be extracted
-       */
-      public VcsRootLocatorInstances(Client client, URI uri) {
-        _client = client;
-        StringBuilder template = getTemplateBuilder("app/rest/vcs-roots/{vcsRootLocator}/instances");
-        _uriBuilder = UriBuilder.fromPath(template.toString());
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        UriTemplate uriTemplate = new UriTemplate(template.toString());
-        HashMap<String, String> parameters = new HashMap<String, String>();
-        uriTemplate.match(uri.toString(), parameters);
-        _templateAndMatrixParameterValues.putAll(parameters);
-      }
-
-      /**
-       * Get vcsRootLocator
-       */
-      public String getVcsrootlocator() {
-        return ((String) _templateAndMatrixParameterValues.get("vcsRootLocator"));
-      }
-
-      /**
-       * Duplicate state and set vcsRootLocator
-       */
-      public TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorInstances setVcsrootlocator(String vcsrootlocator) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("vcsRootLocator", vcsrootlocator);
-        return new TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorInstances(_client, copyUriBuilder, copyMap);
-      }
-
-      public VcsRootInstances get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(VcsRootInstances.class);
-      }
-    }
-
-    public static class VcsRootLocatorInstancesVcsRootInstanceLocator {
-      private Client _client;
-      private UriBuilder _uriBuilder;
-      private Map<String, Object> _templateAndMatrixParameterValues;
-
-      private VcsRootLocatorInstancesVcsRootInstanceLocator(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-        _client = client;
-        _uriBuilder = uriBuilder.clone();
-        _templateAndMatrixParameterValues = map;
-      }
-
-      /**
-       * Create new instance using existing Client instance, and a base URI and any parameters
-       *
-       * @param vcsrootlocator this is effectively ignored as vcsRootInstanceLocator should specify instance fully
-       */
-      public VcsRootLocatorInstancesVcsRootInstanceLocator(Client client, URI baseUri, String vcsrootlocator, String vcsrootinstancelocator) {
-        _client = client;
-        _uriBuilder = UriBuilder.fromUri(baseUri);
-        _uriBuilder = _uriBuilder.path("/{vcsRootLocator}/instances/{vcsRootInstanceLocator}");
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        _templateAndMatrixParameterValues.put("vcsRootLocator", vcsrootlocator);
-        _templateAndMatrixParameterValues.put("vcsRootInstanceLocator", vcsrootinstancelocator);
-      }
-
-      /**
-       * Create new instance using existing Client instance, and the URI from which the parameters will be extracted
-       */
-      public VcsRootLocatorInstancesVcsRootInstanceLocator(Client client, URI uri) {
-        _client = client;
-        StringBuilder template = getTemplateBuilder("app/rest/vcs-roots/{vcsRootLocator}/instances/{vcsRootInstanceLocator}");
-        _uriBuilder = UriBuilder.fromPath(template.toString());
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        UriTemplate uriTemplate = new UriTemplate(template.toString());
-        HashMap<String, String> parameters = new HashMap<String, String>();
-        uriTemplate.match(uri.toString(), parameters);
-        _templateAndMatrixParameterValues.putAll(parameters);
-      }
-
-      /**
-       * Get vcsRootLocator
-       *
-       * @return this is effectively ignored as vcsRootInstanceLocator should specify instance fully
-       */
-      public String getVcsrootlocator() {
-        return ((String) _templateAndMatrixParameterValues.get("vcsRootLocator"));
-      }
-
-      /**
-       * Duplicate state and set vcsRootLocator
-       *
-       * @param vcsrootlocator this is effectively ignored as vcsRootInstanceLocator should specify instance fully
-       */
-      public TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorInstancesVcsRootInstanceLocator setVcsrootlocator(String vcsrootlocator) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("vcsRootLocator", vcsrootlocator);
-        return new TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorInstancesVcsRootInstanceLocator(_client, copyUriBuilder, copyMap);
-      }
-
-      /**
-       * Get vcsRootInstanceLocator
-       */
-      public String getVcsrootinstancelocator() {
-        return ((String) _templateAndMatrixParameterValues.get("vcsRootInstanceLocator"));
-      }
-
-      /**
-       * Duplicate state and set vcsRootInstanceLocator
-       */
-      public TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorInstancesVcsRootInstanceLocator setVcsrootinstancelocator(String vcsrootinstancelocator) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("vcsRootInstanceLocator", vcsrootinstancelocator);
-        return new TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorInstancesVcsRootInstanceLocator(_client, copyUriBuilder, copyMap);
-      }
-
-      public VcsRootInstance get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(VcsRootInstance.class);
-      }
-    }
-
-    public static class VcsRootLocatorInstancesVcsRootInstanceLocatorField {
-      private Client _client;
-      private UriBuilder _uriBuilder;
-      private Map<String, Object> _templateAndMatrixParameterValues;
-
-      private VcsRootLocatorInstancesVcsRootInstanceLocatorField(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-        _client = client;
-        _uriBuilder = uriBuilder.clone();
-        _templateAndMatrixParameterValues = map;
-      }
-
-      /**
-       * Create new instance using existing Client instance, and a base URI and any parameters
-       */
-      public VcsRootLocatorInstancesVcsRootInstanceLocatorField(Client client, URI baseUri, String vcsrootlocator, String vcsrootinstancelocator, String field) {
-        _client = client;
-        _uriBuilder = UriBuilder.fromUri(baseUri);
-        _uriBuilder = _uriBuilder.path("/{vcsRootLocator}/instances/{vcsRootInstanceLocator}/{field}");
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        _templateAndMatrixParameterValues.put("vcsRootLocator", vcsrootlocator);
-        _templateAndMatrixParameterValues.put("vcsRootInstanceLocator", vcsrootinstancelocator);
-        _templateAndMatrixParameterValues.put("field", field);
-      }
-
-      /**
-       * Create new instance using existing Client instance, and the URI from which the parameters will be extracted
-       */
-      public VcsRootLocatorInstancesVcsRootInstanceLocatorField(Client client, URI uri) {
-        _client = client;
-        StringBuilder template = getTemplateBuilder("app/rest/vcs-roots/{vcsRootLocator}/instances/{vcsRootInstanceLocator}/{field}");
-        _uriBuilder = UriBuilder.fromPath(template.toString());
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        UriTemplate uriTemplate = new UriTemplate(template.toString());
-        HashMap<String, String> parameters = new HashMap<String, String>();
-        uriTemplate.match(uri.toString(), parameters);
-        _templateAndMatrixParameterValues.putAll(parameters);
-      }
-
-      /**
-       * Get vcsRootLocator
-       */
-      public String getVcsrootlocator() {
-        return ((String) _templateAndMatrixParameterValues.get("vcsRootLocator"));
-      }
-
-      /**
-       * Duplicate state and set vcsRootLocator
-       */
-      public TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorInstancesVcsRootInstanceLocatorField setVcsrootlocator(String vcsrootlocator) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("vcsRootLocator", vcsrootlocator);
-        return new TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorInstancesVcsRootInstanceLocatorField(_client, copyUriBuilder, copyMap);
-      }
-
-      /**
-       * Get vcsRootInstanceLocator
-       */
-      public String getVcsrootinstancelocator() {
-        return ((String) _templateAndMatrixParameterValues.get("vcsRootInstanceLocator"));
-      }
-
-      /**
-       * Duplicate state and set vcsRootInstanceLocator
-       */
-      public TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorInstancesVcsRootInstanceLocatorField setVcsrootinstancelocator(String vcsrootinstancelocator) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("vcsRootInstanceLocator", vcsrootinstancelocator);
-        return new TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorInstancesVcsRootInstanceLocatorField(_client, copyUriBuilder, copyMap);
-      }
-
-      /**
-       * Get field
-       */
-      public String getField() {
-        return ((String) _templateAndMatrixParameterValues.get("field"));
-      }
-
-      /**
-       * Duplicate state and set field
-       */
-      public TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorInstancesVcsRootInstanceLocatorField setField(String field) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("field", field);
-        return new TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorInstancesVcsRootInstanceLocatorField(_client, copyUriBuilder, copyMap);
-      }
-
-      public String get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        return getAsString(resource);
-      }
-
-      public String putTextPlain(Object input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        if (!Response.class.isAssignableFrom(String.class)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getStringValue(response);
-      }
-    }
-
-    public static class VcsRootLocatorInstancesVcsRootInstanceLocatorProperties {
-      private Client _client;
-      private UriBuilder _uriBuilder;
-      private Map<String, Object> _templateAndMatrixParameterValues;
-
-      private VcsRootLocatorInstancesVcsRootInstanceLocatorProperties(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-        _client = client;
-        _uriBuilder = uriBuilder.clone();
-        _templateAndMatrixParameterValues = map;
-      }
-
-      /**
-       * Create new instance using existing Client instance, and a base URI and any parameters
-       */
-      public VcsRootLocatorInstancesVcsRootInstanceLocatorProperties(Client client, URI baseUri, String vcsrootlocator, String vcsrootinstancelocator) {
-        _client = client;
-        _uriBuilder = UriBuilder.fromUri(baseUri);
-        _uriBuilder = _uriBuilder.path("/{vcsRootLocator}/instances/{vcsRootInstanceLocator}/properties");
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        _templateAndMatrixParameterValues.put("vcsRootLocator", vcsrootlocator);
-        _templateAndMatrixParameterValues.put("vcsRootInstanceLocator", vcsrootinstancelocator);
-      }
-
-      /**
-       * Create new instance using existing Client instance, and the URI from which the parameters will be extracted
-       */
-      public VcsRootLocatorInstancesVcsRootInstanceLocatorProperties(Client client, URI uri) {
-        _client = client;
-        StringBuilder template = getTemplateBuilder("app/rest/vcs-roots/{vcsRootLocator}/instances/{vcsRootInstanceLocator}/properties");
-        _uriBuilder = UriBuilder.fromPath(template.toString());
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        UriTemplate uriTemplate = new UriTemplate(template.toString());
-        HashMap<String, String> parameters = new HashMap<String, String>();
-        uriTemplate.match(uri.toString(), parameters);
-        _templateAndMatrixParameterValues.putAll(parameters);
-      }
-
-      /**
-       * Get vcsRootLocator
-       */
-      public String getVcsrootlocator() {
-        return ((String) _templateAndMatrixParameterValues.get("vcsRootLocator"));
-      }
-
-      /**
-       * Duplicate state and set vcsRootLocator
-       */
-      public TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorInstancesVcsRootInstanceLocatorProperties setVcsrootlocator(String vcsrootlocator) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("vcsRootLocator", vcsrootlocator);
-        return new TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorInstancesVcsRootInstanceLocatorProperties(_client, copyUriBuilder, copyMap);
-      }
-
-      /**
-       * Get vcsRootInstanceLocator
-       */
-      public String getVcsrootinstancelocator() {
-        return ((String) _templateAndMatrixParameterValues.get("vcsRootInstanceLocator"));
-      }
-
-      /**
-       * Duplicate state and set vcsRootInstanceLocator
-       */
-      public TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorInstancesVcsRootInstanceLocatorProperties setVcsrootinstancelocator(String vcsrootinstancelocator) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("vcsRootInstanceLocator", vcsrootinstancelocator);
-        return new TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorInstancesVcsRootInstanceLocatorProperties(_client, copyUriBuilder, copyMap);
-      }
-
-      public Properties get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(Properties.class);
-      }
-    }
-
-    public static class VcsRootLocatorProperties {
-      private Client _client;
-      private UriBuilder _uriBuilder;
-      private Map<String, Object> _templateAndMatrixParameterValues;
-
-      private VcsRootLocatorProperties(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-        _client = client;
-        _uriBuilder = uriBuilder.clone();
-        _templateAndMatrixParameterValues = map;
-      }
-
-      /**
-       * Create new instance using existing Client instance, and a base URI and any parameters
-       */
-      public VcsRootLocatorProperties(Client client, URI baseUri, String vcsrootlocator) {
-        _client = client;
-        _uriBuilder = UriBuilder.fromUri(baseUri);
-        _uriBuilder = _uriBuilder.path("/{vcsRootLocator}/properties");
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        _templateAndMatrixParameterValues.put("vcsRootLocator", vcsrootlocator);
-      }
-
-      /**
-       * Create new instance using existing Client instance, and the URI from which the parameters will be extracted
-       */
-      public VcsRootLocatorProperties(Client client, URI uri) {
-        _client = client;
-        StringBuilder template = getTemplateBuilder("app/rest/vcs-roots/{vcsRootLocator}/properties");
-        _uriBuilder = UriBuilder.fromPath(template.toString());
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        UriTemplate uriTemplate = new UriTemplate(template.toString());
-        HashMap<String, String> parameters = new HashMap<String, String>();
-        uriTemplate.match(uri.toString(), parameters);
-        _templateAndMatrixParameterValues.putAll(parameters);
-      }
-
-      /**
-       * Get vcsRootLocator
-       */
-      public String getVcsrootlocator() {
-        return ((String) _templateAndMatrixParameterValues.get("vcsRootLocator"));
-      }
-
-      /**
-       * Duplicate state and set vcsRootLocator
-       */
-      public TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorProperties setVcsrootlocator(String vcsrootlocator) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("vcsRootLocator", vcsrootlocator);
-        return new TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorProperties(_client, copyUriBuilder, copyMap);
-      }
-
-      public Properties get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build(GET).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(Properties.class);
-      }
-
-      public Properties put(Properties input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("application/json");
-        Response response = resourceBuilder.build("PUT", Entity.entity(new JAXBElement(new QName("", "properties"), Properties.class, input), "application/json")).invoke();
-        throwExceptionIfWrongStatus(response);
-        return response.readEntity(Properties.class);
-      }
-
-      public Response delete() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        return TeamcityJetbrainsCom.delete(resource);
-      }
-    }
-
-    public static class VcsRootLocatorPropertiesName {
-      private Client _client;
-      private UriBuilder _uriBuilder;
-      private Map<String, Object> _templateAndMatrixParameterValues;
-
-      private VcsRootLocatorPropertiesName(Client client, UriBuilder uriBuilder, Map<String, Object> map) {
-        _client = client;
-        _uriBuilder = uriBuilder.clone();
-        _templateAndMatrixParameterValues = map;
-      }
-
-      /**
-       * Create new instance using existing Client instance, and a base URI and any parameters
-       */
-      public VcsRootLocatorPropertiesName(Client client, URI baseUri, String vcsrootlocator, String name) {
-        _client = client;
-        _uriBuilder = UriBuilder.fromUri(baseUri);
-        _uriBuilder = _uriBuilder.path("/{vcsRootLocator}/properties/{name}");
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        _templateAndMatrixParameterValues.put("vcsRootLocator", vcsrootlocator);
-        _templateAndMatrixParameterValues.put("name", name);
-      }
-
-      /**
-       * Create new instance using existing Client instance, and the URI from which the parameters will be extracted
-       */
-      public VcsRootLocatorPropertiesName(Client client, URI uri) {
-        _client = client;
-        StringBuilder template = getTemplateBuilder("app/rest/vcs-roots/{vcsRootLocator}/properties/{name}");
-        _uriBuilder = UriBuilder.fromPath(template.toString());
-        _templateAndMatrixParameterValues = new HashMap<String, Object>();
-        UriTemplate uriTemplate = new UriTemplate(template.toString());
-        HashMap<String, String> parameters = new HashMap<String, String>();
-        uriTemplate.match(uri.toString(), parameters);
-        _templateAndMatrixParameterValues.putAll(parameters);
-      }
-
-      /**
-       * Get vcsRootLocator
-       */
-      public String getVcsrootlocator() {
-        return ((String) _templateAndMatrixParameterValues.get("vcsRootLocator"));
-      }
-
-      /**
-       * Duplicate state and set vcsRootLocator
-       */
-      public TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorPropertiesName setVcsrootlocator(String vcsrootlocator) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("vcsRootLocator", vcsrootlocator);
-        return new TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorPropertiesName(_client, copyUriBuilder, copyMap);
-      }
-
-      /**
-       * Get name
-       */
-      public String getName() {
-        return ((String) _templateAndMatrixParameterValues.get("name"));
-      }
-
-      /**
-       * Duplicate state and set name
-       */
-      public TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorPropertiesName setName(String name) {
-        Map<String, Object> copyMap;
-        copyMap = new HashMap<String, Object>(_templateAndMatrixParameterValues);
-        UriBuilder copyUriBuilder = _uriBuilder.clone();
-        copyMap.put("name", name);
-        return new TeamcityJetbrainsCom.AppRestVcsRoots.VcsRootLocatorPropertiesName(_client, copyUriBuilder, copyMap);
-      }
-
-      public String putTextPlain(Object input) {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        javax.ws.rs.client.Invocation.Builder resourceBuilder = resource.request("text/plain");
-        Response response = resourceBuilder.build("PUT", Entity.entity(input, "text/plain")).invoke();
-        if (!Response.class.isAssignableFrom(String.class)) {
-          throwExceptionIfWrongStatus(response);
-        }
-        return getStringValue(response);
-      }
-
-      public String get() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        return getAsString(resource);
-      }
-
-      public Response delete() {
-        WebTarget resource = getWebTarget(_uriBuilder, _client, _templateAndMatrixParameterValues);
-        return TeamcityJetbrainsCom.delete(resource);
       }
     }
   }
