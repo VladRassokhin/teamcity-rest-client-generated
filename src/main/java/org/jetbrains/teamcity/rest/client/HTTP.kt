@@ -14,8 +14,11 @@ import java.util.Collections
 import kotlin.test.assertNotNull
 import org.jetbrains.teamcity.rest.client.RequestsProcessor.Method
 import com.google.api.client.http.json.JsonHttpContent
+import com.intellij.openapi.diagnostic.Logger
 
 class HTTP(val config: ConnectionConfig) : RequestsProcessor {
+    public val LOG: Logger = Logger.getInstance(javaClass<HTTP>())!!
+
     override fun asJson(data: Any): JsonHttpContent {
         throw UnsupportedOperationException()
     }
@@ -58,6 +61,7 @@ class HTTP(val config: ConnectionConfig) : RequestsProcessor {
         // Debug ;)
         //        request.setConnectTimeout(1000000)
         //        request.setReadTimeout(1000000)
+        request.setFollowRedirects(true);
         val response = request.setThrowExceptionOnExecuteError(false).execute()!!
 
         return response
@@ -81,14 +85,17 @@ class HTTP(val config: ConnectionConfig) : RequestsProcessor {
         return response.parseAs(rtype)!!
     }
 
-    override fun getSafeAs<T> (url: String, rtype: Class<T>): Pair<T?, HttpResponse> {
+    override fun getSafeAs<T> (url: String, rtype: Class<T>): Triple<T?, Exception?, HttpResponse> {
         val response = request(method = Method.GET, path = url, headers = Collections.singletonMap("Accept", Json.MEDIA_TYPE), parser = parser)
         val parsed: T?
+        val exception: Exception?
         try {
             parsed = response.parseAs(rtype)
+            exception = null
         } catch(e: Exception) {
             parsed = null
+            exception = e
         }
-        return Pair<T?, HttpResponse>(parsed, response)
+        return Triple<T?, Exception?, HttpResponse>(parsed, exception, response)
     }
 }

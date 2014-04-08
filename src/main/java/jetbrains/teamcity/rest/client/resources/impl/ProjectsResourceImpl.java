@@ -3,9 +3,11 @@
  **/
 package jetbrains.teamcity.rest.client.resources.impl;
 
+import com.google.api.client.http.HttpResponse;
 import jetbrains.teamcity.rest.client.model.Project;
 import jetbrains.teamcity.rest.client.resources.Locator;
 import jetbrains.teamcity.rest.client.resources.ProjectsResource;
+import kotlin.Triple;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.teamcity.rest.client.RequestsProcessor;
 
@@ -168,7 +170,21 @@ public class ProjectsResourceImpl extends ResourceImpl implements ProjectsResour
 
 
     public Project getProject(Locator locator/*, String fields*/) {
-      return processor.getAs("/projects/" + locator.toString(), Project.class);
+      final Triple<Project, Exception, HttpResponse> pair = processor.getSafeAs("/projects/" + locator.toString(), Project.class);
+      final int code = pair.getThird().getStatusCode();
+      if (code != 200) {
+        if (code == 404) {
+          // Not found
+          return null;
+        }
+        // Error.
+        final Exception exception = pair.getSecond();
+        if (exception != null) {
+          throw new RuntimeException(exception);
+        }
+        return null;
+      }
+      return pair.getFirst();
     }
 
 

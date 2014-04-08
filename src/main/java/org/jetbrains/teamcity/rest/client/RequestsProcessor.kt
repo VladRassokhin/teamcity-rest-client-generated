@@ -65,7 +65,7 @@ public trait RequestsProcessor {
     /**
      * Retrieves [[T]] response of sending a GET request. No exception on parse error
      */
-    fun getSafeAs<T> (url: String, rtype: Class<T>): Pair<T?, HttpResponse>
+    fun getSafeAs<T> (url: String, rtype: Class<T>): Triple<T?, Exception?, HttpResponse>
 
     fun asJson (data: Any): JsonHttpContent
 }

@@ -102,7 +102,11 @@ public open class ConnectionConfig(url: String, val auth: AuthData) {
     public open fun getUrl(path: String): GenericUrl {
         val s = auth.getUrl(root)
         val url = GenericUrl(s)
-        url.appendRawPath("/app/rest")
+        if (path.startsWith("/app/rest/")) {
+        } else if (path.startsWith("/app")) {
+        } else {
+            url.appendRawPath("/app/rest")
+        }
         url.appendRawPath(path);
         return url
     }
