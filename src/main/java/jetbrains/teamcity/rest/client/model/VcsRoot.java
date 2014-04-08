@@ -34,13 +34,10 @@ import javax.xml.bind.annotation.XmlType;
  * </pre>
  */
 
-@XmlType(name = "vcs-root", propOrder = {
-        "project",
-        "properties",
-        "vcsRootInstances"
-})
 public class VcsRoot {
+    @Key("project")
     public Project project;
+    @Key("properties")
     public Properties properties;
     public HReference vcsRootInstances;
     @Key("id")

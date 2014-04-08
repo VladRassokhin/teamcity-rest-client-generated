@@ -22,7 +22,7 @@ public class VcsRootsResourceImpl extends ResourceImpl implements VcsRootsResour
 
   public VcsRootsResourceImpl(@NotNull RequestsProcessor processor) {
     super(processor);
-    }
+  }
 
   public VcsRoot addRoot(@NotNull VcsRoot root) {
 //      if (root.project == null) {
@@ -31,7 +31,13 @@ public class VcsRootsResourceImpl extends ResourceImpl implements VcsRootsResour
 
     final HttpResponse response = processor.post(VCS_ROOTS, processor.asJson(root));
     try {
-      return response.parseAs(VcsRoot.class);
+      if ("application/json".equals(response.getContentType())) {
+        return response.parseAs(VcsRoot.class);
+      } else {
+        // Not good.
+        System.err.println("Error: " + response.parseAsString());
+        return null;
+      }
     } catch (IOException e) {
       return null;
     }
@@ -77,47 +83,47 @@ public class VcsRootsResourceImpl extends ResourceImpl implements VcsRootsResour
 
 
   public Response serveInstanceField(String field, String vcsRootInstanceLocator, String vcsRootLocator) {
-        throw new java.lang.UnsupportedOperationException();
-    }
+    throw new java.lang.UnsupportedOperationException();
+  }
 
 
-    public Response setInstanceField(String field, String vcsRootInstanceLocator, String vcsRootLocator) {
-        throw new java.lang.UnsupportedOperationException();
-    }
+  public Response setInstanceField(String field, String vcsRootInstanceLocator, String vcsRootLocator) {
+    throw new java.lang.UnsupportedOperationException();
+  }
 
 
-    public Response serveRootInstances(String vcsRootLocator) {
-        throw new java.lang.UnsupportedOperationException();
-    }
+  public Response serveRootInstances(String vcsRootLocator) {
+    throw new java.lang.UnsupportedOperationException();
+  }
 
 
-    public Response serveRootInstance(String vcsRootInstanceLocator, String vcsRootLocator) {
-        throw new java.lang.UnsupportedOperationException();
-    }
+  public Response serveRootInstance(String vcsRootInstanceLocator, String vcsRootLocator) {
+    throw new java.lang.UnsupportedOperationException();
+  }
 
 
-    public Response serveProperties(String vcsRootLocator) {
-        throw new java.lang.UnsupportedOperationException();
-    }
+  public Response serveProperties(String vcsRootLocator) {
+    throw new java.lang.UnsupportedOperationException();
+  }
 
 
-    public Response changProperties(String vcsRootLocator) {
-        throw new java.lang.UnsupportedOperationException();
-    }
+  public Response changProperties(String vcsRootLocator) {
+    throw new java.lang.UnsupportedOperationException();
+  }
 
 
-    public void deleteAllProperties(String vcsRootLocator) {
-        throw new java.lang.UnsupportedOperationException();
-    }
+  public void deleteAllProperties(String vcsRootLocator) {
+    throw new java.lang.UnsupportedOperationException();
+  }
 
 
-    public Response serveField(String field, String vcsRootLocator) {
-        throw new java.lang.UnsupportedOperationException();
-    }
+  public Response serveField(String field, String vcsRootLocator) {
+    throw new java.lang.UnsupportedOperationException();
+  }
 
 
-    public Response setField(String field, String vcsRootLocator) {
-        throw new java.lang.UnsupportedOperationException();
-    }
+  public Response setField(String field, String vcsRootLocator) {
+    throw new java.lang.UnsupportedOperationException();
+  }
 
 }

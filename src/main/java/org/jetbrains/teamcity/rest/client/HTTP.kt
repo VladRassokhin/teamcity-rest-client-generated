@@ -14,18 +14,18 @@ import java.util.Collections
 import kotlin.test.assertNotNull
 import org.jetbrains.teamcity.rest.client.RequestsProcessor.Method
 import com.google.api.client.http.json.JsonHttpContent
-import com.intellij.openapi.diagnostic.Logger
 
 class HTTP(val config: ConnectionConfig) : RequestsProcessor {
-    public val LOG: Logger = Logger.getInstance(javaClass<HTTP>())!!
 
     override fun asJson(data: Any): JsonHttpContent {
-        throw UnsupportedOperationException()
+        return JsonHttpContent(jsonFactory, data);
     }
+
     val root: GenericUrl = GenericUrl(config.getRestUrl())
     val factory: HttpRequestFactory = NetHttpTransport().createRequestFactory(config.auth)!!
     class object {
-        private val parser = JsonObjectParser(JacksonFactory())
+        private val jsonFactory = JacksonFactory()
+        private val jsonParser = JsonObjectParser(jsonFactory)
     }
 
     override fun request(path: String, method: Method, content: HttpContent?, headers: Map<String, String>?, parser: ObjectParser?): HttpResponse {
@@ -43,8 +43,8 @@ class HTTP(val config: ConnectionConfig) : RequestsProcessor {
             else -> throw IllegalStateException("Unsuppored type ${method}")
         }
 
+        val rh = request.getHeaders()
         if ( headers != null ) {
-            val rh = request.getHeaders()
             for ( (k, v) in headers.entrySet() ) {
                 try {
                     rh.set(k, v)
@@ -56,11 +56,14 @@ class HTTP(val config: ConnectionConfig) : RequestsProcessor {
                 }
             }
         }
+        if (rh.get("Accept") == null) {
+            rh.put("Accept", listOf(Json.MEDIA_TYPE, "text/plain"))
+        }
 
-        request.setParser(parser)
+        request.setParser(parser?:jsonParser)
         // Debug ;)
-        //        request.setConnectTimeout(1000000)
-        //        request.setReadTimeout(1000000)
+        request.setConnectTimeout(1000000)
+        request.setReadTimeout(1000000)
         request.setFollowRedirects(true);
         val response = request.setThrowExceptionOnExecuteError(false).execute()!!
 
@@ -81,12 +84,12 @@ class HTTP(val config: ConnectionConfig) : RequestsProcessor {
     override fun getAsJson (url: String): GenericJson = getAs(url, javaClass<GenericJson>())
 
     override fun getAs<T> (url: String, rtype: Class<T>): T {
-        val response = request(method = Method.GET, path = url, headers = Collections.singletonMap("Accept", Json.MEDIA_TYPE), parser = parser)
+        val response = request(method = Method.GET, path = url, headers = Collections.singletonMap("Accept", Json.MEDIA_TYPE), parser = jsonParser)
         return response.parseAs(rtype)!!
     }
 
     override fun getSafeAs<T> (url: String, rtype: Class<T>): Triple<T?, Exception?, HttpResponse> {
-        val response = request(method = Method.GET, path = url, headers = Collections.singletonMap("Accept", Json.MEDIA_TYPE), parser = parser)
+        val response = request(method = Method.GET, path = url, headers = Collections.singletonMap("Accept", Json.MEDIA_TYPE), parser = jsonParser)
         val parsed: T?
         val exception: Exception?
         try {

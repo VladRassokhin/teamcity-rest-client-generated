@@ -30,8 +30,15 @@ import javax.xml.bind.annotation.XmlType;
         "type"
 })
 public class Property {
+  public Property(String name, String value) {
+    this.name = name;
+    this.value = value;
+  }
 
-    public ParameterType type;
+  public Property() {
+  }
+
+  public ParameterType type;
     @Key("name")
     public String name;
     @Key("value")
