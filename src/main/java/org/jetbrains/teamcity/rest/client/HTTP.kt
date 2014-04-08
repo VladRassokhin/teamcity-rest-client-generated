@@ -56,8 +56,8 @@ class HTTP(val config: ConnectionConfig) : RequestsProcessor {
 
         request.setParser(parser)
         // Debug ;)
-        request.setConnectTimeout(1000000)
-        request.setReadTimeout(1000000)
+        //        request.setConnectTimeout(1000000)
+        //        request.setReadTimeout(1000000)
         val response = request.setThrowExceptionOnExecuteError(false).execute()!!
 
         return response
@@ -79,5 +79,16 @@ class HTTP(val config: ConnectionConfig) : RequestsProcessor {
     override fun getAs<T> (url: String, rtype: Class<T>): T {
         val response = request(method = Method.GET, path = url, headers = Collections.singletonMap("Accept", Json.MEDIA_TYPE), parser = parser)
         return response.parseAs(rtype)!!
+    }
+
+    override fun getSafeAs<T> (url: String, rtype: Class<T>): Pair<T?, HttpResponse> {
+        val response = request(method = Method.GET, path = url, headers = Collections.singletonMap("Accept", Json.MEDIA_TYPE), parser = parser)
+        val parsed: T?
+        try {
+            parsed = response.parseAs(rtype)
+        } catch(e: Exception) {
+            parsed = null
+        }
+        return Pair<T?, HttpResponse>(parsed, response)
     }
 }
