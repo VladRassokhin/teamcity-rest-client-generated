@@ -26,9 +26,6 @@ import javax.xml.bind.annotation.XmlType;
  * </pre>
  */
 
-@XmlType(name = "property", propOrder = {
-        "type"
-})
 public class Property {
   public Property(String name, String value) {
     this.name = name;
@@ -37,8 +34,8 @@ public class Property {
 
   public Property() {
   }
-
-  public ParameterType type;
+    @Key("type")
+    public ParameterType type;
     @Key("name")
     public String name;
     @Key("value")

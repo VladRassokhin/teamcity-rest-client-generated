@@ -179,10 +179,10 @@ public class BuildTypesResourceImpl extends ResourceImpl implements BuildTypesRe
   }
 
 
-  public Response addStep(Locator btLocator) {
-    throw new java.lang.UnsupportedOperationException();
+  @Override
+  public PropEntityStep addStep(Locator btLocator, PropEntityStep step) {
+    return safeParse(processor.post(BUILD_TYPES + "/" + btLocator.toString() + "/steps", processor.asJson(step)), PropEntityStep.class);
   }
-
 
   public Response getSteps(Locator btLocator) {
     throw new java.lang.UnsupportedOperationException();

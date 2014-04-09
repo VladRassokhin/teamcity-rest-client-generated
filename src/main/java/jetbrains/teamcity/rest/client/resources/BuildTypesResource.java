@@ -178,7 +178,7 @@ public interface BuildTypesResource {
     @Consumes({"application/xml", "application/json" })
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/steps")
-  Response addStep(@PathParam("btLocator") Locator btLocator);
+  PropEntityStep addStep(@PathParam("btLocator") Locator btLocator, PropEntityStep step);
 
   @GET
     @Produces({"application/xml", "application/json" })
