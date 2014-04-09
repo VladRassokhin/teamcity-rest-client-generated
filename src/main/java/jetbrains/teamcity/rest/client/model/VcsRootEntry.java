@@ -25,17 +25,11 @@ import javax.xml.bind.annotation.XmlType;
  * </pre>
  */
 
-@XmlType(name = "vcs-root-entry", propOrder = {
-        "vcsRoot",
-        "checkoutRules"
-})
 public class VcsRootEntry {
-
     @Key("vcs-root")
     public VcsRootRef vcsRoot;
     @Key("checkout-rules")
     public String checkoutRules;
     @Key("id")
     public String id;
-
 }

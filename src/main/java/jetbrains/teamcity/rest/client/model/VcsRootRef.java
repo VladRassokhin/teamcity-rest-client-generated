@@ -27,7 +27,6 @@ import javax.xml.bind.annotation.XmlType;
  * </pre>
  */
 
-@XmlType(name = "vcs-root-ref")
 public class VcsRootRef {
 
     @Key("id")

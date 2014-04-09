@@ -23,12 +23,7 @@ import java.util.List;
  * </pre>
  */
 
-@XmlType(name = "vcsRootEntries", propOrder = {
-        "vcsRootEntry"
-})
 public class VcsRootEntries {
-
     @Key("vcs-root-entry")
     public List<VcsRootEntry> vcsRootEntry;
-
 }

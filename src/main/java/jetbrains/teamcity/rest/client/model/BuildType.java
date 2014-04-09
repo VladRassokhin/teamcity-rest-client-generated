@@ -47,31 +47,22 @@ import javax.xml.bind.annotation.XmlType;
  * </pre>
  */
 
-@XmlType(name = "buildType", propOrder = {
-        "project",
-        "template",
-        "vcsRootEntries",
-        "settings",
-        "parameters",
-        "steps",
-        "features",
-        "triggers",
-        "snapshotDependencies",
-        "artifactDependencies",
-        "agentRequirements",
-        "builds",
-        "investigations"
-})
 public class BuildType {
 
-    public Project project;
+  @Key("project")
+  public Project project;
     public BuildType template;
     @Key("vcs-root-entries")
     public VcsRootEntries vcsRootEntries;
-    public Properties settings;
-    public Properties parameters;
+  @Key("settings")
+  public Properties settings;
+  @Key("parameters")
+  public Properties parameters;
+  @Key("steps")
     public PropEntitiesStep steps;
+  @Key("features")
     public PropEntitiesFeature features;
+  @Key("triggers")
     public PropEntitiesTrigger triggers;
     @Key("snapshot-dependencies")
     public PropEntitiesSnapshotDep snapshotDependencies;
@@ -79,8 +70,10 @@ public class BuildType {
     public PropEntitiesArtifactDep artifactDependencies;
     @Key("agent-requirements")
     public PropEntitiesAgentRequirement agentRequirements;
-    public Builds builds;
-    public Investigations investigations;
+  @Key("builds")
+  public Builds builds;
+  @Key("investigations")
+  public Investigations investigations;
     @Key("id")
     public String id;
     @Key("internalId")
