@@ -3,6 +3,9 @@
 **/
 package jetbrains.teamcity.rest.client.resources;
 
+import jetbrains.teamcity.rest.client.model.BuildType;
+import org.jetbrains.annotations.NotNull;
+
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 
@@ -12,7 +15,7 @@ public interface BuildTypesResource {
     @POST
     @Consumes({"application/xml", "application/json" })
     @Produces({"application/xml", "application/json" })
-    Response addBuildType(@QueryParam("fields") String fields);
+    BuildType addBuildType(@NotNull BuildType type, @QueryParam("fields") String fields);
 
     @GET
     @Produces({"application/xml", "application/json" })
