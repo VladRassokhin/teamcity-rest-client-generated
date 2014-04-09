@@ -4,6 +4,7 @@
 package jetbrains.teamcity.rest.client.resources;
 
 import jetbrains.teamcity.rest.client.model.BuildType;
+import jetbrains.teamcity.rest.client.model.BuildTypes;
 import jetbrains.teamcity.rest.client.model.PropEntityStep;
 import jetbrains.teamcity.rest.client.model.VcsRootEntry;
 import org.jetbrains.annotations.NotNull;
@@ -17,11 +18,15 @@ public interface BuildTypesResource {
     @POST
     @Consumes({"application/xml", "application/json" })
     @Produces({"application/xml", "application/json" })
-    BuildType addBuildType(@NotNull BuildType type, @QueryParam("fields") String fields);
+    BuildType addBuildType(@NotNull BuildType type);
 
     @GET
-    @Produces({"application/xml", "application/json" })
-    Response getBuildTypes(@QueryParam("locator") String locator, @QueryParam("fields") String fields);
+    @Produces({"application/xml", "application/json"})
+    BuildType getBuildType(@QueryParam("locator") Locator locator);
+
+    @GET
+    @Produces({"application/xml", "application/json"})
+    BuildTypes getBuildTypes(@QueryParam("locator") Locator locator);
 
     @GET
     @Produces({"application/xml", "application/json" })
@@ -206,7 +211,7 @@ public interface BuildTypesResource {
     @Consumes({"application/xml", "application/json" })
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/vcs-root-entries")
-  VcsRootEntry addVcsRootEntry(@NotNull VcsRootEntry entry, @PathParam("btLocator") Locator btLocator);
+  VcsRootEntry addVcsRootEntry(@PathParam("btLocator") Locator btLocator, @NotNull VcsRootEntry entry);
 
   @GET
     @Produces({"application/xml", "application/json" })
@@ -395,8 +400,8 @@ public interface BuildTypesResource {
     @Path("/{btLocator}/builds")
   Response serveBuilds(@PathParam("btLocator") Locator btLocator, @QueryParam("status") String status, @QueryParam("triggeredByUser") String triggeredByUser, @QueryParam("includePersonal") Boolean includePersonal,
                        @QueryParam("includeCanceled") Boolean includeCanceled, @QueryParam("onlyPinned") Boolean onlyPinned, @QueryParam("tag") String tag, @QueryParam("agentName") String agentName,
-                @QueryParam("sinceBuild") String sinceBuild, @QueryParam("sinceDate") String sinceDate, @QueryParam("start") Long start, @QueryParam("count") Integer count, 
-                @QueryParam("locator") String locator, @QueryParam("fields") String fields);
+                       @QueryParam("sinceBuild") String sinceBuild, @QueryParam("sinceDate") String sinceDate, @QueryParam("start") Long start, @QueryParam("count") Integer count,
+                       @QueryParam("locator") String locator, @QueryParam("fields") String fields);
 
     @GET
     @Produces({"application/xml", "application/json" })

@@ -68,7 +68,8 @@ public class VcsRootsResourceImpl extends ResourceImpl implements VcsRootsResour
 
 
   public VcsRoot getRoot(Locator locator) {
-    throw new java.lang.UnsupportedOperationException();
+    final HttpResponse response = processor.get(VCS_ROOTS + "/" + locator.toString());
+    return safeParse(response, VcsRoot.class);
   }
 
 

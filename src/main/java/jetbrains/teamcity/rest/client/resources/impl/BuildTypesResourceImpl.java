@@ -5,6 +5,7 @@ package jetbrains.teamcity.rest.client.resources.impl;
 
 import com.google.api.client.http.HttpResponse;
 import jetbrains.teamcity.rest.client.model.BuildType;
+import jetbrains.teamcity.rest.client.model.BuildTypes;
 import jetbrains.teamcity.rest.client.model.PropEntityStep;
 import jetbrains.teamcity.rest.client.model.VcsRootEntry;
 import jetbrains.teamcity.rest.client.resources.BuildTypesResource;
@@ -13,7 +14,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.teamcity.rest.client.RequestsProcessor;
 
 import javax.ws.rs.core.Response;
-import java.io.IOException;
 
 public class BuildTypesResourceImpl extends ResourceImpl implements BuildTypesResource {
 
@@ -23,28 +23,19 @@ public class BuildTypesResourceImpl extends ResourceImpl implements BuildTypesRe
     super(processor);
   }
 
-  public BuildType addBuildType(@NotNull BuildType type, String fields) {
+  public BuildType addBuildType(@NotNull BuildType type) {
     final HttpResponse response = processor.post(BUILD_TYPES, processor.asJson(type));
     return safeParse(response, BuildType.class);
   }
 
-  public static <T> T safeParse(HttpResponse response, Class<T> clazz) {
-    try {
-      if ("application/json".equals(response.getContentType())) {
-        return response.parseAs(clazz);
-      } else {
-        // Not good.
-        System.err.println("Error: " + response.parseAsString());
-        return null;
-      }
-    } catch (IOException e) {
-      return null;
-    }
+  public BuildType getBuildType(Locator locator) {
+    final HttpResponse response = processor.get(BUILD_TYPES + "/" + locator.toString());
+    return safeParse(response, BuildType.class);
   }
 
-
-  public Response getBuildTypes(String locator, String fields) {
-    throw new java.lang.UnsupportedOperationException();
+  public BuildTypes getBuildTypes(Locator locator) {
+    final HttpResponse response = processor.get(BUILD_TYPES + "/" + locator.toString());
+    return safeParse(response, BuildTypes.class);
   }
 
 
@@ -218,8 +209,8 @@ public class BuildTypesResourceImpl extends ResourceImpl implements BuildTypesRe
   }
 
 
-  public VcsRootEntry addVcsRootEntry(@NotNull VcsRootEntry entry, Locator btLocator) {
-    final HttpResponse response = processor.post(BUILD_TYPES + "/vcs-root-entries", processor.asJson(entry));
+  public VcsRootEntry addVcsRootEntry(Locator btLocator, @NotNull VcsRootEntry entry) {
+    final HttpResponse response = processor.post(BUILD_TYPES + "/" + btLocator.toString() + "/vcs-root-entries", processor.asJson(entry));
     return safeParse(response, VcsRootEntry.class);
   }
 
