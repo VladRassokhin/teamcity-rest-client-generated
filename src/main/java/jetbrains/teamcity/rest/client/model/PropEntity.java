@@ -28,9 +28,6 @@ import javax.xml.bind.annotation.XmlType;
  * </pre>
  */
 
-@XmlType(name = "propEntity", propOrder = {
-        "properties"
-})
 @XmlSeeAlso({
         PropEntityFeature.class,
         PropEntityArtifactDep.class,
@@ -41,6 +38,7 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class PropEntity {
 
+  @Key("properties")
     public Properties properties;
     @Key("id")
     public String id;

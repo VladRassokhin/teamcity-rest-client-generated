@@ -40,4 +40,10 @@ public class VcsRootRef {
     @Key("locator")
     public String locator;
 
+  public VcsRootRef() {
+  }
+
+  public VcsRootRef(String id) {
+    this.id = id;
+  }
 }

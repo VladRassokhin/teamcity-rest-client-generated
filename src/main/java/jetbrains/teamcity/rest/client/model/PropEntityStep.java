@@ -19,9 +19,5 @@ import javax.xml.bind.annotation.XmlType;
  * </pre>
  */
 
-@XmlType(name = "propEntityStep")
-public class PropEntityStep
-        extends PropEntity {
-
-
+public class PropEntityStep extends PropEntity {
 }

@@ -4,6 +4,8 @@
 package jetbrains.teamcity.rest.client.resources;
 
 import jetbrains.teamcity.rest.client.model.BuildType;
+import jetbrains.teamcity.rest.client.model.PropEntityStep;
+import jetbrains.teamcity.rest.client.model.VcsRootEntry;
 import org.jetbrains.annotations.NotNull;
 
 import javax.ws.rs.*;
@@ -24,485 +26,485 @@ public interface BuildTypesResource {
     @GET
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/agent-requirements")
-    Response getAgentRequirements(@PathParam("btLocator") String btLocator);
+    Response getAgentRequirements(@PathParam("btLocator") Locator btLocator);
 
-    @POST
+  @POST
     @Consumes({"application/xml", "application/json" })
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/agent-requirements")
-    Response addAgentRequirement(@PathParam("btLocator") String btLocator);
+  Response addAgentRequirement(@PathParam("btLocator") Locator btLocator);
 
-    @PUT
+  @PUT
     @Consumes({"application/xml", "application/json" })
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/agent-requirements")
-    Response replaceAgentRequirements(@PathParam("btLocator") String btLocator);
+  Response replaceAgentRequirements(@PathParam("btLocator") Locator btLocator);
 
-    @POST
+  @POST
     @Consumes("*/*")
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/features")
-    Response addFeature(@PathParam("btLocator") String btLocator);
+  Response addFeature(@PathParam("btLocator") Locator btLocator);
 
-    @GET
+  @GET
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/features")
-    Response getFeatures(@PathParam("btLocator") String btLocator);
+  Response getFeatures(@PathParam("btLocator") Locator btLocator);
 
-    @PUT
+  @PUT
     @Consumes({"application/xml", "application/json" })
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/features")
-    Response replaceFeatures(@PathParam("btLocator") String btLocator);
+  Response replaceFeatures(@PathParam("btLocator") Locator btLocator);
 
-    @GET
+  @GET
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/snapshot-dependencies/{snapshotDepLocator}")
-    Response getSnapshotDep(@PathParam("btLocator") String btLocator, @PathParam("snapshotDepLocator") String snapshotDepLocator);
+  Response getSnapshotDep(@PathParam("btLocator") Locator btLocator, @PathParam("snapshotDepLocator") String snapshotDepLocator);
 
-    @DELETE
+  @DELETE
     @Path("/{btLocator}/snapshot-dependencies/{snapshotDepLocator}")
-    void deleteSnapshotDep(@PathParam("btLocator") String btLocator, @PathParam("snapshotDepLocator") String snapshotDepLocator);
+  void deleteSnapshotDep(@PathParam("btLocator") Locator btLocator, @PathParam("snapshotDepLocator") String snapshotDepLocator);
 
-    @PUT
+  @PUT
     @Consumes({"application/xml", "application/json" })
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/snapshot-dependencies/{snapshotDepLocator}")
-    Response replaceSnapshotDep(@PathParam("btLocator") String btLocator, @PathParam("snapshotDepLocator") String snapshotDepLocator);
+  Response replaceSnapshotDep(@PathParam("btLocator") Locator btLocator, @PathParam("snapshotDepLocator") String snapshotDepLocator);
 
-    @GET
+  @GET
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/vcs-root-entries/{id}")
-    Response getVcsRootEntry(@PathParam("id") String id, @PathParam("btLocator") String btLocator);
+  Response getVcsRootEntry(@PathParam("id") String id, @PathParam("btLocator") Locator btLocator);
 
-    @PUT
+  @PUT
     @Consumes({"application/xml", "application/json" })
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/vcs-root-entries/{id}")
-    Response updateVcsRootEntry(@PathParam("id") String id, @PathParam("btLocator") String btLocator);
+  Response updateVcsRootEntry(@PathParam("id") String id, @PathParam("btLocator") Locator btLocator);
 
-    @DELETE
+  @DELETE
     @Path("/{btLocator}/vcs-root-entries/{id}")
-    void deleteVcsRootEntry(@PathParam("id") String id, @PathParam("btLocator") String btLocator);
+  void deleteVcsRootEntry(@PathParam("id") String id, @PathParam("btLocator") Locator btLocator);
 
-    @GET
+  @GET
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/artifact-dependencies/{artifactDepLocator}")
-    Response getArtifactDep(@PathParam("btLocator") String btLocator, @PathParam("artifactDepLocator") String artifactDepLocator);
+  Response getArtifactDep(@PathParam("btLocator") Locator btLocator, @PathParam("artifactDepLocator") String artifactDepLocator);
 
-    @DELETE
+  @DELETE
     @Path("/{btLocator}/artifact-dependencies/{artifactDepLocator}")
-    void deleteArtifactDep(@PathParam("btLocator") String btLocator, @PathParam("artifactDepLocator") String artifactDepLocator);
+  void deleteArtifactDep(@PathParam("btLocator") Locator btLocator, @PathParam("artifactDepLocator") String artifactDepLocator);
 
-    @PUT
+  @PUT
     @Consumes("*/*")
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/artifact-dependencies/{artifactDepLocator}")
-    Response replaceArtifactDep(@PathParam("btLocator") String btLocator, @PathParam("artifactDepLocator") String artifactDepLocator);
+  Response replaceArtifactDep(@PathParam("btLocator") Locator btLocator, @PathParam("artifactDepLocator") String artifactDepLocator);
 
-    @GET
+  @GET
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/triggers/{triggerLocator}")
-    Response getTrigger(@PathParam("btLocator") String btLocator, @PathParam("triggerLocator") String triggerLocator);
+  Response getTrigger(@PathParam("btLocator") Locator btLocator, @PathParam("triggerLocator") String triggerLocator);
 
-    @DELETE
+  @DELETE
     @Path("/{btLocator}/triggers/{triggerLocator}")
-    void deleteTrigger(@PathParam("btLocator") String btLocator, @PathParam("triggerLocator") String triggerLocator);
+  void deleteTrigger(@PathParam("btLocator") Locator btLocator, @PathParam("triggerLocator") String triggerLocator);
 
-    @PUT
+  @PUT
     @Consumes({"application/xml", "application/json" })
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/triggers/{triggerLocator}")
-    Response replaceTrigger(@PathParam("btLocator") String btLocator, @PathParam("triggerLocator") String triggerLocator);
+  Response replaceTrigger(@PathParam("btLocator") Locator btLocator, @PathParam("triggerLocator") String triggerLocator);
 
-    @GET
+  @GET
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/agent-requirements/{agentRequirementLocator}")
-    Response getAgentRequirement(@PathParam("btLocator") String btLocator, @PathParam("agentRequirementLocator") String agentRequirementLocator);
+  Response getAgentRequirement(@PathParam("btLocator") Locator btLocator, @PathParam("agentRequirementLocator") String agentRequirementLocator);
 
-    @DELETE
+  @DELETE
     @Path("/{btLocator}/agent-requirements/{agentRequirementLocator}")
-    void deleteAgentRequirement(@PathParam("btLocator") String btLocator, @PathParam("agentRequirementLocator") String agentRequirementLocator);
+  void deleteAgentRequirement(@PathParam("btLocator") Locator btLocator, @PathParam("agentRequirementLocator") String agentRequirementLocator);
 
-    @PUT
+  @PUT
     @Consumes({"application/xml", "application/json" })
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/agent-requirements/{agentRequirementLocator}")
-    Response replaceAgentRequirement(@PathParam("btLocator") String btLocator, @PathParam("agentRequirementLocator") String agentRequirementLocator);
+  Response replaceAgentRequirement(@PathParam("btLocator") Locator btLocator, @PathParam("agentRequirementLocator") String agentRequirementLocator);
 
-    @PUT
+  @PUT
     @Consumes("text/plain")
     @Produces("text/plain")
     @Path("/{btLocator}/parameters/{name}")
-    Response setParameterValue(@PathParam("btLocator") String btLocator, @PathParam("name") String name);
+  Response setParameterValue(@PathParam("btLocator") Locator btLocator, @PathParam("name") String name);
 
-    @GET
+  @GET
     @Produces("text/plain")
     @Path("/{btLocator}/parameters/{name}")
-    Response getParameterValue(@PathParam("btLocator") String btLocator, @PathParam("name") String name);
+  Response getParameterValue(@PathParam("btLocator") Locator btLocator, @PathParam("name") String name);
 
-    @GET
+  @GET
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/parameters/{name}")
-    Response getParameter(@PathParam("btLocator") String btLocator, @PathParam("name") String name);
+  Response getParameter(@PathParam("btLocator") Locator btLocator, @PathParam("name") String name);
 
-    @DELETE
+  @DELETE
     @Path("/{btLocator}/parameters/{name}")
-    void deleteBuildTypeParameter(@PathParam("btLocator") String btLocator, @PathParam("name") String name);
+  void deleteBuildTypeParameter(@PathParam("btLocator") Locator btLocator, @PathParam("name") String name);
 
-    @GET
+  @GET
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/triggers")
-    Response getTriggers(@PathParam("btLocator") String btLocator);
+  Response getTriggers(@PathParam("btLocator") Locator btLocator);
 
-    @POST
-    @Consumes({"application/xml", "application/json" })
-    @Produces({"application/xml", "application/json" })
-    @Path("/{btLocator}/triggers")
-    Response addTrigger(@PathParam("btLocator") String btLocator);
-
-    @PUT
+  @POST
     @Consumes({"application/xml", "application/json" })
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/triggers")
-    Response replaceTriggers(@PathParam("btLocator") String btLocator);
+  Response addTrigger(@PathParam("btLocator") Locator btLocator);
 
-    @POST
+  @PUT
+    @Consumes({"application/xml", "application/json" })
+    @Produces({"application/xml", "application/json" })
+    @Path("/{btLocator}/triggers")
+  Response replaceTriggers(@PathParam("btLocator") Locator btLocator);
+
+  @POST
     @Consumes({"application/xml", "application/json" })
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/steps")
-    Response addStep(@PathParam("btLocator") String btLocator);
+  Response addStep(@PathParam("btLocator") Locator btLocator);
 
-    @GET
+  @GET
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/steps")
-    Response getSteps(@PathParam("btLocator") String btLocator);
+  Response getSteps(@PathParam("btLocator") Locator btLocator);
 
-    @PUT
+  @PUT
     @Consumes({"application/xml", "application/json" })
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/steps")
-    Response replaceSteps(@PathParam("btLocator") String btLocator);
+  Response replaceSteps(@PathParam("btLocator") Locator btLocator);
 
-    @GET
+  @GET
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/investigations")
-    Response getInvestigations(@PathParam("btLocator") String btLocator, @QueryParam("fields") String fields);
+  Response getInvestigations(@PathParam("btLocator") Locator btLocator, @QueryParam("fields") String fields);
 
-    @GET
+  @GET
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/vcs-root-entries")
-    Response getVcsRootEntries(@PathParam("btLocator") String btLocator);
+  Response getVcsRootEntries(@PathParam("btLocator") Locator btLocator);
 
-    @PUT
+  @PUT
     @Consumes({"application/xml", "application/json" })
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/vcs-root-entries")
-    Response replaceVcsRootEntries(@PathParam("btLocator") String btLocator);
+  Response replaceVcsRootEntries(@PathParam("btLocator") Locator btLocator);
 
-    @POST
+  @POST
     @Consumes({"application/xml", "application/json" })
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/vcs-root-entries")
-    Response addVcsRootEntry(@PathParam("btLocator") String btLocator);
+  VcsRootEntry addVcsRootEntry(@NotNull VcsRootEntry entry, @PathParam("btLocator") Locator btLocator);
 
-    @GET
+  @GET
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/steps/{stepId}")
-    Response getStep(@PathParam("btLocator") String btLocator, @PathParam("stepId") String stepId);
+  PropEntityStep getStep(@PathParam("btLocator") Locator btLocator, @PathParam("stepId") String stepId);
 
-    @DELETE
+  @DELETE
     @Path("/{btLocator}/steps/{stepId}")
-    void deleteStep(@PathParam("btLocator") String btLocator, @PathParam("stepId") String stepId);
+  void deleteStep(@PathParam("btLocator") Locator btLocator, @PathParam("stepId") String stepId);
 
-    @PUT
+  @PUT
     @Consumes({"application/xml", "application/json" })
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/steps/{stepId}")
-    Response replaceStep(@PathParam("btLocator") String btLocator, @PathParam("stepId") String stepId);
+  Response replaceStep(@PathParam("btLocator") Locator btLocator, @PathParam("stepId") String stepId);
 
-    @GET
+  @GET
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/steps/{stepId}/parameters")
-    Response getStepParameters(@PathParam("btLocator") String btLocator, @PathParam("stepId") String stepId);
+  Response getStepParameters(@PathParam("btLocator") Locator btLocator, @PathParam("stepId") String stepId);
 
-    @PUT
+  @PUT
     @Consumes({"application/xml", "application/json" })
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/steps/{stepId}/parameters")
-    Response replaceStepParameters(@PathParam("btLocator") String btLocator, @PathParam("stepId") String stepId);
+  Response replaceStepParameters(@PathParam("btLocator") Locator btLocator, @PathParam("stepId") String stepId);
 
-    @GET
+  @GET
     @Produces("text/plain")
     @Path("/{btLocator}/steps/{stepId}/parameters/{parameterName}")
-    Response getStepParameter(@PathParam("btLocator") String btLocator, @PathParam("stepId") String stepId, @PathParam("parameterName") String parameterName);
+  Response getStepParameter(@PathParam("btLocator") Locator btLocator, @PathParam("stepId") String stepId, @PathParam("parameterName") String parameterName);
 
-    @PUT
+  @PUT
     @Consumes("text/plain")
     @Produces("text/plain")
     @Path("/{btLocator}/steps/{stepId}/parameters/{parameterName}")
-    Response addStepParameter(@PathParam("btLocator") String btLocator, @PathParam("stepId") String stepId, @PathParam("parameterName") String parameterName);
+  Response addStepParameter(@PathParam("btLocator") Locator btLocator, @PathParam("stepId") String stepId, @PathParam("parameterName") String parameterName);
 
-    @GET
+  @GET
     @Produces("text/plain")
     @Path("/{btLocator}/steps/{stepId}/{fieldName}")
-    Response getStepSetting(@PathParam("btLocator") String btLocator, @PathParam("fieldName") String fieldName, @PathParam("stepId") String stepId);
+  Response getStepSetting(@PathParam("btLocator") Locator btLocator, @PathParam("fieldName") String fieldName, @PathParam("stepId") String stepId);
 
-    @PUT
+  @PUT
     @Consumes("text/plain")
     @Produces("text/plain")
     @Path("/{btLocator}/steps/{stepId}/{fieldName}")
-    Response changeStepSetting(@PathParam("btLocator") String btLocator, @PathParam("fieldName") String fieldName, @PathParam("stepId") String stepId);
+  Response changeStepSetting(@PathParam("btLocator") Locator btLocator, @PathParam("fieldName") String fieldName, @PathParam("stepId") String stepId);
 
-    @DELETE
+  @DELETE
     @Path("/{btLocator}/features/{featureId}")
-    void deleteFeature(@PathParam("btLocator") String btLocator, @PathParam("featureId") String featureId);
+  void deleteFeature(@PathParam("btLocator") Locator btLocator, @PathParam("featureId") String featureId);
 
-    @PUT
+  @PUT
     @Consumes("*/*")
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/features/{featureId}")
-    Response replaceFeature(@PathParam("btLocator") String btLocator, @PathParam("featureId") String featureId);
+  Response replaceFeature(@PathParam("btLocator") Locator btLocator, @PathParam("featureId") String featureId);
 
-    @GET
+  @GET
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/features/{featureId}")
-    Response getFeature(@PathParam("btLocator") String btLocator, @PathParam("featureId") String featureId);
+  Response getFeature(@PathParam("btLocator") Locator btLocator, @PathParam("featureId") String featureId);
 
-    @GET
+  @GET
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/features/{featureId}/parameters")
-    Response getFeatureParameters(@PathParam("btLocator") String btLocator, @PathParam("featureId") String featureId);
+  Response getFeatureParameters(@PathParam("btLocator") Locator btLocator, @PathParam("featureId") String featureId);
 
-    @PUT
+  @PUT
     @Consumes({"application/xml", "application/json" })
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/features/{featureId}/parameters")
-    Response replaceFeatureParameters(@PathParam("btLocator") String btLocator, @PathParam("featureId") String featureId);
+  Response replaceFeatureParameters(@PathParam("btLocator") Locator btLocator, @PathParam("featureId") String featureId);
 
-    @GET
+  @GET
     @Produces("text/plain")
     @Path("/{btLocator}/features/{featureId}/parameters/{parameterName}")
-    Response getFeatureParameter(@PathParam("btLocator") String btLocator, @PathParam("featureId") String featureId, @PathParam("parameterName") String parameterName);
+  Response getFeatureParameter(@PathParam("btLocator") Locator btLocator, @PathParam("featureId") String featureId, @PathParam("parameterName") String parameterName);
 
-    @PUT
+  @PUT
     @Consumes("*/*")
     @Produces("text/plain")
     @Path("/{btLocator}/features/{featureId}/parameters/{parameterName}")
-    Response addFeatureParameter(@PathParam("btLocator") String btLocator, @PathParam("featureId") String featureId, @PathParam("parameterName") String parameterName);
+  Response addFeatureParameter(@PathParam("btLocator") Locator btLocator, @PathParam("featureId") String featureId, @PathParam("parameterName") String parameterName);
 
-    @GET
+  @GET
     @Produces("text/plain")
     @Path("/{btLocator}/features/{featureId}/{name}")
-    Response getFeatureSetting(@PathParam("btLocator") String btLocator, @PathParam("name") String name, @PathParam("featureId") String featureId);
+  Response getFeatureSetting(@PathParam("btLocator") Locator btLocator, @PathParam("name") String name, @PathParam("featureId") String featureId);
 
-    @PUT
+  @PUT
     @Consumes("text/plain")
     @Produces("text/plain")
     @Path("/{btLocator}/features/{featureId}/{name}")
-    Response changeFeatureSetting(@PathParam("btLocator") String btLocator, @PathParam("name") String name, @PathParam("featureId") String featureId);
+  Response changeFeatureSetting(@PathParam("btLocator") Locator btLocator, @PathParam("name") String name, @PathParam("featureId") String featureId);
 
-    @GET
+  @GET
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/artifact-dependencies")
-    Response getArtifactDeps(@PathParam("btLocator") String btLocator);
+  Response getArtifactDeps(@PathParam("btLocator") Locator btLocator);
 
-    @PUT
+  @PUT
     @Consumes({"application/xml", "application/json" })
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/artifact-dependencies")
-    Response replaceArtifactDeps(@PathParam("btLocator") String btLocator);
+  Response replaceArtifactDeps(@PathParam("btLocator") Locator btLocator);
 
-    @POST
+  @POST
     @Consumes("*/*")
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/artifact-dependencies")
-    Response addArtifactDep(@PathParam("btLocator") String btLocator);
+  Response addArtifactDep(@PathParam("btLocator") Locator btLocator);
 
-    @GET
+  @GET
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/snapshot-dependencies")
-    Response getSnapshotDeps(@PathParam("btLocator") String btLocator);
+  Response getSnapshotDeps(@PathParam("btLocator") Locator btLocator);
 
-    @PUT
+  @PUT
     @Consumes({"application/xml", "application/json" })
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/snapshot-dependencies")
-    Response replaceSnapshotDeps(@PathParam("btLocator") String btLocator);
+  Response replaceSnapshotDeps(@PathParam("btLocator") Locator btLocator);
 
-    @POST
+  @POST
     @Consumes({"application/xml", "application/json" })
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/snapshot-dependencies")
-    Response addSnapshotDep(@PathParam("btLocator") String btLocator);
+  Response addSnapshotDep(@PathParam("btLocator") Locator btLocator);
 
-    @GET
+  @GET
     @Produces("text/plain")
     @Path("/{btLocator}/triggers/{triggerLocator}/{fieldName}")
-    Response getTriggerSetting(@PathParam("btLocator") String btLocator, @PathParam("triggerLocator") String triggerLocator, @PathParam("fieldName") String fieldName);
+  Response getTriggerSetting(@PathParam("btLocator") Locator btLocator, @PathParam("triggerLocator") String triggerLocator, @PathParam("fieldName") String fieldName);
 
-    @PUT
+  @PUT
     @Consumes("text/plain")
     @Produces("text/plain")
     @Path("/{btLocator}/triggers/{triggerLocator}/{fieldName}")
-    Response changeTriggerSetting(@PathParam("btLocator") String btLocator, @PathParam("triggerLocator") String triggerLocator, @PathParam("fieldName") String fieldName);
+  Response changeTriggerSetting(@PathParam("btLocator") Locator btLocator, @PathParam("triggerLocator") String triggerLocator, @PathParam("fieldName") String fieldName);
 
-    @GET
+  @GET
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/vcsLabeling")
-    Response getVCSLabelingOptions(@PathParam("btLocator") String btLocator);
+  Response getVCSLabelingOptions(@PathParam("btLocator") Locator btLocator);
 
-    @PUT
+  @PUT
     @Consumes({"application/xml", "application/json" })
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/vcsLabeling")
-    Response setVCSLabelingOptions(@PathParam("btLocator") String btLocator);
+  Response setVCSLabelingOptions(@PathParam("btLocator") Locator btLocator);
 
-    @GET
+  @GET
     @Produces("*/*")
     @Path("/{btLocator}/vcs/files/latest/content{path:(/.*)?}")
-    Response getVcsFileContent(@PathParam("btLocator") String btLocator, @PathParam("path") String path, @QueryParam("resolveParameters") Boolean resolveParameters);
+  Response getVcsFileContent(@PathParam("btLocator") Locator btLocator, @PathParam("path") String path, @QueryParam("resolveParameters") Boolean resolveParameters);
 
-    @GET
+  @GET
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/vcs/files/latest/children{path:(/.*)?}")
-    Response getVcsFileListing(@PathParam("btLocator") String btLocator, @PathParam("path") String path, @QueryParam("resolveParameters") Boolean resolveParameters);
+  Response getVcsFileListing(@PathParam("btLocator") Locator btLocator, @PathParam("path") String path, @QueryParam("resolveParameters") Boolean resolveParameters);
 
-    @GET
+  @GET
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/vcs/files/latest/metadata{path:(/.*)?}")
-    Response getVcsFile(@PathParam("btLocator") String btLocator, @PathParam("path") String path, @QueryParam("resolveParameters") Boolean resolveParameters);
+  Response getVcsFile(@PathParam("btLocator") Locator btLocator, @PathParam("path") String path, @QueryParam("resolveParameters") Boolean resolveParameters);
 
-    @GET
+  @GET
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/newBuildTypeDescription")
-    Response getExampleNewProjectDescriptionCompatibilityVersion1(@PathParam("btLocator") String btLocator);
+  Response getExampleNewProjectDescriptionCompatibilityVersion1(@PathParam("btLocator") Locator btLocator);
 
-    @GET
+  @GET
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/example/newBuildTypeDescription")
-    Response getExampleNewProjectDescription(@PathParam("btLocator") String btLocator);
+  Response getExampleNewProjectDescription(@PathParam("btLocator") Locator btLocator);
 
-    @GET
+  @GET
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/vcs-root-instances")
-    Response getCurrentVcsInstances(@PathParam("btLocator") String btLocator);
+  Response getCurrentVcsInstances(@PathParam("btLocator") Locator btLocator);
 
-    @GET
+  @GET
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/builds")
-    Response serveBuilds(@PathParam("btLocator") String btLocator, @QueryParam("status") String status, @QueryParam("triggeredByUser") String triggeredByUser, @QueryParam("includePersonal") Boolean includePersonal, 
-                @QueryParam("includeCanceled") Boolean includeCanceled, @QueryParam("onlyPinned") Boolean onlyPinned, @QueryParam("tag") String tag, @QueryParam("agentName") String agentName, 
+  Response serveBuilds(@PathParam("btLocator") Locator btLocator, @QueryParam("status") String status, @QueryParam("triggeredByUser") String triggeredByUser, @QueryParam("includePersonal") Boolean includePersonal,
+                       @QueryParam("includeCanceled") Boolean includeCanceled, @QueryParam("onlyPinned") Boolean onlyPinned, @QueryParam("tag") String tag, @QueryParam("agentName") String agentName,
                 @QueryParam("sinceBuild") String sinceBuild, @QueryParam("sinceDate") String sinceDate, @QueryParam("start") Long start, @QueryParam("count") Integer count, 
                 @QueryParam("locator") String locator, @QueryParam("fields") String fields);
 
     @GET
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/builds/{buildLocator}")
-    Response serveBuildWithProject(@PathParam("btLocator") String btLocator, @PathParam("buildLocator") String buildLocator, @QueryParam("fields") String fields);
+    Response serveBuildWithProject(@PathParam("btLocator") Locator btLocator, @PathParam("buildLocator") String buildLocator, @QueryParam("fields") String fields);
 
-    @GET
+  @GET
     @Produces("text/plain")
     @Path("/{btLocator}/builds/{buildLocator}/{field}")
-    Response serveBuildField(@PathParam("field") String field, @PathParam("btLocator") String btLocator, @PathParam("buildLocator") String buildLocator);
+  Response serveBuildField(@PathParam("field") String field, @PathParam("btLocator") Locator btLocator, @PathParam("buildLocator") String buildLocator);
 
-    @GET
+  @GET
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/branches")
-    Response serveBranches(@PathParam("btLocator") String btLocator, @QueryParam("locator") String locator);
+  Response serveBranches(@PathParam("btLocator") Locator btLocator, @QueryParam("locator") String locator);
 
-    @GET
+  @GET
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}")
-    Response serveBuildTypeXML(@PathParam("btLocator") String btLocator, @QueryParam("fields") String fields);
+  Response serveBuildTypeXML(@PathParam("btLocator") Locator btLocator, @QueryParam("fields") String fields);
 
-    @DELETE
+  @DELETE
     @Path("/{btLocator}")
-    void deleteBuildType(@PathParam("btLocator") String btLocator);
+  void deleteBuildType(@PathParam("btLocator") Locator btLocator);
 
-    @GET
+  @GET
     @Produces("text/plain")
     @Path("/{btLocator}/{field}")
-    Response serveBuildTypeField(@PathParam("field") String field, @PathParam("btLocator") String btLocator);
+  Response serveBuildTypeField(@PathParam("field") String field, @PathParam("btLocator") Locator btLocator);
 
-    @PUT
+  @PUT
     @Consumes("text/plain")
     @Produces("text/plain")
     @Path("/{btLocator}/{field}")
-    Response setBuildTypeField(@PathParam("field") String field, @PathParam("btLocator") String btLocator);
+  Response setBuildTypeField(@PathParam("field") String field, @PathParam("btLocator") Locator btLocator);
 
-    @GET
+  @GET
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/buildTags")
-    Response serveBuildTypeBuildsTags(@PathParam("btLocator") String btLocator);
+  Response serveBuildTypeBuildsTags(@PathParam("btLocator") Locator btLocator);
 
-    @GET
+  @GET
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/parameters")
-    Response serveBuildTypeParameters(@PathParam("btLocator") String btLocator, @QueryParam("locator") String locator, @QueryParam("fields") String fields);
+  Response serveBuildTypeParameters(@PathParam("btLocator") Locator btLocator, @QueryParam("locator") String locator, @QueryParam("fields") String fields);
 
-    @PUT
+  @PUT
     @Consumes({"application/xml", "application/json" })
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/parameters")
-    Response changeBuildTypeParameters(@PathParam("btLocator") String btLocator, @QueryParam("fields") String fields);
+  Response changeBuildTypeParameters(@PathParam("btLocator") Locator btLocator, @QueryParam("fields") String fields);
 
-    @DELETE
+  @DELETE
     @Path("/{btLocator}/parameters")
-    void deleteAllBuildTypeParameters(@PathParam("btLocator") String btLocator);
+  void deleteAllBuildTypeParameters(@PathParam("btLocator") Locator btLocator);
 
-    @POST
+  @POST
     @Consumes({"application/xml", "application/json" })
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/parameters")
-    Response setParameter(@PathParam("btLocator") String btLocator, @QueryParam("fields") String fields);
+  Response setParameter(@PathParam("btLocator") Locator btLocator, @QueryParam("fields") String fields);
 
-    @GET
+  @GET
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/settings")
-    Response serveBuildTypeSettings(@PathParam("btLocator") String btLocator);
+  Response serveBuildTypeSettings(@PathParam("btLocator") Locator btLocator);
 
-    @PUT
+  @PUT
     @Consumes({"application/xml", "application/json" })
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/settings")
-    Response replaceBuildTypeSettings(@PathParam("btLocator") String btLocator);
+  Response replaceBuildTypeSettings(@PathParam("btLocator") Locator btLocator);
 
-    @GET
+  @GET
     @Produces("text/plain")
     @Path("/{btLocator}/settings/{name}")
-    Response serveBuildTypeSettings(@PathParam("btLocator") String btLocator, @PathParam("name") String name);
+  Response serveBuildTypeSettings(@PathParam("btLocator") Locator btLocator, @PathParam("name") String name);
 
-    @PUT
+  @PUT
     @Consumes("*/*")
     @Produces("text/plain")
     @Path("/{btLocator}/settings/{name}")
-    Response putBuildTypeSetting(@PathParam("btLocator") String btLocator, @PathParam("name") String name);
+  Response putBuildTypeSetting(@PathParam("btLocator") Locator btLocator, @PathParam("name") String name);
 
-    @GET
+  @GET
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/template")
-    Response serveBuildTypeTemplate(@PathParam("btLocator") String btLocator, @QueryParam("fields") String fields);
+  Response serveBuildTypeTemplate(@PathParam("btLocator") Locator btLocator, @QueryParam("fields") String fields);
 
-    @PUT
+  @PUT
     @Consumes("text/plain")
     @Produces({"application/xml", "application/json" })
     @Path("/{btLocator}/template")
-    Response getTemplateAssociation(@PathParam("btLocator") String btLocator, @QueryParam("fields") String fields);
+  Response getTemplateAssociation(@PathParam("btLocator") Locator btLocator, @QueryParam("fields") String fields);
 
-    @DELETE
+  @DELETE
     @Path("/{btLocator}/template")
-    void deleteTemplateAssociation(@PathParam("btLocator") String btLocator);
+  void deleteTemplateAssociation(@PathParam("btLocator") Locator btLocator);
 
-    @GET
+  @GET
     @Produces("text/plain")
     @Path("/{btLocator}/vcs-root-entries/{id}/checkout-rules")
-    Response getVcsRootEntryCheckoutRules(@PathParam("id") String id, @PathParam("btLocator") String btLocator);
+  Response getVcsRootEntryCheckoutRules(@PathParam("id") String id, @PathParam("btLocator") Locator btLocator);
 
-    @PUT
+  @PUT
     @Consumes("text/plain")
     @Produces("text/plain")
     @Path("/{btLocator}/vcs-root-entries/{id}/checkout-rules")
-    Response updateVcsRootEntryCheckoutRules(@PathParam("id") String id, @PathParam("btLocator") String btLocator);
+  Response updateVcsRootEntryCheckoutRules(@PathParam("id") String id, @PathParam("btLocator") Locator btLocator);
 
 }

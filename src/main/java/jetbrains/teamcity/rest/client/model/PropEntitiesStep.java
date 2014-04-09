@@ -25,11 +25,9 @@ import java.util.List;
  * </pre>
  */
 
-@XmlType(name = "propEntitiesStep", propOrder = {
-        "step"
-})
 public class PropEntitiesStep {
 
+    @Key("step")
     public List<PropEntityStep> step;
     @Key("count")
     public Integer count;
